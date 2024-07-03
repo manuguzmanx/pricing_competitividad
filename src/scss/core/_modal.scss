@@ -1,0 +1,31 @@
+@each $color, $value in $theme-colors {
+  .modal-#{$color} {
+
+    .modal-content {
+      border: none;
+      border-radius: 15px;
+      border-color: $value;
+    }
+
+    .modal-header {
+      border: none;
+      border-radius: 15px 15px 0 0;
+      color: #fff;
+      background-color: $value;
+    }
+  }
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $zindex-modal-backdrop;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0 0 0 / 0.5) !important;
+
+  // Fade for backdrop
+  &.fade { opacity: 1 !important; } 
+  &.show { opacity: 1 !important; }
+}

@@ -1,0 +1,691 @@
+<div class="container-filtros" >
+  <div class="tarjeta2" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+    <div>
+      <label class="titulos-principal">COMPETITIVIDAD</label>
+    </div>
+    <div style="text-align: right; align-items: center; display: flex; ">
+      <div class="turnTransparent" [class.turnRed]="!esFechaCorte" [pTooltip]="!esFechaCorte?tooltipCalendar:undefined" tooltipPosition="bottom">
+        <div>
+          <i class="pi pi-exclamation-triangle" style="color: #ff7272" *ngIf="!esFechaCorte"></i>
+        </div>
+        <div class="titulos-componente" style="margin-right: 10px; margin-left: 3px;" >
+          Fecha al último corte
+        </div>
+        <p-calendar
+          #myCalendar
+          dateFormat="dd/mm/yy"
+          [(ngModel)]="fechaFiltro"
+          [readonlyInput]="true"
+          [showIcon]="true"
+          [showOnFocus]="false"
+          placeholder="{{fechaFiltro}}"
+          [style]="{'width':'150px'}"
+          (onSelect)="selectedfecha($event)"
+          [maxDate]="dateTime"/>
+      </div>
+      <!-- <div style="margin-left: 10px;">
+        <p-button icon="pi pi-replay" (click)="irFiltros()" pTooltip="Limpiar filtros" tooltipPosition="bottom"></p-button>
+      </div> -->
+      <!-- <div style="margin-left: 10px;">
+        <p-button label="Mis folios" icon="pi pi-list" severity="secondary" (click)="folios()"/>
+      </div> -->
+
+    </div>
+  </div>
+</div>
+<div class="container-filtros">
+
+  <!-- <div class="tarjeta">
+    <label  class="titulos-filtros">Macrocategoría</label>
+    <form [formGroup]="macrocategoriaFormGroup">
+      <p-multiSelect
+        [options]="macrocategoria"
+        formControlName="selectedMacrocategoria"
+        optionLabel="name"
+        placeholder="Seleccionar macrocategoria"
+        [style]="{'width':'100%'}"
+        [style]="{'font-family':'Arial, sans-serif'}"></p-multiSelect>
+    </form>
+  </div>
+  <div class="tarjeta">
+    <label  class="titulos-filtros">Categoría</label>
+    <form [formGroup]="categoriaFormGroup">
+      <p-multiSelect
+        [options]="categoria"
+        formControlName="selectedCategoria"
+        optionLabel="name"
+        placeholder="Seleccionar categoria"
+        [style]="{'width':'95%'}"
+        [style]="{'font-family':'Arial, sans-serif'}"></p-multiSelect>
+    </form>
+  </div>
+  <div class="tarjeta">
+    <label class="titulos-filtros">Subcategoría</label>
+    <form [formGroup]="subcategoriaFormGroup">
+      <p-multiSelect
+        [options]="subcategoria"
+        formControlName="selectedSubcategoria"
+        optionLabel="name"
+        placeholder="Seleccionar subcategoria"
+        [style]="{'width':'100%'}"
+        [style]="{'font-family':'Arial, sans-serif'}"></p-multiSelect>
+    </form>
+  </div>
+  <div class="tarjeta">
+    <label class="titulos-filtros">Clase</label>
+    <form [formGroup]="claseFormGroup">
+      <p-multiSelect
+        [options]="clase"
+        formControlName="selectedClase"
+        optionLabel="name"
+        placeholder="Seleccionar clase"
+        [style]="{'width':'100%'}"
+        [style]="{'font-family':'Arial, sans-serif'}"></p-multiSelect>
+    </form>
+  </div>
+  <div class="tarjeta">
+    <label class="titulos-filtros">Familia</label>
+    <form [formGroup]="familiaFormGroup">
+      <p-multiSelect
+        [options]="familia"
+        formControlName="selectedFamilia"
+        optionLabel="name"
+        placeholder="Seleccionar familia"
+        [style]="{'width':'100%'}"
+        [style]="{'font-family':'Arial, sans-serif'}"></p-multiSelect>
+    </form>
+  </div>
+  <div class="tarjeta">
+    <label class="titulos-filtros">Proveedor</label>
+    <form [formGroup]="proveedorFormGroup">
+      <p-multiSelect
+        [options]="proveedor"
+        formControlName="selectedProveedor"
+        optionLabel="name"
+        placeholder="Seleccionar proveedor"
+        [style]="{'width':'100%'}"
+        [style]="{'font-family':'Arial, sans-serif'}"></p-multiSelect>
+    </form>
+  </div> -->
+  <div class="tarjeta4" style="display: flex; flex-wrap: wrap;">
+  <div class="tarjeta3">
+    <label  class="titulos-filtros">Macrocategoría</label>
+    <form [formGroup]="macrocategoriaFormGroup">
+      <p-multiSelect
+        [options]="macrocategoria"
+        formControlName="selectedMacrocategoria"
+        optionLabel="name"
+        placeholder="Seleccionar macrocategoría"
+        [style]="{'width':'100%'}"></p-multiSelect>
+    </form>
+  </div>
+  <div class="tarjeta3">
+    <label  class="titulos-filtros">Categoría</label>
+    <form [formGroup]="categoriaFormGroup">
+      <p-multiSelect
+        [options]="categoria"
+        formControlName="selectedCategoria"
+        optionLabel="name"
+        placeholder="Seleccionar categoría"
+        [style]="{'width':'100%'}"></p-multiSelect>
+    </form>
+  </div>
+  <div class="tarjeta3">
+    <label class="titulos-filtros">Subcategoría</label>
+    <form [formGroup]="subcategoriaFormGroup">
+      <p-multiSelect
+        [options]="subcategoria"
+        formControlName="selectedSubcategoria"
+        optionLabel="name"
+        placeholder="Seleccionar subcategoría"
+        [style]="{'width':'100%'}"></p-multiSelect>
+    </form>
+  </div>
+  <div class="tarjeta3">
+    <label class="titulos-filtros">Clase</label>
+    <form [formGroup]="claseFormGroup">
+      <p-multiSelect
+        [options]="clase"
+        formControlName="selectedClase"
+        optionLabel="name"
+        placeholder="Seleccionar clase"
+        [style]="{'width':'100%'}"></p-multiSelect>
+    </form>
+  </div>
+  <div class="tarjeta3">
+    <label class="titulos-filtros">Familia</label>
+    <form [formGroup]="familiaFormGroup">
+      <p-multiSelect
+        [options]="familia"
+        formControlName="selectedFamilia"
+        optionLabel="name"
+        placeholder="Seleccionar familia"
+        [style]="{'width':'100%'}"></p-multiSelect>
+    </form>
+  </div>
+  <div class="tarjeta3">
+    <label class="titulos-filtros">Proveedor</label>
+    <form [formGroup]="proveedorFormGroup">
+      <p-multiSelect
+        [options]="proveedor"
+        formControlName="selectedProveedor"
+        optionLabel="name"
+        placeholder="Seleccionar proveedor"
+        [style]="{'width':'100%'}"></p-multiSelect>
+    </form>
+  </div>
+  <div style="margin-left: 15px; align-items: end; display: flex; padding-bottom: 3px; padding-top: 3px;">
+    <p-button icon="pi pi-replay" (click)="irFiltros()" pTooltip="Limpiar filtros" tooltipPosition="bottom"></p-button>
+  </div>
+</div>
+  <!-- <div class="tarjeta3">
+    <div>
+      <div>
+        <div class="titulos-componente">
+          Diferencial porcentaje
+        </div>
+        <div style="display: flex; align-items: center;">
+          <div class="titulos-component flex-slider1">
+            {{rangeValues[0]}}%
+          </div>
+          <div class="align-slider" style="flex: 1 1 50%; text-align: center;">
+            <p-slider [(ngModel)]="rangeValues" [range]="true" [min]="porcentajeMinimo"
+            [max]="porcentajeMaximo" (onChange)="onSliderChange()"></p-slider>
+          </div>
+          <div class="titulos-component flex-slider2">
+            {{rangeValues[1]}}%
+          </div>
+        </div>
+      </div>
+      <div style="padding-top: 10px;">
+        <div class="titulos-componente">
+          Vista de precios
+        </div>
+        <div>
+          <p-dropdown
+            [options]="views"
+            [(ngModel)]="selectedView"
+            optionLabel="name"
+            placeholder="Selecciona una vista"
+            (onChange)="onViewChange($event)"
+            [style]="{'width':'100%'}"/>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
+<div class="container-filtros">
+  <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+
+      <div style="margin-top: 5px; color:#2561a2; font-size: 2.1em; font-weight: 600; text-align: center;">
+        {{preciosTotales}}
+      </div>
+      <div class="titulos-componente">
+        Total Sku´s<br>filtrados
+      </div>
+
+
+  </div>
+  <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+
+      <div style="margin-top: 5px; color:#2561a2; font-size: 2.1em; font-weight: 600; text-align: center;">
+        {{preciosDentroCompetitividad}}
+      </div>
+      <div class="titulos-componente">
+        Sku´s dentro de<br>competitividad
+      </div>
+
+
+  </div>
+  <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+
+      <div style="margin-top: 5px; color:#2561a2; font-size: 2.1em; font-weight: 600; text-align: center;">
+        {{preciosFueraCompetitividad}}
+      </div>
+      <div class="titulos-componente">
+        Sku´s fuera de<br>competitividad
+      </div>
+
+
+  </div>
+  <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+
+      <div style="margin-top: 5px; color:#2561a2; font-size: 2.1em; font-weight: 600; text-align: center;">
+        {{preciosSinCompetidor}}
+      </div>
+      <div class="titulos-componente">
+        Sku´s sin<br>competidor
+      </div>
+
+
+  </div>
+  <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+
+      <div style="margin-top: 5px; color:#2561a2; font-size: 2.1em; font-weight: 600; text-align: center;">
+        24%
+      </div>
+      <div class="titulos-componente">
+        % Fuera de<br>competitividad
+      </div>
+
+
+  </div>
+  <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+
+      <div style="margin-top: 5px; color:#2561a2; font-size: 2.1em; font-weight: 600; text-align: center;">
+        48%
+      </div>
+      <div class="titulos-componente">
+        % Diferencial vs<br>competidor más bajo
+      </div>
+
+  </div>
+</div>
+<div class="container-filtros" >
+  <div class="tarjeta4" style="display: flex; flex-wrap: wrap;">
+    <div style="width: 1000px; display: flex; flex-wrap: wrap; flex: 0 0 70%;">
+
+
+    <div class="campo-formulario" style="display: block;">
+      <div class="titulos-componente">
+        Diferencial porcentaje
+      </div>
+      <div style="display: flex; align-items: center; padding-top: 10px;">
+        <div class="titulos-component flex-slider1">
+          {{rangeValues[0]}}%
+        </div>
+        <div class="align-slider" style="flex: 1 1 50%; text-align: center;">
+          <p-slider [(ngModel)]="rangeValues" [range]="true" [min]="porcentajeMinimo"
+          [max]="porcentajeMaximo" (onChange)="onSliderChange()"></p-slider>
+        </div>
+        <div class="titulos-component flex-slider2">
+          {{rangeValues[1]}}%
+        </div>
+      </div>
+    </div>
+    <p-divider layout="vertical" />
+    <div class="campo-formulario2" style="display: block; margin-left: 0px;">
+      <div class="titulos-componente">
+        Vista de precios
+      </div>
+      <div style="display: flex; align-items: center; margin-top: 5px;">
+        <p-dropdown
+        styleClass="custom-dropdown"
+        [options]="views"
+        [(ngModel)]="selectedView"
+        optionLabel="name"
+        placeholder="Selecciona una vista"
+        (onChange)="onViewChange()"
+        [style]="{'width':'280px'}"/>
+      </div>
+    </div>
+    <p-divider layout="vertical" />
+    <div class="campo-formulario2" style="display: block; margin-left: 0px;">
+      <div class="titulos-componente">
+        Tipo de Sku
+      </div>
+      <div style="display: flex; align-items: center; margin-top: 5px;">
+        <p-dropdown
+        styleClass="custom-dropdown"
+        [options]="views2"
+        [(ngModel)]="selectedView2"
+        optionLabel="name"
+        placeholder="Selecciona una vista"
+        (onChange)="onViewChange()"
+        [style]="{'width':'280px'}"/>
+      </div>
+    </div>
+  </div>
+    <div style="width: 100%; flex: 0 0 30%; padding-top: 12px; justify-content: flex-end;  display: flex;">
+      <p-button *ngIf="esFechaCorte" label="{{labelSelected}}" icon="pi pi-check" (click)="enviarPreciosSeleccionados()" [disabled]="!(selectedArregloCompetitividad.length>0)" [style]="{'font-family':'Arial, sans-serif'}"/>
+    </div>
+  </div>
+</div>
+<div class="full-screen">
+  <div class="table-container">
+    <div>
+      <div>
+        <div class="container-tablas">
+          <div style="flex: 1;" class="table-radius">
+            <!-- LADO A -->
+            <p-table
+              [value]="temporalCompetitividad"
+              [(selection)]="selectedArregloCompetitividad"
+              class="p-table"
+              [rows]="15"[scrollable]="true" scrollDirection="both" crollHeight="300px" [scrollHeight]="'flex'"
+              [showCurrentPageReport]="true"
+              [rowsPerPageOptions]="[5, 10, 20]"
+              [paginator]="false"
+              currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} de entradas"
+              (onHeaderCheckboxToggle)="onHeaderCheckboxToggle($event)"
+              (onRowSelect)="onRowSelect()"
+              (onRowUnselect)="onRowSelect()"
+              [style]="{'font-family':'Arial, sans-serif'}">
+              <ng-template  pTemplate="header">
+                <tr>
+                  <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-left-radius: 8px; width: 25px;">
+                    <div class="size-50">Sku</div>
+                  </th>
+                  <th style="background-color: #2561a2; position: sticky; left: 96px; z-index: 1; padding-left: 0; padding-right: 0;">
+                    <div class="size-200">Descripción</div>
+                  </th>
+                  <th style="background-color: #2561a2; position: sticky; left: 300px; z-index: 1;  padding-left: 0; padding-right: 0;">
+                    <div class="size-50">Coppel</div>
+                  </th>
+                  <th style="background-color: #2561a2; position: sticky; left: 400px; z-index: 1;  padding-left: 0; padding-right: 0;">
+                    <div class="size-50">Precio más<br>competitivo</div>
+                  </th>
+                  <th style="background-color: #2561a2; position: sticky; left: 500px; z-index: 1;  padding-left: 0; padding-right: 0;">
+                    <div class="size-70b" style="background-color: #2561a2; color: #ffffff;"  style="cursor: pointer;">
+                      <div (click)="sortArrays()">
+                        Diferencial
+                      </div>
+                      <div style="margin-top: 5px;">
+                        <p-toggleButton onLabel="{{switchName}}" offLabel="{{switchName}}" [(ngModel)]="switchMargen" class="mr-1" [style]="{'height': '20px'}" (click)="switchEvent()"/>
+                      </div>
+                    </div>
+                  </th>
+                  <th style="background-color: #2561a2; position: sticky; left: 600px; z-index: 1;  padding-left: 0; padding-right: 0;">
+                    <div class="size-80" style="white-space: pre-line;">
+                      Precio sugerido<br>(Max +10%)
+                    </div>
+                  </th>
+                  <th *ngIf="isEnabled" style="background-color: #2561a2; position: sticky; left: 750px; z-index: 1;  padding-left: 0; padding-right: 0; border-right: 1px solid #3670ad;">
+                    <div class="size-70c" style="white-space: pre-line;">
+                      <div>
+                        {{labelSelectedHead}}
+                      </div>
+                      <div style="padding-top: 5px;">
+                        <p-tableHeaderCheckbox />
+                      </div>
+                    </div>
+
+                  </th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-objetoCompetitividad>
+                <tr [ngClass]="{'resaltado': objetoCompetitividad.diferencialMargen > 10}">
+                  <td style="background-color: #2561a2; color: white; position: sticky; left: 0px; z-index: 1;" [pTooltip]="esFechaCorte?tooltipSemaforo:tooltipCalendar"   tooltipPosition="bottom" (mouseenter)="onMouseEnter(objetoCompetitividad)">
+                    <span style="color: #69ff23;" class="circle" *ngIf="objetoCompetitividad.diasTranscurridos<=1&&esFechaCorte">●</span>
+                    <span style="color: #ffe600;" class="circle" *ngIf="objetoCompetitividad.diasTranscurridos===2&&esFechaCorte">●</span>
+                    <span style="color: #ff0000;" class="circle" *ngIf="objetoCompetitividad.diasTranscurridos>=3&&esFechaCorte">●</span>
+                    <span class="circle-shadow" *ngIf="!esFechaCorte">●</span>
+                    {{objetoCompetitividad.codigo}}
+                  </td>
+                  <td style="background-color: #2561a2; color: white; position: sticky; left: 100px; z-index: 1">
+                    {{objetoCompetitividad.descripcion}}
+                  </td>
+                  <td style="position: sticky; left: 300px; z-index: 1" [pTooltip]="tooltipCoppel" tooltipPosition="left" (mouseenter)="onMouseEnter(objetoCompetitividad)">
+                    <div *ngIf="objetoCompetitividad.coppel.precioPromocion!==null">
+                      *${{objetoCompetitividad.coppel.precioPromocion}}
+                    </div>
+                    <div *ngIf="objetoCompetitividad.coppel.precioPromocion===null">
+                      ${{objetoCompetitividad.coppel.precioRegular}}
+                    </div>
+                  </td>
+                  <td style="position: sticky; left: 400px; z-index: 1">
+                    <div *ngIf="!isCompetitive(objetoCompetitividad)">
+                      <!-- ${{getMinValueWithoutCoppel(objetoCompetitividad)}} -->
+                      ${{objetoCompetitividad.precioMasCompetitivo}}
+                    </div>
+                    <div *ngIf="isCompetitive(objetoCompetitividad)">
+                      N/A
+                    </div>
+                  </td>
+                  <td style="position: sticky; left: 500px; z-index: 1">
+                    <div *ngIf="switchMargen">
+                      <div *ngIf="objetoCompetitividad.precioMasCompetitivo!==null">
+                        <div *ngIf="objetoCompetitividad.diferencialUtilidad<0">
+                          ${{objetoCompetitividad.diferencialUtilidad}}
+                        </div>
+                        <div *ngIf="objetoCompetitividad.diferencialUtilidad>=0">
+                          ${{objetoCompetitividad.diferencialUtilidad}}
+                        </div>
+                      </div>
+                      <div *ngIf="objetoCompetitividad.precioMasCompetitivo===null">
+                        N/A
+                      </div>
+                    </div>
+                    <div *ngIf="!switchMargen">
+                      <div *ngIf="objetoCompetitividad.precioMasCompetitivo!==null">
+                        <div *ngIf="objetoCompetitividad.diferencialMargen<0">
+                          {{objetoCompetitividad.diferencialMargen}}%
+                        </div>
+                        <div *ngIf="objetoCompetitividad.diferencialMargen>=0">
+                          {{objetoCompetitividad.diferencialMargen}}%
+                        </div>
+                      </div>
+                      <div *ngIf="objetoCompetitividad.precioMasCompetitivo===null">
+                        N/A
+                      </div>
+                    </div>
+                  </td>
+                  <td style="position: sticky; left: 600px; z-index: 1; padding-left: 0%; padding-right: 0%;">
+                    <div *ngIf="!(objetoCompetitividad.precioSugeridoPorcentaje===null)">
+                      <p-inputNumber currency="USD" locale="en-US" mode="currency"
+                        [(ngModel)]="objetoCompetitividad.precioSugeridoPorcentaje"
+                        [inputStyle]="{'width': '150px',
+                                        'max-width': '100px',
+                                        'font-size':'1rem',
+                                        'font-weight':'200',
+                                        'padding-left':'0',
+                                        'padding-right':'0',
+                                        'text-align':'center',
+                                        'font-family':'Arial, sans-serif',
+                                        'height':'25px'}"
+                        [minFractionDigits]="0"
+                        [maxFractionDigits]="0"/>
+                    </div>
+                    <div *ngIf="objetoCompetitividad.precioSugeridoPorcentaje===null">
+                      N/A
+                    </div>
+                  </td>
+                  <td *ngIf="isEnabled" style="position: sticky; left: 750px; z-index: 1; border-right: 1px solid rgb(224, 224, 224);">
+                      <p-tableCheckbox [value]="objetoCompetitividad" [disabled]="(objetoCompetitividad.precioSugeridoPorcentaje===null)" *ngIf="!(objetoCompetitividad.precioSugeridoPorcentaje===null)"/>
+                  </td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                  <td colspan="8">No se encontraron entradas</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+          <div style="flex: 1; overflow-x: auto; border-top-right-radius: 8px; border-bottom-right-radius: 8px">
+            <!-- LADO B -->
+            <p-table
+              [value]="temporalCompetitividad"
+              [(selection)]="selectedArregloCompetitividad"
+              class="p-table"
+              [rows]="15"[scrollable]="true" scrollDirection="both" crollHeight="300px" [scrollHeight]="'flex'"
+              [showCurrentPageReport]="true"
+              [rowsPerPageOptions]="[5, 10, 20]"
+              [paginator]="false"
+              currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} de entradas"
+              (onHeaderCheckboxToggle)="onHeaderCheckboxToggle($event)"
+              [scrollable]="true" scrollDirection="horizontal"
+              [style]="{'font-family':'Arial, sans-serif'}">
+              <ng-template  pTemplate="header">
+                <tr>
+                  <th style="background-color: #2561a2;"><div class="size-50">Amazon</div></th>
+                  <th style="background-color: #2561a2;"><div class="size-50">Bodega Aurrera</div></th>
+                  <th style="background-color: #2561a2;"><div class="size-50">Chedraui</div></th>
+                  <th style="background-color: #2561a2;"><div class="size-50">Liverpool</div></th>
+                  <th style="background-color: #2561a2;  border-top-right-radius: 8px;"><div class="size-50">Coppel</div></th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-objetoCompetitividad>
+                <tr [ngClass]="{'resaltado': objetoCompetitividad.diferencialMargen > 10}">
+                  <td [pTooltip]="tooltipAmazon" tooltipPosition="left" (mouseenter)="onMouseEnter(objetoCompetitividad)"
+                    [ngClass]="{'min-value': (objetoCompetitividad.amazon.precioPromocion!==null?objetoCompetitividad.amazon.precioPromocion:objetoCompetitividad.amazon.precioRegular) === getMinValue(objetoCompetitividad), 'max-value': (objetoCompetitividad.amazon.precioPromocion!==null?objetoCompetitividad.amazon.precioPromocion:objetoCompetitividad.amazon.precioRegular) === getMaxValue(objetoCompetitividad)}">
+                    <div *ngIf="objetoCompetitividad.amazon.precioPromocion!==null">
+                      *${{objetoCompetitividad.amazon.precioPromocion}}
+                    </div>
+                    <div *ngIf="objetoCompetitividad.amazon.precioPromocion===null && objetoCompetitividad.amazon.precioRegular!==null">
+                      ${{objetoCompetitividad.amazon.precioRegular}}
+                    </div>
+                    <div *ngIf="objetoCompetitividad.amazon.precioRegular===null">
+                      N/A
+                    </div>
+                  </td>
+                  <td [pTooltip]="tooltipAurrera" tooltipPosition="left" (mouseenter)="onMouseEnter(objetoCompetitividad)"
+                    [ngClass]="{'min-value': (objetoCompetitividad.aurrera.precioPromocion!==null?objetoCompetitividad.aurrera.precioPromocion:objetoCompetitividad.aurrera.precioRegular) === getMinValue(objetoCompetitividad), 'max-value': (objetoCompetitividad.aurrera.precioPromocion!==null?objetoCompetitividad.aurrera.precioPromocion:objetoCompetitividad.aurrera.precioRegular) === getMaxValue(objetoCompetitividad)}">
+                    <div *ngIf="objetoCompetitividad.aurrera.precioPromocion!==null">
+                      *${{objetoCompetitividad.aurrera.precioPromocion}}
+                    </div>
+                    <div *ngIf="objetoCompetitividad.aurrera.precioPromocion===null && objetoCompetitividad.aurrera.precioRegular!==null">
+                      ${{objetoCompetitividad.aurrera.precioRegular}}
+                    </div>
+                    <div *ngIf="objetoCompetitividad.aurrera.precioRegular===null">
+                      N/A
+                    </div>
+                  </td>
+                  <td [pTooltip]="tooltipChedraui" tooltipPosition="left" (mouseenter)="onMouseEnter(objetoCompetitividad)"
+                    [ngClass]="{'min-value': (objetoCompetitividad.chedraui.precioPromocion!==null?objetoCompetitividad.chedraui.precioPromocion:objetoCompetitividad.chedraui.precioRegular) === getMinValue(objetoCompetitividad), 'max-value': (objetoCompetitividad.chedraui.precioPromocion!==null?objetoCompetitividad.chedraui.precioPromocion:objetoCompetitividad.chedraui.precioRegular) === getMaxValue(objetoCompetitividad)}">
+                    <div *ngIf="objetoCompetitividad.chedraui.precioPromocion!==null">
+                      *${{objetoCompetitividad.chedraui.precioPromocion}}
+                    </div>
+                    <div *ngIf="objetoCompetitividad.chedraui.precioPromocion===null && objetoCompetitividad.chedraui.precioRegular!==null">
+                      ${{objetoCompetitividad.chedraui.precioRegular}}
+                    </div>
+                    <div *ngIf="objetoCompetitividad.chedraui.precioRegular===null">
+                      N/A
+                    </div>
+                  </td>
+                  <td [pTooltip]="tooltipLiverpool" tooltipPosition="left" (mouseenter)="onMouseEnter(objetoCompetitividad)"
+                    [ngClass]="{'min-value': (objetoCompetitividad.liverpool.precioPromocion!==null?objetoCompetitividad.liverpool.precioPromocion:objetoCompetitividad.liverpool.precioRegular) === getMinValue(objetoCompetitividad), 'max-value': (objetoCompetitividad.liverpool.precioPromocion!==null?objetoCompetitividad.liverpool.precioPromocion:objetoCompetitividad.liverpool.precioRegular) === getMaxValue(objetoCompetitividad)}">
+                    <div *ngIf="objetoCompetitividad.liverpool.precioPromocion!==null">
+                      *${{objetoCompetitividad.liverpool.precioPromocion}}
+                    </div>
+                    <div *ngIf="objetoCompetitividad.liverpool.precioPromocion===null && objetoCompetitividad.liverpool.precioRegular!==null">
+                      ${{objetoCompetitividad.liverpool.precioRegular}}
+                    </div>
+                    <div *ngIf="objetoCompetitividad.liverpool.precioRegular===null">
+                      N/A
+                    </div>
+                  </td>
+                  <td [pTooltip]="tooltipCoppel2" tooltipPosition="left" (mouseenter)="onMouseEnter(objetoCompetitividad)"
+                    [ngClass]="{'min-value': (objetoCompetitividad.coppel.precioPromocion!==null?objetoCompetitividad.coppel.precioPromocion:objetoCompetitividad.coppel.precioRegular) === getMinValue(objetoCompetitividad), 'max-value': (objetoCompetitividad.coppel.precioPromocion!==null?objetoCompetitividad.coppel.precioPromocion:objetoCompetitividad.coppel.precioRegular) === getMaxValue(objetoCompetitividad)}">
+                    <div *ngIf="objetoCompetitividad.coppel.precioPromocion!==null">
+                      *${{objetoCompetitividad.coppel.precioPromocion}}
+                    </div>
+                    <div *ngIf="objetoCompetitividad.coppel.precioPromocion===null && objetoCompetitividad.coppel.precioRegular!==null">
+                      ${{objetoCompetitividad.coppel.precioRegular}}
+                    </div>
+                    <div *ngIf="objetoCompetitividad.coppel.precioRegular===null">
+                      N/A
+                    </div>
+                  </td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                  <td colspan="8">No se encontraron entradas</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="font-style: italic;">* = Código en promoción, rojo = precio más alto, verde = precio más bajo</div>
+  </div>
+  <br>
+</div>
+<div class="loading-mask" *ngIf="loading">
+  <div class="icon" style="width: 30px;"><img src="../../../assets/img/icon-loading.gif"></div>
+</div>
+<ng-template #tooltipAmazon>
+  <div *ngIf="tooltipData" style="width: 400px;">
+    <div>
+      <strong>Coppel:</strong><br>
+      Precio Regular: {{ tooltipData.coppel.precioRegular }}<br>
+      Precio Promoción: {{ tooltipData.coppel.precioPromocion }}<br><br>
+    </div>
+    <div>
+      <strong>Amazon:</strong><br>
+      Precio Regular: {{ tooltipData.amazon.precioRegular }}<br>
+      Precio Promoción: {{ tooltipData.amazon.precioPromocion }}
+    </div>
+  </div>
+</ng-template>
+<ng-template #tooltipAurrera>
+  <div *ngIf="tooltipData" style="width: 400px;">
+    <div>
+      <strong>Coppel:</strong><br>
+      Precio Regular: {{ tooltipData.coppel.precioRegular }}<br>
+      Precio Promoción: {{ tooltipData.coppel.precioPromocion }}<br><br>
+    </div>
+    <div>
+      <strong>Aurrera:</strong><br>
+      Precio Regular: {{ tooltipData.aurrera.precioRegular }}<br>
+      Precio Promoción: {{ tooltipData.aurrera.precioPromocion }}
+    </div>
+  </div>
+</ng-template>
+<ng-template #tooltipChedraui>
+  <div *ngIf="tooltipData" style="width: 400px;">
+    <div>
+      <strong>Coppel:</strong><br>
+      Precio Regular: {{ tooltipData.coppel.precioRegular }}<br>
+      Precio Promoción: {{ tooltipData.coppel.precioPromocion }}<br><br>
+    </div>
+    <div>
+      <strong>Chedraui:</strong><br>
+      Precio Regular: {{ tooltipData.chedraui.precioRegular }}<br>
+      Precio Promoción: {{ tooltipData.chedraui.precioPromocion }}
+    </div>
+  </div>
+</ng-template>
+<ng-template #tooltipLiverpool>
+  <div *ngIf="tooltipData" style="width: 400px;">
+    <div>
+      <strong>Coppel:</strong><br>
+      Precio Regular: {{ tooltipData.coppel.precioRegular }}<br>
+      Precio Promoción: {{ tooltipData.coppel.precioPromocion }}<br><br>
+    </div>
+    <div>
+      <strong>Liverpool:</strong><br>
+      Precio Regular: {{ tooltipData.liverpool.precioRegular }}<br>
+      Precio Promoción: {{ tooltipData.liverpool.precioPromocion }}
+    </div>
+  </div>
+</ng-template>
+<ng-template #tooltipCoppel>
+  <div *ngIf="tooltipData" style="width: 400px;">
+    <div>
+      <strong>Coppel:</strong><br>
+      Precio Regular: {{ tooltipData.coppel.precioRegular }}<br>
+      Precio Promoción: {{ tooltipData.coppel.precioPromocion }}<br><br>
+      Fecha último cambio:<br>
+      • Fecha inicio:<br>
+      • Fecha fin:<br>
+      • Precio competitivo:<br>
+    </div>
+  </div>
+</ng-template>
+<ng-template #tooltipSemaforo>
+  <div *ngIf="tooltipData" style="width: 400px;">
+    <div>
+      <strong>{{ tooltipData.codigo }}</strong><br>
+      Días fuera de<br>competitividad: {{ tooltipData.diasTranscurridos}}
+    </div>
+  </div>
+</ng-template>
+<ng-template #tooltipCoppel2>
+  <div *ngIf="tooltipData" style="width: 400px;">
+    <div>
+      <strong>Coppel:</strong><br>
+      Precio Regular: {{ tooltipData.coppel.precioRegular }}<br>
+      Precio Promoción: {{ tooltipData.coppel.precioPromocion }}
+    </div>
+  </div>
+</ng-template>
+<ng-template #tooltipCalendar>
+  <div style="width: 150px;">
+    <div style="text-align: center;">
+      No corresponde a la<br>fecha de corte
+    </div>
+  </div>
+</ng-template>

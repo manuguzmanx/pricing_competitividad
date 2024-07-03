@@ -1,0 +1,326 @@
+<div class="full-screen">
+  <div style="display: flex; align-items: center; justify-content: space-between;">
+    <div>
+      <label for="clase" style="width: max-content;"class="titulos-principal">FILTROS</label>
+    </div>
+    <div style="width: max-content; padding-right: 20px; display: flex;">
+      <p-calendar
+      [(ngModel)]="fechaFiltro"
+      [showIcon]="true"
+      [showOnFocus]="false"
+      inputId="buttondisplay"
+      placeholder="Seleccionar fecha"
+      [style]="{'width':'95%'}" />
+      <button class="btn"(click)="aceptarFiltros()" >Aceptar filtros seleccionados</button></div>
+  </div>
+
+  <div class="card card-totales">
+    <div class="filtros">
+      <div class="campo-formulario" style="border-left: 1px;">
+        <label for="departamento" style="width: max-content;" class="titulos-filtros">Macrocategoría</label>
+        <p-table
+        #td
+        [value]="filteredArregloMacrocategoria"
+        [(selection)]="selectedArregloMacrocategoria"
+        dataKey="codigo"
+        [rowHover]="true"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [loading]="loading"
+        [paginator]="true"
+        [filterDelay]="0"
+        [globalFilterFields]="['codigo', 'nombre']">
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 4rem; background-color: #f0eef0;">
+              <p-tableHeaderCheckbox />
+            </th>
+            <th  style="min-width: 14rem; background-color: #f0eef0"> <!-- pSortableColumn="nombre" -->
+              <div class="flex justify-content-between align-items-center">
+                <div class="flex justify-content-between">
+                  <input pInputText type="text" [(ngModel)]="searchQueryMacrocategoria" (input)="filterMacrocategoria()"/>
+                  <!-- <p-sortIcon field="nombre" /> -->
+                  <p-columnFilter type="text" field="nombre" display="menu" class="ml-auto" />
+                </div>
+
+              </div>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-objeto>
+          <tr class="p-selectable-row">
+            <td>
+              <p-tableCheckbox [value]="objeto" (click)="showSelected()"/>
+            </td>
+            <td>
+              <span class="p-column-title">Nombre</span>
+              {{objeto.nombre}}
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="8">No se encontraron entradas</td>
+          </tr>
+        </ng-template>
+        </p-table>
+      </div>
+      <div class="divider"></div>
+      <div class="campo-formulario">
+        <label for="departamento" style="width: max-content;" class="titulos-filtros">Categoría</label>
+        <p-table
+        #td
+        [value]="filteredArregloCategoriafilter"
+        [(selection)]="selectedArregloCategoriafilter"
+        dataKey="codigo"
+        [rowHover]="true"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [loading]="loading"
+        [paginator]="true"
+        [filterDelay]="0"
+        [globalFilterFields]="['codigo', 'nombre']">
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 4rem; background-color: #f0eef0">
+              <p-tableHeaderCheckbox />
+            </th>
+            <th  style="min-width: 14rem; background-color: #f0eef0"> <!-- pSortableColumn="nombre" -->
+              <div class="flex justify-content-between align-items-center">
+                <div class="flex justify-content-between">
+                  <input pInputText type="text" [(ngModel)]="searchQueryCategoria" (input)="filterCategoria()"/>
+                  <!-- <p-sortIcon field="nombre" /> -->
+                  <p-columnFilter type="text" field="nombre" display="menu" class="ml-auto" />
+                </div>
+
+              </div>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-objeto>
+          <tr class="p-selectable-row">
+            <td>
+              <p-tableCheckbox [value]="objeto"/>
+            </td>
+            <td>
+              <span class="p-column-title">Nombre</span>
+              {{objeto.nombre}}
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="8">No se encontraron entradas</td>
+          </tr>
+        </ng-template>
+        </p-table>
+      </div>
+      <div class="divider"></div>
+      <div class="campo-formulario">
+        <label for="departamento" style="width: max-content;" class="titulos-filtros">Subcategoría</label>
+        <p-table
+        #td
+        [value]="filteredArregloSubcategoriafilter"
+        [(selection)]="selectedArregloSubcategoriafilter"
+        dataKey="codigo"
+        [rowHover]="true"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [loading]="loading"
+        [paginator]="true"
+        [filterDelay]="0"
+        [globalFilterFields]="['codigo', 'nombre']">
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 4rem; background-color: #f0eef0">
+              <p-tableHeaderCheckbox />
+            </th>
+            <th  style="min-width: 14rem; background-color: #f0eef0"> <!-- pSortableColumn="nombre" -->
+              <div class="flex justify-content-between align-items-center">
+                <div class="flex justify-content-between">
+                  <input pInputText type="text" [(ngModel)]="searchQuerySubcategoria" (input)="filterSubcategoria()"/>
+                  <!-- <p-sortIcon field="nombre" /> -->
+                  <p-columnFilter type="text" field="nombre" display="menu" class="ml-auto" />
+                </div>
+
+              </div>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-objeto>
+          <tr class="p-selectable-row">
+            <td>
+              <p-tableCheckbox [value]="objeto"/>
+            </td>
+            <td>
+              <span class="p-column-title">Nombre</span>
+              {{objeto.nombre}}
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="8">No se encontraron entradas</td>
+          </tr>
+        </ng-template>
+        </p-table>
+      </div>
+      <div class="divider"></div>
+      <div class="campo-formulario">
+        <label for="departamento" style="width: max-content;" class="titulos-filtros">Clase</label>
+        <p-table
+        #td
+        [value]="filteredArregloClasefilter"
+        [(selection)]="selectedArregloClasefilter"
+        dataKey="codigo"
+        [rowHover]="true"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [loading]="loading"
+        [paginator]="true"
+        [filterDelay]="0"
+        [globalFilterFields]="['codigo', 'nombre']">
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 4rem; background-color: #f0eef0">
+              <p-tableHeaderCheckbox />
+            </th>
+            <th  style="min-width: 14rem; background-color: #f0eef0"> <!-- pSortableColumn="nombre" -->
+              <div class="flex justify-content-between align-items-center">
+                <div class="flex justify-content-between">
+                  <input pInputText type="text" [(ngModel)]="searchQueryClase" (input)="filterClase()"/>
+                  <!-- <p-sortIcon field="nombre" /> -->
+                  <p-columnFilter type="text" field="nombre" display="menu" class="ml-auto" />
+                </div>
+
+              </div>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-objeto>
+          <tr class="p-selectable-row">
+            <td>
+              <p-tableCheckbox [value]="objeto"/>
+            </td>
+            <td>
+              <span class="p-column-title">Nombre</span>
+              {{objeto.nombre}}
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="8">No se encontraron entradas</td>
+          </tr>
+        </ng-template>
+        </p-table>
+      </div>
+      <div class="divider"></div>
+      <div class="campo-formulario">
+        <label for="departamento" style="width: max-content;" class="titulos-filtros">Familia</label>
+        <p-table
+        #td
+        [value]="filteredArregloFamiliafilter"
+        [(selection)]="selectedArregloFamiliafilter"
+        dataKey="codigo"
+        [rowHover]="true"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [loading]="loading"
+        [paginator]="true"
+        [filterDelay]="0"
+        [globalFilterFields]="['codigo', 'nombre']">
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 4rem; background-color: #f0eef0">
+              <p-tableHeaderCheckbox />
+            </th>
+            <th  style="min-width: 14rem; background-color: #f0eef0"> <!-- pSortableColumn="nombre" -->
+              <div class="flex justify-content-between align-items-center">
+                <div class="flex justify-content-between">
+                  <input pInputText type="text" [(ngModel)]="searchQueryFamilia" (input)="filterFamilia()"/>
+                  <!-- <p-sortIcon field="nombre" /> -->
+                  <p-columnFilter type="text" field="nombre" display="menu" class="ml-auto" />
+                </div>
+
+              </div>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-objeto>
+          <tr class="p-selectable-row">
+            <td>
+              <p-tableCheckbox [value]="objeto"/>
+            </td>
+            <td>
+              <span class="p-column-title">Nombre</span>
+              {{objeto.nombre}}
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="8">No se encontraron entradas</td>
+          </tr>
+        </ng-template>
+        </p-table>
+      </div>
+      <div class="divider"></div>
+      <div class="campo-formulario">
+        <label for="departamento" style="width: max-content;" class="titulos-filtros">Proveedor</label>
+        <p-table
+        #td
+        [value]="filteredArregloProveedorfilter"
+        [(selection)]="selectedArregloProveedorfilter"
+        dataKey="codigo"
+        [rowHover]="true"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [loading]="loading"
+        [paginator]="true"
+        [filterDelay]="0"
+        [globalFilterFields]="['codigo', 'nombre']">
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 4rem; background-color: #f0eef0">
+              <p-tableHeaderCheckbox />
+            </th>
+            <th  style="min-width: 14rem; background-color: #f0eef0"> <!-- pSortableColumn="nombre" -->
+              <div class="flex justify-content-between align-items-center">
+                <div class="flex justify-content-between">
+                  <input pInputText type="text" [(ngModel)]="searchQueryProveedor" (input)="filterProveedor()"/>
+                  <!-- <p-sortIcon field="nombre" /> -->
+                  <p-columnFilter type="text" field="nombre" display="menu" class="ml-auto" />
+                </div>
+
+              </div>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-objeto>
+          <tr class="p-selectable-row">
+            <td>
+              <p-tableCheckbox [value]="objeto"/>
+            </td>
+            <td>
+              <span class="p-column-title">Nombre</span>
+              {{objeto.nombre}}
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="8">No se encontraron entradas</td>
+          </tr>
+        </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>

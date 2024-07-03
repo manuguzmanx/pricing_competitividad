@@ -1,0 +1,1054 @@
+<h2 class="titulos-principal">Modificar Precios por Competencia</h2>
+<div class="folio">
+    <div class="label">Folio: <span>{{folio.folio}}</span></div>
+    <div class="date">Creado: <span>{{folio.date | date : 'dd-MM-yyyy HH:mm'}}</span></div>
+</div>
+
+<div class="card app-flujo-precios">
+    <div style="margin-bottom: 20px;">
+        <p-steps
+        [model]="items"
+        [readonly]="false"
+        [activeIndex]="activeIndex"
+        (activeIndexChange)="onActiveIndexChange($event)" />
+
+    </div>
+    <div class="container-filtros">
+
+        <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+            <div class="titulos-componente">
+                Sku´s Evaluados
+              </div>
+            <div class="chart">
+                <div class="valor blue">5%</div>
+                <p-chart type="doughnut" width="100" [data]="atendidosChart" [options]="optionsReview" />
+                <div class="indicadores">
+                    <div class="blue point"> <i class="pi pi-circle-on"></i>Evaluados</div> 
+                    <div class="gray point"> <i class="pi pi-circle-on"></i>Fuera del ejercicio</div> 
+         
+                </div>
+            </div>
+           
+      
+      
+        </div>
+
+        <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+            <div class="titulos-componente">
+                Competitividad
+              </div>
+            <div class="chart">
+                <div class="valor  center">
+                    <div class="val">5</div>
+                    <div class="descripcion">Total</div>
+                </div>
+                <div class="valor double">
+                    <div class="gray">80%</div>
+                    <div class="blue">20%</div>
+                </div>
+                <p-chart type="doughnut" width="100" [data]="fueraCompChart" [options]="optionsReview" />
+                <div class="indicadores">
+                    <div class="blue point"> <i class="pi pi-circle-on"></i>Dentro </div> 
+                    <div class="gray point"> <i class="pi pi-circle-on"></i>Fuera</div> 
+         
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+            <div class="titulos-componente">
+                Tipo Cambio
+              </div>
+            <div class="chart">
+                <div class="valor  center">
+                    <div class="val">15</div>
+                    <div class="descripcion">Total</div>
+                </div>
+                <div class="valor double">
+                
+                    <div class="gray">20%</div>
+                    <div class="blue">80%</div>
+                </div>
+                <p-chart type="doughnut" width="100" [data]="tipoCambioChart" [options]="optionsReview" />
+                <div class="indicadores">
+                    <div class="blue point"> <i class="pi pi-circle-on"></i>Promoción </div> 
+                    <div class="gray point"> <i class="pi pi-circle-on"></i>Precio Regular</div> 
+         
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+            <div class="titulos-componente">
+                Canal
+              </div>
+            <div class="chart">
+
+                <p-chart type="bar" height="120" [data]="canalChart" [options]="optionsBarCard" />
+
+            </div>
+
+
+
+        </div>
+
+        <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+            <div class="titulos-componente">
+                % Diferencial Promedio
+              </div>
+            <div class="chart">
+                <div class="value-kpi">{{kpi.prcDiferencial}} %</div>
+                <div class="helper"><small>VS Mejor Competidor</small></div>
+            </div>
+
+
+
+        </div>
+      </div>
+
+    <div class="mt-4 " *ngIf="activeIndex == 0">
+
+        <div class="card" class="filtros-table-precios">
+            <div>
+                <p-inputSwitch [(ngModel)]="showInfo" class="mr-1"></p-inputSwitch>
+                <label style="margin-left: 5px;" class="text-s1">{{showInfo ? 'Ocultar' : 'Ver'}} Información Adicional</label>
+            </div>
+            <div>
+                <p-inputSwitch [(ngModel)]="showPrecioBase" class="mr-1"></p-inputSwitch>
+                <label style="margin-left: 5px;">{{showPrecioBase ? 'Ocultar' : 'Ver'}} Precio Base</label>
+            </div>
+
+            <div>
+                <p-inputSwitch [(ngModel)]="showPrecioPromocion"  class="mr-1"></p-inputSwitch>
+                <label style="margin-left: 5px;">{{showPrecioPromocion ? 'Ocultar' : 'Ver'}} Información Promocional</label>
+
+            </div>
+            <div class="filtros-promo-precio">
+                <div class="flex align-items-center first">
+                    <p-checkbox
+
+                    [binary]="true"
+                        [(ngModel)]="verPromociones"
+                        label="Promociones({{kpi.promocion}})" />
+
+                </div>
+                <div class="flex align-items-center">
+
+                    <p-checkbox
+
+                    [binary]="true"
+                        [(ngModel)]="verPrecioBase"
+                        label="Precio Regular({{kpi.precioRegular}})"  />
+                </div>
+            </div>
+
+
+        </div>
+
+
+<div class="table-competidores">
+    <p-splitter   [panelSizes]="[ 82,18]"  styleClass="mb-5">
+        <ng-template pTemplate>
+            <div class="acciones">
+                <p-table [scrollable]="true" scrollDirection="horizontal" class="table-precios" [value]="codigos" [tableStyle]="{ 'min-width': '50rem' }"    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+                    <ng-template pTemplate="header">
+                        <tr class="bg-blue header1">
+
+                            <th  class="isection fsection" ></th>
+                            <th colspan="5"   class="isection fsection" *ngIf="showInfo"> Información Adicional</th>
+                            <th    colspan="2" class="isection fsection">
+                                Precio Publicado
+                            </th>
+                            <th   *ngIf="showPrecioBase"   colspan="2" class="isection fsection">
+                                Información  Precio Base
+                            </th>
+                            <th     *ngIf="showPrecioPromocion"  colspan="3" class="isection fsection">
+                                Información Promocional
+                            </th>
+                            <th   colspan="11" class="isection fsection">
+                                Precio Nuevo Sugerido
+                            </th>
+
+
+
+                        </tr>
+                        <tr>
+
+                            <th class="fsection">Código</th>
+
+                            <th class="isection" *ngIf="showInfo">Clase</th>
+                            <th *ngIf="showInfo">Departamento</th>
+                            <th *ngIf="showInfo">Marca</th>
+                            <th  class="" *ngIf="showInfo">Modelo</th>
+                             <th class="fsection" *ngIf="showInfo" >Origen</th>
+
+
+                            <th class="isection ">Precio</th>
+                            <th   class="">Margen
+                                <div style="margin-top: 5px;">
+                                    <p-toggleButton onLabel="{{'%'}}" offLabel="{{'$'}}" [(ngModel)]="banderasMargen.pa.real" class="mr-1"
+                                    [style]="{'height': '20px'}" (click)="changeBanderaMargen(banderasMargen.pa.real)"/>
+                                  </div>
+                                </th>
+                       <!--     <th    class="fsection">Margen Reconstruido
+                                <div style="margin-top: 5px;">
+                                    <p-toggleButton  onLabel="{{'%'}}" offLabel="{{'$'}}" [(ngModel)]="banderasMargen.pa.rec" class="mr-1"
+                                    [style]="{'height': '20px'}" (click)="changeBanderaMargen(banderasMargen.pa.rec)"/>
+                                  </div>
+                            </th>-->
+                         <!--   <th  >Margen Real({{switchMargen ? '%' : '$'}})</th>
+                            <th    class="fsection">Margen Reconstruido({{switchMargen ? '%' : '$'}})</th>
+                           -->
+                            <th *ngIf="showPrecioBase" class="isection">Precio</th>
+                            <th  *ngIf="showPrecioBase"   class="">Margen
+                                <div style="margin-top: 5px;">
+                                    <p-toggleButton  onLabel="{{'%'}}" offLabel="{{'$'}}"[(ngModel)]="banderasMargen.pb.real" class="mr-1"
+                                    [style]="{'height': '20px'}" (click)="changeBanderaMargen(banderasMargen.pb.real)"/>
+                                  </div>
+                                </th>
+                            <!--<th  *ngIf="showPrecioBase"   class="fsection">Margen Reconstruido({{switchMargen ? '%' : '$'}})
+                                <div style="margin-top: 5px;">
+                                    <p-toggleButton  onLabel="{{'%'}}" offLabel="{{'$'}}" [(ngModel)]="banderasMargen.pb.rec" class="mr-1"
+                                    [style]="{'height': '20px'}" (click)="changeBanderaMargen(banderasMargen.pb.rec)"/>
+                                  </div>
+                            </th>-->
+
+                            <th    *ngIf="showPrecioPromocion" class="isection">% Profundidad</th>
+                            <th    *ngIf="showPrecioPromocion" class="">% Aportación Proveedor</th>
+                            <th    *ngIf="showPrecioPromocion" class="fsection">% Aportación Coppel</th>
+
+                            <th  class="isection">Precio</th>
+                            <th>Tipo Cambio</th>
+                            <th    class="">% Diferencial </th>
+                            <th    class="">% Profundidad</th>
+                            <th     class="">% Aportación <br/>Proveedor</th>
+                            <th >% Aportación <br/>Coppel</th>
+                            <th   class="">Margen
+                                <div style="margin-top: 5px;">
+                                    <p-toggleButton  onLabel="{{'%'}}" offLabel="{{'$'}}" [(ngModel)]="banderasMargen.ps.real" class="mr-1"
+                                    [style]="{'height': '20px'}" (click)="changeBanderaMargen(banderasMargen.ps.real)"/>
+                                  </div>
+                                </th>
+                           <!-- <th    class="">Margen Reconstruido
+                                <div style="margin-top: 5px;">
+                                    <p-toggleButton  onLabel="{{'%'}}" offLabel="{{'$'}}" [(ngModel)]="banderasMargen.ps.rec" class="mr-1"
+                                    [style]="{'height': '20px'}" (click)="changeBanderaMargen(banderasMargen.ps.rec)"/>
+                                  </div>
+                            </th>-->
+
+                            <th>Fecha Inicio</th>
+                            <th  >Fecha Fin</th>
+                            <th class="header-canal">Canal Físico <br/>
+                                <p-inputSwitch (onChange)="setAllFisicio()" [(ngModel)]="allFisico" />
+                            </th>
+                            <th class="header-canal">Canal Digital <br/>
+                                <p-inputSwitch (onChange)="setAllDigital()" [(ngModel)]="allDigital" />
+                            </th>
+
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                        <tr *ngIf="(product.tipo.id == 1 && verPrecioBase) || (product.tipo.id == 2 && verPromociones) ">
+
+
+                            <td class="fsection clickable background-blue" (click)="showDetailSKU()" >{{ product.sku }}</td>
+                            <td   class="isection" *ngIf="showInfo">{{product.clase}}</td>
+                            <td   *ngIf="showInfo">{{product.departamento}}</td>
+                            <td   *ngIf="showInfo">{{product.marca}}</td>
+                            <td  class="" *ngIf="showInfo">{{product.modelo}}</td>
+                            <td  class="fsection" *ngIf="showInfo" >{{product.coppel.origen ? product.coppel.origen : '-'}}</td>
+
+
+                            <td  class="isection"  >{{product.coppel.precioPromocion ? '*':''}}{{ getPrecioPublicado(product.coppel) | currency : '$' }}</td>
+
+                            <td   class="fsection"    >
+                                <div *ngIf="banderasMargen.pa.real">
+                                    {{ product.pb.margen_real | number : '1.0-0' }} %
+                                </div>
+                                <div *ngIf="!banderasMargen.pa.real">
+                                    ${{ product.pb.utilidad_real | number : '1.0-0' }}
+                                </div>
+                            </td>
+                      <!--      <td    class=""  >
+                                <div *ngIf="banderasMargen.pa.rec">
+                                    {{ product.pb.margen_rec | number : '1.0-0' }} %
+                                </div>
+                                <div *ngIf="!banderasMargen.pa.rec">
+                                    ${{ product.pb.utilidad_rec | number : '1.0-0' }}
+                                </div>
+                            </td>-->
+
+
+                            <td  class="isection"   *ngIf="showPrecioBase" >{{ product.pb.precio | currency : '$' }}</td>
+                            <td   class=""  *ngIf="showPrecioBase"   >
+                                <div *ngIf="banderasMargen.pb.real">
+                                    {{ product.pb.margen_real | number : '1.0-0' }} %
+                                </div>
+                                <div *ngIf="!banderasMargen.pb.real">
+                                    ${{ product.pb.utilidad_real | number : '1.0-0' }}
+                                </div>
+                            </td>
+                          <!--  <td     *ngIf="showPrecioBase" class="fsection"  >
+                                <div *ngIf="banderasMargen.pb.rec">
+                                    {{ product.pb.margen_rec | number : '1.0-0' }} %
+                                </div>
+                                <div *ngIf="!banderasMargen.pb.rec">
+                                    ${{ product.pb.utilidad_rec | number : '1.0-0' }}
+                                </div>
+                            </td>-->
+
+
+
+                             <td    class="isection"   *ngIf="showPrecioPromocion" >
+                                 <div *ngIf="product.pp.precio">
+                                     {{ product.pp.profundidad |  number : '1.0-1'  }}
+                                    </div>
+                                    <div *ngIf="!product.pp.precio">
+                                     N/A
+                                    </div>
+                             </td>
+                             <td    class=""   *ngIf="showPrecioPromocion" >
+                                <div *ngIf="product.pp.precio">
+                                 {{ product.pp.prccp | number : '1.0-1'}}
+                                </div>
+                                <div *ngIf="!product.pp.precio">
+                                 N/A
+                                </div>
+                             </td>
+                             <td    class="fsection"   *ngIf="showPrecioPromocion" >
+                                <div *ngIf="product.pp.precio">
+                                 {{ product.pp.prccp | number : '1.0-1'}}
+                                </div>
+                                <div *ngIf="!product.pp.precio">
+                                 N/A
+                                </div>
+                             </td>
+
+
+
+
+
+
+                            <td  class="isection"  >
+
+                                <span class="p-input-icon-right">
+                                    <i style="color:  #d90000" [pTooltip]="tooltipError" tooltipPosition="right" *ngIf="product.ps.precio < product.mc.precio" class="pi pi-exclamation-circle"></i>
+                                    <input (change)="actualizarKPIs()" style="min-width: 80px;" [ngClass]="{'ng-invalid ng-dirty': product.ps.precio < product.mc.precio}" pInputText [(ngModel)]="product.ps.precio" />
+                                </span>
+                                <ng-template  #tooltipError >
+                                    El precio no debe ser menor al más competitivo
+                                   </ng-template>
+                            </td>
+                          <td style="min-width: 150px;">
+                            <p-dropdown class="w-100"
+                            (onChange)="actualizarKPIs()"
+                            [disabled]="product.pp.precio"
+                            [options]="tipoCambio"
+                            appendTo="body"
+                            [(ngModel)]="product.tipo"
+                            optionLabel="name"
+                            placeholder="TipoCambio" />
+                          </td>
+                            <td  class=""  >
+                                <input pInputText type="text" [(ngModel)]="product.ps.diferencial">
+                            </td>
+                            <td  class="">
+                                <div *ngIf="isPromo(product)">
+                                    {{product.ps.prcpr + product.ps.prccp | number : '1.0-1'}}
+                                </div>
+                                <div *ngIf="!isPromo(product)">
+                                    N/A
+                                </div>
+                            </td>
+                            <td  class="" >
+                                <p-inputNumber  (ngModelChange)="actualizarKPIs()" mode="decimal"
+                                [maxFractionDigits]="2"   *ngIf="isPromo(product)" [(ngModel)]="product.ps.prcpr"/>
+                                <div *ngIf="!isPromo(product)">
+                                    N/A
+                                </div>
+                            </td>
+                            <td  ><p-inputNumber  (ngModelChange)="actualizarKPIs()" mode="decimal"
+                                [maxFractionDigits]="2"   *ngIf="isPromo(product)" [(ngModel)]="product.ps.prccp"/>
+                                <div *ngIf="!isPromo(product)">
+                                    N/A
+                                </div>
+                            </td>
+                                <td   class=""   >
+                                    <div *ngIf="banderasMargen.ps.real">
+                                        {{ product.ps.margen_real | number : '1.0-0' }} %
+                                    </div>
+                                    <div *ngIf="!banderasMargen.ps.real">
+                                        ${{ product.ps.utilidad_real | number : '1.0-0' }}
+                                    </div>
+                                </td>
+                        <!--        <td      >
+                                    <div *ngIf="banderasMargen.ps.rec">
+                                         {{ product.ps.margen_rec | number : '1.0-0' }} %
+                                    </div>
+                                    <div *ngIf="!banderasMargen.ps.rec">
+                                        ${{ product.ps.utilidad_rec | number : '1.0-0' }}
+                                    </div>
+                                </td>-->
+                            <td style="min-width:180px;">
+                                <p-calendar
+                                [(ngModel)]="product.fi"
+                                [showIcon]="true"
+                                appendTo="body"
+                                class="w-100"
+                                dateFormat="dd/mm/yy"
+                                [showOnFocus]="false"
+                                inputId="buttondisplay" />
+                            </td>
+                            <td style="min-width: 180px;" >
+                                <div *ngIf="product.tipo.id == 2">
+                                    <p-calendar
+                                    appendTo="body"
+                                    dateFormat="dd/mm/yy"
+                                    [(ngModel)]="product.ff"
+                                    [showIcon]="true"
+                                    class="w-100"
+                                    [showOnFocus]="false"
+                                    inputId="buttondisplay" />
+                                </div>
+                                <div *ngIf="product.tipo.id != 2">
+                                    N/A
+                                </div>
+
+                            </td>
+                            <td class="canal">
+                                <p-inputSwitch [(ngModel)]="product.canal.fisico" (onChange)="actualizarKPIs()" />
+                            </td>
+                            <td class="canal">
+                                <p-inputSwitch [(ngModel)]="product.canal.digital"  (onChange)="actualizarKPIs()" />
+                            </td>
+
+                            </tr>
+                    </ng-template>
+                </p-table>
+                </div>
+        </ng-template>
+        <ng-template pTemplate>
+            <div class="competidores">
+                <p-table [scrollable]="true" scrollDirection="horizontal" class="table-precios" [value]="codigos" [tableStyle]="{ 'min-width': '50rem' }"    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+                    <ng-template pTemplate="header">
+                        <tr class="bg-blue header1">
+                               <th   colspan="3" class="isection fsection">
+                               Mejor Competencia
+                            </th>
+
+
+                           <th colspan="5" class="isection fsection"> Competidores</th>
+
+                        </tr>
+                        <tr>
+                            <th  class="isection">Competidor</th>
+                            <th  class="">Precio</th>
+                            <th  class="fsection">({{switchMargen ? '%' : '$'}}) <br/>Diferencial</th>
+
+
+
+                            <th class="isection">Coppel</th>
+                            <th>Amazon</th>
+                            <th>Bodega Aurrera</th>
+                            <th>Chedraui</th>
+                            <th class="fsection">Liverpool</th>
+
+
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                        <tr  *ngIf="(product.tipo.id == 1 && verPrecioBase) || (product.tipo.id == 2 && verPromociones) ">
+
+                            <td   class="isection"> {{product.mc.comp}}</td>
+                            <td  class=" showChart">{{ product.mc.precio | currency : '$' }}
+                                <div class="tooltipChart">
+                                 <label>Competencia VS Coppel última semana</label>
+                                    <p-chart width="400" height="150" type="line" [data]="dataChart" [options]="options" />
+                                </div>
+                            </td>
+                            <td  class="fsection">
+                                <div *ngIf="switchMargen">
+                                    {{ product.diferencial | number : '1.0-0' }} %
+                                </div>
+                                <div *ngIf="!switchMargen">
+                                    ${{ product.ps.utilidad | number : '1.0-0' }}
+                                </div>
+                            </td>
+
+
+
+                            <td  [pTooltip]="tooltip" tooltipPosition="left" [ngClass]="{ 'price-hight': getPrecioMaximo(product) == getPrecioPublicado(product.coppel) , 'price-low' : getPrecioMinimo(product) == getPrecioPublicado(product.coppel)}">
+
+
+                                <div   class="precio" >
+                                 <div>{{product.coppel.precioPromocion ? '*' : ''}}</div>
+                                 <div> {{ product.coppel.precio | currency : '$' }} </div>
+                                </div>
+
+                                <ng-template  #tooltip >
+
+                                     <div class="row">
+                                         <div for="">Código</div>
+                                         <div for="">{{product.sku}}</div>
+                                     </div>
+                                     <div class="row">
+                                         <div for="">Descripción:</div>
+                                         <div for="">{{product.clase}} {{product.departamento}} {{product.marca}} {{product.modelo}}</div>
+                                     </div>
+                                     <div class="row"   *ngIf="product.coppel.precioPromocion">
+                                         <div for="">Precio promoción</div>
+                                         <div for="">{{product.coppel.precioPromocion | currency : '$'}}</div>
+                                     </div>
+                                     <div class="row">
+                                         <div for="">Precio Regular</div>
+                                         <div for="">{{product.coppel.precioRegular | currency : '$'}}</div>
+                                     </div>
+                                </ng-template>
+                             </td>
+
+                            <td     [pTooltip]="tooltip" tooltipPosition="left" [ngClass]="{ 'price-hight': getPrecioMaximo(product) == getPrecioPublicado(product.amazon) , 'price-low' : getPrecioMinimo(product) == getPrecioPublicado(product.amazon)}">
+
+
+                               <div   class="precio" >
+                                <div>{{product.amazon.precioPromocion ? '*' : ''}}</div>
+                                <div> {{ product.amazon.precio | currency : '$' }} </div>
+                               </div>
+
+
+                               <ng-template  #tooltip >
+
+
+                                    <div class="row">
+                                        <div for="">Código</div>
+                                        <div for="">{{product.sku}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div for="">Descripción:</div>
+                                        <div for="">{{product.clase}} {{product.departamento}} {{product.marca}} {{product.modelo}}</div>
+                                    </div>
+                                    <div class="row"  *ngIf="product.amazon.precioPromocion">
+                                        <div for="">Precio promoción</div>
+                                        <div for="">{{product.amazon.precioPromocion | currency : '$'}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div for="">Precio Regular</div>
+                                        <div for="">{{product.amazon.precioRegular | currency : '$'}}</div>
+                                    </div>
+                               </ng-template>
+
+                            </td>
+                            <td     [pTooltip]="tooltip" tooltipPosition="left" [ngClass]="{ 'price-hight': getPrecioMaximo(product) == getPrecioPublicado(product.aurrera) , 'price-low' : getPrecioMinimo(product) == getPrecioPublicado(product.aurrera)}">
+                                <div class="precio">
+                                    <div>{{product.aurrera.precioPromocion ? '*' : ''}}</div>
+                                    <div> {{ product.aurrera.precio | currency : '$' }} </div>
+                                   </div>
+                                   <ng-template  #tooltip >
+
+
+                                    <div class="row">
+                                        <div for="">Código</div>
+                                        <div for="">{{product.sku}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div for="">Descripción:</div>
+                                        <div for="">{{product.clase}} {{product.departamento}} {{product.marca}} {{product.modelo}}</div>
+                                    </div>
+                                    <div class="row" *ngIf="product.aurrera.precioPromocion">
+                                        <div for="">Precio promoción</div>
+                                        <div for="">{{product.aurrera.precioPromocion | currency : '$'}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div for="">Precio Regular</div>
+                                        <div for="">{{product.aurrera.precioRegular | currency : '$'}}</div>
+                                    </div>
+                                   </ng-template>
+                            </td>
+                            <td    [pTooltip]="tooltip" tooltipPosition="left" [ngClass]="{ 'price-hight': getPrecioMaximo(product) == getPrecioPublicado(product.chedraui) , 'price-low' : getPrecioMinimo(product) == getPrecioPublicado(product.chedraui)}">
+                                <div class="precio">
+                                    <div>{{product.chedraui.precioPromocion ? '*' : ''}}</div>
+                                    <div> {{ product.chedraui.precio | currency : '$' }} </div>
+                                   </div>
+                                   <ng-template  #tooltip >
+
+
+                                    <div class="row">
+                                        <div for="">Código</div>
+                                        <div for="">{{product.sku}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div for="">Descripción:</div>
+                                        <div for="">{{product.clase}} {{product.departamento}} {{product.marca}} {{product.modelo}}</div>
+                                    </div>
+                                    <div class="row"  *ngIf="product.chedraui.precioPromocion">
+                                        <div for="">Precio promoción</div>
+                                        <div for="">{{product.chedraui.precioPromocion | currency : '$'}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div for="">Precio Regular</div>
+                                        <div for="">{{product.chedraui.precioRegular | currency : '$'}}</div>
+                                    </div>
+                                   </ng-template>
+                            </td>
+                            <td    [pTooltip]="tooltip" tooltipPosition="left" [ngClass]="{ 'price-hight': getPrecioMaximo(product) == getPrecioPublicado(product.liverpool) , 'price-low' : getPrecioMinimo(product) == getPrecioPublicado(product.liverpool)}">
+                                <div class="precio">
+                                    <div>{{product.liverpool.precioPromocion ? '*' : ''}}</div>
+                                    <div> {{ product.liverpool.precio | currency : '$' }} </div>
+                                   </div>
+                                   <ng-template  #tooltip >
+
+
+                                    <div class="row">
+                                        <div for="">Código</div>
+                                        <div for="">{{product.sku}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div for="">Descripción:</div>
+                                        <div for="">{{product.clase}} {{product.departamento}} {{product.marca}} {{product.modelo}}</div>
+                                    </div>
+                                    <div class="row" *ngIf="product.liverpool.precioPromocion">
+                                        <div for="">Precio promoción</div>
+                                        <div for="">{{product.liverpool.precioPromocion | currency : '$'}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div for="">Precio Regular</div>
+                                        <div for="">{{product.liverpool.precioRegular | currency : '$'}}</div>
+                                    </div>
+                                   </ng-template>
+                            </td>
+
+                            </tr>
+                    </ng-template>
+                </p-table>
+                </div>
+        </ng-template>
+    </p-splitter>
+
+
+
+</div>
+
+
+    </div>
+
+<div class="mt-4 check-send" *ngIf="activeIndex == 1">
+
+
+    <div class="tarjeta5 w-100" style="display: block; flex-wrap: wrap;">
+        <div class="titulos-componente">
+            Distribución de Códigos de Acuerdo a su % Diferencial VS Mejor Competidor
+          </div>
+          <div class="chart flex justify-content-center">
+
+            <p-chart type="bar" height="180px" [data]="diferencialChart" [options]="optionsDiferencial" />
+
+    </div>
+
+
+    </div>
+
+    <div class="tarjeta5 w-100">
+        <div class="titulos-componente mb-0">
+            Detalle de SKU's Competitivos
+          </div>
+     
+        <p-table [scrollable]="true" scrollDirection="horizontal" class="table-precios" [value]="codigos" [tableStyle]="{ 'min-width': '50rem' }"    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+            <ng-template pTemplate="header">
+                <tr class="bg-blue">
+
+                    <th  class="isection fsection" ></th>
+                    <th    colspan="2" class="isection fsection">
+                        Precio Publicado Coppel
+                    </th>
+                    <th    colspan="3" class="isection fsection">
+                        Mejor Competencia
+                    </th>
+                    <th   colspan="10" class="isection fsection">
+                        Precio Nuevo Coppel
+                    </th>
+
+                </tr>
+                <tr>
+
+                    <th class="fsection">Código</th>
+
+                    <th class="isection">Precio</th>
+                    <th   class="fsection">Margen </th>
+
+                    <th class="isection">Competidor</th>
+                    <th class="">Precio Publicado</th>
+                    <th class="fsection">Diferencial</th>
+
+                    <th  class="isection">Precio</th>
+
+                    <th   class="">Nuevo Margen </th>
+                    <th    class="">% Profundidad</th>
+                    <th    class="">% Aportación Proveedor</th>
+                    <th    class="">% Aportación Coppel</th>
+                    <th     class="">Nuevo Diferencial</th>
+                    <th>Fecha Inicio</th>
+                    <th    class="">Fecha Fin</th>
+                    <th>Canal Físico</th>
+                    <th class="fsection">Canal Digital</th>
+
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr  *ngIf="(product.tipo.id == 2 ) ">
+
+
+                    <th class="fsection" >{{ product.sku }}</th>
+                    <td  class="isection"  >{{product.pp.precio ? '*' : ''}}{{ product.coppel.precio | currency : '$' }} </td>
+
+                    <td  class="fsection" >{{ product.coppel.margen_real | number : '1.0-0' }} %</td>
+
+                    <td class="isection">{{product.mc.comp}}</td>
+                    <td class="">{{product.mc.precio | currency : '$'}}</td>
+                    <td class="fsection">{{product.diferencial}} %</td>
+
+                    <td  class="isection"  >{{product.ps.precio | currency: '$' }}</td>
+
+                    <td  class="">
+                        <div >
+                            {{product.ps.diferencial | number : '1.0-0'}} %
+                        </div>
+
+                    </td>
+                    <td  class="">
+                        <div *ngIf="isPromo(product)">
+                            {{product.ps.prcpr + product.ps.prccp | number : '1.0-0'}} %
+                        </div>
+                        <div *ngIf="!isPromo(product)">
+                            N/A
+                        </div>
+                    </td>
+                    <td  class="">
+                        <div *ngIf="isPromo(product)">
+                            {{product.ps.prcpr | number : '1.0-0'}} %
+                        </div>
+                        <div *ngIf="!isPromo(product)">
+                            N/A
+                        </div>
+                    </td>
+                    <td  class="">
+                        <div *ngIf="isPromo(product)">
+                            {{product.ps.prccp | number : '1.0-0'}} %
+                        </div>
+                        <div *ngIf="!isPromo(product)">
+                            N/A
+                        </div>
+                    </td>
+                    <td  class=""  >  <div>
+                        {{product.ps.diferencial | number : '1.0-1'}} %
+                    </div>
+                    <td>
+                        {{product.fi | date: 'dd/MM/yyyy'}}
+                    </td>
+                    <td class="fsection" >
+                        {{product.ff | date: 'dd/MM/yyyy'}}
+                    </td>
+                    <td>
+                        <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>
+                        <i *ngIf="!product.canal.fisico" class="danger pi pi-times"></i>
+                    </td>
+                    <td>
+                        <i *ngIf="product.canal.digital" class="success pi pi-check"></i>
+                        <i *ngIf="!product.canal.digital" class="danger pi pi-times"></i>
+                    </td>
+                    </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+
+    <div class="tarjeta5 w-100">
+      
+        <div class=" mb-0 titulos-componente">
+           Detalle de SKU's No Competitivos
+          </div>
+  
+        <p-table [scrollable]="true" scrollDirection="horizontal" class="table-precios" [value]="codigos" [tableStyle]="{ 'min-width': '50rem' }"    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+            <ng-template pTemplate="header">
+                <tr class="bg-blue">
+
+                    <th  class="isection fsection" ></th>
+                    <th    colspan="2" class="isection fsection">
+                        Precio Publicado Coppel
+                    </th>
+                    <th    colspan="3" class="isection fsection">
+                        Mejor Competencia
+                    </th>
+                    <th   colspan="7" class="isection fsection">
+                        Precio Nuevo Coppel
+                    </th>
+
+
+
+                </tr>
+                <tr>
+
+                    <th class="fsection">Código</th>
+
+                    <th class="isection">Precio</th>
+                    <th   class="fsection">Margen </th>
+
+                    <th class="isection">Competidor</th>
+                    <th class="">Precio Publicado</th>
+                    <th class="fsection">Diferencial</th>
+
+                    <th  class="isection">Precio</th>
+
+                    <th   class="">Nuevo Margen </th>
+                    <th     class="">Nuevo Diferencial</th>
+                    <th>Fecha Inicio</th>
+                    <th    class="">Fecha Fin</th>
+                    <th>Canal Físico</th>
+                    <th class="fsection">Canal Digital</th>
+
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr  *ngIf="(product.tipo.id == 1 ) ">
+                  
+                
+                    <th class="fsection" >{{ product.sku }}</th>
+                    <td  class="isection"  >{{product.pp.precio ? '*' : ''}}{{ product.coppel.precio | currency : '$' }} </td>
+
+                    <td  class="fsection" >{{ product.coppel.margen_real | number : '1.0-0' }} %</td>
+
+                    <td class="isection">{{product.mc.comp}}</td>
+                    <td class="">{{product.mc.precio | currency : '$'}}</td>
+                    <td class="fsection">{{product.diferencial}} %</td>
+
+                    <td  class="isection"  >{{product.ps.precio | currency: '$' }}</td>
+                    <td  class=""  >  <div>
+                        {{product.ps.margen_real | number : '1.0-1'}} %
+                    </div>
+
+                    <td  class=""  >  <div>
+                        {{product.ps.diferencial | number : '1.0-1'}} %
+                    </div>
+                    <td>
+                        {{product.fi | date: 'dd/MM/yyyy'}}
+                    </td>
+                    <td class="fsection" >
+                        {{product.ff | date: 'dd/MM/yyyy'}}
+                    </td>
+                    <td>
+                        <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>
+                        <i *ngIf="!product.canal.fisico" class="danger pi pi-times"></i>
+                    </td>
+                    <td>
+                        <i *ngIf="product.canal.digital" class="success pi pi-check"></i>
+                        <i *ngIf="!product.canal.digital" class="danger pi pi-times"></i>
+                    </td>
+                    </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+</div>
+
+        <div class="footer-steps">
+
+            <button pButton type="button" (click)="prevStep()" label="Anterior"   ></button>
+            <button pButton type="button" (click)="nextStep()" label="Siguiente" *ngIf="activeIndex < 2" [disabled]="activeIndex > 2" ></button>
+            <button pButton type="button" label="Enviar Precios" *ngIf="activeIndex == 2" ></button>
+
+        </div>
+    </div>
+
+
+    <p-dialog [modal]="true" [(visible)]="visibleModal" header="Históricos Código 1001" [style]="{ width: '70vw' }">
+        <div class="content-modal">
+                <p-tabView [(activeIndex)]="tabModal" [style]="{ width: '65vw' }">
+                    <p-tabPanel header="Análisis de Competencia">
+                        <div class="controls">
+                            <div>
+                             Periodicidad
+                             <p-dropdown class="w-100"
+                             [options]="periodicidad"
+                             appendTo="body"
+                             [(ngModel)]="periodicidadSelected"
+                             optionLabel="name"
+                             placeholder="Periodicidad" />
+                            </div>
+                             <div>
+                                 Periodo
+                                 <p-calendar styleClass="w-100"
+                                 [(ngModel)]="rangeDates"
+                                 selectionMode="range"
+                                 [readonlyInput]="true" />
+
+                             </div>
+
+                         </div>
+                         <div class="chart">
+                             <p-chart width="400" height="150" type="line" [data]="dataChart" [options]="options" />
+                         </div>
+                         <div class="table-content">
+                             <p-table [scrollable]="true" scrollDirection="horizontal" class="table-precios" [value]="comparacionCodigo" [tableStyle]="{ 'min-width': '50rem' }"    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+                                 <ng-template pTemplate="header">
+
+                                     <tr>
+
+                                         <th class="fsection">Competidor</th>
+                                         <th class="fsection">Lunes</th>
+                                         <th class="fsection">Martes</th>
+                                         <th class="fsection">Miércoles</th>
+                                         <th class="fsection">Jueves</th>
+                                         <th class="fsection">Viernes</th>
+                                         <th class="fsection">Sábado</th>
+                                         <th class="fsection">Domingo</th>
+
+                                     </tr>
+                                 </ng-template>
+                                 <ng-template pTemplate="body" let-com>
+                                     <tr>
+                                         <td>{{com.competidor}}</td>
+                                         <td [ngClass]="{'price-low': com.d1.mb, 'price-hight': com.d1.mc}">{{com.promo ? '*' : ''}}{{com.d1.precio | currency : '$'}}</td>
+                                         <td [ngClass]="{'price-low': com.d2.mb, 'price-hight': com.d2.mc}">{{com.promo ? '*' : ''}}{{com.d2.precio | currency : '$'}}</td>
+                                         <td [ngClass]="{'price-low': com.d3.mb, 'price-hight': com.d3.mc}">{{com.promo ? '*' : ''}}{{com.d3.precio | currency : '$'}}</td>
+                                         <td [ngClass]="{'price-low': com.d4.mb, 'price-hight': com.d4.mc}">{{com.promo ? '*' : ''}}{{com.d4.precio | currency : '$'}}</td>
+                                         <td [ngClass]="{'price-low': com.d5.mb, 'price-hight': com.d5.mc}">{{com.promo ? '*' : ''}}{{com.d5.precio | currency : '$'}}</td>
+                                         <td [ngClass]="{'price-low': com.d6.mb, 'price-hight': com.d6.mc}">{{com.promo ? '*' : ''}}{{com.d6.precio | currency : '$'}}</td>
+                                         <td [ngClass]="{'price-low': com.d7.mb, 'price-hight': com.d7.mc}">{{com.promo ? '*' : ''}}{{com.d7.precio | currency : '$'}}</td>
+                                     </tr>
+
+                                 </ng-template>
+                             </p-table>
+                         </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="Modificaciones Competitividad">
+                        <p-chart type="line" [data]="dataCompetitividad" [options]="optionsCompetitividad" />
+
+                    </p-tabPanel>
+            </p-tabView>
+
+
+
+
+        </div>
+        <div class="flex justify-content-end gap-2 footer-modal">
+            <p-button label="Cerrar" severity="info" (click)="visibleModal = false" />
+
+        </div>
+    </p-dialog>
+
+
+    <!--
+    <div class="mt-4" *ngIf="activeIndex == -2">
+
+    <div class="card section-cluster">
+        <div class="favoritos">
+            <p-panel header="Favoritos" [toggleable]="true">
+                <p-button icon="pi pi-star" severity="warning" (onClick)="clusterNacional()" label="Cluster Nacional" [text]="true" [raised]="true" />
+                <p-button icon="pi pi-star" severity="warning"  (onClick)="clusterMonterrey()"  label="Cluster Monterrey" [text]="true" [raised]="true" />
+                <p-button icon="pi pi-star" severity="warning"  (onClick)="clusterFrontera()"  label="Cluster Frontera" [text]="true" [raised]="true" />
+            </p-panel>
+        </div>
+        <div class="filters">
+            <div class="filters-selected">
+                <div style="margin-bottom: 10px;">Tiendas Seleccionadas (100):</div>
+
+                <div class="selected">
+
+
+                    <p-messages   [(value)]="messagesFilters" p-message-icon="false"  severity="secondary">
+
+                    </p-messages>
+
+                </div>
+                <p-button styleClass="margin: 10px 0;" (onClick)="messagesFilters = [];" label="Limpiar Filtros (Ver todas las tiendas)"  [outlined]="true"  />
+            </div>
+            <div class="content-accordion" style="margin-top: 25px;">
+                <p-accordion [activeIndex]="0">
+                    <p-accordionTab header="Tipo de Tienda">
+                        <div *ngFor="let category of tipo" class="field-checkbox" style="margin-bottom: 5px;">
+                            <p-checkbox
+                                [(ngModel)]="filtroSelected"
+                                (onChange)="getMessages()"
+                                [label]="category"
+                                name="group"
+                                [value]="category" />
+                        </div>
+                    </p-accordionTab>
+                    <p-accordionTab header="Canal">
+                        <div *ngFor="let category of canales" class="field-checkbox" style="margin-bottom: 5px;">
+                            <p-checkbox
+                                [(ngModel)]="filtroSelected"
+                                [label]="category"
+                                (onChange)="getMessages()"
+                                name="group"
+                                [value]="category" />
+                        </div>
+                    </p-accordionTab>
+                    <p-accordionTab header="Estados">
+                        <div *ngFor="let category of estados" class="field-checkbox" style="margin-bottom: 5px;">
+                            <p-checkbox
+                                [(ngModel)]="filtroSelected"
+                                [label]="category"
+                                (onChange)="getMessages()"
+                                name="group"
+                                [value]="category" />
+                        </div>
+                    </p-accordionTab>
+                    <p-accordionTab header="Bodega">
+                        <div *ngFor="let category of bodegas" class="field-checkbox" style="margin-bottom: 5px;">
+                            <p-checkbox
+                                [(ngModel)]="filtroSelected"
+                                [label]="category"
+                                (onChange)="getMessages()"
+                                name="group"
+                                [value]="category" />
+                        </div>
+                    </p-accordionTab>
+
+                </p-accordion>
+            </div>
+        </div>
+        <div class="result">
+
+            <div class="data">
+                <p-table [(selection)]="selectedTiendas" dataKey="tienda"  [value]="tiendas" [tableStyle]="{ 'min-width': '50rem' }">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th style="width: 4rem">
+                                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                            </th>
+                            <th>Tienda</th>
+                            <th>Estado</th>
+                            <th>Ciudad</th>
+                            <th>Tipo</th>
+                            <th>Bodega</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                        <tr>
+                            <td>
+                                <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                            </td>
+                            <td>{{ product.tienda }}</td>
+                            <td>{{ product.estado }}</td>
+                            <td>{{ product.ciudad }}</td>
+                            <td>{{ product.tipo }}</td>
+                            <td>{{ product.bodega }}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+-->

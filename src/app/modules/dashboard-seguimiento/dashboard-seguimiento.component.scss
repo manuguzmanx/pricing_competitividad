@@ -1,0 +1,1306 @@
+$colorGris: #434343ff;
+$blue: #2661a2;
+$colorBlanco: #ffffff;
+$colorGrisClaro: #f2f2f2ff;
+$colorAzul: #265aa7ff;
+$colorAzulClaro: #4598d3ff;
+$colorAzulClaroDos: #3fbae4ff;
+$colorAzulClaroTres: #66c2e8ff;
+$colorAmarillo: #ffe401ff;
+$colorAmarilloClaro: #ffed80ff;
+
+/* ---------------------------------------------------------------------------------- */
+label {
+  display: block;
+  width: 140px;
+}
+
+.btn {
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+  border: 1px solid #086DB6;
+  background-color: #086DB6;
+  color: white;
+  font-weight: regular;
+  font-size: 1.2rem;
+}
+
+.btn:hover {
+  background-color: #064b7c;
+  border: 1px solid #A6A4A4;
+  color: white;
+}
+
+input[type = "number"] {
+  text-align: center;
+}
+
+.clasemm{
+  width: '100px';
+  max-width: '100px';
+  font-size:'1.2rem';
+  font-weight:'400';
+}
+
+.btn:hover {
+  background-color: #064b7c;
+  border: 1px solid #A6A4A4;
+  color: white;
+}
+
+.loading-mask {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+tr > th {
+position: sticky;
+top: 0;
+background-color: $colorAzulClaroTres;
+}
+
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  margin: 0;
+  padding: 0;
+}
+
+
+.titulos-principal{
+  padding-left: 0px;
+  font-weight: 400;
+  color: #2561a2;
+  font-size: 3em;
+  display: inline;
+}
+
+.titulos-componente{
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #7e7e7e;
+  text-align: center;
+}
+
+
+.card {
+  font-size: 1.2rem;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-slider1{
+  flex: 1 1 10%;
+  text-align: left;
+  padding-right: 10px;
+}
+
+.align-slider{
+  flex: 1 1 50%;
+  text-align: center;
+}
+
+.flex-slider2{
+  flex: 1 1 10%;
+  text-align: right;
+  padding-left: 10px;
+}
+
+td {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  /* background-color: rgb(255, 255, 255); */
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  height: 45px;
+  }
+
+  tr > th {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+    color: white;
+  }
+
+
+.card td,
+.card th {
+  padding: 1rem;
+}
+
+.table-container{
+  margin-top: 10px;
+}
+.card-totales{
+  max-height: 1100px;
+  height: auto;
+  width: auto;
+  scrollbar-color: #d6d6d6 #ffffff;
+  margin-top: 25px;
+}
+
+.filtros {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #f0eef0;
+  border-radius: 20px;
+}
+
+.campo-formulario {
+  width: 350px;
+}
+
+.titulos-filtros{
+  font-weight: 600;
+  color: #8b8b8b;
+  font-size: 1em;
+}
+
+.titulos-component{
+  font-weight: 400;
+  color: #8b8b8b;
+  font-size: 1.5em;
+}
+
+.expandible-kpi {
+  border: 0px solid #e1e1e1;
+  overflow-x: scroll;
+}
+
+.contenedor-tabla {
+  width: 100%;
+  height: auto;
+  min-height: auto;
+  overflow: auto;
+}
+
+.size-50 {
+  width: 100px;
+  margin: 0 auto;
+  padding-left: 0px;
+  padding-right: 0px;
+  max-width: 100%;
+}
+
+.size-70 {
+  width: 100px;
+  margin: 0 auto;
+  padding-left: 0px;
+  padding-right: 0px;
+  max-width: 100%;
+  padding-bottom: 10px;
+}
+
+.size-200 {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.filtros3 {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  background-color: #ffffff;
+}
+
+.paginador {
+  display: flex;
+  height: 35px;
+  justify-content: end;
+}
+
+.btn2 {
+  border-radius: 10px;
+  padding: 0.5rem;
+  border: 1px solid #086DB6;
+  background-color: #086DB6;
+  color: white;
+  font-weight: regular;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.btn {
+  border-radius: 10px;
+  padding: 0.5rem;
+  border: 1px solid #086DB6;
+  background-color: #086DB6;
+  color: white;
+  font-weight: regular;
+  font-size: 1.2rem;
+  width: 95%;
+}
+
+.p-table tr:last-of-type td:first-of-type {
+  border-bottom-left-radius: 20px;
+}
+
+.container-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+
+}
+
+.tarjeta {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  margin: 5px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  padding: 10px;
+  flex: 1 1 calc(16.666% - 20px); /* para 6 tarjetas */
+  /* flex: 1 1 calc(14.286% - 20px); */ /* para 7 tarjetas */
+  box-sizing: border-box;
+  min-width: 200px;
+}
+
+.tarjeta5 {
+  /* background-color: #f8f9fa; */
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  padding: 10px;
+
+  /* flex: 1 1 calc(14.286% - 20px); para 7 tarjetas */
+  box-sizing: border-box;
+  min-width: 190px;
+  min-height: 80px;
+}
+
+.tarjeta3 {
+  /* background-color: #f8f9fa; */
+  background-color: #ffffff;
+  border: 0px solid #ddd;
+  border-radius: 0px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  margin: 5px;
+  margin-bottom: 10px;
+  margin-top: 0px;
+  padding-left: 10px;
+  flex: 1 1 calc(16.666% - 20px); /* para 6 tarjetas */
+  /* flex: 1 1 calc(14.286% - 20px);  para 7 tarjetas */
+  box-sizing: border-box;
+  min-width: 200px;
+}
+
+.tarjeta4 {
+  /* background-color: #f8f9fa; */
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 5px;
+  margin-bottom: 0px;
+  margin-top: 5px;
+  padding: 10px;
+  flex: 1 1 calc(16.666% - 20px);/*  para 6 tarjetas */
+  /* flex: 1 1 calc(14.286% - 20px); para 7 tarjetas */
+  box-sizing: border-box;
+  min-width: 700px;
+  min-height: 80px;
+}
+
+
+
+.tarjeta2 {
+  background-color: #ffffff;
+  border: 0px solid #ddd;
+  border-radius: 8px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  margin: 5px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding: 5px;
+  flex: 1 1 calc(16.666% - 20px);
+  box-sizing: border-box;
+  min-width: 200px;
+}
+
+.tarjeta h3 {
+  margin-top: 0;
+}
+
+.tarjeta p {
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .tarjeta {
+    flex: 1 1 calc(33.333% - 20px); /*3 tarjetas por fila*/
+    /* flex: 1 1 calc(28.572% - 20px); */
+  }
+  .titulos-filtros{
+    font-weight: 400;
+    color: #8b8b8b;
+    font-size: 1.5em;
+  }
+
+
+  .tarjeta3 {
+    min-width: 100px;
+  }
+
+  .titulos-filtros{
+    font-weight: 600;
+    font-size: 0.9em;
+  }
+
+  .tarjeta4 {
+    min-height: 50px;
+  }
+
+  .titulos-principal{
+    font-weight: 400;
+    font-size: 2.5em;
+  }
+
+  .tarjeta2 {
+    height: 40px;
+  }
+
+  td {
+    font-size: 0.9rem;
+    font-weight: 200;
+    text-align: center;
+    vertical-align: middle;
+    /* background-color: rgb(255, 255, 255); */
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    height: 45px;
+    }
+}
+
+@media (max-width: 768px) {
+  .tarjeta {
+    flex: 1 1 calc(50% - 20px); /*2 tarjetas por fila*/
+  }
+
+
+
+  .titulos-filtros{
+    font-weight: 400;
+    color: #8b8b8b;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tarjeta {
+    flex: 1 1 calc(100% - 20px); /*1 tarjeta por fila*/
+  }
+  .tarjeta5{
+    flex: 1 1 calc(100% - 20px); /*4 tarjetas por fila*/
+  }
+}
+
+
+
+$blue: #2661a2;
+
+.app-flujo-precios{
+    padding: 25px;
+}
+.table-precios{
+    margin-top: 25px;
+    th{
+       border: 0px solid $blue;
+        background-color: $blue;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-weight: 400;
+        //padding: 5px;
+    }
+
+
+    td{
+
+        text-align: center;
+
+    }
+    .header1{
+        font-size: 130%;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+
+}
+
+::ng-deep.table-precios{
+    th.header-canal{
+        .p-inputswitch{
+            margin-top: 7px;
+        }
+        .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider{
+            background: #72d898;
+        }
+    }
+    .canal .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider{
+        background: #72d898;
+    }
+
+}
+
+
+th.isection{
+    border-left: 1px solid #76889c !important;
+}
+
+th.fsection{
+    border-right: 1px solid #76889c !important;
+}
+
+td.isection{
+    border-left: 1px solid #2662a24f !important;
+}
+
+td.fsection{
+    border-right: 1px solid #2662a24f !important;
+}
+
+.filtros-promo-precio{
+    color: white;
+    background-color: #2661a2;
+    padding: 10px 15px 10px 0px;
+    border-radius: 6px;
+    &>div{
+        margin-left: 15px;
+    }
+    div.first{
+        border-right: 1px solid #eeeeee;
+        padding-right: 10px;
+    }
+}
+
+
+::ng-deep.p-tooltip{
+   min-width: 300px;
+    .row{
+        display: flex;
+        min-width: 300px;
+        color: rgb(255, 255, 255);
+        &>div:first-child{
+            width: 40%;
+            color: rgb(255, 255, 255);
+            margin-bottom: 10px;
+        }
+        &>div:last-child{
+            width: 60%;
+            font-weight: 600;
+        }
+
+    }
+}
+
+::ng-deep.p-inputtext{
+    width: 70px !important;
+}
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even){
+    background: #f5f5f5;
+}
+
+.price-low{
+    color: #008a00;
+}
+
+.price-hight{
+    color: #d90000;
+}
+.filtros-table-precios{
+    border: 0px solid gray;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #eeeeee;
+    display: flex;
+    padding: 10px 0;
+    align-items: baseline;
+    justify-content: space-around;
+    justify-items: baseline;
+
+    &>div{
+
+
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    label{
+        color: #2662a2;
+    }
+    }
+
+}
+::ng-deep.table-competidores{
+    display: flex;
+    td{
+        padding: 5px 5px;
+        text-align: center;
+    }
+   .acciones{
+        td{
+            height: 50px;
+        }
+        th{
+            height: 74px;
+        }
+        .background-blue{
+            background-color: $blue;
+            color: white;
+            text-align: center;
+    border-left: 0px;
+    border-top: 1px solid rgba(38, 98, 162, 0.3098039216) !important;
+        }
+    }
+    .competidores{
+        td{
+            height: 50px;
+        }
+        th{
+            height: 78px;
+        }
+    }
+    div.acciones{
+        width: 100%;
+    }
+    div.competidores{
+        width: 100%;
+    }
+}
+
+.precio{
+    display: flex;
+    justify-content: center;
+}
+
+
+::ng-deep.p-dropdown-label{
+    padding: 5px 0;
+}
+::ng-deep.p-datepicker-trigger{
+    padding: 0px;
+}
+::ng-deep.section-kpi{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+    p-card{
+        min-width: 32%;
+    }
+    .p-card-body{
+        height: 200px;
+    }
+    .p-card-content{
+        padding: 0 !important;
+
+    }
+    .p-tag.p-tag-danger{
+        background: var(--red-100);
+        color: var(--red-700);
+    }
+    .p-tag.p-tag-success{
+        background: var(--green-100);
+    color: var(--green-700);
+    }
+    .p-tag.p-tag-warning{
+        background: var(--orange-100);
+        color: var(--orange-700);
+    }
+    .secondary .p-tag{
+        background-color: #f1f5f9 !important;
+        color: #475569 !important;
+
+    }
+    .title{
+        font-weight: 700;
+        color: #9e9e9e;
+        display: flex;
+        justify-content: space-between;
+    }
+    .item{
+        text-align: left;
+        .value{
+            color: $blue;
+            font-size: 30px;
+            max-height: 150px;
+            height: 125px;
+            p-chart{
+                height: 130px;
+                &>div{
+                    position: absolute !important;
+                    margin-top: -15px;
+                    margin-left: 60px;
+
+                }
+            }
+            small{
+                font-size: 50%;
+            }
+            &.number{
+
+                text-align: center;
+                font-size: 75px;
+                position: relative;
+                top: 20px;
+
+            }
+        }
+        .text{
+            font-size: 125%;
+            color: gray;
+            text-align: right;
+        }
+    }
+
+}
+
+::ng-deep.rango{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 20px;
+    min-width: 100% !important;
+    .p-card{
+        width: 100%;
+    }
+    .title{
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 115%;
+        padding: 3px 0;
+        color: white;
+        text-align: center;
+        background-color: #2661a2;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .p-card-content{
+        padding: 0px;
+    }
+    .chart{
+        width: 100%;
+        min-height: 140px;
+        margin: 15px 0 -5px 0;
+
+    }
+}
+.footer-steps{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tooltipChart{
+    display: none;
+}
+
+.showPrecios{
+    cursor: pointer;
+}
+
+.tooltip-info-precios{
+    display: none;
+}
+
+.showChart{
+    cursor: pointer;
+}
+::ng-deep.w-100 .p-dropdown{
+    width: 100%;
+}
+
+
+
+::ng-deep.w-100{
+    width: 100%;
+}
+
+.titulo-cinta{
+  width: 100%;
+  margin-bottom: 5px;
+  div{
+    background-color: $blue;
+    color: white;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 8px;
+    width: fit-content;
+  }
+}
+
+.showPrecios:hover .tooltip-info-precios{
+    color: $blue;
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: 2px solid $blue;
+    position: absolute;
+    z-index: 1;
+    width: 300px;
+    background-color: white;
+    z-index: 9999;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+::ng-deep p-splitter{
+    max-width: 100%;
+}
+::ng-deep .p-splitter{
+     width: 100%;
+}
+.showChart:hover{
+
+    .tooltipChart{
+        color: $blue;
+        padding: 10px 5px;
+        border: 3px solid $blue;
+        //display: block;
+        position: absolute;
+        width: 450px;
+        height: 250px;
+        background-color: white;
+        z-index: 9999;
+
+    }
+}
+
+::ng-deep.section-cluster{
+    p-messages{
+        width: 100%;
+    }
+    .p-message-wrapper{
+        padding: 5px;
+    }
+    infocircleicon.p-icon-wrapper{
+       display: none;
+    }
+}
+
+::ng-deep.tab-view-kpi{
+  .p-tabview-nav{
+    background-color: #eeeeee;
+    .p-tabview-nav-link{
+      background-color: $blue;
+      color: white;
+      font-weight: 500;
+      border: 1px solid white;
+      &[aria-selected="false"]{
+       background-color: #2661a2bd; 
+      }
+    }
+  }
+
+  .chart.historico{
+    flex-wrap: nowrap;
+    display: flex;
+    .w-70{
+      width: 70%;
+    }
+    .w-30{
+      width: 30%;
+    }
+  }
+  .p-tabview .p-tabview-panels{
+    padding: 0px;
+ 
+    .tarjeta5 {
+      margin-top: 0;
+      border-radius: 0;
+      height: 270px;
+      .titulos-componente{
+        
+        background-color: white;
+        color: $blue;
+        border-bottom: 1px solid $blue;
+      
+        
+      }
+      .indicadores{
+        margin-bottom: 15px;
+      }
+
+      .kpis-historicos{
+        width: 100%;
+        
+        th{
+          background-color: $blue;
+        }
+        td{
+          border: 1px solid #c8c7c7;
+        }
+      }
+    }
+  }
+}
+::ng-deep.section-cluster{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .favoritos{
+        width: 100%;
+        margin-bottom: 20px;
+        .p-panel-content{
+            display: flex;
+            justify-content: space-around;
+        }
+        .p-panel-header{
+            background: #eeeeee;
+    border: none;
+    color: $blue;
+        }
+
+    }
+    .filters{
+        width: 29%;
+        .p-accordion-header-link{
+            background: #eeeeee;
+            border: none;
+            color: $blue;
+        }
+        .selected{
+            display: flex;
+            justify-content: normal;
+            flex-wrap: wrap;
+            &>p-message{
+                margin: 5px;
+            }
+        }
+    }
+    .result{
+        width: 70%;
+        .filters-selected{
+            width: 100%;
+            min-height: 100px;
+            background-color: gray;
+        }
+        .data{
+           padding: 0 0 0 25px;
+           th{
+            background-color: $blue;
+            color: white;
+            font-weight: 400;
+           }
+        }
+    }
+}
+
+.container-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+
+
+  }
+  .titulos-componente{
+    font-size: 115%;
+    color: $blue;
+    text-align: center;
+  }
+
+.tarjeta {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    margin: 5px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1 1 calc(16.666% - 20px); /* para 6 tarjetas */
+    /* flex: 1 1 calc(14.286% - 20px); */ /* para 7 tarjetas */
+    box-sizing: border-box;
+    min-width: 200px;
+  }
+  .w-100{
+    min-width: 100% !important;
+    width: 100% !important;
+  }
+  .mb-0{
+    margin-bottom: 0px !important;
+  }
+::ng-deep .app-dashboard-seguimiento
+  {
+    .tarjeta5 {
+    /* background-color: #f8f9fa; */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    margin-bottom: 5px;
+    width: 180px;
+    padding: 0px;
+
+    /* flex: 1 1 calc(14.286% - 20px); para 7 tarjetas */
+    box-sizing: border-box;
+    min-width: 180px;
+    min-height: 180px;
+    .titulos-componente{
+        margin-bottom: 10px;
+        border-bottom: 2px solid #76889c;
+        font-weight: 400;
+        font-size: 115%;
+        padding: 10px 0;
+    color: white;
+    text-align: center;
+    background-color: $blue;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    }
+    .chart{
+        padding: 0 5px;
+        position: relative;
+        width: 100%;
+        .value-kpi{
+            color: $blue;
+            font-size: 50px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 300;
+            margin-bottom: 7px;
+
+        }
+        .helper{
+            width: 100%;
+            color: gray;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .valor{
+          position: absolute;
+          text-align: center;
+          width:100%;
+          z-index: 9;
+          margin-top: 37px;
+          font-size: 130%;
+          color: $blue;
+          &.center{
+              margin-top: 33px;
+              margin-left: -5px;
+              .val{
+                  color: $blue;
+                  
+              }
+              .descripcion{
+                  font-size: 60%;
+              }
+          }
+         
+          &.double{
+              width: 88%;
+              z-index: 9;
+              display: flex;
+              justify-content: space-between;
+              margin-top: 90px;
+              font-size: 125%;
+              margin-left: 15px;
+              
+            }
+      }
+
+        .gray{
+            color: #475569 !important;
+        }
+        .green{
+            color:#1ba54e;
+        }
+        .blue{
+          color: $blue;
+      }
+        .orange{
+            color:#f97316;
+        }
+        .pink{
+            color:#ec4899;
+        }
+        .cyan{
+            color:#85b2f9;
+        }
+        .indicadores{
+            display: flex;
+            justify-content: space-between;
+           margin-top:15px;
+           text-align: center;
+           width: 100%;
+           font-size: 70%;
+           i{
+            margin-right: 5px;
+           }
+           .point{
+            display: flex;
+            justify-items: baseline;
+           }
+
+        }
+    }
+
+  }
+
+::ng-deep.dias-data{
+  th{
+    background-color: $blue;
+  }
+}
+.dias-chart{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  p-chart{
+    width: calc(100% - 300px);
+
+  }
+}
+
+::ng-deep.check-send{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #edebeb;
+    border-radius: 5px;
+    padding: 15px;
+    .tarjeta5{
+        margin-bottom: 15px;
+    }
+    .section-kpi{
+       width: 100%;
+       .indicadores{
+        display: flex;
+        flex-wrap: wrap;
+        position: absolute;
+        width: 130px;
+        margin-top: 20px;
+        p-tag{
+            margin-top: -5px;
+        }
+    }
+    }
+    .detalle{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        margin-bottom: 20px;
+        .p-card{
+            width: 100%;
+        }
+        .title{
+            font-weight: 700;
+            color: #9e9e9e;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .kpi{
+            display: flex;
+            justify-content: space-around;
+
+            .item{
+                width: 19%;
+                flex-wrap: wrap;
+
+            }
+            .value{
+                font-size: 140%;
+                color: $blue;
+                width: 100%;
+                margin-bottom: 5px;
+                text-align: center;
+            }
+            .text{
+                width: 100%;
+                font-size: 95%;
+                color: gray;
+                text-align: center;
+            }
+        }
+        .pi.success{
+            color:#008a00;
+        }
+        .pi.danger{
+            color:#d90000;
+        }
+    }
+
+
+}
+
+.warning-price{
+    background-color: #e8ed393b;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.titulos-principal{
+    padding-left: 10px;
+    font-weight: 400;
+    color: #2561a2;
+    font-size: 3em;
+  }
+
+
+  .content-modal{
+    display: flex;
+    flex-wrap: wrap;
+    .controls{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background-color: #eeeeee;
+        border-radius: 15px;
+        padding: 20px 10px;
+        &>div{
+            width: 20%;
+        }
+    }
+    .chart{
+        padding-top: 20px;
+        width: 100%;
+    }
+    .table-content{
+        padding-top: 20px;
+        width: 100%;
+    }
+  }
+
+  .footer-modal{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+
+  .folio{
+    text-align: right;
+    padding-right: 20px;
+    position: absolute;
+    right: 30px;
+    top: 40px;
+    .label{
+        color:gray;
+        font-size: 130%;
+        span{
+            color: $blue;
+            font-size: 150%;
+        }
+    }
+    .date{
+        color:gray;
+        font-size: 100%;
+        span{
+            color: $blue;
+            font-size: 110%;
+        }
+    }
+  }
+::ng-deep.seguimiento-filtrados{
+    width: 100%;
+    margin-top: 15px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    .kpis{
+      width: 60%;
+      display: flex;
+      flex-wrap: wrap;
+      padding-right: 10px;
+      justify-content: space-between;
+      .tarjeta5{
+        width: 24%;
+      }
+      .titulo-cinta{
+        margin-bottom: 5px;
+      }
+    }
+    .ranking{
+      width: 40%;
+     
+      td{
+        height: 30px !important;
+      }
+      #tbl-ranking{
+        width: 100%;
+        margin-top: 5px;
+        th{
+          background-color: $blue;
+          padding: 10px 5px 5px 5px;;
+          text-align: center;
+          &:first-child{
+            border-top-left-radius: 5px;
+          }
+          &:last-child{
+            border-top-right-radius: 5px;
+          }
+
+        }
+      }
+    }
+    .distribucion{
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 5px;
+      .indicadores{
+        width: 50%;
+        margin-left: 25%;
+      }
+    }
+  }
+  .detalle{
+    .titulos-componente{
+      margin-bottom: 0;
+    }
+    #tbl-codigos{
+      th{
+        background-color: $blue;
+      }
+    }
+  }
+  
+}

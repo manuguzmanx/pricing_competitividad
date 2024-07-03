@@ -1,0 +1,678 @@
+
+$blue: #2661a2;
+
+.app-flujo-precios{
+    padding: 25px;
+}
+.table-precios{
+    margin-top: 25px;
+    th{
+       border: 0px solid $blue;
+        background-color: $blue;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-weight: 400;
+        //padding: 5px;
+    }
+
+
+    td{
+
+        text-align: center;
+
+    }
+    .header1{
+        font-size: 130%;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+
+}
+
+::ng-deep.table-precios{
+    th.header-canal{
+        .p-inputswitch{
+            margin-top: 7px;
+        }
+        .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider{
+            background: #72d898;
+        }
+    }
+    .canal .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider{
+        background: #72d898;
+    }
+
+}
+
+
+th.isection{
+    border-left: 1px solid #76889c !important;
+}
+
+th.fsection{
+    border-right: 1px solid #76889c !important;
+}
+
+td.isection{
+    border-left: 1px solid #2662a24f !important;
+}
+
+td.fsection{
+    border-right: 1px solid #2662a24f !important;
+}
+
+.filtros-promo-precio{
+    color: white;
+    background-color: #2661a2;
+    padding: 10px 15px 10px 0px;
+    border-radius: 6px;
+    &>div{
+        margin-left: 15px;
+    }
+    div.first{
+        border-right: 1px solid #eeeeee;
+        padding-right: 10px;
+    }
+}
+
+
+::ng-deep.p-tooltip{
+   min-width: 300px;
+    .row{
+        display: flex;
+        min-width: 300px;
+        color: rgb(255, 255, 255);
+        &>div:first-child{
+            width: 40%;
+            color: rgb(255, 255, 255);
+            margin-bottom: 10px;
+        }
+        &>div:last-child{
+            width: 60%;
+            font-weight: 600;
+        }
+
+    }
+}
+
+::ng-deep.p-inputtext{
+    width: 70px !important;
+}
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even){
+    background: #f5f5f5;
+}
+
+.price-low{
+    color: #008a00;
+}
+
+.price-hight{
+    color: #d90000;
+}
+.filtros-table-precios{
+    border: 0px solid gray;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #eeeeee;
+    display: flex;
+    padding: 10px 0;
+    align-items: baseline;
+    justify-content: space-around;
+    justify-items: baseline;
+
+    &>div{
+
+
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    label{
+        color: #2662a2;
+    }
+    }
+
+}
+::ng-deep.table-competidores{
+    display: flex;
+    td{
+        padding: 5px 5px;
+        text-align: center;
+    }
+   .acciones{
+        td{
+            height: 50px;
+        }
+        th{
+            height: 74px;
+        }
+        .background-blue{
+            background-color: $blue;
+            color: white;
+            text-align: center;
+    border-left: 0px;
+    border-top: 1px solid rgba(38, 98, 162, 0.3098039216) !important;
+        }
+    }
+    .competidores{
+        td{
+            height: 50px;
+        }
+        th{
+            height: 78px;
+        }
+    }
+    div.acciones{
+        width: 100%;
+    }
+    div.competidores{
+        width: 100%;
+    }
+}
+
+.precio{
+    display: flex;
+    justify-content: center;
+}
+
+::ng-deep.p-inputtext{
+    max-width: 100px;
+    font-size: 1rem;
+    font-weight: 200;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    height: 25px;
+}
+::ng-deep.p-dropdown-label{
+    padding: 5px 0;
+}
+::ng-deep.p-datepicker-trigger{
+    padding: 0px;
+}
+::ng-deep.section-kpi{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+    p-card{
+        min-width: 32%;
+    }
+    .p-card-body{
+        height: 200px;
+    }
+    .p-card-content{
+        padding: 0 !important;
+
+    }
+    .p-tag.p-tag-danger{
+        background: var(--red-100);
+        color: var(--red-700);
+    }
+    .p-tag.p-tag-success{
+        background: var(--green-100);
+    color: var(--green-700);
+    }
+    .p-tag.p-tag-warning{
+        background: var(--orange-100);
+        color: var(--orange-700);
+    }
+    .secondary .p-tag{
+        background-color: #f1f5f9 !important;
+        color: #475569 !important;
+
+    }
+    .title{
+        font-weight: 700;
+        color: #9e9e9e;
+        display: flex;
+        justify-content: space-between;
+    }
+    .item{
+        text-align: left;
+        .value{
+            color: $blue;
+            font-size: 30px;
+            max-height: 150px;
+            height: 125px;
+            p-chart{
+                height: 130px;
+                &>div{
+                    position: absolute !important;
+                    margin-top: -15px;
+                    margin-left: 60px;
+
+                }
+            }
+            small{
+                font-size: 50%;
+            }
+            &.number{
+
+                text-align: center;
+                font-size: 75px;
+                position: relative;
+                top: 20px;
+
+            }
+        }
+        .text{
+            font-size: 125%;
+            color: gray;
+            text-align: right;
+        }
+    }
+
+}
+
+::ng-deep.rango{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 20px;
+    min-width: 100% !important;
+    .p-card{
+        width: 100%;
+    }
+    .title{
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 115%;
+        padding: 3px 0;
+        color: white;
+        text-align: center;
+        background-color: #2661a2;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .p-card-content{
+        padding: 0px;
+    }
+    .chart{
+        width: 100%;
+        min-height: 140px;
+        margin: 15px 0 -5px 0;
+
+    }
+}
+.footer-steps{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tooltipChart{
+    display: none;
+}
+
+.showPrecios{
+    cursor: pointer;
+}
+
+.tooltip-info-precios{
+    display: none;
+}
+
+.showChart{
+    cursor: pointer;
+}
+::ng-deep.w-100 .p-dropdown{
+    width: 100%;
+}
+::ng-deep.w-100 .p-calendar{
+    width: 100%;
+}
+
+::ng-deep.w-100{
+    width: 100%;
+}
+
+.showPrecios:hover .tooltip-info-precios{
+    color: $blue;
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: 2px solid $blue;
+    position: absolute;
+    z-index: 1;
+    width: 300px;
+    background-color: white;
+    z-index: 9999;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+::ng-deep p-splitter{
+    max-width: 100%;
+}
+::ng-deep .p-splitter{
+     width: 100%;
+}
+.showChart:hover{
+
+    .tooltipChart{
+        color: $blue;
+        padding: 10px 5px;
+        border: 3px solid $blue;
+        //display: block;
+        position: absolute;
+        width: 450px;
+        height: 250px;
+        background-color: white;
+        z-index: 9999;
+
+    }
+}
+
+::ng-deep.section-cluster{
+    p-messages{
+        width: 100%;
+    }
+    .p-message-wrapper{
+        padding: 5px;
+    }
+    infocircleicon.p-icon-wrapper{
+       display: none;
+    }
+}
+::ng-deep.section-cluster{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .favoritos{
+        width: 100%;
+        margin-bottom: 20px;
+        .p-panel-content{
+            display: flex;
+            justify-content: space-around;
+        }
+        .p-panel-header{
+            background: #eeeeee;
+    border: none;
+    color: $blue;
+        }
+
+    }
+    .filters{
+        width: 29%;
+        .p-accordion-header-link{
+            background: #eeeeee;
+            border: none;
+            color: $blue;
+        }
+        .selected{
+            display: flex;
+            justify-content: normal;
+            flex-wrap: wrap;
+            &>p-message{
+                margin: 5px;
+            }
+        }
+    }
+    .result{
+        width: 70%;
+        .filters-selected{
+            width: 100%;
+            min-height: 100px;
+            background-color: gray;
+        }
+        .data{
+           padding: 0 0 0 25px;
+           th{
+            background-color: $blue;
+            color: white;
+            font-weight: 400;
+           }
+        }
+    }
+}
+
+.container-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+
+
+  }
+  .titulos-componente{
+    font-size: 115%;
+    color: $blue;
+    text-align: center;
+  }
+
+.tarjeta {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    margin: 5px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1 1 calc(16.666% - 20px); /* para 6 tarjetas */
+    /* flex: 1 1 calc(14.286% - 20px); */ /* para 7 tarjetas */
+    box-sizing: border-box;
+    min-width: 200px;
+  }
+  .w-100{
+    min-width: 100% !important;
+    width: 100% !important;
+  }
+  .mb-0{
+    margin-bottom: 0px !important;
+  }
+::ng-deep .app-flujo-precios .tarjeta5 {
+    /* background-color: #f8f9fa; */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 5px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+
+    flex: 1 1 calc(16.666% - 20px);/*  para 6 tarjetas */
+    /* flex: 1 1 calc(14.286% - 20px); para 7 tarjetas */
+    box-sizing: border-box;
+    min-width: 200px;
+    min-height: 80px;
+    .titulos-componente{
+        margin-bottom: 10px;
+        border-bottom: 2px solid #76889c;
+        font-weight: 400;
+        font-size: 115%;
+        padding: 10px 0;
+    color: white;
+    text-align: center;
+    background-color: $blue;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    }
+    .chart{
+        padding: 5px;
+        position: relative;
+        width: 100%;
+        .value-kpi{
+            color: $blue;
+            font-size: 50px;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 300;
+            margin-bottom: 7px;
+
+        }
+        .helper{
+            width: 100%;
+            color: gray;
+            text-align: center;
+        }
+
+        .valor{
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            z-index: 9;
+            margin-top: 37px;
+            font-size: 140%;
+            color: $blue;
+            &.center{
+                margin-top: 30px;
+                margin-left: -5px;
+                .val{
+                    color: $blue;
+                    
+                }
+                .descripcion{
+                    font-size: 60%;
+                }
+            }
+           
+            &.double{
+                width: 88%;
+                z-index: 9;
+                display: flex;
+                justify-content: space-between;
+                margin-top: 80px;
+                font-size: 125%;
+                margin-left: 15px;
+                
+              }
+        }
+        .gray{
+            color: #475569 !important;
+        }
+        .green{
+            color:#1ba54e;
+        }
+        .blue{
+            color: $blue;
+        }
+        .orange{
+            color:#f97316;
+        }
+        .pink{
+            color:#ec4899;
+        }
+        .cyan{
+            color:#06b6d4;
+        }
+        .indicadores{
+            display: flex;
+            justify-content: space-between;
+           margin-top:5px;
+           text-align: center;
+           width: 100%;
+           font-size: 70%;
+           &.top{
+            margin-top: -10px;
+           }
+           i{
+            margin-right: 5px;
+           }
+           .point{
+            display: flex;
+            justify-items: baseline;
+           }
+
+        }
+    }
+
+  }
+
+
+
+::ng-deep.check-send{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #edebeb;
+    border-radius: 5px;
+    padding: 15px;
+    .tarjeta5{
+        margin-bottom: 15px;
+    }
+    .section-kpi{
+       width: 100%;
+       .indicadores{
+        display: flex;
+        flex-wrap: wrap;
+        position: absolute;
+        width: 130px;
+        margin-top: 20px;
+        p-tag{
+            margin-top: -5px;
+        }
+    }
+    }
+    .detalle{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        margin-bottom: 20px;
+        .p-card{
+            width: 100%;
+        }
+        .title{
+            font-weight: 700;
+            color: #9e9e9e;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .kpi{
+            display: flex;
+            justify-content: space-around;
+
+            .item{
+                width: 19%;
+                flex-wrap: wrap;
+
+            }
+            .value{
+                font-size: 140%;
+                color: $blue;
+                width: 100%;
+                margin-bottom: 5px;
+                text-align: center;
+            }
+            .text{
+                width: 100%;
+                font-size: 95%;
+                color: gray;
+                text-align: center;
+            }
+        }
+        .pi.success{
+            color:#008a00;
+        }
+        .pi.danger{
+            color:#d90000;
+        }
+    }
+
+
+}
+
+.helper{
+    color: gray;
+    font-style: italic;
+    text-align: center;
+    margin: 10px;
+}
+.warning-price{
+    background-color: #e8ed393b;
+}
+
+.clickable{
+    cursor: pointer;
+}
+

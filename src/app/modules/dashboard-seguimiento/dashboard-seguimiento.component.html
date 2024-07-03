@@ -1,0 +1,463 @@
+<div class="app-dashboard-seguimiento">
+
+  <div class="container-filtros" >
+      <div class="tarjeta2" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        <div>
+          <label class="titulos-principal">DASHBOARD DE COMPETITIVIDAD</label>
+        </div>
+    
+    </div>
+    
+    <div style="width: 100%;">
+     
+      <div class="container-filtros" style="margin-bottom: 1rem;">
+    
+  
+        <div class="tarjeta4" style="display: flex; flex-wrap: wrap;">
+        <div class="tarjeta3">
+          <label  class="titulos-filtros">Macrocategoría</label>
+          <form [formGroup]="macrocategoriaFormGroup">
+            <p-multiSelect
+              [options]="macrocategoria"
+              formControlName="selectedMacrocategoria"
+              optionLabel="name"
+              placeholder="Seleccionar macrocategoria"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label  class="titulos-filtros">Categoría</label>
+          <form [formGroup]="categoriaFormGroup">
+            <p-multiSelect
+              [options]="categoria"
+              formControlName="selectedCategoria"
+              optionLabel="name"
+              placeholder="Seleccionar categoria"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Subcategoría</label>
+          <form [formGroup]="subcategoriaFormGroup">
+            <p-multiSelect
+              [options]="subcategoria"
+              formControlName="selectedSubcategoria"
+              optionLabel="name"
+              placeholder="Seleccionar subcategoria"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Clase</label>
+          <form [formGroup]="claseFormGroup">
+            <p-multiSelect
+              [options]="clase"
+              formControlName="selectedClase"
+              optionLabel="name"
+              placeholder="Seleccionar clase"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Familia</label>
+          <form [formGroup]="familiaFormGroup">
+            <p-multiSelect
+              [options]="familia"
+              formControlName="selectedFamilia"
+              optionLabel="name"
+              placeholder="Seleccionar familia"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Proveedor</label>
+          <form [formGroup]="proveedorFormGroup">
+            <p-multiSelect
+              [options]="proveedor"
+              formControlName="selectedProveedor"
+              optionLabel="name"
+              placeholder="Seleccionar proveedor"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div style="margin-left: 10px; align-items: end; display: flex; padding-bottom: 3px;">
+          <p-button icon="pi pi-replay"  pTooltip="Limpiar filtros" tooltipPosition="bottom"></p-button>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Fecha Evaluación</label>
+          <form [formGroup]="proveedorFormGroup">
+              <p-calendar
+              dateFormat="dd/MM/yy"
+              [(ngModel)]="fechaFiltro"
+              [style]="{'width':'100%'}"
+              [showIcon]="true"
+              [showOnFocus]="false"
+              placeholder="{{fechaFiltro | date : 'dd/MM/yyyy'}}"  
+              (click)="selectedfecha()"/>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Folio</label>
+          <form [formGroup]="proveedorFormGroup">
+              <p-multiSelect
+              [options]="proveedor"
+              formControlName="selectedProveedor"
+              optionLabel="name"
+              placeholder="Seleccionar folio"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Código</label>
+          <form [formGroup]="proveedorFormGroup">
+              <p-multiSelect
+              [options]="proveedor"
+              formControlName="selectedProveedor"
+              optionLabel="name"
+              placeholder="Seleccionar código"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div style="width: 23%; display: flex; justify-content: end; align-items: end;" >
+          <p-button icon="pi pi-table" label="Seguimiento de SKU's Filtrados (325)"  pTooltip="Realizar Seguimiento" tooltipPosition="bottom"/>
+        </div>
+      </div>
+    
+      
+       
+    <div class="seguimiento-filtrados">
+      <div class="kpis">
+          <div class="titulo-cinta">
+              <div>
+                  Evaluación de códigos al dia seleccionado ({{fechaFiltro | date : 'dd/MM/yyyy'}})
+              </div>
+              
+          </div>
+  
+  
+  
+          
+          <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+              <div class="titulos-componente">
+                 SKU's Evaluados
+                </div>
+              <div class="chart">
+                  <div class="value-kpi">325</div>
+                  <div class="helper"><small>9% de los códigos coinciden con los filtros seleccionados</small></div>
+              </div>
+          
+          </div>
+          <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+              <div class="titulos-componente">
+                  Fuera de Competitividad
+                </div>
+              <div class="chart">
+                  <div class="value-kpi">125</div>
+                  <div class="helper"><small>38% Fuera de Competitividad</small></div>
+              </div>
+          </div>
+          
+           <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+              <div class="titulos-componente">
+                  % Diferencial 
+                </div>
+              <div class="chart">
+                  <div class="value-kpi">43 %</div>
+                  <div class="helper"><small>VS Mejor Competidor</small></div>
+              </div>
+          </div>
+          <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+              <div class="titulos-componente">
+                 SKU's Atendidos 
+                </div>
+              <div class="chart">
+                  <div class="value-kpi">25</div>
+                  <div class="helper"><small>5 Folios Pendientes contienen al menos 1 de los codigos evaluados</small></div>
+              </div>
+          
+          </div>
+  
+          <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+            <div class="titulos-componente">
+                Total SKU's
+              </div>
+            <div class="chart">
+                <div class="valor  center">
+                    <div class="val">3500</div>
+                    <div class="descripcion">Total</div>
+                </div>
+                <div class="valor double">
+                
+                    <div class="gray">9%</div>
+                    <div class="blue">91%</div>
+                </div>
+                <p-chart type="doughnut" width="100" [data]="evaluadosChart" [options]="optionsReview" />
+                <div class="indicadores">
+                    <div class="gray point"> <i class="pi pi-circle-on"></i>Evaluados (5)</div> 
+                    <div class="blue point"> <i class="pi pi-circle-on"></i>No Evaluados (10)</div> 
+         
+                </div>
+            </div>
+           
+      
+      
+        </div>
+      
+     
+          <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+              <div class="titulos-componente">
+                  Competitividad
+                </div>
+              <div class="chart">
+                <div class="valor  center">
+                  <div class="val">325</div>
+                  <div class="descripcion">Total</div>
+              </div>
+              <div class="valor double">
+                <div class="gray">19%</div>
+                <div class="blue">81%</div>
+            </div>
+                  <p-chart type="doughnut" width="100" [data]="fueraCompChart" [options]="optionsReview" />
+                  <div class="indicadores">
+                      <div class="gray point"> <i class="pi pi-circle-on"></i>Fuera (128) </div> 
+                      <div class="blue point"> <i class="pi pi-circle-on"></i>Dentro (125)</div> 
+           
+                  </div>
+              </div>
+             
+        
+        
+          </div>
+  
+  
+      
+          <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+              <div class="titulos-componente">
+                  Corregidos
+                </div>
+              <div class="chart">
+                  <p-chart type="pie" height="100" [data]="atendidosGlobalData" [options]="atendidosGlobalOptionChart" />
+                  <div class="indicadores">
+                      <div class="blue point"> <i class="pi pi-circle-on"></i>1 día </div> 
+                      <div class="cyan point"> <i class="pi pi-circle-on"></i>2 días</div> 
+                      <div class="gray point"> <i class="pi pi-circle-on"></i>+ 2 días</div> 
+           
+                  </div>
+              </div>
+          </div>
+        <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+              <div class="titulos-componente">
+                  Atendidos
+                </div>
+              <div class="chart">
+              
+                  <p-chart type="pie" height="100" [data]="atendidosGlobalData" [options]="atendidosGlobalOptionChart" />
+                  <div class="indicadores">
+                      <div class="blue point"> <i class="pi pi-circle-on"></i>1 día </div> 
+                      <div class="cyan point"> <i class="pi pi-circle-on"></i>2 días</div> 
+                      <div class="gray point"> <i class="pi pi-circle-on"></i>+ 2 días</div> 
+           
+                  </div>
+              </div>
+          </div>
+        </div>
+      <div class="ranking">
+          <div class="titulo-cinta">
+              <div>
+                  Ranking de Categorías
+              </div>
+              
+          </div>
+          <p-table #tableRanking [value]="ranking" 
+          [(selection)]="selectedSKU"  dataKey="num_folio" [scrollable]="true" scrollHeight="400px" id="tbl-ranking">
+              <ng-template style="position: absolute;" pTemplate="header">
+                <tr>
+                  <th style="width: 4rem"><p-tableHeaderCheckbox /></th>
+                  <th>No</th>
+                  <th [width]="200">Macrocategoría</th>
+                  <th>Fuera de Competitividad</th>
+                  <th>% Fuera de Competitividad</th>
+                  <th>% Diferencial VS Competidor más bajo</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
+                <tr>
+                  <td>
+                      <p-tableCheckbox [value]="row" />
+                  </td>
+                  <td>{{rowIndex + 1}}</td>
+                  <td>{{row.name}}</td>
+                  <td>{{row.fueraCom}}</td>
+                  <td>{{row.prcFueraCom}}</td>
+                  <td>{{row.diferencial}}</td>
+                  </tr>
+              </ng-template>
+            </p-table>
+      </div>
+      <div class="distribucion">
+        <p-tabView class="tab-view-kpi">
+          <p-tabPanel header="Distribución de Sku´s">
+            <div class="tarjeta5 w-100 distribucion" style="display: block; flex-wrap: wrap;">
+              <div class="titulos-componente">
+                  Distribución de Sku´s de Acuerdo a su % Diferencial VS Mejor Competidor
+              </div>
+              <div class="chart flex justify-content-center">
+                          
+                  <p-chart type="bar" height="180" [data]="diferencialChart" [options]="optionsDiferencial" />
+                  <div class="indicadores w-80">
+                      <div class="blue point"> <i class="pi pi-circle-on"></i>Atendidos hace 1 día</div> 
+                      <div class="cyan point"> <i class="pi pi-circle-on"></i>Atendidos hace 2 día</div> 
+                      <div class="gray point"> <i class="pi pi-circle-on"></i>Atendidos hace más de 2 días</div> 
+           
+                  </div>
+          </div>
+          </div>
+          </p-tabPanel>
+          <p-tabPanel header="KPI's Histórico Total">
+            <div class="tarjeta5 w-100 distribucion" style="display: block; flex-wrap: wrap;">
+              <div class="titulos-componente">
+                  KPI's HIstórcos
+              </div>
+              <div class="chart historico flex justify-content-center">
+                     <div class="w-70">
+                       <p-chart type="line" height="180px" [data]="dataChartHistorico" [options]="optionsDataChartHistorico" />
+                     </div>    
+                  
+                  <div class=" w-30">
+                   <table class="kpis-historicos">
+                    <thead>
+                      <tr>
+                        <th colspan="5">Lunes</th>
+                      </tr>
+                      <tr>
+                        <th>Total</th>
+                        <th colspan="2">Fuera de Competividad</th>
+                        <th colspan="2">Corregidos</th>
+                       
+                      </tr>
+                      <tr>
+                        <th>#</th>
+                        <th>#</th>
+                        <th>%</th>
+   
+                        <th>#</th>
+                        <th>%</th>
+   
+              
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>325</td>
+                        <td>133</td>
+                        <td>41%</td>
+                        <td>25</td>
+                        <td>7%</td>
+                 
+                      </tr>
+                    </tbody>
+                   </table>
+           <table class="kpis-historicos">
+            <thead>
+              <tr>
+                <th colspan="3">Diferencial (%)</th>
+              </tr>
+              <tr>
+                <th colspan="1">Diferencial Original</th>
+                <th colspan="1">Diferencial Corregidos</th>
+                <th colspan="1">Diferencial Final</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>43%</td>
+                <td>2%</td>
+                <td>41%</td>
+              </tr>
+            </tbody>
+           </table>
+                  </div>
+          </div>
+          </div>
+          </p-tabPanel>
+          <p-tabPanel header="Seguimiento de SKU's Evaluados en {{fechaFiltro | date : 'dd-MM-yyyy'}}">
+            <div class="dias-data">
+              <p-table [value]="seguimientoSkuEvaluados">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th [width]="300">KPI</th>
+                        <th>{{seguimientoSkuEvaluados[0].dia | date : 'dd/MM/yyy'}}</th>
+                        <th>{{seguimientoSkuEvaluados[1].dia | date : 'dd/MM/yyy'}}</th>
+                        <th>{{seguimientoSkuEvaluados[2].dia | date : 'dd/MM/yyy'}}</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-sku let-rowIndex="rowIndex">
+                    <td *ngIf="rowIndex == 0">
+                      <div *ngFor="let kpi of sku.data"  >
+                        {{kpi.label}}
+                      </div>
+                     
+                    </td>
+                     <td>
+                      <div *ngFor="let kpi of sku.data">
+                        {{kpi.valor}}
+                      </div>
+                     </td>
+                   
+                </ng-template>
+            </p-table>
+            
+            
+            </div>
+            <div class="dias-chart">
+              <p-chart type="line" height="180px" [data]="dataSeguimiento" [options]="optionsSeguimiento" />
+            </div>
+          </p-tabPanel>
+      </p-tabView>
+      </div>
+      
+      
+  
+      <div  class="tarjeta5 w-100 detalle">
+          <div class="titulos-componente m-0">
+              Detalle de SKU's Filtrados
+          </div>
+          <p-table #tableCodigos [value]="codigosDetalle"  [(selection)]="selectedSKU"  dataKey="num_folio" [scrollable]="true" scrollHeight="400px" id="tbl-codigos">
+              <ng-template style="position: absolute;" pTemplate="header">
+                <tr>
+                  <th style="width: 4rem"><p-tableHeaderCheckbox /></th>
+                  <th [width]="200">SKU</th>
+                  <th>Precio Publicado</th>
+                  <th>Margen Precio Publicado(%)</th>
+                  <th>Precio Competitividad</th>
+                  <th>Margen Nuevo (%)</th>
+                  <th>Mejor Competidor</th>
+                  <th>Precio Mejor Competidor</th>
+                  <th>% Diferencial VS Competidor más bajo</th>
+                  <th>Última Fecha de Atención</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
+                <tr>
+                  <td>
+                      <p-tableCheckbox [value]="row" />
+                  </td>
+               
+                  <td>{{row.sku}}</td>
+                  <td>$ {{row.precioPublicado}}</td>
+                  <td>{{row.margenPublicado}} %</td>
+                  <td>$ {{row.precioCompetitividad}}</td>
+                  <td>{{row.margenCompetitividad}} %</td>
+                  <td>{{row.mejorCompetidor}}</td>
+                  <td>$ {{row.precioCompetidor}}</td>
+                  <td>{{row.diferencial}} %</td>
+                  <td>{{row.ultimaFecha}}</td>
+                  </tr>
+              </ng-template>
+            </p-table>
+      </div>
+    </div>
+    
+  
+  
+  </div>

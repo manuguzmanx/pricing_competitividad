@@ -1,0 +1,12 @@
+{
+  "haveMenu": true,
+  "appLogo": "assets/img/logoestrategiaprecios.jpeg",
+  "footerTitle": "Estrategia precios V 2.8.5",
+  "webApiBaseUrl": "http://localhost:3200",
+  "estrategiaPreciosSapi": "https://coppel-estrategia-precios-qa.us-e2.cloudhub.io/api",
+  "estrategiaprecios_sys_api_impl": "https://cpl-estrategiaprecios-sys-api-impl-qa.us-e2.cloudhub.io/api",
+  "optimizadorSapi": "https://cpl-pricing-api-impl-qa.us-e2.cloudhub.io/api",
+  "estrategiaPreciosLocal": "http://34.123.198.211:8070/api",
+  "apiMenu": "http://localhost:3200/menu",
+  "login": "/login"
+}
