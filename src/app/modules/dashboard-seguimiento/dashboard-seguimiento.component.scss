@@ -91,7 +91,14 @@ background-color: $colorAzulClaroTres;
   text-align: center;
 }
 
-
+.w-30{
+  width: 30% !important;
+}
+.content-cards{
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
 .card {
   font-size: 1.2rem;
   padding: 0;
@@ -118,7 +125,7 @@ background-color: $colorAzulClaroTres;
   padding-left: 10px;
 }
 
-td {
+.detalle td {
   font-size: 1rem;
   font-weight: 400;
   text-align: center;
@@ -177,12 +184,73 @@ td {
   font-size: 1em;
 }
 
+
 .titulos-component{
   font-weight: 400;
   color: #8b8b8b;
   font-size: 1.5em;
 }
 
+.card-historico{
+  border: 1px solid gray;
+  border-radius: 10px;
+  .title{
+    display: flex;
+    justify-content: space-between;
+    background-color: $blue;
+    color: white;
+    padding: 10px 15px 5px 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .dias{
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 10px;
+    color: white;
+    background-color: #2661a2bd;
+  }
+  .kpi-valor{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #2661a2bd;
+    .label{
+      width: 100%;
+      color: $blue;
+      font-size: 11px;
+      text-align: center;
+      margin-top: 5px;
+     
+    }
+    .original{
+      font-size: 115%;
+      color: gray;
+      width: 50%;
+      background-color: #edebeb;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 5px 5px 10px;
+      flex-wrap: wrap;
+      .prc{
+        font-size: 85%;
+      }
+    }
+    .final{
+      font-size: 125%;
+      color: $blue;
+      width: 50%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 5px;
+      flex-wrap: wrap;
+      .prc{
+        font-size: 85%;
+      }
+    }
+  }
+}
 .expandible-kpi {
   border: 0px solid #e1e1e1;
   overflow-x: scroll;
@@ -528,9 +596,7 @@ td.fsection{
     }
 }
 
-::ng-deep.p-inputtext{
-    width: 70px !important;
-}
+
 .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even){
     background: #f5f5f5;
 }
@@ -609,7 +675,7 @@ td.fsection{
 
 
 ::ng-deep.p-dropdown-label{
-    padding: 5px 0;
+    padding: 5px 3px;
 }
 ::ng-deep.p-datepicker-trigger{
     padding: 0px;
@@ -762,6 +828,12 @@ td.fsection{
     border-bottom-right-radius: 15px;
     padding: 8px;
     width: fit-content;
+    min-height: 45px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 110%;
+    text-transform: uppercase;
   }
 }
 
@@ -866,6 +938,11 @@ td.fsection{
         }
         td{
           border: 1px solid #c8c7c7;
+        }
+        .title-seguimiento>div{
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
         }
       }
     }
@@ -1079,18 +1156,31 @@ td.fsection{
     }
 
   }
-
+}
 ::ng-deep.dias-data{
   th{
-    background-color: $blue;
+    background-color: $blue !important;
+    .label{
+      color: white;
+      font-weight: 200;
+      text-transform: uppercase;
+    }
   }
+  td div, th div{
+    border-bottom: 1px solid #c9c6c6;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
 }
 .dias-chart{
   width: 100%;
   display: flex;
   justify-content: end;
   p-chart{
-    width: calc(100% - 300px);
+    width: calc(100% );
 
   }
 }
@@ -1268,6 +1358,9 @@ td.fsection{
       #tbl-ranking{
         width: 100%;
         margin-top: 5px;
+        td{
+          padding: 0px;
+        }
         th{
           background-color: $blue;
           padding: 10px 5px 5px 5px;;
@@ -1303,4 +1396,4 @@ td.fsection{
     }
   }
   
-}
+

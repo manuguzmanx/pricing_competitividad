@@ -4,7 +4,7 @@ $blue: #2661a2;
 .app-flujo-precios{
     padding: 25px;
 }
-.table-precios{
+.table-precios-review{
     margin-top: 25px;
     th{
        border: 0px solid $blue;
@@ -12,9 +12,16 @@ $blue: #2661a2;
         text-align: center;
         color: rgb(255, 255, 255);
         font-weight: 400;
-        //padding: 5px;
+    
     }
 
+    
+    .pi.success{
+        color:#008a00;
+    }
+    .pi.danger{
+        color:#d90000;
+    }
 
     td{
 
@@ -30,7 +37,35 @@ $blue: #2661a2;
 
 }
 
-::ng-deep.table-precios{
+.folio{
+    text-align: right;
+    padding-right: 20px;
+    position: absolute;
+    right: 30px;
+    top: 40px;
+    .label{
+        color:gray;
+        font-size: 130%;
+        span{
+            color: $blue;
+            font-size: 150%;
+        }
+    }
+    .date{
+        color:gray;
+        font-size: 100%;
+        span{
+            color: $blue;
+            font-size: 110%;
+        }
+    }
+  }
+
+::ng-deep.table-precios-review{
+    td{
+        padding: 0 5px;
+        font-weight: 400;
+    }
     th.header-canal{
         .p-inputswitch{
             margin-top: 7px;
@@ -43,6 +78,13 @@ $blue: #2661a2;
         background: #72d898;
     }
 
+    tbody th{
+        height: 50px !important;
+    }
+}
+
+.table-precios-review{
+    height: 50px !important;
 }
 
 
@@ -368,68 +410,7 @@ td.fsection{
     }
 }
 
-::ng-deep.section-cluster{
-    p-messages{
-        width: 100%;
-    }
-    .p-message-wrapper{
-        padding: 5px;
-    }
-    infocircleicon.p-icon-wrapper{
-       display: none;
-    }
-}
-::ng-deep.section-cluster{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    .favoritos{
-        width: 100%;
-        margin-bottom: 20px;
-        .p-panel-content{
-            display: flex;
-            justify-content: space-around;
-        }
-        .p-panel-header{
-            background: #eeeeee;
-    border: none;
-    color: $blue;
-        }
 
-    }
-    .filters{
-        width: 29%;
-        .p-accordion-header-link{
-            background: #eeeeee;
-            border: none;
-            color: $blue;
-        }
-        .selected{
-            display: flex;
-            justify-content: normal;
-            flex-wrap: wrap;
-            &>p-message{
-                margin: 5px;
-            }
-        }
-    }
-    .result{
-        width: 70%;
-        .filters-selected{
-            width: 100%;
-            min-height: 100px;
-            background-color: gray;
-        }
-        .data{
-           padding: 0 0 0 25px;
-           th{
-            background-color: $blue;
-            color: white;
-            font-weight: 400;
-           }
-        }
-    }
-}
 
 .container-filtros {
     display: flex;
@@ -442,7 +423,7 @@ td.fsection{
 
   }
   .titulos-componente{
-    font-size: 115%;
+    font-size: 100%;
     color: $blue;
     text-align: center;
   }
@@ -477,7 +458,7 @@ td.fsection{
     margin: 5px;
     margin-bottom: 0px;
     margin-top: 5px;
-
+    padding: 0 !important;
     flex: 1 1 calc(16.666% - 20px);/*  para 6 tarjetas */
     /* flex: 1 1 calc(14.286% - 20px); para 7 tarjetas */
     box-sizing: border-box;
@@ -487,7 +468,7 @@ td.fsection{
         margin-bottom: 10px;
         border-bottom: 2px solid #76889c;
         font-weight: 400;
-        font-size: 115%;
+        font-size: 100%;
         padding: 10px 0;
     color: white;
     text-align: center;
@@ -521,7 +502,7 @@ td.fsection{
             width: 100%;
             z-index: 9;
             margin-top: 37px;
-            font-size: 140%;
+            font-size: 135%;
             color: $blue;
             &.center{
                 margin-top: 30px;

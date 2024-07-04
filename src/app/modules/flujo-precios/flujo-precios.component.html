@@ -20,11 +20,18 @@
                 Sku´s Evaluados
               </div>
             <div class="chart">
-                <div class="valor blue">5%</div>
+                <div class="valor  center">
+                    <div class="val">350</div>
+                    <div class="descripcion">Filtrados</div>
+                </div>
+                <div class="valor double">
+                    <div class="blue">5%</div>
+                    <div class="gray">95%</div>
+                </div>
                 <p-chart type="doughnut" width="100" [data]="atendidosChart" [options]="optionsReview" />
                 <div class="indicadores">
-                    <div class="blue point"> <i class="pi pi-circle-on"></i>Evaluados</div> 
-                    <div class="gray point"> <i class="pi pi-circle-on"></i>Fuera del ejercicio</div> 
+                    <div class="blue point"> <i class="pi pi-circle-on"></i>Evaluados({{kpi.evaluados}})</div> 
+                    <div class="gray point"> <i class="pi pi-circle-on"></i>Fuera del ejercicio({{350 - kpi.evaluados}})</div> 
          
                 </div>
             </div>
@@ -43,13 +50,14 @@
                     <div class="descripcion">Total</div>
                 </div>
                 <div class="valor double">
-                    <div class="gray">80%</div>
-                    <div class="blue">20%</div>
+                   
+                    <div class="blue">{{kpi.prcDentroCompetitividad | number: '1.0-0'}}%</div>
+                     <div class="gray">{{kpi.prcFueraCompetitividad | number: '1.0-0'}}%</div>
                 </div>
                 <p-chart type="doughnut" width="100" [data]="fueraCompChart" [options]="optionsReview" />
                 <div class="indicadores">
-                    <div class="blue point"> <i class="pi pi-circle-on"></i>Dentro </div> 
-                    <div class="gray point"> <i class="pi pi-circle-on"></i>Fuera</div> 
+                    <div class="blue point"> <i class="pi pi-circle-on"></i>Dentro({{kpi.competitivos}}) </div> 
+                    <div class="gray point"> <i class="pi pi-circle-on"></i>Fuera({{kpi.noCompetitivos}})</div> 
          
                 </div>
             </div>
@@ -63,18 +71,18 @@
               </div>
             <div class="chart">
                 <div class="valor  center">
-                    <div class="val">15</div>
+                    <div class="val">{{this.kpi.evaluados}}</div>
                     <div class="descripcion">Total</div>
                 </div>
                 <div class="valor double">
-                
-                    <div class="gray">20%</div>
-                    <div class="blue">80%</div>
+                 <div class="blue">{{kpi.prcPromocion}}%</div>
+                    <div class="gray">{{kpi.prcRegular}}%</div>
+                   
                 </div>
                 <p-chart type="doughnut" width="100" [data]="tipoCambioChart" [options]="optionsReview" />
                 <div class="indicadores">
-                    <div class="blue point"> <i class="pi pi-circle-on"></i>Promoción </div> 
-                    <div class="gray point"> <i class="pi pi-circle-on"></i>Precio Regular</div> 
+                    <div class="blue point"> <i class="pi pi-circle-on"></i>Promoción({{kpi.promocion}}) </div> 
+                <div class="gray point"> <i class="pi pi-circle-on"></i>Precio Regular({{kpi.precioRegular}})</div> 
          
                 </div>
             </div>
@@ -154,7 +162,7 @@
     <p-splitter   [panelSizes]="[ 82,18]"  styleClass="mb-5">
         <ng-template pTemplate>
             <div class="acciones">
-                <p-table [scrollable]="true" scrollDirection="horizontal" class="table-precios" [value]="codigos" [tableStyle]="{ 'min-width': '50rem' }"    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+                <p-table [scrollable]="true" scrollDirection="horizontal" class="table-precios-review" [value]="codigos" [tableStyle]="{ 'min-width': '50rem' }"    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
                     <ng-template pTemplate="header">
                         <tr class="bg-blue header1">
 
@@ -354,7 +362,7 @@
                             placeholder="TipoCambio" />
                           </td>
                             <td  class=""  >
-                                <input pInputText type="text" [(ngModel)]="product.ps.diferencial">
+                                <input pInputText type="text" (change)="actualizarKPIs()" [(ngModel)]="product.ps.diferencial">
                             </td>
                             <td  class="">
                                 <div *ngIf="isPromo(product)">
@@ -433,7 +441,7 @@
         </ng-template>
         <ng-template pTemplate>
             <div class="competidores">
-                <p-table [scrollable]="true" scrollDirection="horizontal" class="table-precios" [value]="codigos" [tableStyle]="{ 'min-width': '50rem' }"    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+                <p-table [scrollable]="true" scrollDirection="horizontal" class="table-precios-review" [value]="codigos" [tableStyle]="{ 'min-width': '50rem' }"    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
                     <ng-template pTemplate="header">
                         <tr class="bg-blue header1">
                                <th   colspan="3" class="isection fsection">
@@ -655,7 +663,7 @@
             Detalle de SKU's Competitivos
           </div>
      
-        <p-table [scrollable]="true" scrollDirection="horizontal" class="table-precios" [value]="codigos" [tableStyle]="{ 'min-width': '50rem' }"    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+        <p-table [scrollable]="true" scrollDirection="horizontal" class="table-precios-review" [value]="codigosCompetitivos" [tableStyle]="{ 'min-width': '50rem' }"    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
             <ng-template pTemplate="header">
                 <tr class="bg-blue">
 
@@ -698,7 +706,7 @@
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-product>
-                <tr  *ngIf="(product.tipo.id == 2 ) ">
+                <tr  >
 
 
                     <th class="fsection" >{{ product.sku }}</th>
@@ -771,7 +779,7 @@
            Detalle de SKU's No Competitivos
           </div>
   
-        <p-table [scrollable]="true" scrollDirection="horizontal" class="table-precios" [value]="codigos" [tableStyle]="{ 'min-width': '50rem' }"    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+        <p-table [scrollable]="true" scrollDirection="horizontal" class="table-precios-review" [value]="codigosNoCompetitivos" [tableStyle]="{ 'min-width': '50rem' }"    styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
             <ng-template pTemplate="header">
                 <tr class="bg-blue">
 
@@ -813,7 +821,7 @@
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-product>
-                <tr  *ngIf="(product.tipo.id == 1 ) ">
+                <tr >
                   
                 
                     <th class="fsection" >{{ product.sku }}</th>

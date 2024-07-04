@@ -151,6 +151,8 @@ export class DashboardSeguimientoComponent implements OnInit {
       ultimaFecha: '18/06/2024'
     }
   ];
+  vistaList=[{id: 1, name: 'Categoría'},{id: 2, name: 'Clase'},{id: 3, name: 'Proveedor'},{id: 4, name: 'SKU'}];
+  vistaListModel:any;
   macrocategoriaFormGroup: FormGroup;
   macrocategoria = [
     { name: 'Celulares', code: '00001' },
@@ -271,12 +273,13 @@ export class DashboardSeguimientoComponent implements OnInit {
         {
           label: 'Total Evaluados',
           valor: 225,
-          chart: true
+          chart: false
         },
         {
           label: 'Fuera de Competitividad',
-          valor: 30,
-          chart: true
+          valor: 60,
+          chart: true,
+          color: '--gray-500'
         },
         {
           label: 'Dentro de Competitividad',
@@ -295,12 +298,14 @@ export class DashboardSeguimientoComponent implements OnInit {
         {
           label: 'Atendidos Fuera Competitiviad',
           valor: 13,
-          chart: true
+          chart: true,
+          color: '--blue-200'
         },
         {
           label: 'Reportados por Wiser Corregidos',
           valor: 30,
-          chart: true
+          chart: true,
+          color: '--blue-700'
         },
         {
           label: 'Reportados por Wiser Sin Corregir',
@@ -308,18 +313,18 @@ export class DashboardSeguimientoComponent implements OnInit {
           chart: false
         },
         {
-          label: 'SKU\'s con 1 día fuera de Competitividad',
+          label: '1 día fuera de Competitividad',
           valor: 45,
           chart: false
         }, {
-          label: 'SKU\'s con 2 día fuera de Competitividad',
+          label: '2 día fuera de Competitividad',
           valor: 35,
           chart: false
         }
       ]
     },
     {
-      dia:this.addDaysToDate(new Date, -2),
+      dia:this.addDaysToDate(new Date, -1),
       data:[
         {
           label: 'Diferencial',
@@ -366,7 +371,7 @@ export class DashboardSeguimientoComponent implements OnInit {
       ]
     },
     {
-      dia:this.addDaysToDate(new Date, -2),
+      dia:this.addDaysToDate(new Date, 0),
       data:[
         {
           label: 'Diferencial',
@@ -479,7 +484,7 @@ export class DashboardSeguimientoComponent implements OnInit {
 
     addDaysToDate(date: Date, days: number){
       let newDate = date;
-      newDate.setDate(date.getDate() + 1);
+      newDate.setDate(date.getDate() + days);
       return newDate;
     }
     intDataHistorico(){
@@ -490,54 +495,71 @@ export class DashboardSeguimientoComponent implements OnInit {
                 label: 'Fuera de Competitvidad',
                 data: [41, 43, 42, 39, 42, 39, 40],
                 fill: false,
-                backgroundColor:this.documentStyle.getPropertyValue('--gray-700'), 
                 borderColor: this.documentStyle.getPropertyValue('--gray-500'),
                 
-                tension: 0.4
+                tension: 0.1
             },
             {
                 label: 'Corregidos',
-                data: [11, 9, 15, 10, 12, 11, 13],
+                data: [11, 9, 15, 10, 12, ,,],
                 fill: false,
-                backgroundColor:this.documentStyle.getPropertyValue('--blue-700'), 
                 borderColor: this.documentStyle.getPropertyValue('--blue-700'),
-                tension: 0.4
+                tension: 0.1
             },
+            {
+              label: 'Fuera de Competitividad - Corregidos',
+              data: [30, 34, 38, 29, 30, ,,],
+              fill: false,
+              borderColor: this.documentStyle.getPropertyValue('--blue-300'),
+              tension: 0.1
+          },
           
         ]
     };
     this.optionsDataChartHistorico={
+      stacked: false,
+      maintainAspectRatio: false,
+      aspectRatio: 0.6,
       plugins: {
-        legend: {
+          legend: {
             display: true,
             position: 'top',
             labels:  {
-                usePointStyle: true,
+           
                 color: this.textColor
             }
-        }
-      },  
+          }
+      },
       scales: {
-      
           x: {
             title: {
               display: false,
               text: 'Día'
             },
-             
-        
+              ticks: {
+                  color: this.textColorSecondary
+              },
+              grid: {
+                  color: this.surfaceBorder,
+                  drawBorder: false
+              }
           },
           y: {
-              stacked: true,
-            
-              title: {
-                display: true,
-                text: 'Porcentaje'
+            title: {
+              display: true,
+             text: 'SKU\'s'
+            },
+              ticks: {
+                  color: this.textColorSecondary
               },
-            
+              grid: {
+                  color: this.surfaceBorder,
+                  drawBorder: false
+              }
           }
       }
-        }
+  };
+
     }
     initChartAtendidos(){
       this.atendidosChart = {
@@ -716,7 +738,7 @@ export class DashboardSeguimientoComponent implements OnInit {
       }else{
         monthS = `${month}`;
       }
-      let format1 = `${monthS}/${dayS}/${year}`;
+      let format1 = `${dayS}/${monthS}/${year}`;
       return format1;
     }
     initChartSeguimiento(){
@@ -731,20 +753,20 @@ export class DashboardSeguimientoComponent implements OnInit {
             this.seguimientoSkuEvaluados[1].data[index].valor,
             this.seguimientoSkuEvaluados[2].data[index].valor],
             fill: false,
-            backgroundColor:this.documentStyle.getPropertyValue('--gray-700'), 
-            borderColor: this.documentStyle.getPropertyValue('--gray-500'),
-            tension: 0
+            backgroundColor:this.documentStyle.getPropertyValue(this.seguimientoSkuEvaluados[0].data[index].color), 
+            borderColor: this.documentStyle.getPropertyValue(this.seguimientoSkuEvaluados[0].data[index].color),
+            tension: 0.2
         });
         }
        
       index++;
     });
         
-     
+     console.log(dataset);
       this.dataSeguimiento = {
         labels: [this.getLabelFecha(this.seguimientoSkuEvaluados[0].dia,0),
-        this.getLabelFecha(this.seguimientoSkuEvaluados[0].dia,0),
-        this.getLabelFecha(this.seguimientoSkuEvaluados[0].dia,0)],
+        this.getLabelFecha(this.seguimientoSkuEvaluados[1].dia,0),
+        this.getLabelFecha(this.seguimientoSkuEvaluados[2].dia,0)],
         datasets:dataset
     };
     this.optionsSeguimiento={
@@ -769,7 +791,7 @@ export class DashboardSeguimientoComponent implements OnInit {
         
           },
           y: {
-              stacked: true,
+              stacked: false,
             
               title: {
                 display: true,

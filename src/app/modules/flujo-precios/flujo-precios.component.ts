@@ -230,7 +230,10 @@ switchMargen:boolean= true;
     ];
     preciosSeleccionados:Competitividad[] = [];
     kpi:any={};
-
+    documentStyle : any;
+    textColor : any;
+    textColorSecondary : any;
+    surfaceBorder : any;
     constructor(private competitividadService: CompetitividadService, private router: Router) {
       this.competitividadArray = new Array<Competitividad>;
       let now = new Date();
@@ -296,10 +299,10 @@ switchMargen:boolean= true;
     }
 
      ngOnInit() {
-    const documentStyle = getComputedStyle(document.documentElement);
-    const textColor = documentStyle.getPropertyValue('--text-color');
-    const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-    const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+      this.documentStyle = getComputedStyle(document.documentElement);
+      this.textColor = this.documentStyle.getPropertyValue('--text-color');
+      this.textColorSecondary =this.documentStyle.getPropertyValue('--text-color-secondary');
+      this.surfaceBorder = this.documentStyle.getPropertyValue('--surface-border');
 
 
     this.dataChart = {
@@ -309,80 +312,40 @@ switchMargen:boolean= true;
               label: 'Coppel',
               data: [65, 59, 80, 81, 56, 55, 40],
               fill: false,
-              borderColor: documentStyle.getPropertyValue('--blue-500'),
+              borderColor: this.documentStyle.getPropertyValue('--blue-500'),
               tension: 0.4
           },
           {
               label: 'Amazon',
               data: [28, 48, 40, 19, 86, 27, 90],
               fill: false,
-              borderColor: documentStyle.getPropertyValue('--pink-500'),
+              borderColor: this.documentStyle.getPropertyValue('--pink-500'),
               tension: 0.4
           },
           {
               label: 'Walmart',
               data: [37, 77, 36, 23, 12, 11, 12],
               fill: false,
-              borderColor: documentStyle.getPropertyValue('--red-500'),
+              borderColor: this.documentStyle.getPropertyValue('--red-500'),
               tension: 0.4
           },
           {
               label: 'Mercado Libre',
               data: [75, 22, 43, 58, 17, 21, 73],
               fill: false,
-              borderColor: documentStyle.getPropertyValue('--gray-500'),
+              borderColor: this.documentStyle.getPropertyValue('--gray-500'),
               tension: 0.4
           },
           {
               label: 'Bodega Aurrera',
               data: [23, 56, 76, 78, 98, 45, 44],
               fill: false,
-              borderColor: documentStyle.getPropertyValue('--yellow-500'),
+              borderColor: this.documentStyle.getPropertyValue('--yellow-500'),
               tension: 0.4
           }
       ]
   };
-  this.atendidosChart = {
-    labels: ['Evaluados', 'Fuera del Ejercicio'],
-    datasets: [
-        {
-            data: [5, 50],
-            backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--gray-500')],
-            hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-600'), documentStyle.getPropertyValue('--gray-400')]
-        }
-    ]
-};
-this.fueraCompChart= {
-  labels: ['Dentro de Competitividad', 'Fuera de Competitividad'],
-  datasets: [
-      {
-          data: [2, 3],
-          backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--gray-500')],
-          hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-600'), documentStyle.getPropertyValue('--gray-400')]
-      }
-  ]
-};
 
-this.canalChart = {
-  labels: ['Físico', 'Digital'],
-  datasets: [
-      {
-          data: [1, 4],
-          backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--gray-500')],
-          hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-600'), documentStyle.getPropertyValue('--gray-400')]
-      }
-  ]
-}
-this.tipoCambioChart = {
-  labels: ['Precio Regular', 'Promoción'],
-  datasets: [
-      {
-          data: [1, 4],
-          backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--gray-500')],
-          hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-600'), documentStyle.getPropertyValue('--gray-400')]
-      }
-  ]
-};
 
 this.optionsDiferencial = {
   maintainAspectRatio: false,
@@ -397,7 +360,7 @@ this.optionsDiferencial = {
         position: 'right' ,
           labels: {
 
-              color: textColor
+              color: this.textColor
           }
       }
   },
@@ -410,18 +373,18 @@ this.optionsDiferencial = {
         },
           stacked: true,
           ticks: {
-              color: textColorSecondary,
+              color: this.textColorSecondary,
               stepSize: 1
           },
           grid: {
-              color: surfaceBorder,
+              color: this.surfaceBorder,
               drawBorder: false
           }
       },
       y: {
           stacked: true,
           ticks: {
-              color: textColorSecondary,
+              color: this.textColorSecondary,
               stepSize: 1
           },
           title: {
@@ -429,7 +392,7 @@ this.optionsDiferencial = {
             text: 'No. SKU\'s'
           },
           grid: {
-              color: surfaceBorder,
+              color: this.surfaceBorder,
               drawBorder: false
           }
       }
@@ -450,7 +413,7 @@ this.dataCompetitividad = {
       {
           type: 'line',
           label: 'Precio Publicado',
-          borderColor: documentStyle.getPropertyValue('--blue-500'),
+          borderColor: this.documentStyle.getPropertyValue('--blue-500'),
           borderWidth: 2,
           fill: false,
           tension: 0.4,
@@ -459,7 +422,7 @@ this.dataCompetitividad = {
       {
           type: 'bar',
           label: 'Precio por Competitividad',
-          backgroundColor: documentStyle.getPropertyValue('--green-500'),
+          backgroundColor: this.documentStyle.getPropertyValue('--green-500'),
           data: [770, 770, , 660, 660, 870, 870],
           borderColor: 'white',
           borderWidth: 2
@@ -467,7 +430,7 @@ this.dataCompetitividad = {
       {
           type: 'bar',
           label: 'Mejor Competencia',
-          backgroundColor: documentStyle.getPropertyValue('--orange-500'),
+          backgroundColor: this.documentStyle.getPropertyValue('--orange-500'),
           data: [700, 700, 800, 600, 900,900,700]
       }
   ]
@@ -479,25 +442,25 @@ this.optionsCompetitividad = {
   plugins: {
       legend: {
           labels: {
-              color: textColor
+              color: this.textColor
           }
       }
   },
   scales: {
       x: {
           ticks: {
-              color: textColorSecondary
+              color: this.textColorSecondary
           },
           grid: {
-              color: surfaceBorder
+              color: this.surfaceBorder
           }
       },
       y: {
           ticks: {
-              color: textColorSecondary
+              color: this.textColorSecondary
           },
           grid: {
-              color: surfaceBorder
+              color: this.surfaceBorder
           }
       }
   }
@@ -513,7 +476,7 @@ this.optionsBarCard = {
     y:{
       stacked: true,
       ticks: {
-          color: textColorSecondary,
+          color: this.textColorSecondary,
           stepSize: 1
       },
  
@@ -528,7 +491,7 @@ this.optionsBarCard = {
           position: 'bottom',
           labels:  {
               usePointStyle: true,
-              color: textColor
+              color: this.textColor
           }
       }
   }
@@ -543,7 +506,7 @@ this.optionsReview = {
           position: 'bottom',
           labels:  {
               usePointStyle: true,
-              color: textColor
+              color: this.textColor
           }
       }
   }
@@ -557,26 +520,26 @@ this.optionsReview = {
       plugins: {
           legend: {
               labels: {
-                  color: textColor
+                  color: this.textColor
               }
           }
       },
       scales: {
           x: {
               ticks: {
-                  color: textColorSecondary
+                  color: this.textColorSecondary
               },
               grid: {
-                  color: surfaceBorder,
+                  color: this.surfaceBorder,
                   drawBorder: false
               }
           },
           y: {
               ticks: {
-                  color: textColorSecondary
+                  color: this.textColorSecondary
               },
               grid: {
-                  color: surfaceBorder,
+                  color: this.surfaceBorder,
                   drawBorder: false
               }
           }
@@ -667,7 +630,7 @@ this.optionsReview = {
           
             {
               type: 'bar',
-              label:"No Atendidos",
+              label:"No SKU's",
               data: dataChart,
               backgroundColor: [ '#295bac9c'],
               borderColor: ['#295bac'],
@@ -743,10 +706,15 @@ this.optionsReview = {
         evaluados: 0,
         competitivos: 0,
         noCompetitivos: 0,
+        prcDentroCompetitividad: 0,
         prcFueraCompetitividad: 0,
         prcDiferencial: 0,
         precioRegular : 0,
-        promocion: 0
+        prcRegular: 0,
+        promocion: 0,
+        prcPromocion: 0,
+        fisico: 0,
+        digital: 0
       }
     }
     actualizarKPIs(){
@@ -759,14 +727,25 @@ this.optionsReview = {
         }else{
           this.kpi.promocion++;
         }
+        if(c.canal.fisico){
+          this.kpi.fisico ++;
+        }
+        if(c.canal.digital){
+          this.kpi.digital ++;
+        }
         if(c.ps.diferencial > 10){
           this.kpi.noCompetitivos++;
         }else{
           this.kpi.competitivos++;
         }
-        this.kpi.prcDiferencial +=c.ps.diferencial;
+        this.kpi.prcDiferencial =   this.kpi.prcDiferencial + parseInt(c.ps.diferencial);
       });
       this.kpi.prcDiferencial  = this.kpi.prcDiferencial / this.kpi.evaluados;
+      this.kpi.prcDentroCompetitividad = (this.kpi.competitivos * 100) / this.kpi.evaluados;
+      this.kpi.prcFueraCompetitividad = 100 - this.kpi.prcDentroCompetitividad;
+      this.kpi.prcRegular = (this.kpi.precioRegular * 100) / this.kpi.evaluados;
+      this.kpi.prcPromocion = 100 - this.kpi.prcRegular;
+      this.initCharts();
     }
 
 
@@ -857,38 +836,56 @@ this.optionsReview = {
         )
       });
       this.actualizarKPIs();
+      
     }
 
-    clusterNacional(){
-      this.filtroSelected = [];
-      this.nombreCluster="Nacional";
-      this.filtroSelected.push('Canal: Digital');
-      this.filtroSelected.push('Canal: Físico');
-      this.getMessages();
-    }
-
-    clusterMonterrey(){
-      this.filtroSelected = [];
-      this.nombreCluster="Monterrey";
-      this.filtroSelected.push('Estado: Nuevo León');
-      this.filtroSelected.push('Canal: Físico');
-      this.filtroSelected.push('Bodega: 13546');
-      this.getMessages();
-    }
-
-    clusterFrontera(){
-      this.filtroSelected = [];
-      this.nombreCluster="Frontera";
-      this.filtroSelected.push('Estado: Baja California');
-      this.filtroSelected.push('Estado: Chihuahua');
-      this.filtroSelected.push('Estado: Coahuila');
-      this.filtroSelected.push('Estado: Nuevo León');
-      this.filtroSelected.push('Estado: Tamaulipas');
-      this.getMessages();
-
-    }
+ 
     isPromo(item:any){
       return item.tipo.id ==    this.tipoCambio[1].id;
+    }
+
+    initCharts(){
+      this.atendidosChart = {
+        labels: ['Evaluados', 'Fuera del Ejercicio'],
+        datasets: [
+            {
+                data: [this.kpi.evaluados, 350 - this.kpi.evaluados],
+                backgroundColor: [this.documentStyle.getPropertyValue('--blue-700'), this.documentStyle.getPropertyValue('--gray-500')],
+                hoverBackgroundColor: [this.documentStyle.getPropertyValue('--blue-600'), this.documentStyle.getPropertyValue('--gray-400')]
+            }
+        ]
+    };
+    this.fueraCompChart= {
+      labels: ['Dentro de Competitividad', 'Fuera de Competitividad'],
+      datasets: [
+          {
+              data: [this.kpi.competitivos, this.kpi.noCompetitivos],
+              backgroundColor: [this.documentStyle.getPropertyValue('--blue-700'), this.documentStyle.getPropertyValue('--gray-500')],
+              hoverBackgroundColor: [this.documentStyle.getPropertyValue('--blue-600'), this.documentStyle.getPropertyValue('--gray-400')]
+          }
+      ]
+    };
+    
+    this.canalChart = {
+      labels: ['Físico', 'Digital'],
+      datasets: [
+          {
+              data: [this.kpi.fisico, this.kpi.digital],
+              backgroundColor: [this.documentStyle.getPropertyValue('--blue-700'), this.documentStyle.getPropertyValue('--gray-500')],
+              hoverBackgroundColor: [this.documentStyle.getPropertyValue('--blue-600'), this.documentStyle.getPropertyValue('--gray-400')]
+          }
+      ]
+    }
+    this.tipoCambioChart = {
+      labels: ['Precio Regular', 'Promoción'],
+      datasets: [
+          {
+              data: [this.kpi.precioRegular, this.kpi.promocion],
+              backgroundColor: [this.documentStyle.getPropertyValue('--blue-700'), this.documentStyle.getPropertyValue('--gray-500')],
+              hoverBackgroundColor: [this.documentStyle.getPropertyValue('--blue-600'), this.documentStyle.getPropertyValue('--gray-400')]
+          }
+      ]
+    };
     }
 
     isPrecioRegular(item: any){

@@ -53,10 +53,10 @@ input[type = "number"] {
 tr > th {
 position: sticky;
 top: 0;
-background-color: $colorAzulClaroTres;
+/*background-color: $colorAzulClaroTres;*/
 }
-th {
-  height: 85px;
+.gestion-table-precios th {
+ height: 85px;
 }
 
 
@@ -124,10 +124,10 @@ tr > th {
 }
 
 
-.card td,
+/*.card td,
 .card th {
   padding: 1rem;
-}
+}*/
 
 .table-container{
   margin-top: 10px;
