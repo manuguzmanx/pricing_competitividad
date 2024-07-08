@@ -5,14 +5,14 @@
 </div>
 
 <div class="card app-flujo-precios">
-    <div style="margin-bottom: 20px;">
+    <!--<div style="margin-bottom: 20px;">
         <p-steps
         [model]="items"
         [readonly]="false"
         [activeIndex]="activeIndex"
         (activeIndexChange)="onActiveIndexChange($event)" />
 
-    </div>
+    </div>-->
     <div class="container-filtros">
 
         <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
@@ -865,8 +865,9 @@
         <div class="footer-steps">
 
             <button pButton type="button" (click)="prevStep()" label="Anterior"   ></button>
-            <button pButton type="button" (click)="nextStep()" label="Siguiente" *ngIf="activeIndex < 2" [disabled]="activeIndex > 2" ></button>
-            <button pButton type="button" label="Enviar Precios" *ngIf="activeIndex == 2" ></button>
+         
+            <button pButton type="button" (click)="nextStep()" label="Siguiente" *ngIf="activeIndex < 1" ></button>
+            <button pButton type="button" (click)="confirmEnvio($event)" label="Enviar Precios" *ngIf="activeIndex == 1" ></button>
 
         </div>
     </div>
@@ -948,7 +949,7 @@
         </div>
     </p-dialog>
 
-
+    <p-confirmDialog />
     <!--
     <div class="mt-4" *ngIf="activeIndex == -2">
 

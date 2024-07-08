@@ -11,6 +11,7 @@ import { FlujoPreciosComponent } from './modules/flujo-precios/flujo-precios.com
 import { SeguimientoFoliosComponent } from './seguimiento-folios/seguimiento-folios.component';
 import { DashboardSeguimientoComponent } from './modules/dashboard-seguimiento/dashboard-seguimiento.component';
 import { SeguimientoCompetitividadComponent } from './modules/seguimiento-competitividad/seguimiento-competitividad.component';
+import { HomeComponent } from './modules/home/home.component';
 
 const routes: Routes = [
   {path: 'index', component: GestionPreciosCompetitividadComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'seguimiento-folios', component: SeguimientoFoliosComponent},
   {path: 'dashboard-seguimiento', component: DashboardSeguimientoComponent},
   {path: 'seguimiento-competitividad', component: SeguimientoCompetitividadComponent},
+  {path: 'home', component: HomeComponent},
   {
     path: '**',
     redirectTo:'index'

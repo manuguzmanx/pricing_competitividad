@@ -48,6 +48,9 @@ import { TagModule } from 'primeng/tag';
 import { PrimeNGConfig } from 'primeng/api';
 import { DashboardSeguimientoComponent } from './modules/dashboard-seguimiento/dashboard-seguimiento.component';
 import { SeguimientoCompetitividadComponent } from './modules/seguimiento-competitividad/seguimiento-competitividad.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { HomeComponent } from './modules/home/home.component';
+import { MenuComponent } from './modules/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +65,9 @@ import { SeguimientoCompetitividadComponent } from './modules/seguimiento-compet
     SeguimientoFoliosComponent,
     DashboardSeguimientoComponent,
     RoundPipe,
-    SeguimientoCompetitividadComponent
+    SeguimientoCompetitividadComponent,
+    HomeComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +107,8 @@ import { SeguimientoCompetitividadComponent } from './modules/seguimiento-compet
     DividerModule,
     TooltipModule,
     BadgeModule,
-    TagModule
+    TagModule,
+    ConfirmDialogModule
   ],
   providers: [],
   bootstrap:[AppComponent]

@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuItem } from 'primeng/api';
+import { ConfirmationService, MenuItem } from 'primeng/api';
 import { Competitividad } from 'src/app/model/competitividad';
 import { CompetitividadService } from 'src/app/services/competitividad.service';
 import { AppComponent } from '../../app.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-flujo-precios',
   templateUrl: './flujo-precios.component.html',
-  styleUrls: ['./flujo-precios.component.scss']
+  styleUrls: ['./flujo-precios.component.scss'],
+    providers: [ConfirmationService]
 })
 export class FlujoPreciosComponent implements OnInit {
 
@@ -234,7 +237,7 @@ switchMargen:boolean= true;
     textColor : any;
     textColorSecondary : any;
     surfaceBorder : any;
-    constructor(private competitividadService: CompetitividadService, private router: Router) {
+    constructor(private confirmationService: ConfirmationService, private competitividadService: CompetitividadService, private router: Router) {
       this.competitividadArray = new Array<Competitividad>;
       let now = new Date();
       this.codigosFiltered=[];
@@ -903,5 +906,24 @@ this.optionsReview = {
 
     filtrarCodigos(){
 
+    }
+
+
+    confirmEnvio(event: Event){
+      this.confirmationService.confirm({
+        target: event.target as EventTarget,
+        message: '¿Está seguro que desea realizar el Envío de Precios?',
+        header: 'Confirmación',
+        icon: 'pi pi-exclamation-triangle',
+        acceptIcon:"none",
+        rejectIcon:"none",
+        rejectButtonStyleClass:"p-button-text",
+        accept: () => {
+            console.log("aceptar")
+        },
+        reject: () => {
+            console.log("cancelar");
+        }
+    });
     }
   }

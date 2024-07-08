@@ -107,7 +107,8 @@ import { AppComponent } from 'src/app/app.component';
   imports: [
     CommonModule,
     FlujoPreciosRoutingModule,
-    MessagesModule
+    MessagesModule,
+    ConfirmDialogModule
   ],
   exports: [
     MessageModule

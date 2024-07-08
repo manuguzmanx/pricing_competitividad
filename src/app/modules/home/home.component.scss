@@ -1,0 +1,270 @@
+$colorGris: #434343ff;
+$blue: #2661a2;
+$colorBlanco: #ffffff;
+$colorGrisClaro: #f2f2f2ff;
+$colorAzul: #265aa7ff;
+$colorAzulClaro: #4598d3ff;
+$colorAzulClaroDos: #3fbae4ff;
+$colorAzulClaroTres: #66c2e8ff;
+$colorAmarillo: #ffe401ff;
+$colorAmarilloClaro: #ffed80ff;
+
+/* ---------------------------------------------------------------------------------- */
+
+.titulos-principal{
+  padding-left: 0px;
+  font-weight: 400;
+  color: #2561a2;
+  font-size: 3em;
+  display: inline;
+}
+
+.w-30{
+  width: 30% !important;
+}
+
+
+
+.titulo-cinta{
+  width: 100%;
+  margin-bottom: 5px;
+  div{
+    background-color: $blue;
+    color: white;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 8px;
+    width: fit-content;
+    min-height: 45px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 110%;
+    text-transform: uppercase;
+  }
+}
+
+.tarjeta {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    margin: 5px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1 1 calc(16.666% - 20px); /* para 6 tarjetas */
+    /* flex: 1 1 calc(14.286% - 20px); */ /* para 7 tarjetas */
+    box-sizing: border-box;
+    min-width: 200px;
+  }
+  .w-100{
+    min-width: 100% !important;
+    width: 100% !important;
+  }
+  .mb-0{
+    margin-bottom: 0px !important;
+  }
+::ng-deep .app-home
+  {
+    .tarjeta5 {
+    /* background-color: #f8f9fa; */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    margin-bottom: 5px;
+    width: 180px;
+    padding: 0px;
+
+    /* flex: 1 1 calc(14.286% - 20px); para 7 tarjetas */
+    box-sizing: border-box;
+    min-width: 180px;
+    min-height: 180px;
+    .titulos-componente{
+        margin-bottom: 10px;
+        border-bottom: 2px solid #76889c;
+        font-weight: 400;
+        font-size: 115%;
+        padding: 10px 0;
+    color: white;
+    text-align: center;
+    background-color: $blue;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    }
+    .chart{
+        padding: 0 5px;
+        position: relative;
+        width: 100%;
+        .value-kpi{
+            color: $blue;
+            font-size: 50px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 300;
+            margin-bottom: 7px;
+
+        }
+        .helper{
+            width: 100%;
+            color: gray;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .valor{
+          position: absolute;
+          text-align: center;
+          width:100%;
+          z-index: 9;
+          margin-top: 37px;
+          font-size: 130%;
+          color: $blue;
+          &.center{
+              margin-top: 33px;
+              margin-left: -5px;
+              .val{
+                  color: $blue;
+                  
+              }
+              .descripcion{
+                  font-size: 60%;
+              }
+          }
+         
+          &.double{
+              width: 88%;
+              z-index: 9;
+              display: flex;
+              justify-content: space-between;
+              margin-top: 90px;
+              font-size: 125%;
+              margin-left: 15px;
+              
+            }
+      }
+
+        .gray{
+            color: #475569 !important;
+        }
+        .green{
+            color:#1ba54e;
+        }
+        .blue{
+          color: $blue;
+      }
+        .orange{
+            color:#f97316;
+        }
+        .pink{
+            color:#ec4899;
+        }
+        .cyan{
+            color:#85b2f9;
+        }
+        .indicadores{
+            display: flex;
+            justify-content: space-between;
+           margin-top:15px;
+           text-align: center;
+           width: 100%;
+           font-size: 70%;
+           i{
+            margin-right: 5px;
+           }
+           .point{
+            display: flex;
+            justify-items: baseline;
+           }
+
+        }
+    }
+
+  }
+
+  .menu-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 50px 20px 20px 20px;
+    .item-menu{
+      width: 300px;
+      background-color: #eeeeee;
+      color: $blue;
+      -webkit-box-shadow: 5px 5px 19px -5px #2661a294;
+      -moz-box-shadow: 5px 5px 19px -5px #2661a294;
+      box-shadow: 5px 5px 19px -5px #2661a294;
+      border-radius: 5px;
+      padding: 10px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      cursor: pointer;
+      i{
+        font-size: 45px;
+      }
+      .label{
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        font-weight: 600;
+        font-size: 15px;
+      }
+    }
+  }
+}
+::ng-deep.seguimiento-filtrados{
+    width: 100%;
+    margin-top: 15px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    .kpis{
+      width: 60%;
+      display: flex;
+      flex-wrap: wrap;
+      padding-right: 10px;
+      justify-content: space-between;
+      .tarjeta5{
+        width: 24%;
+      }
+      .titulo-cinta{
+        margin-bottom: 5px;
+      }
+    }
+    .ranking{
+      width: 40%;
+     
+      td{
+        height: 30px !important;
+      }
+      #tbl-ranking{
+        width: 100%;
+        margin-top: 5px;
+        td{
+          padding: 0px;
+          text-align: center;
+        }
+        th{
+          background-color: $blue;
+          padding: 10px 5px 5px 5px;;
+          text-align: center;
+          color: white;
+          font-weight: 200;
+          &:first-child{
+            border-top-left-radius: 5px;
+          }
+          &:last-child{
+            border-top-right-radius: 5px;
+          }
+
+        }
+      }
+    }
+  }
+
