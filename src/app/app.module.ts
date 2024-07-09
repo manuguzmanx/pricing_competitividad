@@ -51,6 +51,7 @@ import { SeguimientoCompetitividadComponent } from './modules/seguimiento-compet
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { HomeComponent } from './modules/home/home.component';
 import { MenuComponent } from './modules/menu/menu.component';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,8 @@ import { MenuComponent } from './modules/menu/menu.component';
     TooltipModule,
     BadgeModule,
     TagModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    RippleModule
   ],
   providers: [],
   bootstrap:[AppComponent]

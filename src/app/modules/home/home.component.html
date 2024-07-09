@@ -2,8 +2,12 @@
 
   <div class="container-filtros" >
       <div class="tarjeta2" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-        <div>
-          <label class="titulos-principal">Joyería y Relojería</label>
+        <div class="titles">
+       
+          <div class="date-corte">
+            <div class="label">Fecha al último corte</div> 
+            <div class="value">{{now | date : 'dd-MM-yyy'}}</div>
+          </div>
         </div>
     
     </div>
@@ -13,25 +17,25 @@
       <div class="home-data" style="margin-bottom: 1rem;">
     
     <div class="menu-container">
-      <div class="item-menu">
+      <div class="item-menu shadow-2" pRipple  >
           <i class="pi pi-chart-line"></i>
           <div class="label">
             Seguimiento Dinámico
           </div>
       </div>
-      <div class="item-menu">
+      <div class="item-menu shadow-2" pRipple  >
         <i class="pi pi-dollar"></i>
         <div class="label">
           Cambio de precios
         </div>
     </div>
-    <div class="item-menu">
+    <div class="item-menu shadow-2" pRipple >
       <i class="pi pi-copy"></i>
       <div class="label">
         Mis Folios
       </div>
   </div>
-  <div class="item-menu">
+  <div class="item-menu shadow-2" pRipple >
     <i class="pi pi-chart-bar"></i>
     <div class="label">
       Tablero
@@ -41,16 +45,59 @@
     
       
        
-    <div class="seguimiento-filtrados">
       <div class="kpis">
-          <div class="titulo-cinta">
-              <div>
-                  Evaluación de códigos al dia seleccionado ({{fechaFiltro | date : 'dd/MM/yyyy'}})
+ 
+        <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+          <div class="titulos-componente">
+              Total SKU's
+            </div>
+          <div class="chart">
+              <div class="valor  center">
+                  <div class="val">3500</div>
+                  <div class="descripcion">Total</div>
               </div>
+              <div class="valor double">
               
+                  <div class="gray">9%</div>
+                  <div class="blue">91%</div>
+              </div>
+              <p-chart type="doughnut" width="110" [data]="evaluadosChart" [options]="optionsReview" />
+              <div class="indicadores">
+                  <div class="gray point"> <i class="pi pi-circle-on"></i>Evaluad...(325)</div> 
+                  <div class="blue point"> <i class="pi pi-circle-on"></i>No Eval..(3175)</div> 
+       
+              </div>
           </div>
+         
+    
+    
+      </div>
+    
+   
+      <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+        <div class="titulos-componente">
+            Competitividad
+          </div>
+        <div class="chart">
+          <div class="valor  center">
+            <div class="val">325</div>
+            <div class="descripcion">Total</div>
+        </div>
+        <div class="valor double">
+          <div class="gray">19%</div>
+          <div class="blue">81%</div>
+      </div>
+            <p-chart type="doughnut" width="110" [data]="fueraCompChart" [options]="optionsReview" />
+            <div class="indicadores">
+                <div class="gray point"> <i class="pi pi-circle-on"></i>Fuera (128) </div> 
+                <div class="blue point"> <i class="pi pi-circle-on"></i>Dentro (125)</div> 
+     
+            </div>
+        </div>
+       
   
   
+    </div>
   
           
           <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
@@ -73,133 +120,19 @@
               </div>
           </div>
           
-           <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
-              <div class="titulos-componente">
-                  % Diferencial 
-                </div>
-              <div class="chart">
-                  <div class="value-kpi">43 %</div>
-                  <div class="helper"><small>VS Mejor Competidor</small></div>
-              </div>
-          </div>
-          <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
-              <div class="titulos-componente">
-                 SKU's Atendidos 
-                </div>
-              <div class="chart">
-                  <div class="value-kpi">156</div>
-                  <div class="helper"><small>SKU's atendidos dentro de los 2 días posteriores.</small></div>
-              </div>
-          
-          </div>
-  
-          <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
-            <div class="titulos-componente">
-                Total SKU's
-              </div>
-            <div class="chart">
-                <div class="valor  center">
-                    <div class="val">3500</div>
-                    <div class="descripcion">Total</div>
-                </div>
-                <div class="valor double">
-                
-                    <div class="gray">9%</div>
-                    <div class="blue">91%</div>
-                </div>
-                <p-chart type="doughnut" width="100" [data]="evaluadosChart" [options]="optionsReview" />
-                <div class="indicadores">
-                    <div class="gray point"> <i class="pi pi-circle-on"></i>Evaluad...(325)</div> 
-                    <div class="blue point"> <i class="pi pi-circle-on"></i>No Eval..(3175)</div> 
          
-                </div>
-            </div>
-           
-      
-      
-        </div>
-      
-     
-        <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
-          <div class="titulos-componente">
-              Competitividad
-            </div>
-          <div class="chart">
-            <div class="valor  center">
-              <div class="val">325</div>
-              <div class="descripcion">Total</div>
-          </div>
-          <div class="valor double">
-            <div class="gray">19%</div>
-            <div class="blue">81%</div>
-        </div>
-              <p-chart type="doughnut" width="100" [data]="fueraCompChart" [options]="optionsReview" />
-              <div class="indicadores">
-                  <div class="gray point"> <i class="pi pi-circle-on"></i>Fuera (128) </div> 
-                  <div class="blue point"> <i class="pi pi-circle-on"></i>Dentro (125)</div> 
-       
-              </div>
-          </div>
-         
-    
-    
-      </div>
-  
   
       
-          <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
-              <div class="titulos-componente">
-                  Seguimiento Día 1
-                </div>
-                <div class="chart">
-                  <div class="valor  center">
-                    <div class="val">125</div>
-                    <div class="descripcion">Total</div>
-                </div>
-                <div class="valor double">
-                  <div class="gray">21%</div>
-                  <div class="blue">79%</div>
-              </div>
-                    <p-chart type="doughnut" width="100" [data]="fueraCompChart" [options]="optionsReview" />
-                    <div class="indicadores">
-                        <div class="gray point"> <i class="pi pi-circle-on"></i>Correg...(98) </div> 
-                        <div class="blue point"> <i class="pi pi-circle-on"></i>No Corr...(27)</div> 
-             
-                    </div>
-                </div>
-          </div>
-        <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
-              <div class="titulos-componente">
-                  Seguimiento Día 2 
-                </div>
-                <div class="chart">
-                  <div class="valor  center">
-                    <div class="val">27</div>
-                    <div class="descripcion">Total</div>
-                </div>
-                <div class="valor double">
-                  <div class="gray">26%</div>
-                  <div class="blue">74%</div>
-              </div>
-                    <p-chart type="doughnut" width="100" [data]="fueraCompChart" [options]="optionsReview" />
-                    <div class="indicadores">
-                        <div class="gray point"> <i class="pi pi-circle-on"></i>Fuera(4) </div> 
-                        <div class="blue point"> <i class="pi pi-circle-on"></i>Dentro(20)</div> 
-             
-                    </div>
-                </div>
-          </div>
         </div>
-      <div class="ranking">
+      <div class="ranking widget">
           <div class="titulo-cinta">
-              <div>
-                  Ranking de <p-dropdown 
-                  [style]="{'margin-left': '5px'}"
-                  [options]="vistaList" 
-                  optionLabel="name" 
-                  placeholder="Select a City" />
+              <div class="title">
+                  Ranking de SKU menos competitivos
               </div>
-              
+              <div class="botonera">
+                <p-button icon="pi pi-chart-line" class="brand" [rounded]="true" [raised]="true" />
+                <p-button icon="pi pi-dollar" class="brand" [rounded]="true" severity="info" [raised]="true"/>
+              </div>
           </div>
           <p-table #tableRanking [value]="ranking" 
           [(selection)]="selectedSKU"  dataKey="num_folio" [scrollable]="true" scrollHeight="400px" id="tbl-ranking">
@@ -207,10 +140,11 @@
                 <tr>
                   <th style="width: 4rem"><p-tableHeaderCheckbox /></th>
                   <th>No</th>
-                  <th [width]="200">Macrocategoría</th>
+                  <th style="width: 20%;">SKU</th>
+                  <th>Marca</th>
                   <th>Fuera de Competitividad</th>
                   <th>% Fuera de Competitividad</th>
-                  <th>% Diferencial VS Competidor más bajo</th>
+                  <th>% Diferencial</th>
                 </tr>
               </ng-template>
               <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
@@ -220,6 +154,7 @@
                   </td>
                   <td>{{rowIndex + 1}}</td>
                   <td>{{row.name}}</td>
+                  <td>{{row.marca}}</td>
                   <td>{{row.fueraCom}}</td>
                   <td>{{row.prcFueraCom}}</td>
                   <td>{{row.diferencial}}</td>
@@ -228,9 +163,103 @@
             </p-table>
       </div>
 
-      
+      <div class="chart-home">
+
+        <div class="tarjeta5 w-100" style="display: block; flex-wrap: wrap;">
+          <div class="titulos-componente">
+              Distribución de SKU's
+            </div>
+          <div class="chart">
+            <p-chart type="bar" height="150" [data]="diferencialChart" [options]="optionsDiferencial" />
+          </div>
+         
+    
+    
+      </div>
+      <div class="tarjeta5 w-100" style="display: block; flex-wrap: wrap;">
+        <div class="titulos-componente">
+            SKU's Trabajados
+          </div>
+        <div class="chart">
+          <p-chart type="line" height="150px" [data]="dataChartHistorico" [options]="optionsDataChartHistorico" />
+        </div>
+       
+  
   
     </div>
+        
+      </div>
+
+      <div class="kpis ">
+        <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+          <div class="titulos-componente">
+              % Diferencial 
+            </div>
+          <div class="chart">
+              <div class="value-kpi">43 %</div>
+              <div class="helper"><small>VS Mejor Competidor</small></div>
+          </div>
+      </div>
+      <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+          <div class="titulos-componente">
+             SKU's Atendidos 
+            </div>
+          <div class="chart">
+              <div class="value-kpi">156</div>
+              <div class="helper"><small>SKU's atendidos dentro de los 2 días posteriores.</small></div>
+          </div>
+      
+      </div>
+
+ 
+
+
+    
+        <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+            <div class="titulos-componente">
+                Seguimiento Día 1
+              </div>
+              <div class="chart">
+                <div class="valor  center">
+                  <div class="val">125</div>
+                  <div class="descripcion">Total</div>
+              </div>
+              <div class="valor double">
+                <div class="gray">21%</div>
+                <div class="blue">79%</div>
+            </div>
+                  <p-chart type="doughnut" width="110" [data]="fueraCompChart" [options]="optionsReview" />
+                  <div class="indicadores">
+                      <div class="gray point"> <i class="pi pi-circle-on"></i>Correg...(98) </div> 
+                      <div class="blue point"> <i class="pi pi-circle-on"></i>No Corr...(27)</div> 
+           
+                  </div>
+              </div>
+        </div>
+      <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
+            <div class="titulos-componente">
+                Seguimiento Día 2 
+              </div>
+              <div class="chart">
+                <div class="valor  center">
+                  <div class="val">27</div>
+                  <div class="descripcion">Total</div>
+              </div>
+              <div class="valor double">
+                <div class="gray">26%</div>
+                <div class="blue">74%</div>
+            </div>
+                  <p-chart type="doughnut" width="110" [data]="fueraCompChart" [options]="optionsReview" />
+                  <div class="indicadores">
+                      <div class="gray point"> <i class="pi pi-circle-on"></i>Fuera(4) </div> 
+                      <div class="blue point"> <i class="pi pi-circle-on"></i>Dentro(20)</div> 
+           
+                  </div>
+              </div>
+        </div>
+      </div>
+  
+      
     
   
   

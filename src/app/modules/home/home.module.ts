@@ -4,6 +4,7 @@ import { AppComponent } from 'src/app/app.component';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { HomeRoutingModule } from './home-routing.module';
+import { RippleModule } from 'primeng/ripple';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { HomeRoutingModule } from './home-routing.module';
   imports: [
     CommonModule,
     MessagesModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    RippleModule
   ],
   exports: [
     MessageModule
