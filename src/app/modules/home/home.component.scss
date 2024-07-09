@@ -10,25 +10,54 @@ $colorAmarillo: #ffe401ff;
 $colorAmarilloClaro: #ffed80ff;
 
 /* ---------------------------------------------------------------------------------- */
-
-.titulos-principal{
-  padding-left: 0px;
-  font-weight: 400;
-  color: #2561a2;
-  font-size: 3em;
-  display: inline;
+.titles{
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  padding: 10px 10px 5px 15px;
+  align-items: end;
+  .titulos-principal{
+    padding-left: 0px;
+    font-weight: 400;
+    color: #2561a2;
+    font-size: 3em;
+    display: inline;
+  }
+  .date-corte{
+    color: gray;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    .label{
+      margin-right: 10px;
+    }
+    .value{
+      font-size: 110%;
+      color: $blue;
+    }
+  }
 }
 
 .w-30{
   width: 30% !important;
 }
 
+.widget{
+  background-color: #eeeeee;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px #00000008, 0 0 2px #0000000f, 0 2px 6px #0000001f !important;
+  padding: 15px;
+  margin-bottom: 20px;
+}
 
 
-.titulo-cinta{
+
+::ng-deep.titulo-cinta{
   width: 100%;
   margin-bottom: 5px;
-  div{
+  display: flex;
+  justify-content: space-between;
+  div.title{
     background-color: $blue;
     color: white;
     border-top-right-radius: 15px;
@@ -41,6 +70,16 @@ $colorAmarilloClaro: #ffed80ff;
     align-items: center;
     font-size: 110%;
     text-transform: uppercase;
+  }
+  .botonera{
+    background-color: transparent;
+    width: 90px;
+    display: flex;
+    justify-content: space-between;
+    .brand .p-button{
+      background: $blue;
+      border: 1px solid $blue;
+    }
   }
 }
 
@@ -111,7 +150,7 @@ $colorAmarilloClaro: #ffed80ff;
         .helper{
             width: 100%;
             color: gray;
-            margin-top: 15px;
+            margin-top: 20px;
             text-align: center;
         }
 
@@ -124,7 +163,7 @@ $colorAmarilloClaro: #ffed80ff;
           font-size: 130%;
           color: $blue;
           &.center{
-              margin-top: 33px;
+              margin-top: 37px;
               margin-left: -5px;
               .val{
                   color: $blue;
@@ -140,7 +179,7 @@ $colorAmarilloClaro: #ffed80ff;
               z-index: 9;
               display: flex;
               justify-content: space-between;
-              margin-top: 90px;
+              margin-top: 100px;
               font-size: 125%;
               margin-left: 15px;
               
@@ -184,7 +223,9 @@ $colorAmarilloClaro: #ffed80ff;
     }
 
   }
-
+.shadow-2{
+  box-shadow: 0 4px 10px #00000008, 0 0 2px #0000000f, 0 2px 6px #0000001f !important;
+}
   .menu-container{
     width: 100%;
     display: flex;
@@ -195,9 +236,6 @@ $colorAmarilloClaro: #ffed80ff;
       width: 300px;
       background-color: #eeeeee;
       color: $blue;
-      -webkit-box-shadow: 5px 5px 19px -5px #2661a294;
-      -moz-box-shadow: 5px 5px 19px -5px #2661a294;
-      box-shadow: 5px 5px 19px -5px #2661a294;
       border-radius: 5px;
       padding: 10px;
       display: flex;
@@ -216,29 +254,63 @@ $colorAmarilloClaro: #ffed80ff;
     }
   }
 }
-::ng-deep.seguimiento-filtrados{
-    width: 100%;
-    margin-top: 15px;
-    background-color: #eeeeee;
-    border-radius: 10px;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
+
+.home-data{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.w-100{
+  width: 100% !important;
+}
+::ng-deep.app-home{
+  
     .kpis{
-      width: 60%;
+      width: 36%;
       display: flex;
       flex-wrap: wrap;
       padding-right: 10px;
       justify-content: space-between;
+      align-items: start;
+      margin-bottom: 20px;
       .tarjeta5{
         width: 24%;
+        min-width: 250px;
+        height: 200px;
+      
       }
+      .tarjeta5:nth-child(1){
+        margin-bottom: 21px;
+      } 
       .titulo-cinta{
         margin-bottom: 5px;
       }
+      .chart{
+        padding: 0px 5px 5px 5px;
+      }
+    }
+    .chart-home{
+      width: 60%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: start;
+      .chart{
+        width: 100%;
+        .title{
+          background: #2661a2;
+          text-transform: uppercase;
+          font-weight: 600;
+          color: white;
+          padding: 5px;
+          font-weight: 400;
+          margin-bottom: 15px;
+        }
+      }
     }
     .ranking{
-      width: 40%;
+      width: 60%;
      
       td{
         height: 30px !important;
@@ -255,7 +327,7 @@ $colorAmarilloClaro: #ffed80ff;
           padding: 10px 5px 5px 5px;;
           text-align: center;
           color: white;
-          font-weight: 200;
+          font-weight: 300;
           &:first-child{
             border-top-left-radius: 5px;
           }

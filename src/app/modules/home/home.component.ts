@@ -10,7 +10,7 @@ import { skipUntil } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  fechaFiltro= new Date();
+  now= new Date();
 
   selectedData: any;
 
@@ -18,9 +18,7 @@ export class HomeComponent implements OnInit {
     this.selectedData = data;
     overlaypanel.toggle(event);
   }
-  selectedfecha(){
-    console.log(this.fechaFiltro)
-  }
+
 
 
   hideOverlay(overlaypanel: any) {
@@ -208,56 +206,66 @@ export class HomeComponent implements OnInit {
   ];
   selectedSKU:any=[];
   ranking:any=[{
-    name: 'Joyería y Relojería',
+    name: 647847,
     fueraCom: 37,
+    prcFueraCom:15,
+    marca: 'Marca',
+    diferencial: 24
+  },
+  {
+    name: 636221,
+    fueraCom: 37,
+    marca: 'Marca',
     prcFueraCom:15,
     diferencial: 24
   },
   {
-    name: 'Joyería y Relojería',
-    fueraCom: 37,
-    prcFueraCom:15,
-    diferencial: 24
-  },
-  {
-    name: 'Joyería y Relojería',
+    name: 358876,
+    marca: 'Marca',
     fueraCom: 37,
     prcFueraCom:15,
     diferencial: 24
   },{
-    name: 'Joyería y Relojería',
+    name: 978967,
+    marca: 'Marca',
     fueraCom: 37,
     prcFueraCom:15,
     diferencial: 24
   }
 ,{
-  name: 'Joyería y Relojería',
+  name: 567534,
+  marca: 'Marca',
   fueraCom: 37,
   prcFueraCom:15,
   diferencial: 24
 },{
-  name: 'Joyería y Relojería',
+  name: 457645,
+  marca: 'Marca',
   fueraCom: 37,
   prcFueraCom:15,
   diferencial: 24
 },{
-  name: 'Joyería y Relojería',
+  name: 345376,
   fueraCom: 37,
+  marca: 'Marca',
   prcFueraCom:15,
   diferencial: 24
 },{
-  name: 'Joyería y Relojería',
+  name: 457676,
   fueraCom: 37,
+  marca: 'Marca',
   prcFueraCom:15,
   diferencial: 24
 },{
-  name: 'Joyería y Relojería',
+  name: 344558,
   fueraCom: 37,
+  marca: 'Marca',
   prcFueraCom:15,
   diferencial: 24
 },{
-  name: 'Joyería y Relojería',
+  name: 325568,
   fueraCom: 37,
+  marca: 'Marca',
   prcFueraCom:15,
   diferencial: 24
 }]
