@@ -5,6 +5,7 @@
     </div>
     <div>
       <label class="titulo-folio">Folio: 123456</label>
+      <label class="titulo-folio">Fecha de creacion: 09/07/2024</label>
     </div>
     <!-- <div style="text-align: right; align-items: center; display: flex; ">
       <div class="turnTransparent" [class.turnRed]="!esFechaCorte" [pTooltip]="!esFechaCorte?tooltipCalendar:undefined" tooltipPosition="bottom">
@@ -151,7 +152,7 @@
 
   <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
       <div style="margin-top: 5px; color:#2561a2; font-size: 2.1em; font-weight: 600; text-align: center;">
-        3
+        4
       </div>
       <div class="titulos-componente">
         SKU´s atendidos y<br>dentro de competitividad
@@ -184,7 +185,7 @@
   <div class="container-momento">
 
     <p-tabView class="momentos-table">
-      <p-tabPanel header="Momento 1">
+      <p-tabPanel header="Cambio de precios">
 
         <div class="container-filtros">
 
@@ -214,22 +215,22 @@
 
           <div class="tarjeta-grafica">
             <div class="titulos-componente">
-              Seleccionados
+              Seleccionados a modificar
             </div>
             <div class="chart">
               <div class="valor blue">5</div>
               <p-chart type="doughnut"  width="100" height="100px" [data]="fueraCompChart" [options]="optionsReview"></p-chart>
               <div class="indicadores">
                 <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;">60%</p>
+                  <p style="margin: 0.5rem;">80%</p>
                   <div>
-                    <i class="pi pi-circle-on"></i>Dentro (3)
+                    <i class="pi pi-circle-on"></i>Dentro (4)
                   </div>
                 </div>
                 <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;">40%</p>
+                  <p style="margin: 0.5rem;">20%</p>
                   <div>
-                    <i class="pi pi-circle-on"></i>Fuera (2)
+                    <i class="pi pi-circle-on"></i>Fuera (1)
                   </div>
                 </div>
               </div>
@@ -241,19 +242,42 @@
               Tipo de Cambio
             </div>
             <div class="chart">
-              <div class="valor blue">3</div>
+              <div class="valor blue">5</div>
               <p-chart type="doughnut"  width="100" height="100px" [data]="tipoCambioChart" [options]="optionsReview"></p-chart>
               <div class="indicadores">
                 <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;">66.6%</p>
+                  <p style="margin: 0.5rem;">60%</p>
                   <div>
-                    <i class="pi pi-circle-on"></i>Promoción (2)
+                    <i class="pi pi-circle-on"></i>Promoción (3)
                   </div>
                 </div>
                 <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;">33.3%</p>
+                  <p style="margin: 0.5rem;">40%</p>
                   <div>
-                    <i class="pi pi-circle-on"></i>Precio regular (1)
+                    <i class="pi pi-circle-on"></i>Precio regular (2)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="tarjeta-grafica">
+            <div class="titulos-componente">
+              Promedio de diferencial
+            </div>
+            <div class="chart" style="margin-top: 35px;">
+              <div class="indicadores">
+                <div style="font-size:250%; display: flex; flex-direction: column;">
+                  <div style="text-align: center;  font-weight: bold; color: #265aa7ff;">25.6%</div>
+                  <div style="color: 434343ff;">
+                    Anterior
+                  </div>
+                </div>
+                <div style="font-size: 250%; display: flex; flex-direction: column;">
+                  <div style="text-align: center;  font-weight: bold; color: #265aa7ff;">11.2%</div>
+                  <div style="color: 434343ff;">
+                    Actual
                   </div>
                 </div>
               </div>
@@ -367,7 +391,7 @@
                   {{product.fi}}
                 </td>
                 <td class="fsection" >
-                  {{product.ff}}
+                  NA
                 </td>
                 <td>
                   <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>
@@ -456,7 +480,7 @@
                       {{product.fi}}
                     </td>
                     <td class="fsection" >
-                      {{product.ff}}
+                      NA
                     </td>
                     <td>
                       <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>
@@ -472,68 +496,91 @@
         </div>
       </p-tabPanel>
 
-      <p-tabPanel header="Momento 2">
+      <p-tabPanel header="Implementación">
+        <div style="text-align: end; margin-right: 1rem;">
+          <p-calendar
+          #myCalendar
+          dateFormat="dd/mm/yy"
+          [(ngModel)]="fechaFiltro"
+          [readonlyInput]="true"
+          [showIcon]="true"
+          [showOnFocus]="false"
+          placeholder="{{fechaFiltro}}"
+          [style]="{'width':'150px'}"
+          [maxDate]="dateTime"/>
+        </div>
         <div class="container-filtros">
-
           <div class="tarjeta-grafica-2">
             <div class="titulos-componente">
               Implementados
             </div>
             <div class="chart">
-              <div class="valor blue">80%</div>
+              <div class="valor blue">4000</div>
               <p-chart type="doughnut"  width="100" height="100px" [data]="implementadosChart" [options]="optionsReview"></p-chart>
               <div class="indicadores">
                 <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"></p>
+                  <p style="margin: 0.5rem;">90%</p>
                   <div>
-                    <i class="pi pi-circle-on"></i> 4000 de 5000
-                    <i class="pi pi-check success"></i>
+                    <i class="pi pi-circle-on"></i>Promoción (3600)
                   </div>
                 </div>
-
+                <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">10%</p>
+                  <div>
+                    <i class="pi pi-circle-on"></i>Precio regular (400)
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-            <div class="tarjeta-grafica-2">
-              <div class="titulos-componente">
-                No implementados
-              </div>
-              <div class="chart">
-                <div class="valor blue">20%</div>
-                <p-chart type="doughnut"  width="100" height="100px" [data]="noImplementadosChart" [options]="optionsReview"></p-chart>
-                <div class="indicadores">
-                  <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
-                    <p style="margin: 0.5rem;"></p>
-                    <div>
-                      <i class="pi pi-circle-on"></i> 1000 de 5000
-                      <i class="pi pi-times danger"></i>
-                    </div>
+          <div class="tarjeta-grafica-2">
+            <div class="titulos-componente">
+              No Implementados
+            </div>
+            <div class="chart">
+              <div class="valor blue">1000</div>
+              <p-chart type="doughnut"  width="100" height="100px" [data]="noImplementadosChart" [options]="optionsReview"></p-chart>
+              <div class="indicadores">
+                <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">70%</p>
+                  <div>
+                    <i class="pi pi-circle-on"></i>Promoción (700)
                   </div>
-
+                </div>
+                <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">30%</p>
+                  <div>
+                    <i class="pi pi-circle-on"></i>Precio regular (300)
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="tarjeta-grafica-2">
-              <div class="titulos-componente">
-                Total de Códigos
-              </div>
-              <div class="chart">
-                <div class="valor blue">100%</div>
-                <p-chart type="doughnut"  width="100" height="100px" [data]="totalM2Chart" [options]="optionsReview"></p-chart>
-                <div class="indicadores">
-                  <div class=" point" style="font-size: medium; display: flex; flex-direction: column;">
-                    <p style="margin: 0.5rem;"></p>
-                    <div>
-                      <i class="pi pi-circle-on"></i> Códigos totales: 5000
-                      <!-- <i class="pi pi-times danger"></i> -->
-                    </div>
+          <div class="tarjeta-grafica-2">
+            <div class="titulos-componente">
+              Total
+            </div>
+            <div class="chart">
+              <div class="valor blue">5000</div>
+              <p-chart type="doughnut"  width="100" height="100px" [data]="totalM2Chart" [options]="optionsReview"></p-chart>
+              <div class="indicadores">
+                <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">80%</p>
+                  <div>
+                    <i class="pi pi-circle-on"></i>Implementados (4000)
                   </div>
-
+                </div>
+                <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">20%</p>
+                  <div>
+                    <i class="pi pi-circle-on"></i>No implementados (1000)
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
 
         </div>
         <br>
@@ -589,13 +636,13 @@
               <tr class="bg-blue">
                   <th  class="isection fsection" >Código</th>
                   <th    colspan="2" class="isection fsection">
-                      Precio Publicado
+                      Precio Anterior
                   </th>
                   <th    colspan="3" class="isection fsection">
                     Mejor competidor
                   </th>
-                  <th   colspan="7" class="isection fsection">
-                      Competitividad
+                  <th   colspan="8" class="isection fsection">
+                      Precio Nuevo
                   </th>
                   <th   colspan="2" class="isection fsection">
                       Tiendas
@@ -617,6 +664,7 @@
                 <th class="isection">En competitividad</th>
                 <th >Precio</th>
                 <th>Tipo de cambio</th>
+                <th>Nuevo diferencial</th>
                 <th>Fecha Inicio</th>
                 <th>Fecha Fin</th>
                 <th>Canal Físico</th>
@@ -641,11 +689,14 @@
                   </td>
                   <td  class="isection"  >${{product.ps.precio}}</td>
                   <td>{{product.tc}}</td>
+
+                  <td>{{product.ps.diferencial}} %</td>
+
                   <td>
                       {{product.fi}}
                   </td>
                   <td  >
-                      {{product.ff}}
+                      NA
                   </td>
                   <td>
                       <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>
@@ -725,7 +776,7 @@
         </div>
       </p-tabPanel>
 
-      <p-tabPanel header="Momento 3">
+      <p-tabPanel header="Ventas">
         <div class="container-filtros">
           <div class="tarjeta-grafica">
             <div class="titulos-componente">Ventas no validas</div>
@@ -1003,8 +1054,8 @@
               <th    colspan="3" class="isection fsection">
                 Mejor competidor
               </th>
-              <th   colspan="8" class="isection fsection">
-                  Competitividad
+              <th   colspan="9" class="isection fsection">
+                  Nuevo precio Coppel
               </th>
 
           </tr>
@@ -1024,6 +1075,7 @@
             <th class="isection">En competitividad</th>
             <th >Precio</th>
             <th>Tipo de cambio</th>
+            <th>Nuevo diferencial</th>
             <th>Fecha Inicio</th>
             <th>Fecha Fin</th>
             <th>Canal Físico</th>
@@ -1047,11 +1099,12 @@
               </td>
               <td  class="isection"  >${{product.ps.precio}}</td>
               <td>{{product.tc}}</td>
+              <td>{{product.ps.diferencial}} %</td>
               <td>
                   {{product.fi}}
               </td>
               <td  >
-                  {{product.ff}}
+                NA
               </td>
               <td>
                   <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>
@@ -1134,7 +1187,7 @@
               </div>
             </th>
             <th class="isection">Nombre</th>
-            <th class="">Precio base</th>
+            <th class="">Precio anterior</th>
             <th class="">Precio mejor competidor</th>
             <th class="">Nuevo precio</th>
             <th class="">Precio implementado</th>

@@ -576,12 +576,12 @@ export class SeguimientoCompetitividadComponent{
       coppel: { precio: 1000, margen_real:  30},
       mc: { comp: 'Aurrera', precio: 700},
       diferencial: 43,
-      ps: { precio: 770, diferencial: 10, prcpr: 0, prccp: 12},
+      ps: { precio: 770, diferencial: 16, prcpr: 0, prccp: 12},
       fi: "26/06/2024",
       ff: "03/07/2024",
       canal: { fisico: true, digital: true},
       pi: 770,
-      tipo: { id:  2},
+      tipo: { id:  1},
       tiendas: {implementado: 875, no_implementado: 125},
       tc: "Promocion"
     },
@@ -641,7 +641,7 @@ export class SeguimientoCompetitividadComponent{
       ff: "03/07/2024",
       canal: { fisico: true, digital: true},
       pi: 979,
-      tipo: { id:  1},
+      tipo: { id:  2},
       tiendas: {implementado: 800, no_implementado: 200},
       tc: "Cambio de precio"
     },]
@@ -1058,10 +1058,9 @@ export class SeguimientoCompetitividadComponent{
       labels: ['Implementados', 'No implementados'],
       datasets: [
           {
-              data: [8, 2],
-              backgroundColor: ["#4CB9639c", "#D0D0D09c"]
-              // backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--gray-500')],
-              // hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-600'), documentStyle.getPropertyValue('--gray-400')],
+              data: [9, 1],
+              backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--gray-500')],
+              hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-600'), documentStyle.getPropertyValue('--gray-400')],
           }
       ],
     }
@@ -1070,10 +1069,9 @@ export class SeguimientoCompetitividadComponent{
       labels: ['No implementados', 'Implementados'],
       datasets: [
           {
-              data: [8, 2],
-              backgroundColor: ["#D0D0D09c", "#FF595E9c"]
-              // backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--gray-500')],
-              // hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-600'), documentStyle.getPropertyValue('--gray-400')],
+              data: [7, 3],
+              backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--gray-500')],
+              hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-600'), documentStyle.getPropertyValue('--gray-400')],
           }
       ],
     }
@@ -1083,9 +1081,8 @@ export class SeguimientoCompetitividadComponent{
       datasets: [
           {
               data: [8, 2],
-              backgroundColor: ["#4CB9639c", "#FF595E9c"]
-              // backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--gray-500')],
-              // hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-600'), documentStyle.getPropertyValue('--gray-400')],
+              backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--gray-500')],
+              hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-600'), documentStyle.getPropertyValue('--gray-400')],
           }
       ],
     }
