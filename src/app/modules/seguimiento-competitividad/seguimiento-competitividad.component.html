@@ -391,7 +391,7 @@
                   {{product.fi}}
                 </td>
                 <td class="fsection" >
-                  NA
+                  {{product.ff}}
                 </td>
                 <td>
                   <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>
@@ -480,7 +480,7 @@
                       {{product.fi}}
                     </td>
                     <td class="fsection" >
-                      NA
+                      {{product.ff}}
                     </td>
                     <td>
                       <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>
@@ -497,6 +497,16 @@
       </p-tabPanel>
 
       <p-tabPanel header="Implementación">
+
+        <div class="tarjeta5 w-100" style="display: block; flex-wrap: wrap; margin-bottom: 1rem;">
+          <div class="titulos-componente">
+              SKU's Trabajados
+            </div>
+          <div class="chart">
+            <p-chart type="line" height="150px" [data]="dataChartHistorico" [options]="optionsDataChartHistorico" />
+          </div>
+        </div>
+
         <div style="text-align: end; margin-right: 1rem;">
           <p-calendar
           #myCalendar
@@ -696,7 +706,7 @@
                       {{product.fi}}
                   </td>
                   <td  >
-                      NA
+                    {{product.ff}}
                   </td>
                   <td>
                       <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>
@@ -1104,7 +1114,7 @@
                   {{product.fi}}
               </td>
               <td  >
-                NA
+                {{product.ff}}
               </td>
               <td>
                   <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>

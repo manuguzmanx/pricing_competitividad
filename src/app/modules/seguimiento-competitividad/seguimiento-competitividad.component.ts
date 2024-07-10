@@ -46,6 +46,11 @@ export class SeguimientoCompetitividadComponent{
     this.tooltipData = objeto;
   }
 
+
+  optionsDataChartHistorico:any;
+  dataChartHistorico: any ;
+  chartHitoricoOptions:any;
+
   switchName:string="%"
   switchMargen:boolean = false;
 
@@ -168,6 +173,10 @@ export class SeguimientoCompetitividadComponent{
   visibleModal:boolean = false;
   visibleModalTiendas:boolean = false;
   tabModal:any;
+  documentStyle : any;
+  textColor : any;
+  textColorSecondary : any;
+  surfaceBorder : any;
 
   periodicidad:any = [{id:1,name:'Diario'}, {id:2,name:'Semanal'}, {id: 3, name: 'Mensual'}]
   periodicidadSelected: any;
@@ -180,6 +189,7 @@ export class SeguimientoCompetitividadComponent{
     const textColor = documentStyle.getPropertyValue('--text-color');
     const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+
 
 
     this.config.setTranslation({
@@ -245,9 +255,86 @@ export class SeguimientoCompetitividadComponent{
 
     //Tabla
     this.inicializarDatosDummy();
+    this.intDataHistorico();
 
 
   }
+
+  intDataHistorico(){
+    this.dataChartHistorico = {
+      labels: ['26/06/2024', '27/06/2024', '28/06/2024', '29/06/2024', '30/06/2024', '02/07/2024', '02/07/2024'],
+      datasets: [
+          {
+              label: 'Totales',
+              data: [5000, 5000, 5000, 5000, 5000, 5000, 5000],
+              fill: false,
+              backgroundColor: [ '#1046FF'],
+              borderColor: ['#1046FF'],
+              tension: 0.1,
+          },
+          {
+              label: 'Implementados',
+              data: [2200, 2600, 3000, 3250, 3450, 3550, 4000],
+              fill: false,
+              backgroundColor: [ '#265aa7ff'],
+              borderColor: ['#265aa7ff'],
+              tension: 0.1
+          },
+          {
+            label: 'No implementados',
+            data: [2800, 2400, 2000, 1750, 1550, 1450, 1000],
+            fill: false,
+            backgroundColor: [ '#c6c4c4'],
+            borderColor: ['#c6c4c4'],
+            tension: 0.1
+        },
+        
+      ]
+    };
+    this.optionsDataChartHistorico={
+      stacked: false,
+      maintainAspectRatio: false,
+      aspectRatio: 0.6,
+      plugins: {
+          legend: {
+            display: true,
+            position: 'top',
+            labels:  {
+           
+                color: this.textColor
+            }
+          }
+      },
+      scales: {
+          x: {
+            title: {
+              display: false,
+              text: 'Día'
+            },
+              ticks: {
+                  color: this.textColorSecondary
+              },
+              grid: {
+                  color: this.surfaceBorder,
+                  drawBorder: false
+              }
+          },
+          y: {
+            title: {
+              display: true,
+             text: 'SKU\'s'
+            },
+              ticks: {
+                  color: this.textColorSecondary
+              },
+              grid: {
+                  color: this.surfaceBorder,
+                  drawBorder: false
+              }
+          }
+      }
+  };
+  };
 
   public filtroM2() {
     this.selectedFiltro.value != 0 ? this.selectedFiltro.value = 1 : this.selectedFiltro.value = 0;
@@ -349,6 +436,11 @@ export class SeguimientoCompetitividadComponent{
       return null;
     }
   }
+
+
+
+
+  
 
   getMinValueWithoutCoppel2(obj: Competitividad): number {
 
@@ -593,7 +685,7 @@ export class SeguimientoCompetitividadComponent{
       diferencial: 43,
       ps: { precio: 770, diferencial: 10, prcpr: 0, prccp: 12},
       fi: "26/06/2024",
-      ff: "03/07/2024",
+      ff: "NA",
       canal: { fisico: true, digital: true},
       pi: 770,
       tipo: { id:  2},
@@ -638,7 +730,7 @@ export class SeguimientoCompetitividadComponent{
       diferencial: 11,
       ps: { precio: 979, diferencial: 10, prcpr: 0, prccp: 1},
       fi: "26/06/2024",
-      ff: "03/07/2024",
+      ff: "NA",
       canal: { fisico: true, digital: true},
       pi: 979,
       tipo: { id:  2},
@@ -911,6 +1003,7 @@ export class SeguimientoCompetitividadComponent{
       }
     };
 
+
     this.porTiendaChart = {
       labels: ["1","2","3","4","5","6","8","9","10"],
       datasets: [
@@ -918,16 +1011,16 @@ export class SeguimientoCompetitividadComponent{
           type: 'bar',
           label:"Implementados",
           data: [2, 3, 4, 2, 3, 4, 5, 2, 4, 5, 3, 2],
-          backgroundColor: [ '#B0E54E9c'],
-          borderColor: ['#B0E54E'],
+          backgroundColor: [ '#265aa7ff'],
+          borderColor: ['#4598d3ff'],
           borderWidth: 1
         },
         {
           type: 'bar',
           label:"No Implementados",
           data: [3, 2, 1, 3, 2, 1, 0, 3, 1, 0, 2, 3],
-          backgroundColor: [ '#EC50509c'],
-          borderColor: ['#EC5050'],
+          backgroundColor: [ '#c6c4c4'],
+          borderColor: ['#666666'],
           borderWidth: 1
         }
       ],
@@ -941,16 +1034,16 @@ export class SeguimientoCompetitividadComponent{
           type: 'bar',
           label:"Implementado",
           data: [875, 1000, 500, 800, 800],
-          backgroundColor: [ '#B0E54E9c'],
-          borderColor: ['#B0E54E'],
+          backgroundColor: [ '#265aa7ff'],
+          borderColor: ['#4598d3ff'],
           borderWidth: 1
         },
         {
           type: 'bar',
           label:"No implementado",
           data: [125, 0, 500, 200, 200],
-          backgroundColor: [ '#EC50509c'],
-          borderColor: ['#EC5050'],
+          backgroundColor: [ '#c6c4c4'],
+          borderColor: ['#666666'],
           borderWidth: 1
         }
       ],
