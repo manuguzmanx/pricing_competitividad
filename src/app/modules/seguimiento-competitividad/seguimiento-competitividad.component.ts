@@ -172,6 +172,7 @@ export class SeguimientoCompetitividadComponent{
   totalVentas:any;
   visibleModal:boolean = false;
   visibleModalTiendas:boolean = false;
+  visibleModalVentas:boolean = false;
   tabModal:any;
   documentStyle : any;
   textColor : any;
@@ -225,7 +226,6 @@ export class SeguimientoCompetitividadComponent{
     ];
 
     this.opcionesFiltrosMomento3 = [
-      { name: "Todos", value: 0 },
       { name: "SKU's", value: 1 },
       { name: "Tiendas", value: 2 },
     ];
@@ -675,7 +675,17 @@ export class SeguimientoCompetitividadComponent{
       pi: 770,
       tipo: { id:  1},
       tiendas: {implementado: 875, no_implementado: 125},
-      tc: "Promocion"
+      tc: "Promocion",
+      ventas: {
+        validas: {
+          unidades: 150,
+          precio: 1500
+        },
+        invalidas: {
+          unidades: 75,
+          precio: 1500
+        }
+      }
     },
     {
       sku: '2001',
@@ -690,7 +700,17 @@ export class SeguimientoCompetitividadComponent{
       pi: 770,
       tipo: { id:  2},
       tiendas: {implementado: 1000, no_implementado: 0},
-      tc: "Cambio de precio"
+      tc: "Precio regular",
+      ventas: {
+        validas: {
+          unidades: 150,
+          precio: 1500
+        },
+        invalidas: {
+          unidades: 75,
+          precio: 1500
+        }
+      }
     },
     {
       sku: '3001',
@@ -705,7 +725,17 @@ export class SeguimientoCompetitividadComponent{
       pi: 900,
       tipo: { id:  2},
       tiendas: {implementado: 500, no_implementado: 500},
-      tc: "Promocion"
+      tc: "Promocion",
+      ventas: {
+        validas: {
+          unidades: 150,
+          precio: 1500
+        },
+        invalidas: {
+          unidades: 75,
+          precio: 1500
+        }
+      }
     },
     {
       sku: '1004',
@@ -720,7 +750,17 @@ export class SeguimientoCompetitividadComponent{
       pi: 990,
       tipo: { id:  2},
       tiendas: {implementado: 800, no_implementado: 200},
-      tc: "Promocion"
+      tc: "Promocion",
+      ventas: {
+        validas: {
+          unidades: 150,
+          precio: 1500
+        },
+        invalidas: {
+          unidades: 75,
+          precio: 1500
+        }
+      }
     },
     {
       sku: '2004',
@@ -735,7 +775,15 @@ export class SeguimientoCompetitividadComponent{
       pi: 979,
       tipo: { id:  2},
       tiendas: {implementado: 800, no_implementado: 200},
-      tc: "Cambio de precio"
+      tc: "Precio regular",
+      ventas: {
+        validas: {
+          unidades: 150,
+        },
+        invalidas: {
+          unidades: 75
+        }
+      }
     },]
 
     this.codigos = [];
@@ -752,7 +800,19 @@ export class SeguimientoCompetitividadComponent{
         no_implementado: 3,
         promo: 3,
         cambio: 4,
-        implementado: true
+        implementado: true,
+        ventas: {
+          validas: {
+            unidades: 150,
+            precio: 1500
+          },
+          invalidas: {
+            alza:40,
+            baja:10,
+            unidades: 50,
+            precio: 1500
+          }
+        }
       },
       {
         num : "0002",
@@ -763,7 +823,19 @@ export class SeguimientoCompetitividadComponent{
         pi: 1000,
         implementados: 3,
         no_implementado: 2,
-        implementado: false
+        implementado: false,
+        ventas: {
+          validas: {
+            unidades: 150,
+            precio: 1500
+          },
+          invalidas: {
+            alza:90,
+            baja:10,
+            unidades: 100,
+            precio: 1500
+          }
+        }
       },
       {
         num : "0003",
@@ -774,7 +846,21 @@ export class SeguimientoCompetitividadComponent{
         pi: 770,
         implementados: 4,
         no_implementado: 1,
-        implementado: true
+        implementado: true,
+        ventas: {
+          validas: {
+            alza:40,
+            baja:10,
+            unidades: 75,
+            precio: 1500
+          },
+          invalidas: {
+            alza:50,
+            baja:25,
+            unidades: 75,
+            precio: 1500
+          }
+        }
       },
       {
         num : "0004",
@@ -785,7 +871,19 @@ export class SeguimientoCompetitividadComponent{
         pi: 770,
         implementados: 2,
         no_implementado: 3,
-        implementado: false
+        implementado: false,
+        ventas: {
+          validas: {
+            unidades: 25,
+            precio: 1500
+          },
+          invalidas: {
+            alza:65,
+            baja:10,
+            unidades: 75,
+            precio: 1500
+          }
+        }
       },
       {
         num : "0004",
@@ -796,7 +894,19 @@ export class SeguimientoCompetitividadComponent{
         pi: 770,
         implementados: 3,
         no_implementado: 2,
-        implementado: false
+        implementado: false,
+        ventas: {
+          validas: {
+            unidades: 150,
+            precio: 1500
+          },
+          invalidas: {
+            alza:40,
+            baja:110,
+            unidades: 150,
+            precio: 1500
+          }
+        }
       },
       {
         num : "0006",
@@ -807,7 +917,19 @@ export class SeguimientoCompetitividadComponent{
         pi: 780,
         implementados: 4,
         no_implementado: 1,
-        implementado: false
+        implementado: false,
+        ventas: {
+          validas: {
+            unidades: 150,
+            precio: 1500
+          },
+          invalidas: {
+            alza:400,
+            baja:200,
+            unidades: 600,
+            precio: 1500
+          }
+        }
       },
       {
         num : "0007",
@@ -818,7 +940,19 @@ export class SeguimientoCompetitividadComponent{
         pi: 770,
         implementados: 5,
         no_implementado: 0,
-        implementado: true
+        implementado: true,
+        ventas: {
+          validas: {
+            unidades: 50,
+            precio: 1500
+          },
+          invalidas: {
+            alza:40,
+            baja:35,
+            unidades: 75,
+            precio: 1500
+          }
+        }
       },
       {
         num : "0008",
@@ -829,7 +963,19 @@ export class SeguimientoCompetitividadComponent{
         pi: 770,
         implementados: 2,
         no_implementado: 3,
-        implementado: false
+        implementado: false,
+        ventas: {
+          validas: {
+            unidades: 90,
+            precio: 1500
+          },
+          invalidas: {
+            alza:80,
+            baja:10,
+            unidades: 90,
+            precio: 1500
+          }
+        }
       },
       {
         num : "0009",
@@ -840,7 +986,19 @@ export class SeguimientoCompetitividadComponent{
         pi: 770,
         implementados: 4,
         no_implementado: 1,
-        implementado: false
+        implementado: false,
+        ventas: {
+          validas: {
+            unidades: 90,
+            precio: 1500
+          },
+          invalidas: {
+            alza:240,
+            baja:30,
+            unidades: 270,
+            precio: 1500
+          }
+        }
       },
       {
         num : "0010",
@@ -851,7 +1009,19 @@ export class SeguimientoCompetitividadComponent{
         pi: 780,
         implementados: 3,
         no_implementado: 2,
-        implementado: false
+        implementado: false,
+        ventas: {
+          validas: {
+            unidades: 15,
+            precio: 1500
+          },
+          invalidas: {
+            alza:50,
+            baja:10,
+            unidades: 60,
+            precio: 1500
+          }
+        }
       }
     ];
     this.tiendasCoppel = []
@@ -1199,6 +1369,10 @@ export class SeguimientoCompetitividadComponent{
 
   showDetailTiendas() {
     this.visibleModalTiendas = true;
+  }
+
+  showDetailVentas() {
+    this.visibleModalVentas = true;
   }
 
   exportarExcelCodigos() {
