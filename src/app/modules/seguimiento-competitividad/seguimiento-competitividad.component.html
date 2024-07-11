@@ -794,41 +794,43 @@
 
       <p-tabPanel header="Ventas">
         <div class="container-filtros">
-          <div class="tarjeta-grafica">
-            <div class="titulos-componente">Ventas no validas</div>
-            <div class="chart-momento3-t2">
-              <div class="valor blue" >153</div>
-              <p-chart type="doughnut"  width="100" height="100px" [data]="tiendasNoValidas" [options]="optionsReview"></p-chart>
+
+          <div class="tarjeta-grafica-2">
+            <div class="titulos-componente">Ventas validas</div>
+            <div class="chart">
+              <div class="valor blue" >3050</div>
+              <p-chart type="doughnut"  width="100" height="100px" [data]="tiendasValidas" [options]="optionsReview2"></p-chart>
               <div class="indicadores">
-                <div class="red2 point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"><i class="pi pi-arrow-up"></i>62</p>
+                <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">2150</p>
                   <div>
-                    <i class="pi pi-circle-on"></i>Alza
+                    <i class="pi pi-circle-on"></i>Promoción
                   </div>
                 </div>
-                <div class="red point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"><i class="pi pi-arrow-down"></i>91</p>
+                <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">900</p>
                   <div>
-                    <i class="pi pi-circle-on"></i>Baja
+                    <i class="pi pi-circle-on"></i>Precio regular
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="tarjeta-grafica">
-            <div class="titulos-componente">Ventas validas</div>
-            <div class="chart-momento3-t1">
-              <div class="valor blue" >458</div>
-              <p-chart type="doughnut"  width="100" height="100px" [data]="tiendasValidas" [options]="optionsReview2"></p-chart>
+
+          <div class="tarjeta-grafica-2">
+            <div class="titulos-componente">Ventas no validas</div>
+            <div class="chart">
+              <div class="valor blue" >1075</div>
+              <p-chart type="doughnut"  width="100" height="100px" [data]="tiendasNoValidas" [options]="optionsReview"></p-chart>
               <div class="indicadores">
-                <div class="green2 point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"><i class="pi pi-arrow-up"></i>346</p>
+                <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;"><i class="pi pi-arrow-up"></i>870</p>
                   <div>
                     <i class="pi pi-circle-on"></i>Alza
                   </div>
                 </div>
-                <div class="green point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"><i class="pi pi-arrow-down"></i>112</p>
+                <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;"><i class="pi pi-arrow-down"></i>295</p>
                   <div>
                     <i class="pi pi-circle-on"></i>Baja
                   </div>
@@ -837,22 +839,23 @@
             </div>
           </div>
 
-          <div class="tarjeta-grafica">
+
+          <div class="tarjeta-grafica-2">
             <div class="titulos-componente">Total ventas</div>
-            <div class="chart-momento3-t3">
-              <div class="valor blue" >611</div>
+            <div class="chart">
+              <div class="valor blue" >4125</div>
               <p-chart type="doughnut"  width="100" height="100px" [data]="totalVentas" [options]="optionsReview"></p-chart>
               <div class="indicadores">
-                <div class="red point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"><i class="pi pi-times danger"></i>153</p>
-                  <div>
-                    <i class="pi pi-circle-on"></i>Ventas no validas
-                  </div>
-                </div>
-                <div class="green point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"><i class="pi pi-check success"></i>458</p>
+                <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;"><i class="pi pi-check success"></i>3050</p>
                   <div>
                     <i class="pi pi-circle-on"></i>Ventas validas
+                  </div>
+                </div>
+                <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;"><i class="pi pi-times danger"></i>1075</p>
+                  <div>
+                    <i class="pi pi-circle-on"></i>Ventas invalidas
                   </div>
                 </div>
               </div>
@@ -918,17 +921,17 @@
               </ng-template>
               <ng-template pTemplate="body" let-store>
                 <tr>
-                  <td class="" style="cursor: pointer;" (click)="showDetailVentas()">{{store.num}}</td>
-                  <td class="">{{store.ventas.validas.unidades}}</td>
-                  <td class="">{{store.ventas.validas.unidades*store.ventas.validas.precio}}</td>
-                  <td class="">{{(store.ventas.validas.unidades/(store.ventas.validas.unidades+store.ventas.invalidas.unidades)*100)}}</td>
-                  <td class="">{{store.ventas.invalidas.alza}}</td>
+                  <th class="isection fsection" style="cursor: pointer;" (click)="showDetailVentas()">{{store.num}}</th>
+                  <td class="isection">{{store.ventas.validas.unidades}}</td>
+                  <td class="">${{store.ventas.validas.unidades*store.ventas.validas.precio}}</td>
+                  <td class="fsection">{{(store.ventas.validas.unidades/(store.ventas.validas.unidades+store.ventas.invalidas.unidades)*100)}}%</td>
+                  <td class="isection">{{store.ventas.invalidas.alza}}</td>
                   <td class="">{{store.ventas.invalidas.baja}}</td>
                   <td class="">{{store.ventas.invalidas.unidades}}</td>
-                  <td class="">{{store.ventas.invalidas.unidades*store.ventas.invalidas.precio}}</td>
-                  <td class="">{{(store.ventas.invalidas.unidades/(store.ventas.validas.unidades+store.ventas.invalidas.unidades)*100)}}</td>
-                  <td class="">{{store.ventas.validas.unidades+store.ventas.invalidas.unidades}}</td>
-                  <td class="">{{(store.ventas.validas.unidades*store.ventas.validas.precio)+(store.ventas.invalidas.unidades*store.ventas.invalidas.precio)}}</td>
+                  <td class="">${{store.ventas.invalidas.unidades*store.ventas.invalidas.precio}}</td>
+                  <td class="fsection">{{(store.ventas.invalidas.unidades/(store.ventas.validas.unidades+store.ventas.invalidas.unidades)*100)}}%</td>
+                  <td class="isection">{{store.ventas.validas.unidades+store.ventas.invalidas.unidades}}</td>
+                  <td class="fsection">{{(store.ventas.validas.unidades*store.ventas.validas.precio)+(store.ventas.invalidas.unidades*store.ventas.invalidas.precio)}}</td>
                 </tr>
               </ng-template>
           </p-table>
@@ -938,7 +941,7 @@
         <div class="titulos-componente-tabla mb-0"> 
           Por SKU's
         </div>
-        <p-table [scrollable]="true" scrollHeight="40rem" scrollDirection="horizontal" class="table-precios"  [tableStyle]="{ 'min-width': '50rem' }"  [value]="tiendasCoppel"  styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+        <p-table [scrollable]="true" scrollHeight="40rem" scrollDirection="horizontal" class="table-precios"  [tableStyle]="{ 'min-width': '50rem' }"  [value]="codigos"  styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
             <ng-template pTemplate="header">
               <tr class="bg-blue">
                   <th  class="isection" style="width: 100px;">
@@ -977,19 +980,19 @@
                 <th  class="fsection"><i class="pi pi-dollar" style="font-size: 1rem"></i></th>
               </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-store>
+            <ng-template pTemplate="body" let-product>
               <tr>
-                <td class="" style="cursor: pointer;" (click)="showDetailVentas()">{{store.num}}</td>
-                <td class="">{{store.ventas.validas.unidades}}</td>
-                <td class="">{{store.ventas.validas.unidades*store.ventas.validas.precio}}</td>
-                <td class="">{{(store.ventas.validas.unidades/(store.ventas.validas.unidades+store.ventas.invalidas.unidades)*100)}}</td>
-                <td class="">{{store.ventas.invalidas.alza}}</td>
-                <td class="">{{store.ventas.invalidas.baja}}</td>
-                <td class="">{{store.ventas.invalidas.unidades}}</td>
-                <td class="">{{store.ventas.invalidas.unidades*store.ventas.invalidas.precio}}</td>
-                <td class="">{{(store.ventas.invalidas.unidades/(store.ventas.validas.unidades+store.ventas.invalidas.unidades)*100)}}</td>
-                <td class="">{{store.ventas.validas.unidades+store.ventas.invalidas.unidades}}</td>
-                <td class="">{{(store.ventas.validas.unidades*store.ventas.validas.precio)+(store.ventas.invalidas.unidades*store.ventas.invalidas.precio)}}</td>
+                <th class="isection fsection" style="cursor: pointer;" (click)="showDetailVentas()">{{product.sku}}</th>
+                <td class="isection">{{product.ventas.validas.unidades}}</td>
+                <td class="">${{product.ventas.validas.unidades*product.ventas.validas.precio}}</td>
+                <td class="fsection">{{(product.ventas.validas.unidades/(product.ventas.validas.unidades+product.ventas.invalidas.unidades)*100)}}%</td>
+                <td class="isection">{{product.ventas.invalidas.alza}}</td>
+                <td class="">{{product.ventas.invalidas.baja}}</td>
+                <td class="">{{product.ventas.invalidas.unidades}}</td>
+                <td class="">${{product.ventas.invalidas.unidades*product.ventas.invalidas.precio}}</td>
+                <td class="fsection">{{(product.ventas.invalidas.unidades/(product.ventas.validas.unidades+product.ventas.invalidas.unidades)*100)}}%</td>
+                <td class="isection">{{product.ventas.validas.unidades+product.ventas.invalidas.unidades}}</td>
+                <td class="fsection">${{(product.ventas.validas.unidades*product.ventas.validas.precio)+(product.ventas.invalidas.unidades*product.ventas.invalidas.precio)}}</td>
               </tr>
             </ng-template>
         </p-table>

@@ -678,11 +678,13 @@ export class SeguimientoCompetitividadComponent{
       tc: "Promocion",
       ventas: {
         validas: {
-          unidades: 150,
+          unidades: 1500,
           precio: 1500
         },
         invalidas: {
-          unidades: 75,
+          alza:400,
+          baja:100,
+          unidades: 500,
           precio: 1500
         }
       }
@@ -703,11 +705,13 @@ export class SeguimientoCompetitividadComponent{
       tc: "Precio regular",
       ventas: {
         validas: {
-          unidades: 150,
+          unidades: 750,
           precio: 1500
         },
         invalidas: {
-          unidades: 75,
+          alza:200,
+          baja:50,
+          unidades: 250,
           precio: 1500
         }
       }
@@ -728,11 +732,13 @@ export class SeguimientoCompetitividadComponent{
       tc: "Promocion",
       ventas: {
         validas: {
-          unidades: 150,
+          unidades: 600,
           precio: 1500
         },
         invalidas: {
-          unidades: 75,
+          alza:50,
+          baja:100,
+          unidades: 150,
           precio: 1500
         }
       }
@@ -753,10 +759,12 @@ export class SeguimientoCompetitividadComponent{
       tc: "Promocion",
       ventas: {
         validas: {
-          unidades: 150,
+          unidades: 50,
           precio: 1500
         },
         invalidas: {
+          alza:40,
+          baja:35,
           unidades: 75,
           precio: 1500
         }
@@ -779,9 +787,13 @@ export class SeguimientoCompetitividadComponent{
       ventas: {
         validas: {
           unidades: 150,
+          precio: 1500
         },
         invalidas: {
-          unidades: 75
+          alza:90,
+          baja:10,
+          unidades: 100,
+          precio: 1500
         }
       }
     },]
@@ -1264,23 +1276,23 @@ export class SeguimientoCompetitividadComponent{
     };
 
     this.tiendasValidas = {
-      labels: ['Ventas validas a la baja', 'Ventas validas a la alza'],
+      labels: ['Promocion', 'Precio regular'],
       datasets: [
           {
-              data: [112, 346],
-              backgroundColor: [documentStyle.getPropertyValue('--green-400'), documentStyle.getPropertyValue('--green-500')],
-              hoverBackgroundColor: [documentStyle.getPropertyValue('--green-300'), documentStyle.getPropertyValue('--green-400')]
+              data: [2150, 900],
+              backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--gray-500')],
+              hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-600'), documentStyle.getPropertyValue('--gray-400')]
           }
       ]
     };
 
     this.tiendasNoValidas = {
-      labels: ['Ventas no validas a la baja', 'Ventas no validas a la alza'],
+      labels: ['A la alza', 'A la baja'],
       datasets: [
           {
-            data: [91, 62],
-              backgroundColor: [documentStyle.getPropertyValue('--red-400'), documentStyle.getPropertyValue('--red-500')],
-              hoverBackgroundColor: [documentStyle.getPropertyValue('--red-300'), documentStyle.getPropertyValue('--red-400')]
+            data: [870, 295],
+            backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--gray-500')],
+            hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-600'), documentStyle.getPropertyValue('--gray-400')]
           }
       ]
     };
@@ -1289,9 +1301,9 @@ export class SeguimientoCompetitividadComponent{
       labels: ['Ventas validas', 'Ventas no validas'],
       datasets: [
           {
-            data: [458, 153],
-              backgroundColor: [documentStyle.getPropertyValue('--green-500'), documentStyle.getPropertyValue('--red-500')],
-              hoverBackgroundColor: [documentStyle.getPropertyValue('--green-400'), documentStyle.getPropertyValue('--red-400')]
+            data: [3050, 1075],
+            backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--gray-500')],
+            hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-600'), documentStyle.getPropertyValue('--gray-400')]
           }
       ]
     };
