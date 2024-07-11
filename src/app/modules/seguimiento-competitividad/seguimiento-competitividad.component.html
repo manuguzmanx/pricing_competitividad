@@ -921,7 +921,7 @@
               </ng-template>
               <ng-template pTemplate="body" let-store>
                 <tr>
-                  <th class="isection fsection" style="cursor: pointer;" (click)="showDetailVentas()">{{store.num}}</th>
+                  <th class="isection fsection" style="cursor: pointer;" (click)="showDetailVentasSku()">{{store.num}}</th>
                   <td class="isection">{{store.ventas.validas.unidades}}</td>
                   <td class="">${{store.ventas.validas.unidades*store.ventas.validas.precio}}</td>
                   <td class="fsection">{{(store.ventas.validas.unidades/(store.ventas.validas.unidades+store.ventas.invalidas.unidades)*100)}}%</td>
@@ -945,7 +945,7 @@
             <ng-template pTemplate="header">
               <tr class="bg-blue">
                   <th  class="isection" style="width: 100px;">
-                    Tienda
+                    Codigo
                   </th>
                   <th colspan="3" class="isection fsection">
                     Venta valida
@@ -982,7 +982,7 @@
             </ng-template>
             <ng-template pTemplate="body" let-product>
               <tr>
-                <th class="isection fsection" style="cursor: pointer;" (click)="showDetailVentas()">{{product.sku}}</th>
+                <th class="isection fsection" style="cursor: pointer;" (click)="showDetailVentasTienda()">{{product.sku}}</th>
                 <td class="isection">{{product.ventas.validas.unidades}}</td>
                 <td class="">${{product.ventas.validas.unidades*product.ventas.validas.precio}}</td>
                 <td class="fsection">{{(product.ventas.validas.unidades/(product.ventas.validas.unidades+product.ventas.invalidas.unidades)*100)}}%</td>
@@ -1222,38 +1222,37 @@
   </div>
 </p-dialog>
 
-<!-- Modal Ventas -->
-<p-dialog [modal]="true" [(visible)]="visibleModalVentas" [header]="titulo_modal" [style]="{ width: '70vw' }">
+<!-- Modal Ventas Sku-->
+<p-dialog [modal]="true" [(visible)]="visibleModalVentasTienda" [header]="titulo_modal" [style]="{ width: '70vw' }">
   <div class="content-modal">
     <div class="tarjeta-grafica">
-      <div class="titulos-componente">
-        Total de tiendas
-      </div>
+      <div class="titulos-componente">Total ventas</div>
       <div class="chart">
-        <div class="valor blue">1000</div>
-        <p-chart type="doughnut"  width="100" height="120px" [data]="fueraCompChart" [options]="optionsReview"></p-chart>
+        <div class="valor blue" >4125</div>
+        <p-chart type="doughnut"  width="100" height="100px" [data]="totalVentas" [options]="optionsReview"></p-chart>
         <div class="indicadores">
           <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
-            <p style="margin: 0.5rem;">90%</p>
+            <p style="margin: 0.5rem;"><i class="pi pi-check success"></i>3050</p>
             <div>
-              <i class="pi pi-circle-on"></i>Implementado (900)
+              <i class="pi pi-circle-on"></i>Ventas validas
             </div>
           </div>
           <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
-            <p style="margin: 0.5rem;">10%</p>
+            <p style="margin: 0.5rem;"><i class="pi pi-times danger"></i>1075</p>
             <div>
-              <i class="pi pi-circle-on"></i>No implementado (100)
+              <i class="pi pi-circle-on"></i>Ventas invalidas
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <div class="actions-table-modal">
       <div>
         Filtrar:
         <p-dropdown
         (onChange)="filtroMomento2VerCodigos()"
-        [options]="opcionesFiltrosModalSku"
+        [options]="opcionesFiltrosModalVentasSku"
         [(ngModel)]="selectedFiltroModalSku"
         optionLabel="name"/>
       </div>
@@ -1264,7 +1263,6 @@
           Exportar excel
         </p-button>
       </div>
-
     </div>
 
     <div class="tarjeta5 w-100 mt-3">
@@ -1280,18 +1278,17 @@
                 <input type="text" pInputText placeholder="Buscar" style="width: 100%;"/>
               </div>
             </th>
-            <th class="isection">Codigo</th>
-            <th class="">Precio al que se debe vender</th>
-            <th class="">Precio al que se vendio</th>
+            <th class="">Precio venta esperado</th>
+            <th class="">Precio venta final</th>
             <th class="">Fecha</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-tienda>
           <tr>
             <th>{{tienda.num}}</th>
-            <td>{{tienda.sku}}</td>
             <td>{{tienda.pc}}</td>
-            <td>{{tienda.pi}}</td>
+            <td *ngIf="(tienda.pc == tienda.pi)" style="background-color: rgba(146, 235, 147, 0.603)">${{tienda.pi}}</td>
+            <td *ngIf="(tienda.pc != tienda.pi)" style="background-color: rgba(232, 137, 137, 0.629)">${{tienda.pi}}</td>
             <td>{{tienda.fa}}</td>
           </tr>
         </ng-template>
@@ -1301,7 +1298,90 @@
   </div>
 
   <div style="display: flex; justify-content: flex-end; position: relative; right: .5%; margin: 1rem 0 0 0;">
-    <p-button label="Cerrar" severity="info" (click)="visibleModalVentas = false" />
+    <p-button label="Cerrar" severity="info" (click)="visibleModalVentasTienda = false" />
+  </div>
+</p-dialog>
+
+<!-- Modal Ventas Tienda-->
+<p-dialog [modal]="true" [(visible)]="visibleModalVentasSku" [header]="titulo_modal_venta_tienda" [style]="{ width: '70vw' }">
+  <div class="content-modal">
+    <div class="tarjeta-grafica">
+      <div class="titulos-componente">Total ventas</div>
+      <div class="chart">
+        <div class="valor blue" >4125</div>
+        <p-chart type="doughnut"  width="100" height="100px" [data]="totalVentas" [options]="optionsReview"></p-chart>
+        <div class="indicadores">
+          <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
+            <p style="margin: 0.5rem;"><i class="pi pi-check success"></i>3050</p>
+            <div>
+              <i class="pi pi-circle-on"></i>Ventas validas
+            </div>
+          </div>
+          <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+            <p style="margin: 0.5rem;"><i class="pi pi-times danger"></i>1075</p>
+            <div>
+              <i class="pi pi-circle-on"></i>Ventas invalidas
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions-table-modal">
+      <div>
+        Filtrar:
+        <p-dropdown
+        [options]="opcionesFiltrosModalVentasTiendas"
+        [(ngModel)]="selectedFiltroModalTiendas"
+        (onChange)="filtroMomento2VerTiendas()"
+        optionLabel="name"/>
+      </div>
+
+      <div>
+        <p-button (click)="exportarExcelModalCodigos()">
+          <i class="pi pi-file"></i>
+          Exportar excel
+        </p-button>
+      </div>
+
+    </div>
+
+    <div class="tarjeta5 w-100 mt-3">
+      <p-table [scrollable]="true" scrollHeight="40rem" scrollDirection="horizontal" class="table-precios"  [tableStyle]="{ 'min-width': '50rem' }"  [value]="codigos"  styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm">
+        <ng-template pTemplate="header">
+          <tr class="bg-blue">
+            <th class="isection fsection" >Codigo</th>
+            <th colspan="11" class="isection fsection"></th>
+          </tr>
+          <tr>
+            <th class="isection">
+              <div style="width: 70px; margin: 0 auto;">
+                <input type="text" pInputText placeholder="Buscar" style="width: 100%;"/>
+              </div>
+            </th>
+            <th class="isection">Precio venta esperado</th>
+            <th class="">Precio venta final</th>
+            <th class="">Fecha</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <th>{{product.sku}}</th>
+            <td>{{product.ps.precio}}</td>
+            <td *ngIf="(product.ps.precio == product.pi)" style="background-color: rgba(146, 235, 147, 0.603)">${{product.pi}}</td>
+            <td *ngIf="(product.ps.precio != product.pi)" style="background-color: rgba(232, 137, 137, 0.629)">${{product.pi}}</td>
+            <td>{{product.fi}}</td>
+
+
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    
+  </div>
+
+  <div style="display: flex; justify-content: flex-end; position: relative; right: .5%; margin: 1rem 0 0 0;">
+    <p-button label="Cerrar" severity="info" (click)="visibleModalVentasSku = false" />
   </div>
 </p-dialog>
 

@@ -100,6 +100,8 @@ export class SeguimientoCompetitividadComponent{
   
   titulo_modal:string;
   titulo_modal_tienda:string;
+  titulo_modal_venta_tienda:string;
+  
 
   constructor(private formBuilder: FormBuilder, private config: PrimeNGConfig, private datePipe: DatePipe, private renderer: Renderer2,
     private router: Router,
@@ -134,12 +136,15 @@ export class SeguimientoCompetitividadComponent{
     this.multiMargenUtilidad=true;
     this.titulo_modal = "Código 1001";
     this.titulo_modal_tienda = "Numero de tienda: 123 - Total Sku implementados: 5";
+    this.titulo_modal_venta_tienda = "Numero de tienda: 0001";
   }
 
   es: any;
   opcionesFiltros: any[] | undefined;
   opcionesFiltrosModalTiendas: any[] | undefined;
   opcionesFiltrosModalSku: any[] | undefined;
+  opcionesFiltrosModalVentasTiendas: any[] | undefined;
+  opcionesFiltrosModalVentasSku: any[] | undefined;
   opcionesFiltrosMomento3: any[] | undefined;
   porcentajes:number[]=[];
 
@@ -172,7 +177,8 @@ export class SeguimientoCompetitividadComponent{
   totalVentas:any;
   visibleModal:boolean = false;
   visibleModalTiendas:boolean = false;
-  visibleModalVentas:boolean = false;
+  visibleModalVentasSku:boolean = false;
+  visibleModalVentasTienda:boolean = false;
   tabModal:any;
   documentStyle : any;
   textColor : any;
@@ -225,6 +231,18 @@ export class SeguimientoCompetitividadComponent{
       { name: "No Implementados", value: 2},
     ];
 
+    this.opcionesFiltrosModalVentasTiendas = [
+      { name: "Todas", value: 0},
+      { name: "Ventas Validas", value: 1},
+      { name: "Ventas no validas", value: 2},
+    ];
+
+    this.opcionesFiltrosModalVentasSku = [
+      { name: "Todas", value: 0},
+      { name: "Ventas Validas", value: 1},
+      { name: "Ventas no validas", value: 2},
+    ];
+
     this.opcionesFiltrosMomento3 = [
       { name: "SKU's", value: 1 },
       { name: "Tiendas", value: 2 },
@@ -233,6 +251,8 @@ export class SeguimientoCompetitividadComponent{
     this.selectedFiltro = this.opcionesFiltros[0];
     this.selectedFiltroModalTiendas = this.opcionesFiltrosModalTiendas[0];
     this.selectedFiltroModalSku = this.opcionesFiltrosModalSku[0];
+    this.selectedFiltroModalTiendas = this.opcionesFiltrosModalVentasTiendas[0];
+    this.selectedFiltroModalSku = this.opcionesFiltrosModalVentasSku[0];
     this.selectedFiltroMomento3 = this.opcionesFiltrosMomento3[0];
 
 
@@ -1403,8 +1423,12 @@ export class SeguimientoCompetitividadComponent{
     this.visibleModalTiendas = true;
   }
 
-  showDetailVentas() {
-    this.visibleModalVentas = true;
+  showDetailVentasSku() {
+    this.visibleModalVentasSku = true;
+  }
+
+  showDetailVentasTienda() {
+    this.visibleModalVentasTienda = true;
   }
 
   exportarExcelCodigos() {
