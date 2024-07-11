@@ -918,7 +918,7 @@
               </ng-template>
               <ng-template pTemplate="body" let-store>
                 <tr>
-                  <td class="" style="cursor: pointer;" (click)="showDetailTiendas()">{{store.num}}</td>
+                  <td class="" style="cursor: pointer;" (click)="showDetailVentas()">{{store.num}}</td>
                   <td class="">{{store.ventas.validas.unidades}}</td>
                   <td class="">{{store.ventas.validas.unidades*store.ventas.validas.precio}}</td>
                   <td class="">{{(store.ventas.validas.unidades/(store.ventas.validas.unidades+store.ventas.invalidas.unidades)*100)}}</td>
@@ -979,7 +979,7 @@
             </ng-template>
             <ng-template pTemplate="body" let-store>
               <tr>
-                <td class="" style="cursor: pointer;" (click)="showDetailTiendas()">{{store.num}}</td>
+                <td class="" style="cursor: pointer;" (click)="showDetailVentas()">{{store.num}}</td>
                 <td class="">{{store.ventas.validas.unidades}}</td>
                 <td class="">{{store.ventas.validas.unidades*store.ventas.validas.precio}}</td>
                 <td class="">{{(store.ventas.validas.unidades/(store.ventas.validas.unidades+store.ventas.invalidas.unidades)*100)}}</td>
@@ -1282,13 +1282,11 @@
             <th class="">Precio al que se debe vender</th>
             <th class="">Precio al que se vendio</th>
             <th class="">Fecha</th>
-            <th class="">Filtro</th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-tienda>
+        <ng-template pTemplate="body" let-tienda let-product>
           <tr>
-            <th></th>
-            <td></td>
+            <th>{{ product.sku }}</th>
             <td></td>
             <td></td>
             <td></td>
