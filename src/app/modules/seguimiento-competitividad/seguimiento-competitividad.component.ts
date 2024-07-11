@@ -791,6 +791,8 @@ export class SeguimientoCompetitividadComponent{
     this.temporalTiendasCoppel=[
       {
         num : "0001",
+        sku: '1001',
+        fa: "26/06/2024",
         nombre: "Cuernavaca",
         pb: 1000,
         pmc: 700,
@@ -816,6 +818,8 @@ export class SeguimientoCompetitividadComponent{
       },
       {
         num : "0002",
+        sku: '1002',
+        fa: "26/06/2024",
         nombre: "Veracruz",
         pb: 1000,
         pmc: 700,
@@ -839,6 +843,8 @@ export class SeguimientoCompetitividadComponent{
       },
       {
         num : "0003",
+        sku: '1003',
+        fa: "26/06/2024",
         nombre: "Queretaro",
         pb: 1000,
         pmc: 700,
@@ -864,6 +870,8 @@ export class SeguimientoCompetitividadComponent{
       },
       {
         num : "0004",
+        sku: '1004',
+        fa: "26/06/2024",
         nombre: "Monterrey",
         pb: 1000,
         pmc: 700,
@@ -887,6 +895,8 @@ export class SeguimientoCompetitividadComponent{
       },
       {
         num : "0004",
+        sku: '1005',
+        fa: "26/06/2024",
         nombre: "Zacatecas",
         pb: 1000,
         pmc: 700,
@@ -910,6 +920,8 @@ export class SeguimientoCompetitividadComponent{
       },
       {
         num : "0006",
+        sku: '1006',
+        fa: "26/06/2024",
         nombre: "San Luis",
         pb: 1000,
         pmc: 700,
@@ -933,6 +945,8 @@ export class SeguimientoCompetitividadComponent{
       },
       {
         num : "0007",
+        sku: '1007',
+        fa: "26/06/2024",
         nombre: "Queretaro",
         pb: 1000,
         pmc: 700,
@@ -956,6 +970,8 @@ export class SeguimientoCompetitividadComponent{
       },
       {
         num : "0008",
+        sku: '1008',
+        fa: "26/06/2024",
         nombre: "Monterrey",
         pb: 1000,
         pmc: 700,
@@ -979,6 +995,8 @@ export class SeguimientoCompetitividadComponent{
       },
       {
         num : "0009",
+        sku: '1009',
+        fa: "26/06/2024",
         nombre: "Zacatecas",
         pb: 1000,
         pmc: 700,
@@ -1002,6 +1020,8 @@ export class SeguimientoCompetitividadComponent{
       },
       {
         num : "0010",
+        sku: '1010',
+        fa: "26/06/2024",
         nombre: "San Luis",
         pb: 1000,
         pmc: 700,

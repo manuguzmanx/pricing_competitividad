@@ -1090,7 +1090,7 @@
         </ng-template>
           <ng-template pTemplate="body" let-product>
             <tr >
-              <th class="fsection" style="cursor: pointer;" (click)="showDetailVentas()">{{ product.sku }}</th>
+              <th class="fsection">{{ product.sku }}</th>
               <td  class="isection"  >${{ product.coppel.precio}} </td>
               <td  class="fsection" >{{ product.coppel.margen_real}} %</td>
               <td class="isection">{{product.mc.comp}}</td>
@@ -1278,21 +1278,18 @@
               </div>
             </th>
             <th class="isection">Codigo</th>
-            <th class="">Tienda</th>
             <th class="">Precio al que se debe vender</th>
             <th class="">Precio al que se vendio</th>
             <th class="">Fecha</th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-tienda let-product>
+        <ng-template pTemplate="body" let-tienda>
           <tr>
-            <th>{{ product.sku }}</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td *ngIf="(tienda.pc == tienda.pi)" style="background-color: rgba(146, 235, 147, 0.603)">${{tienda.pi}}</td>
-            <td *ngIf="(tienda.pc != tienda.pi)" style="background-color: rgba(232, 137, 137, 0.629)">${{tienda.pi}}</td>
+            <th>{{tienda.num}}</th>
+            <td>{{tienda.sku}}</td>
+            <td>{{tienda.pc}}</td>
+            <td>{{tienda.pi}}</td>
+            <td>{{tienda.fa}}</td>
           </tr>
         </ng-template>
       </p-table>
