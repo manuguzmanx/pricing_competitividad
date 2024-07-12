@@ -5,6 +5,7 @@
     </div>
     <div>
       <label class="titulo-folio">Folio: 123456</label>
+      <label class="titulo-folio">Fecha de autorización: 09/07/2024</label>
     </div>
     <!-- <div style="text-align: right; align-items: center; display: flex; ">
       <div class="turnTransparent" [class.turnRed]="!esFechaCorte" [pTooltip]="!esFechaCorte?tooltipCalendar:undefined" tooltipPosition="bottom">
@@ -151,7 +152,7 @@
 
   <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
       <div style="margin-top: 5px; color:#2561a2; font-size: 2.1em; font-weight: 600; text-align: center;">
-        3
+        4
       </div>
       <div class="titulos-componente">
         SKU´s atendidos y<br>dentro de competitividad
@@ -161,7 +162,7 @@
   <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
 
       <div style="margin-top: 5px; color:#2561a2; font-size: 2.1em; font-weight: 600; text-align: center;">
-        1
+        2
       </div>
       <div class="titulos-componente">
         SKU´s Cambio de<br>precio
@@ -184,7 +185,7 @@
   <div class="container-momento">
 
     <p-tabView class="momentos-table">
-      <p-tabPanel header="Momento 1">
+      <p-tabPanel header="Cambio de precios">
 
         <div class="container-filtros">
 
@@ -214,22 +215,22 @@
 
           <div class="tarjeta-grafica">
             <div class="titulos-componente">
-              Seleccionados
+              Seleccionados a modificar
             </div>
             <div class="chart">
               <div class="valor blue">5</div>
               <p-chart type="doughnut"  width="100" height="100px" [data]="fueraCompChart" [options]="optionsReview"></p-chart>
               <div class="indicadores">
                 <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;">60%</p>
+                  <p style="margin: 0.5rem;">80%</p>
                   <div>
-                    <i class="pi pi-circle-on"></i>Dentro (3)
+                    <i class="pi pi-circle-on"></i>Dentro (4)
                   </div>
                 </div>
                 <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;">40%</p>
+                  <p style="margin: 0.5rem;">20%</p>
                   <div>
-                    <i class="pi pi-circle-on"></i>Fuera (2)
+                    <i class="pi pi-circle-on"></i>Fuera (1)
                   </div>
                 </div>
               </div>
@@ -241,19 +242,48 @@
               Tipo de Cambio
             </div>
             <div class="chart">
-              <div class="valor blue">3</div>
+              <div class="valor blue">5</div>
               <p-chart type="doughnut"  width="100" height="100px" [data]="tipoCambioChart" [options]="optionsReview"></p-chart>
               <div class="indicadores">
                 <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;">66.6%</p>
+                  <p style="margin: 0.5rem;">60%</p>
                   <div>
-                    <i class="pi pi-circle-on"></i>Promoción (2)
+                    <i class="pi pi-circle-on"></i>Promoción (3)
                   </div>
                 </div>
                 <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;">33.3%</p>
+                  <p style="margin: 0.5rem;">40%</p>
                   <div>
-                    <i class="pi pi-circle-on"></i>Precio regular (1)
+                    <i class="pi pi-circle-on"></i>Precio regular (2)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="tarjeta-grafica">
+            <div class="titulos-componente">
+              Promedio de diferencial
+            </div>
+            <div class="chart" style="margin-top: 35px;">
+              <div class="indicadores">
+                <div style="font-size:220%; display: flex; flex-direction: column;">
+                  <div style="text-align: center;  font-weight: bold; color: #265aa7ff;">25.6%</div>
+                  <div style="color: 434343ff;">
+                    Anterior
+                  </div>
+                </div>
+                <div style="font-size: 220%; display: flex; flex-direction: column;">
+                  <div style="text-align: center;  font-weight: bold; color: #265aa7ff;">11.2%</div>
+                  <div style="color: 434343ff;">
+                    Actual
+                  </div>
+                </div>
+                <div style="font-size: 220%; display: flex; flex-direction: column;">
+                  <div style="text-align: center;  font-weight: bold; color: #265aa7ff;">14.4%</div>
+                  <div style="color: 434343ff;">
+                    Diferencia
                   </div>
                 </div>
               </div>
@@ -472,68 +502,101 @@
         </div>
       </p-tabPanel>
 
-      <p-tabPanel header="Momento 2">
-        <div class="container-filtros">
+      <p-tabPanel header="Implementación">
 
+        <div class="tarjeta5 w-100" style="display: block; flex-wrap: wrap; margin-bottom: 1rem;">
+          <div class="titulos-componente">
+              SKU's Trabajados
+            </div>
+          <div class="chart">
+            <p-chart type="line" height="150px" [data]="dataChartHistorico" [options]="optionsDataChartHistorico" />
+          </div>
+        </div>
+
+        <div style="text-align: end; margin-right: 1rem;">
+          <p-calendar
+          #myCalendar
+          dateFormat="dd/mm/yy"
+          [(ngModel)]="fechaFiltro"
+          [readonlyInput]="true"
+          [showIcon]="true"
+          [showOnFocus]="false"
+          placeholder="{{fechaFiltro}}"
+          [style]="{'width':'150px'}"
+          [maxDate]="dateTime"/>
+        </div>
+        <div class="container-filtros">
           <div class="tarjeta-grafica-2">
             <div class="titulos-componente">
               Implementados
             </div>
             <div class="chart">
-              <div class="valor blue">80%</div>
+              <div class="valor blue">4000</div>
               <p-chart type="doughnut"  width="100" height="100px" [data]="implementadosChart" [options]="optionsReview"></p-chart>
               <div class="indicadores">
                 <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"></p>
+                  <p style="margin: 0.5rem;">90%</p>
                   <div>
-                    <i class="pi pi-circle-on"></i> 4000 de 5000
-                    <i class="pi pi-check success"></i>
+                    <i class="pi pi-circle-on"></i>Promoción (3600)
                   </div>
                 </div>
-
+                <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">10%</p>
+                  <div>
+                    <i class="pi pi-circle-on"></i>Precio regular (400)
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-            <div class="tarjeta-grafica-2">
-              <div class="titulos-componente">
-                No implementados
-              </div>
-              <div class="chart">
-                <div class="valor blue">20%</div>
-                <p-chart type="doughnut"  width="100" height="100px" [data]="noImplementadosChart" [options]="optionsReview"></p-chart>
-                <div class="indicadores">
-                  <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
-                    <p style="margin: 0.5rem;"></p>
-                    <div>
-                      <i class="pi pi-circle-on"></i> 1000 de 5000
-                      <i class="pi pi-times danger"></i>
-                    </div>
+          <div class="tarjeta-grafica-2">
+            <div class="titulos-componente">
+              No Implementados
+            </div>
+            <div class="chart">
+              <div class="valor blue">1000</div>
+              <p-chart type="doughnut"  width="100" height="100px" [data]="noImplementadosChart" [options]="optionsReview"></p-chart>
+              <div class="indicadores">
+                <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">70%</p>
+                  <div>
+                    <i class="pi pi-circle-on"></i>Promoción (700)
                   </div>
-
+                </div>
+                <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">30%</p>
+                  <div>
+                    <i class="pi pi-circle-on"></i>Precio regular (300)
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="tarjeta-grafica-2">
-              <div class="titulos-componente">
-                Total de Códigos
-              </div>
-              <div class="chart">
-                <div class="valor blue">100%</div>
-                <p-chart type="doughnut"  width="100" height="100px" [data]="totalM2Chart" [options]="optionsReview"></p-chart>
-                <div class="indicadores">
-                  <div class=" point" style="font-size: medium; display: flex; flex-direction: column;">
-                    <p style="margin: 0.5rem;"></p>
-                    <div>
-                      <i class="pi pi-circle-on"></i> Códigos totales: 5000
-                      <!-- <i class="pi pi-times danger"></i> -->
-                    </div>
+          <div class="tarjeta-grafica-2">
+            <div class="titulos-componente">
+              Total
+            </div>
+            <div class="chart">
+              <div class="valor blue">5000</div>
+              <p-chart type="doughnut"  width="100" height="100px" [data]="totalM2Chart" [options]="optionsReview"></p-chart>
+              <div class="indicadores">
+                <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">80%</p>
+                  <div>
+                    <i class="pi pi-circle-on"></i>Implementados (4000)
                   </div>
-
+                </div>
+                <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">20%</p>
+                  <div>
+                    <i class="pi pi-circle-on"></i>No implementados (1000)
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
 
         </div>
         <br>
@@ -589,13 +652,13 @@
               <tr class="bg-blue">
                   <th  class="isection fsection" >Código</th>
                   <th    colspan="2" class="isection fsection">
-                      Precio Publicado
+                      Precio Anterior
                   </th>
                   <th    colspan="3" class="isection fsection">
                     Mejor competidor
                   </th>
-                  <th   colspan="7" class="isection fsection">
-                      Competitividad
+                  <th   colspan="8" class="isection fsection">
+                      Precio Nuevo
                   </th>
                   <th   colspan="2" class="isection fsection">
                       Tiendas
@@ -617,6 +680,7 @@
                 <th class="isection">En competitividad</th>
                 <th >Precio</th>
                 <th>Tipo de cambio</th>
+                <th>Nuevo diferencial</th>
                 <th>Fecha Inicio</th>
                 <th>Fecha Fin</th>
                 <th>Canal Físico</th>
@@ -641,11 +705,14 @@
                   </td>
                   <td  class="isection"  >${{product.ps.precio}}</td>
                   <td>{{product.tc}}</td>
+
+                  <td>{{product.ps.diferencial}} %</td>
+
                   <td>
                       {{product.fi}}
                   </td>
                   <td  >
-                      {{product.ff}}
+                    {{product.ff}}
                   </td>
                   <td>
                       <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>
@@ -725,43 +792,45 @@
         </div>
       </p-tabPanel>
 
-      <p-tabPanel header="Momento 3">
+      <p-tabPanel header="Ventas">
         <div class="container-filtros">
-          <div class="tarjeta-grafica">
-            <div class="titulos-componente">Ventas no validas</div>
-            <div class="chart-momento3-t2">
-              <div class="valor blue" >153</div>
-              <p-chart type="doughnut"  width="100" height="100px" [data]="tiendasNoValidas" [options]="optionsReview"></p-chart>
+
+          <div class="tarjeta-grafica-2">
+            <div class="titulos-componente">Ventas validas</div>
+            <div class="chart">
+              <div class="valor blue" >3050</div>
+              <p-chart type="doughnut"  width="100" height="100px" [data]="tiendasValidas" [options]="optionsReview2"></p-chart>
               <div class="indicadores">
-                <div class="red2 point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"><i class="pi pi-arrow-up"></i>62</p>
+                <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">2150</p>
                   <div>
-                    <i class="pi pi-circle-on"></i>Alza
+                    <i class="pi pi-circle-on"></i>Promoción
                   </div>
                 </div>
-                <div class="red point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"><i class="pi pi-arrow-down"></i>91</p>
+                <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;">900</p>
                   <div>
-                    <i class="pi pi-circle-on"></i>Baja
+                    <i class="pi pi-circle-on"></i>Precio regular
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="tarjeta-grafica">
-            <div class="titulos-componente">Ventas validas</div>
-            <div class="chart-momento3-t1">
-              <div class="valor blue" >458</div>
-              <p-chart type="doughnut"  width="100" height="100px" [data]="tiendasValidas" [options]="optionsReview2"></p-chart>
+
+          <div class="tarjeta-grafica-2">
+            <div class="titulos-componente">Ventas no validas</div>
+            <div class="chart">
+              <div class="valor blue" >1075</div>
+              <p-chart type="doughnut"  width="100" height="100px" [data]="tiendasNoValidas" [options]="optionsReview"></p-chart>
               <div class="indicadores">
-                <div class="green2 point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"><i class="pi pi-arrow-up"></i>346</p>
+                <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;"><i class="pi pi-arrow-up"></i>870</p>
                   <div>
                     <i class="pi pi-circle-on"></i>Alza
                   </div>
                 </div>
-                <div class="green point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"><i class="pi pi-arrow-down"></i>112</p>
+                <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;"><i class="pi pi-arrow-down"></i>295</p>
                   <div>
                     <i class="pi pi-circle-on"></i>Baja
                   </div>
@@ -770,22 +839,23 @@
             </div>
           </div>
 
-          <div class="tarjeta-grafica">
+
+          <div class="tarjeta-grafica-2">
             <div class="titulos-componente">Total ventas</div>
-            <div class="chart-momento3-t3">
-              <div class="valor blue" >611</div>
+            <div class="chart">
+              <div class="valor blue" >4125</div>
               <p-chart type="doughnut"  width="100" height="100px" [data]="totalVentas" [options]="optionsReview"></p-chart>
               <div class="indicadores">
-                <div class="red point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"><i class="pi pi-times danger"></i>153</p>
-                  <div>
-                    <i class="pi pi-circle-on"></i>Ventas no validas
-                  </div>
-                </div>
-                <div class="green point" style="font-size: medium; display: flex; flex-direction: column;">
-                  <p style="margin: 0.5rem;"><i class="pi pi-check success"></i>458</p>
+                <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;"><i class="pi pi-check success"></i>3050</p>
                   <div>
                     <i class="pi pi-circle-on"></i>Ventas validas
+                  </div>
+                </div>
+                <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+                  <p style="margin: 0.5rem;"><i class="pi pi-times danger"></i>1075</p>
+                  <div>
+                    <i class="pi pi-circle-on"></i>Ventas invalidas
                   </div>
                 </div>
               </div>
@@ -802,142 +872,131 @@
           optionLabel="name"/>
         </div>
         <div *ngIf="selectedFiltroMomento3.value === 2 || selectedFiltroMomento3.value ===0" class="tarjeta5 w-100">
+
+
+
           <div class="titulos-componente-tabla mb-0">
             Por tiendas
           </div>
-          <p-table [scrollable]="true" scrollHeight="40rem" scrollDirection="horizontal" class="table-precios"  [tableStyle]="{ 'min-width': '50rem' }"  [value]="codigos"  styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+          <p-table [scrollable]="true" scrollHeight="40rem" scrollDirection="horizontal" class="table-precios"  [tableStyle]="{ 'min-width': '50rem' }"  [value]="tiendasCoppel"  styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
               <ng-template pTemplate="header">
                 <tr class="bg-blue">
-                  <th  class="isection fsection" style="width: 70px;"></th>
                     <th  class="isection" style="width: 100px;">
                       Tienda
                     </th>
                     <th colspan="3" class="isection fsection">
                       Venta valida
                     </th>
-                    <th colspan="2" class="isection fsection">
-                      Totales venta valida
+                    <th colspan="5" class="isection fsection">
+                      Venta invalida
                     </th>
-                    <th colspan="3" class="isection fsection">Venta no valida</th>
-                  <th colspan="2" class="isection fsection">
-                    Totales venta no valida
-                  </th>
-                  <th colspan="1" class="isection fsection">
-                    Cumplimiento
-                  </th>
+                    <th colspan="2" class="isection fsection">
+                      Total
+                    </th>
                 </tr>
                 <tr>
-                  <th class="fsection"><p-tableHeaderCheckbox /></th>
+
                   <th class="isection">
                     <div style="width: 70px; margin: 0 auto;">
                       <input type="text" pInputText placeholder="Buscar" style="width: 100%;"/>
                     </div>
                   </th>
+
+                  <th  class="isection"><i class="pi pi-hashtag" style="font-size: 1rem"></i></th>
+                  <th  class=""><i class="pi pi-dollar" style="font-size: 1rem"></i></th>
+                  <th  class="fsection"><i class="pi pi-percentage" style="font-size: 1rem"></i></th>
+
                   <th class="isection"><i class="pi pi-arrow-up" style="font-size: 1rem"></i></th>
                   <th><i class="pi pi-arrow-down" style="font-size: 1rem"></i></th>
-                  <th class="fsection" style="font-weight: 600; font-size: mediumr;">=</th>
+                  <th  class=""><i class="pi pi-hashtag" style="font-size: 1rem"></i></th>
+                  <th  class=""><i class="pi pi-dollar" style="font-size: 1rem"></i></th>
+                  <th  class="fsection"><i class="pi pi-percentage" style="font-size: 1rem"></i></th>
+
                   <th  class="isection"><i class="pi pi-hashtag" style="font-size: 1rem"></i></th>
                   <th  class="fsection"><i class="pi pi-dollar" style="font-size: 1rem"></i></th>
-                  <th class="isection"><i class="pi pi-arrow-up" style="font-size: 1rem"></i></th>
-                  <th><i class="pi pi-arrow-down" style="font-size: 1rem"></i></th>
-                  <th class="fsection" style="font-weight: 600; font-size: mediumr;">=</th>
-                  <th  class="isection"><i class="pi pi-hashtag" style="font-size: 1rem"></i></th>
-                  <th  class="fsection"><i class="pi pi-dollar" style="font-size: 1rem"></i></th>
-                  <th  class="isection"><i class="pi pi-percentage" style="font-size: 1rem"></i></th>
+                  
+
+
                 </tr>
               </ng-template>
-              <ng-template pTemplate="body" let-product>
-                <tr  *ngIf="(product.tipo.id == 2 ) ">
-                  <td class="fsection"><p-tableCheckbox/></td>
-                  <td class="isection" >123456</td>
-                  <td  class="isection light-green-bg">15</td>
-                  <td class="light-green-bg">10</td>
-                  <td  class="fsection light-green-bg">10</td>
-                  <td  class="isection light-green-bg">25</td>
-                  <td class="fsection light-green-bg">$346,654.00</td>
-                  <td  class="isection light-red-bg">15</td>
-                  <td class="light-red-bg">10</td>
-                  <td  class="fsection light-red-bg">10</td>
-                  <td  class="isection light-red-bg">25</td>
-                  <td class="fsection light-red-bg">$346,654.00</td>
-                  <td class="isection">%89</td>
+              <ng-template pTemplate="body" let-store>
+                <tr>
+                  <th class="isection fsection" style="cursor: pointer;" (click)="showDetailVentasSku()">{{store.num}}</th>
+                  <td class="isection">{{store.ventas.validas.unidades}}</td>
+                  <td class="">${{store.ventas.validas.unidades*store.ventas.validas.precio}}</td>
+                  <td class="fsection">{{(store.ventas.validas.unidades/(store.ventas.validas.unidades+store.ventas.invalidas.unidades)*100)}}%</td>
+                  <td class="isection">{{store.ventas.invalidas.alza}}</td>
+                  <td class="">{{store.ventas.invalidas.baja}}</td>
+                  <td class="">{{store.ventas.invalidas.unidades}}</td>
+                  <td class="">${{store.ventas.invalidas.unidades*store.ventas.invalidas.precio}}</td>
+                  <td class="fsection">{{(store.ventas.invalidas.unidades/(store.ventas.validas.unidades+store.ventas.invalidas.unidades)*100)}}%</td>
+                  <td class="isection">{{store.ventas.validas.unidades+store.ventas.invalidas.unidades}}</td>
+                  <td class="fsection">{{(store.ventas.validas.unidades*store.ventas.validas.precio)+(store.ventas.invalidas.unidades*store.ventas.invalidas.precio)}}</td>
                 </tr>
               </ng-template>
           </p-table>
         </div>
-        <div *ngIf="selectedFiltroMomento3.value === 1 || selectedFiltroMomento3.value ===0" class="tarjeta5 w-100">
-          <div class="titulos-componente-tabla mb-0">
-            Por SKU´s
-          </div>
 
-          <p-table [scrollable]="true" scrollHeight="40rem" scrollDirection="horizontal" class="table-precios"  [tableStyle]="{ 'min-width': '50rem' }"  [value]="codigos"  styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
-              <ng-template pTemplate="header">
-                  <tr class="bg-blue">
-                    <th  class="isection fsection" style="width: 70px;">
-                    </th>
-                      <th  class="isection" style="width: 100px;">
-                        SKU
-                      </th>
-                      <th    colspan="3" class="isection fsection">
-                          Venta valida
-                      </th>
-                      <th   colspan="2" class="isection fsection">
-                          Totales venta valida
-                      </th>
-                      <th    colspan="3" class="isection fsection">
-                        Venta no valida
-                    </th>
-                    <th   colspan="2" class="isection fsection">
-                        Totales venta no valida
-                    </th>
-                    <th   colspan="1" class="isection fsection">
-                      Cumplimiento
-                    </th>
-                  </tr>
-                  <tr>
-                      <th class="fsection"><p-tableHeaderCheckbox /></th>
-                      <th class="isection"><div style="width: 70px; margin: 0 auto;">
-                        <input type="text" pInputText placeholder="Buscar" style="width: 100%;"/>
-                      </div></th>
-                      <th class="isection"><i class="pi pi-arrow-up" style="font-size: 1rem"></i></th>
-                      <th><i class="pi pi-arrow-down" style="font-size: 1rem"></i></th>
-                      <th class="fsection" style="font-weight: 600; font-size: mediumr;">=</th>
-                      <th  class="isection"><i class="pi pi-hashtag" style="font-size: 1rem"></i></th>
-                      <th  class="fsection"><i class="pi pi-dollar" style="font-size: 1rem"></i></th>
-                      <th class="isection"><i class="pi pi-arrow-up" style="font-size: 1rem"></i></th>
-                      <th><i class="pi pi-arrow-down" style="font-size: 1rem"></i></th>
-                      <th class="fsection" style="font-weight: 600; font-size: mediumr;">=</th>
-                      <th  class="isection"><i class="pi pi-hashtag" style="font-size: 1rem"></i></th>
-                      <th  class="fsection"><i class="pi pi-dollar" style="font-size: 1rem"></i></th>
-                      <th  class="isection"><i class="pi pi-percentage" style="font-size: 1rem"></i></th>
-                  </tr>
-              </ng-template>
-              <ng-template pTemplate="body" let-product>
-                  <tr  *ngIf="(product.tipo.id == 2 ) ">
-                      <td class="fsection" ><p-tableCheckbox/></td>
-                      <td class="isection" >123456</td>
-                      <td  class="isection light-green-bg">15</td>
-                      <td class="light-green-bg">10</td>
-                      <td  class="fsection light-green-bg">10</td>
-                      <td  class="isection light-green-bg"  >25</td>
-                      <td class="fsection light-green-bg">
-                          $346,654.00
-                      </td>
-                      <td  class="isection light-red-bg">15</td>
-                      <td class="light-red-bg">10</td>
-                      <td  class="fsection light-red-bg">10</td>
-
-                      <td  class="isection light-red-bg"  >25</td>
-                      <td class="fsection light-red-bg">
-                          $346,654.00
-                      </td>
-                      <td class="isection">
-                        %89
-                      </td>
-                      </tr>
-              </ng-template>
-          </p-table>
+      <div *ngIf="selectedFiltroMomento3.value === 1 || selectedFiltroMomento3.value ===0" class="tarjeta5 w-100">  
+        <div class="titulos-componente-tabla mb-0"> 
+          Por SKU's
         </div>
+        <p-table [scrollable]="true" scrollHeight="40rem" scrollDirection="horizontal" class="table-precios"  [tableStyle]="{ 'min-width': '50rem' }"  [value]="codigos"  styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+            <ng-template pTemplate="header">
+              <tr class="bg-blue">
+                  <th  class="isection" style="width: 100px;">
+                    Codigo
+                  </th>
+                  <th colspan="3" class="isection fsection">
+                    Venta valida
+                  </th>
+                  <th colspan="5" class="isection fsection">
+                    Venta invalida
+                  </th>
+                  <th colspan="2" class="isection fsection">
+                    Total
+                  </th>
+              </tr>
+              <tr>
+
+                <th class="isection">
+                  <div style="width: 70px; margin: 0 auto;">
+                    <input type="text" pInputText placeholder="Buscar" style="width: 100%;"/>
+                  </div>
+                </th>
+
+                <th  class="isection"><i class="pi pi-hashtag" style="font-size: 1rem"></i></th>
+                <th  class=""><i class="pi pi-dollar" style="font-size: 1rem"></i></th>
+                <th  class="fsection"><i class="pi pi-percentage" style="font-size: 1rem"></i></th>
+
+                
+                <th class="isection"><i class="pi pi-arrow-up" style="font-size: 1rem"></i></th>
+                <th><i class="pi pi-arrow-down" style="font-size: 1rem"></i></th>
+                <th  class=""><i class="pi pi-hashtag" style="font-size: 1rem"></i></th>
+                <th  class=""><i class="pi pi-dollar" style="font-size: 1rem"></i></th>
+                <th  class="fsection"><i class="pi pi-percentage" style="font-size: 1rem"></i></th>
+
+                <th  class="isection"><i class="pi pi-hashtag" style="font-size: 1rem"></i></th>
+                <th  class="fsection"><i class="pi pi-dollar" style="font-size: 1rem"></i></th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+              <tr>
+                <th class="isection fsection" style="cursor: pointer;" (click)="showDetailVentasTienda()">{{product.sku}}</th>
+                <td class="isection">{{product.ventas.validas.unidades}}</td>
+                <td class="">${{product.ventas.validas.unidades*product.ventas.validas.precio}}</td>
+                <td class="fsection">{{(product.ventas.validas.unidades/(product.ventas.validas.unidades+product.ventas.invalidas.unidades)*100)}}%</td>
+                <td class="isection">{{product.ventas.invalidas.alza}}</td>
+                <td class="">{{product.ventas.invalidas.baja}}</td>
+                <td class="">{{product.ventas.invalidas.unidades}}</td>
+                <td class="">${{product.ventas.invalidas.unidades*product.ventas.invalidas.precio}}</td>
+                <td class="fsection">{{(product.ventas.invalidas.unidades/(product.ventas.validas.unidades+product.ventas.invalidas.unidades)*100)}}%</td>
+                <td class="isection">{{product.ventas.validas.unidades+product.ventas.invalidas.unidades}}</td>
+                <td class="fsection">${{(product.ventas.validas.unidades*product.ventas.validas.precio)+(product.ventas.invalidas.unidades*product.ventas.invalidas.precio)}}</td>
+              </tr>
+            </ng-template>
+        </p-table>
+      </div>
       </p-tabPanel>
     </p-tabView>
   </div>
@@ -1003,8 +1062,8 @@
               <th    colspan="3" class="isection fsection">
                 Mejor competidor
               </th>
-              <th   colspan="8" class="isection fsection">
-                  Competitividad
+              <th   colspan="9" class="isection fsection">
+                  Nuevo precio Coppel
               </th>
 
           </tr>
@@ -1024,6 +1083,7 @@
             <th class="isection">En competitividad</th>
             <th >Precio</th>
             <th>Tipo de cambio</th>
+            <th>Nuevo diferencial</th>
             <th>Fecha Inicio</th>
             <th>Fecha Fin</th>
             <th>Canal Físico</th>
@@ -1033,7 +1093,7 @@
         </ng-template>
           <ng-template pTemplate="body" let-product>
             <tr >
-              <th class="fsection" style="cursor: pointer;" (click)="showDetailTiendas()">{{ product.sku }}</th>
+              <th class="fsection">{{ product.sku }}</th>
               <td  class="isection"  >${{ product.coppel.precio}} </td>
               <td  class="fsection" >{{ product.coppel.margen_real}} %</td>
               <td class="isection">{{product.mc.comp}}</td>
@@ -1047,11 +1107,12 @@
               </td>
               <td  class="isection"  >${{product.ps.precio}}</td>
               <td>{{product.tc}}</td>
+              <td>{{product.ps.diferencial}} %</td>
               <td>
                   {{product.fi}}
               </td>
               <td  >
-                  {{product.ff}}
+                {{product.ff}}
               </td>
               <td>
                   <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>
@@ -1134,7 +1195,7 @@
               </div>
             </th>
             <th class="isection">Nombre</th>
-            <th class="">Precio base</th>
+            <th class="">Precio anterior</th>
             <th class="">Precio mejor competidor</th>
             <th class="">Nuevo precio</th>
             <th class="">Precio implementado</th>
@@ -1153,7 +1214,7 @@
         </ng-template>
       </p-table>
     </div>
-
+    
   </div>
 
   <div style="display: flex; justify-content: flex-end; position: relative; right: .5%; margin: 1rem 0 0 0;">
@@ -1161,6 +1222,168 @@
   </div>
 </p-dialog>
 
+<!-- Modal Ventas Sku-->
+<p-dialog [modal]="true" [(visible)]="visibleModalVentasTienda" [header]="titulo_modal" [style]="{ width: '70vw' }">
+  <div class="content-modal">
+    <div class="tarjeta-grafica">
+      <div class="titulos-componente">Total ventas</div>
+      <div class="chart">
+        <div class="valor blue" >4125</div>
+        <p-chart type="doughnut"  width="100" height="100px" [data]="totalVentas" [options]="optionsReview"></p-chart>
+        <div class="indicadores">
+          <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
+            <p style="margin: 0.5rem;"><i class="pi pi-check success"></i>3050</p>
+            <div>
+              <i class="pi pi-circle-on"></i>Ventas validas
+            </div>
+          </div>
+          <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+            <p style="margin: 0.5rem;"><i class="pi pi-times danger"></i>1075</p>
+            <div>
+              <i class="pi pi-circle-on"></i>Ventas invalidas
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions-table-modal">
+      <div>
+        Filtrar:
+        <p-dropdown
+        (onChange)="filtroMomento2VerCodigos()"
+        [options]="opcionesFiltrosModalVentasSku"
+        [(ngModel)]="selectedFiltroModalSku"
+        optionLabel="name"/>
+      </div>
+
+      <div>
+        <p-button (click)="exportarExcelModalCodigos()">
+          <i class="pi pi-file"></i>
+          Exportar excel
+        </p-button>
+      </div>
+    </div>
+
+    <div class="tarjeta5 w-100 mt-3">
+      <p-table [scrollable]="true" scrollHeight="40rem" scrollDirection="horizontal" class="table-precios"  [tableStyle]="{ 'min-width': '50rem' }"  [value]="tiendasCoppel"  styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm">
+        <ng-template pTemplate="header">
+          <tr class="bg-blue">
+            <th class="isection fsection" >Tienda</th>
+            <th colspan="11" class="isection fsection"></th>
+          </tr>
+          <tr>
+            <th class="isection">
+              <div style="width: 70px; margin: 0 auto;">
+                <input type="text" pInputText placeholder="Buscar" style="width: 100%;"/>
+              </div>
+            </th>
+            <th class="">Precio venta esperado</th>
+            <th class="">Precio venta final</th>
+            <th class="">Fecha</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-tienda>
+          <tr>
+            <th>{{tienda.num}}</th>
+            <td>{{tienda.pc}}</td>
+            <td *ngIf="(tienda.pc == tienda.pi)" style="background-color: rgba(146, 235, 147, 0.603)">${{tienda.pi}}</td>
+            <td *ngIf="(tienda.pc != tienda.pi)" style="background-color: rgba(232, 137, 137, 0.629)">${{tienda.pi}}</td>
+            <td>{{tienda.fa}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    
+  </div>
+
+  <div style="display: flex; justify-content: flex-end; position: relative; right: .5%; margin: 1rem 0 0 0;">
+    <p-button label="Cerrar" severity="info" (click)="visibleModalVentasTienda = false" />
+  </div>
+</p-dialog>
+
+<!-- Modal Ventas Tienda-->
+<p-dialog [modal]="true" [(visible)]="visibleModalVentasSku" [header]="titulo_modal_venta_tienda" [style]="{ width: '70vw' }">
+  <div class="content-modal">
+    <div class="tarjeta-grafica">
+      <div class="titulos-componente">Total ventas</div>
+      <div class="chart">
+        <div class="valor blue" >4125</div>
+        <p-chart type="doughnut"  width="100" height="100px" [data]="totalVentas" [options]="optionsReview"></p-chart>
+        <div class="indicadores">
+          <div class="blue point" style="font-size: medium; display: flex; flex-direction: column;">
+            <p style="margin: 0.5rem;"><i class="pi pi-check success"></i>3050</p>
+            <div>
+              <i class="pi pi-circle-on"></i>Ventas validas
+            </div>
+          </div>
+          <div class="gray point" style="font-size: medium; display: flex; flex-direction: column;">
+            <p style="margin: 0.5rem;"><i class="pi pi-times danger"></i>1075</p>
+            <div>
+              <i class="pi pi-circle-on"></i>Ventas invalidas
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions-table-modal">
+      <div>
+        Filtrar:
+        <p-dropdown
+        [options]="opcionesFiltrosModalVentasTiendas"
+        [(ngModel)]="selectedFiltroModalTiendas"
+        (onChange)="filtroMomento2VerTiendas()"
+        optionLabel="name"/>
+      </div>
+
+      <div>
+        <p-button (click)="exportarExcelModalCodigos()">
+          <i class="pi pi-file"></i>
+          Exportar excel
+        </p-button>
+      </div>
+
+    </div>
+
+    <div class="tarjeta5 w-100 mt-3">
+      <p-table [scrollable]="true" scrollHeight="40rem" scrollDirection="horizontal" class="table-precios"  [tableStyle]="{ 'min-width': '50rem' }"  [value]="codigos"  styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm">
+        <ng-template pTemplate="header">
+          <tr class="bg-blue">
+            <th class="isection fsection" >Codigo</th>
+            <th colspan="11" class="isection fsection"></th>
+          </tr>
+          <tr>
+            <th class="isection">
+              <div style="width: 70px; margin: 0 auto;">
+                <input type="text" pInputText placeholder="Buscar" style="width: 100%;"/>
+              </div>
+            </th>
+            <th class="isection">Precio venta esperado</th>
+            <th class="">Precio venta final</th>
+            <th class="">Fecha</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <th>{{product.sku}}</th>
+            <td>{{product.ps.precio}}</td>
+            <td *ngIf="(product.ps.precio == product.pi)" style="background-color: rgba(146, 235, 147, 0.603)">${{product.pi}}</td>
+            <td *ngIf="(product.ps.precio != product.pi)" style="background-color: rgba(232, 137, 137, 0.629)">${{product.pi}}</td>
+            <td>{{product.fi}}</td>
+
+
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    
+  </div>
+
+  <div style="display: flex; justify-content: flex-end; position: relative; right: .5%; margin: 1rem 0 0 0;">
+    <p-button label="Cerrar" severity="info" (click)="visibleModalVentasSku = false" />
+  </div>
+</p-dialog>
 
 
 <ng-template #tooltipCalendar>
