@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   now= new Date();
 
   selectedData: any;
+  categoriasUsuario: any = [{id: 1, name: 'Audio y Video'},{id: 2, name: 'Automotriz'},{id: 3, name: 'Bebés'}];
+  categoriasSelected=this.categoriasUsuario;
 
   showOverlay(event: any, data: any, overlaypanel: any) {
     this.selectedData = data;
@@ -450,13 +452,14 @@ export class HomeComponent implements OnInit {
      this.textColorSecondary = this.documentStyle.getPropertyValue('--text-color-secondary');
      this.surfaceBorder = this.documentStyle.getPropertyValue('--surface-border');
      this.initEvaluadosChart();
-    this.initChartAtendidos();
-    this.initChartTipoCambio();
-    this.initChartCompetitividad();
-    this.initDiferencialChart();
-    this.initChartAtendidosGlobal();
+      this.initChartAtendidos();
+      this.initChartTipoCambio();
+      this.initChartCompetitividad();
+      this.initDiferencialChart();
+      this.initChartAtendidosGlobal();
       this.intDataHistorico();
       this.initChartSeguimiento();
+      
 
     }
 
@@ -503,7 +506,7 @@ export class HomeComponent implements OnInit {
                 label: 'Fuera de Competitvidad',
                 data: [41, 43, 42, 39, 42, 39, 40],
                 fill: false,
-                borderColor: this.documentStyle.getPropertyValue('--gray-500'),
+                borderColor: this.documentStyle.getPropertyValue('--gray-600'),
                 
                 tension: 0.1
             },
@@ -521,6 +524,13 @@ export class HomeComponent implements OnInit {
               borderColor: this.documentStyle.getPropertyValue('--blue-300'),
               tension: 0.1
           },
+          {
+            label: 'Atendidos',
+            data: [20, 15, 20, 15, 25, 20,18,2],
+            fill: false,
+            borderColor: this.documentStyle.getPropertyValue('--gray-400'),
+            tension: 0.1
+        },
           
         ]
     };

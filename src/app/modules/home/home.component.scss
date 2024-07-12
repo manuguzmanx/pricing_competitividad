@@ -10,12 +10,22 @@ $colorAmarillo: #ffe401ff;
 $colorAmarilloClaro: #ffed80ff;
 
 /* ---------------------------------------------------------------------------------- */
-.titles{
+::ng-deep.titles{
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   width: 100%;
-  padding: 10px 10px 5px 15px;
+  padding: 10px 10px 20px 15px;
   align-items: end;
+  .categorias{
+    color: gray;
+    .p-multiselect{
+      width: auto;
+      min-width: 200px;
+    }
+    .p-multiselect-label{
+      padding: 5px 15px;
+    }
+  }
   .titulos-principal{
     padding-left: 0px;
     font-weight: 400;
@@ -46,15 +56,35 @@ $colorAmarilloClaro: #ffed80ff;
   background-color: #eeeeee;
   border-radius: 5px;
   box-shadow: 0 4px 10px #00000008, 0 0 2px #0000000f, 0 2px 6px #0000001f !important;
-  padding: 15px;
+ 
   margin-bottom: 20px;
+  .titulos-componente{
+    margin-bottom: 10px;
+    border-bottom: 2px solid #76889c;
+    font-weight: 400;
+    font-size: 115%;
+    padding: 10px 0;
+    color: white;
+    text-align: center;
+    background-color: #2661a2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+ 
+  }
+  .body-widget{
+    height: calc(100% - 45px);
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 0px 15px 5px 15px;
+  }
 }
 
 
 
 ::ng-deep.titulo-cinta{
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   div.title{
@@ -231,7 +261,7 @@ $colorAmarilloClaro: #ffed80ff;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 50px 20px 20px 20px;
+    padding: 5px 10px 20px 10px;
     .item-menu{
       width: 300px;
       background-color: #eeeeee;
@@ -254,7 +284,9 @@ $colorAmarilloClaro: #ffed80ff;
     }
   }
 }
-
+.clickable{
+  cursor: pointer;
+}
 .home-data{
   display: flex;
   flex-wrap: wrap;
@@ -275,7 +307,7 @@ $colorAmarilloClaro: #ffed80ff;
       align-items: start;
       margin-bottom: 20px;
       .tarjeta5{
-        width: 24%;
+        width: 48%;
         min-width: 250px;
         height: 200px;
       
@@ -309,18 +341,93 @@ $colorAmarilloClaro: #ffed80ff;
         }
       }
     }
+    .folios{
+      width: 20%;
+    
+      .titulo-cinta{
+        margin-bottom: 7px;
+      }
+      .botonera{
+        justify-content: end;
+      }
+      .value{
+        
+        color: $blue;
+      }
+      .item{
+        background-color: white;
+        border-radius: 15px;
+        padding: 5px 10px 15px 10px;
+        margin: 5px 0 10px 0;
+        .title-item{
+          color: gray;
+          font-size: 70%;
+          width: 100%;
+          text-align: center;
+          font-weight: 200;
+          font-style: italic;
+          text-transform: uppercase;
+          letter-spacing: 0.03em;
+        }
+        .body-item{
+          display: flex;
+          justify-content: space-around;
+          .value{
+            text-align: center;
+            font-size: 130%;
+            padding: 5px 0;
+          }
+          .label{
+            text-align: center;
+            font-size: 60%;
+            color:gray;
+          }
+        }
+      }
+      .big{
+        width: 100%;
+        font-size: 200%;
+      }
+      .medium{
+        width: 100%;
+        font-size: 170%;
+      }
+      .small{
+        width: 100%;
+        font-size: 130%;
+      }
+    }
     .ranking{
-      width: 60%;
-     
+      width: 40%;
+      background-color: white !important;
       td{
-        height: 30px !important;
+        height: 32px !important;
       }
       #tbl-ranking{
         width: 100%;
         margin-top: 5px;
+        table{
+         
+          border: gray;
+        }
+       .p-datatable{
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.031372549), 0 0 2px rgba(0, 0, 0, 0.0588235294), 0 2px 6px rgba(0, 0, 0, 0.1215686275) !important;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+       }
         td{
           padding: 0px;
           text-align: center;
+          background-color: #eeeeee;
+          
+        }
+        tr:last-child{
+          td:first-child{
+            border-bottom-left-radius: 5px;
+          }
+          td:last-child{
+            border-bottom-right-radius: 5px;
+          }
         }
         th{
           background-color: $blue;

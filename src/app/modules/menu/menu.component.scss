@@ -1,0 +1,36 @@
+$blue: #2661a2;
+::ng-deep.p-sidebar{
+    background-color: #f7f7f7;
+    .p-sidebar-content{
+        padding: 0px;
+    }
+    .p-sidebar-header{
+        position: absolute;
+        width: 95%;
+        padding: 5px;
+        z-index: 99;
+    }
+
+    .user{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img{
+            margin-top: 10px;
+            width: 70%;
+        }
+    }
+} 
+
+
+
+::ng-deep.p-menu{
+    width: 100%;
+    border: 0px;
+    background-color: #f7f7f7;
+    .p-submenu-header{
+        background-color: #f7f7f7;
+        color: $blue;
+    }
+}

@@ -1,3 +1,12 @@
 :root{
     --font-family: "Arial", Geneva, Helvetica, sans-serif;
 }
+
+::ng-deep app-navbar{
+   
+    width: 100%;
+}
+
+::ng-deep router-outlet{
+    margin-top: 20px;
+}

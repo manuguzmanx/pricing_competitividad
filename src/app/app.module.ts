@@ -52,6 +52,10 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { HomeComponent } from './modules/home/home.component';
 import { MenuComponent } from './modules/menu/menu.component';
 import { RippleModule } from 'primeng/ripple';
+import { NavbarComponent } from './modules/navbar/navbar.component';
+import { SidebarModule } from 'primeng/sidebar';
+import { MenuModule } from 'primeng/menu';
+import { ConstruccionComponent } from './modules/construccion/construccion.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +72,9 @@ import { RippleModule } from 'primeng/ripple';
     RoundPipe,
     SeguimientoCompetitividadComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    NavbarComponent,
+    ConstruccionComponent
   ],
   imports: [
     BrowserModule,
@@ -110,7 +116,9 @@ import { RippleModule } from 'primeng/ripple';
     BadgeModule,
     TagModule,
     ConfirmDialogModule,
-    RippleModule
+    RippleModule,
+    SidebarModule,
+    MenuModule
   ],
   providers: [],
   bootstrap:[AppComponent]

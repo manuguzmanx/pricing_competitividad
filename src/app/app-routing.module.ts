@@ -12,9 +12,10 @@ import { SeguimientoFoliosComponent } from './seguimiento-folios/seguimiento-fol
 import { DashboardSeguimientoComponent } from './modules/dashboard-seguimiento/dashboard-seguimiento.component';
 import { SeguimientoCompetitividadComponent } from './modules/seguimiento-competitividad/seguimiento-competitividad.component';
 import { HomeComponent } from './modules/home/home.component';
+import { ConstruccionComponent } from './modules/construccion/construccion.component';
 
 const routes: Routes = [
-  {path: 'index', component: GestionPreciosCompetitividadComponent},
+  {path: 'cambio-precios', component: GestionPreciosCompetitividadComponent},
   {path: 'configuracion-cluster', component: ConfiguracionClusterCompetitividadComponent},
   {path: 'reglas-negocio', component: ReglasNegocioCompetitividadComponent},
   {path: 'permisos-usuarios', component: PermisosUsuariosCompetitividadComponent},
@@ -25,9 +26,10 @@ const routes: Routes = [
   {path: 'dashboard-seguimiento', component: DashboardSeguimientoComponent},
   {path: 'seguimiento-competitividad', component: SeguimientoCompetitividadComponent},
   {path: 'home', component: HomeComponent},
+  {path: 'construccion', component: ConstruccionComponent},
   {
     path: '**',
-    redirectTo:'index'
+    redirectTo:'home'
   }
 ];
 

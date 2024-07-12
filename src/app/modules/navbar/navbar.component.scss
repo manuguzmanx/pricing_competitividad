@@ -1,0 +1,37 @@
+$colorGris: #434343ff;
+$blue: #2661a2;
+$colorBlanco: #ffffff;
+$colorGrisClaro: #f2f2f2ff;
+$colorAzul: #265aa7ff;
+$colorAzulClaro: #4598d3ff;
+$colorAzulClaroDos: #3fbae4ff;
+$colorAzulClaroTres: #66c2e8ff;
+$colorAmarillo: #ffe401ff;
+$colorAmarilloClaro: #ffed80ff;
+.navbar{
+        box-shadow: 0 4px 10px #00000008, 0 0 2px #0000000f, 0 2px 6px #0000001f !important;
+        position: sticky;
+        margin-top: -8px;
+        width: calc(100% + 16px);
+        margin-left: -8px;
+        padding: 10px 30px;
+        background-color: $blue;
+        color: #eeeeee;
+        display: flex;
+        justify-content: space-between;
+        
+        .menu{
+            i{
+                cursor: pointer;
+                font-size: 20px;
+                margin-right: 20px;
+            }
+        }
+        .user{
+            i{
+                font-size: 20px;    
+                cursor: pointer;
+            }
+            
+        }
+}

@@ -12,37 +12,29 @@ $blue: #2661a2;
         text-align: center;
         color: rgb(255, 255, 255);
         font-weight: 400;
-    
     }
-
-    
     .pi.success{
         color:#008a00;
     }
     .pi.danger{
         color:#d90000;
     }
-
     td{
-
         text-align: center;
-
     }
     .header1{
         font-size: 130%;
         font-weight: 800;
         text-transform: uppercase;
     }
-
-
 }
 
 .folio{
     text-align: right;
     padding-right: 20px;
-    position: absolute;
-    right: 30px;
-    top: 40px;
+    position: relative;
+    right: 20px;
+    top: 15px;
     .label{
         color:gray;
         font-size: 130%;

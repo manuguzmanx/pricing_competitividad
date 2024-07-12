@@ -1,0 +1,15 @@
+$blue: #2661a2;
+
+.construccion{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    color: $blue;
+    i{
+        font-size: 80px;
+        margin-right: 20px;
+    }
+}
