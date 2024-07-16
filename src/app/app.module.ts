@@ -56,6 +56,7 @@ import { NavbarComponent } from './modules/navbar/navbar.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenuModule } from 'primeng/menu';
 import { ConstruccionComponent } from './modules/construccion/construccion.component';
+import { AltaUsuariosComponent } from './modules/alta-usuarios/alta-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { ConstruccionComponent } from './modules/construccion/construccion.compo
     HomeComponent,
     MenuComponent,
     NavbarComponent,
-    ConstruccionComponent
+    ConstruccionComponent,
+    AltaUsuariosComponent
   ],
   imports: [
     BrowserModule,
