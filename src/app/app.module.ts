@@ -57,6 +57,7 @@ import { MenuModule } from 'primeng/menu';
 import { ConstruccionComponent } from './modules/construccion/construccion.component';
 import { AltaUsuariosComponent } from './modules/alta-usuarios/alta-usuarios.component';
 import { PickListModule } from 'primeng/picklist';
+import { FieldsetModule } from 'primeng/fieldset';
 import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimiento-folios.component';
 
 @NgModule({
@@ -123,7 +124,8 @@ import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimi
     RippleModule,
     SidebarModule,
     MenuModule,
-    PickListModule
+    PickListModule,
+    FieldsetModule
   ],
   providers: [],
   bootstrap:[AppComponent]

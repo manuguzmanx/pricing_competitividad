@@ -12,41 +12,41 @@
 
         <div class="columnas-informacion">
             <div class="columna-uno">
-                <div class="campo-formulario">
+                <div class="campo-formulario-usuarios">
                     <label class="texto-filtro">Nombre: </label>
                     <input required placeholder="Nombre del usuario" type="text" class="p-inputtext">
                 </div>
-                <div class="campo-formulario">
+                <div class="campo-formulario-usuarios">
                     <label class="texto-filtro">Correo: </label>
                     <input required placeholder="example@coppel.com" type="email" class="p-inputtext">
                 </div>
-                <div class="campo-formulario">
+                <div class="campo-formulario-usuarios">
                     <label class="texto-filtro"># Colaborador: </label>
                     <input required placeholder="No. de colaborador" type="text" class="p-inputtext">
                 </div>
-                <div class="campo-formulario">
+                <div class="campo-formulario-usuarios">
                     <label class="texto-filtro"># Centro: </label>
                     <input required placeholder="No. de Centro" type="text" class="p-inputtext">
                 </div>
             </div>
             <div class="columna-dos">
-                <div class="campo-formulario">
+                <div class="campo-formulario-usuarios">
                     <label class="texto-filtro">Nombre Centro: </label>
                     <input required placeholder="Nombre del centro" type="text" class="p-inputtext">
                 </div>
-                <div class="campo-formulario">
+                <div class="campo-formulario-usuarios">
                     <label class="texto-filtro">Tipo de Usuario: </label>
                     <p-dropdown (onChange)="filtroSeleccionarTipoUsuario()" [options]="opcionesTipodeUsuario"
-                        [(ngModel)]="selectedTipodeUsuario" optionLabel="name" />
+                        [(ngModel)]="selectedTipodeUsuario" optionLabel="name" placeholder="Seleccione Tipo"/>
                 </div>
-                <div class="campo-formulario">
+                <div class="campo-formulario-usuarios">
                     <label class="texto-filtro">Estatus Usuario: </label>
                     <p-dropdown (onChange)="filtroSeleccionarEstatusUsuario()" [options]="opcionesEstatusdeUsuario"
-                        [(ngModel)]="selectedEstatusdeUsuario" optionLabel="name" />
+                        [(ngModel)]="selectedEstatusdeUsuario" optionLabel="name" placeholder="Seleccione Estatus"/>
                 </div>
-                <div class="campo-formulario">
+                <div class="campo-formulario-usuarios">
                     <label class="texto-filtro">Enviar correo</label>
-                    <input type="checkbox" style="margin: 0 0 0 -43px;">
+                    <input type="checkbox" checked style="margin: 0 0 0 -27px;">
                 </div>
             </div>
         </div>
