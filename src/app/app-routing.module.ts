@@ -12,11 +12,8 @@ import { DashboardSeguimientoComponent } from './modules/dashboard-seguimiento/d
 import { SeguimientoCompetitividadComponent } from './modules/seguimiento-competitividad/seguimiento-competitividad.component';
 import { HomeComponent } from './modules/home/home.component';
 import { ConstruccionComponent } from './modules/construccion/construccion.component';
-<<<<<<< HEAD
 import { AltaUsuariosComponent } from './modules/alta-usuarios/alta-usuarios.component';
-=======
 import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimiento-folios.component';
->>>>>>> a508bfe453211d4df39e4ed2fd337af103e5d618
 
 const routes: Routes = [
   {path: 'cambio-precios', component: GestionPreciosCompetitividadComponent},
