@@ -13,6 +13,7 @@ import { DashboardSeguimientoComponent } from './modules/dashboard-seguimiento/d
 import { SeguimientoCompetitividadComponent } from './modules/seguimiento-competitividad/seguimiento-competitividad.component';
 import { HomeComponent } from './modules/home/home.component';
 import { ConstruccionComponent } from './modules/construccion/construccion.component';
+import { AltaUsuariosComponent } from './modules/alta-usuarios/alta-usuarios.component';
 
 const routes: Routes = [
   {path: 'cambio-precios', component: GestionPreciosCompetitividadComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'seguimiento-competitividad', component: SeguimientoCompetitividadComponent},
   {path: 'home', component: HomeComponent},
   {path: 'construccion', component: ConstruccionComponent},
+  {path: 'alta-usuarios', component: AltaUsuariosComponent},
   {
     path: '**',
     redirectTo:'home'

@@ -1,1 +1,124 @@
-<p>alta-usuarios works!</p>
+<div class="container-filtros">
+    <div class="tarjeta2" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        <div>
+            <label class="titulos-principal">Usuarios</label>
+        </div>
+    </div>
+</div>
+
+<div class="informacion-basica">
+    <div class="tarjetaUsuarios">
+        <legend>Información básica</legend>
+
+        <div class="columnas-informacion">
+            <div class="columna-uno">
+                <div class="campo-formulario">
+                    <label class="texto-filtro">Nombre: </label>
+                    <input required placeholder="Nombre del usuario" type="text" class="p-inputtext">
+                </div>
+                <div class="campo-formulario">
+                    <label class="texto-filtro">Correo: </label>
+                    <input required placeholder="example@coppel.com" type="email" class="p-inputtext">
+                </div>
+                <div class="campo-formulario">
+                    <label class="texto-filtro"># Colaborador: </label>
+                    <input required placeholder="No. de colaborador" type="text" class="p-inputtext">
+                </div>
+                <div class="campo-formulario">
+                    <label class="texto-filtro"># Centro: </label>
+                    <input required placeholder="No. de Centro" type="text" class="p-inputtext">
+                </div>
+            </div>
+            <div class="columna-dos">
+                <div class="campo-formulario">
+                    <label class="texto-filtro">Nombre Centro: </label>
+                    <input required placeholder="Nombre del centro" type="text" class="p-inputtext">
+                </div>
+                <div class="campo-formulario">
+                    <label class="texto-filtro">Tipo de Usuario: </label>
+                    <p-dropdown (onChange)="filtroSeleccionarTipoUsuario()" [options]="opcionesTipodeUsuario"
+                        [(ngModel)]="selectedTipodeUsuario" optionLabel="name" />
+                </div>
+                <div class="campo-formulario">
+                    <label class="texto-filtro">Estatus Usuario: </label>
+                    <p-dropdown (onChange)="filtroSeleccionarEstatusUsuario()" [options]="opcionesEstatusdeUsuario"
+                        [(ngModel)]="selectedEstatusdeUsuario" optionLabel="name" />
+                </div>
+                <div class="campo-formulario">
+                    <label class="texto-filtro">Enviar correo</label>
+                    <input type="checkbox">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tarjetaPermisos permisos">
+        <div class="seccionUno">
+            <legend>Permisos</legend>
+            <div class="checks-permisos">
+
+                <div class="check-permiso">
+                    <input type="checkbox" checked disabled id="permisoGenerarOptimizacionCalend"
+                        name="permisoGenerarOptimizacionCalend">
+                    <label class="texto-filtro" for="permisoGenerarOptimizacionCalend">Generar Optimización
+                        Calendarizada</label>
+                </div>
+
+                <div class="check-permiso">
+                    <input type="checkbox" checked disabled id="permisoGenerarOptimizacionCalend"
+                        name="permisoGenerarOptimizacionCalend">
+                    <label class="texto-filtro" for="permisoGenerarOptimizacionCalend">Generar Optimización
+                        On-Demand</label>
+                </div>
+
+                <div class="check-permiso">
+                    <input type="checkbox" checked disabled id="permisoGenerarOptimizacionCalend"
+                        name="permisoGenerarOptimizacionCalend">
+                    <label class="texto-filtro" for="permisoGenerarOptimizacionCalend">Enviar escenarios a
+                        Categorías</label>
+                </div>
+
+                <div class="check-permiso">
+                    <input type="checkbox" checked disabled id="permisoGenerarOptimizacionCalend"
+                        name="permisoGenerarOptimizacionCalend" style="margin: 0 10px 0 0;">
+                    <label class="texto-filtro" for="permisoGenerarOptimizacionCalend">Visualizar Dashboard</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tab-content mb-5" id="nav-tabContent">
+
+    <div class="tab-pane fade show active p-3" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+
+ 
+
+    <p-tabView>
+        <p-tabPanel header="Clases">
+            <p>
+                <p-pickList 
+                [source]="" 
+                [target]="" 
+                [showSourceControls]="false"
+                [showTargetControls]="false"
+                sourceHeader="Listado de clases" 
+                targetHeader="Clases asignadas" 
+                [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}">
+                <ng-template let-clase pTemplate="item">
+                    <div class="product-item">
+                        <div class="product-list-detail">
+                            <i class="pi pi-tag product-category-icon"></i>
+                            <span class="product-category">01 - Celulares / 001 - Perifericos</span>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-pickList>
+            </p>
+        </p-tabPanel>
+
+    </p-tabView>
+
+</div>

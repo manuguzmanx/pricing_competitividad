@@ -57,6 +57,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { MenuModule } from 'primeng/menu';
 import { ConstruccionComponent } from './modules/construccion/construccion.component';
 import { AltaUsuariosComponent } from './modules/alta-usuarios/alta-usuarios.component';
+import { PickListModule } from 'primeng/picklist';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { AltaUsuariosComponent } from './modules/alta-usuarios/alta-usuarios.com
     ConfirmDialogModule,
     RippleModule,
     SidebarModule,
-    MenuModule
+    MenuModule,
+    PickListModule
   ],
   providers: [],
   bootstrap:[AppComponent]
