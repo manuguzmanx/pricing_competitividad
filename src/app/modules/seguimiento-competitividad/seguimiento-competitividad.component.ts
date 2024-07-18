@@ -707,7 +707,8 @@ export class SeguimientoCompetitividadComponent{
           unidades: 500,
           precio: 1500
         }
-      }
+      },
+      unidades: 1
     },
     {
       sku: '2001',
@@ -734,7 +735,8 @@ export class SeguimientoCompetitividadComponent{
           unidades: 250,
           precio: 1500
         }
-      }
+      },
+      unidades: 2
     },
     {
       sku: '3001',
@@ -761,7 +763,8 @@ export class SeguimientoCompetitividadComponent{
           unidades: 150,
           precio: 1500
         }
-      }
+      },
+      unidades: 1
     },
     {
       sku: '1004',
@@ -788,7 +791,8 @@ export class SeguimientoCompetitividadComponent{
           unidades: 75,
           precio: 1500
         }
-      }
+      },
+      unidades: 3
     },
     {
       sku: '2004',
@@ -815,7 +819,8 @@ export class SeguimientoCompetitividadComponent{
           unidades: 100,
           precio: 1500
         }
-      }
+      },
+      unidades: 1
     },]
 
     this.codigos = [];
@@ -846,7 +851,8 @@ export class SeguimientoCompetitividadComponent{
             unidades: 50,
             precio: 1500
           }
-        }
+        },
+        unidades: 1
       },
       {
         num : "0002",
@@ -871,7 +877,8 @@ export class SeguimientoCompetitividadComponent{
             unidades: 100,
             precio: 1500
           }
-        }
+        },
+        unidades: 2
       },
       {
         num : "0003",
@@ -898,7 +905,8 @@ export class SeguimientoCompetitividadComponent{
             unidades: 75,
             precio: 1500
           }
-        }
+        },
+        unidades: 1
       },
       {
         num : "0004",
@@ -923,7 +931,8 @@ export class SeguimientoCompetitividadComponent{
             unidades: 75,
             precio: 1500
           }
-        }
+        },
+        unidades: 2
       },
       {
         num : "0004",
@@ -948,7 +957,8 @@ export class SeguimientoCompetitividadComponent{
             unidades: 150,
             precio: 1500
           }
-        }
+        },
+        unidades: 1
       },
       {
         num : "0006",
@@ -973,7 +983,8 @@ export class SeguimientoCompetitividadComponent{
             unidades: 600,
             precio: 1500
           }
-        }
+        },
+        unidades: 3
       },
       {
         num : "0007",
@@ -998,7 +1009,8 @@ export class SeguimientoCompetitividadComponent{
             unidades: 75,
             precio: 1500
           }
-        }
+        },
+        unidades: 4
       },
       {
         num : "0008",
@@ -1023,7 +1035,8 @@ export class SeguimientoCompetitividadComponent{
             unidades: 90,
             precio: 1500
           }
-        }
+        },
+        unidades: 1
       },
       {
         num : "0009",
@@ -1048,7 +1061,8 @@ export class SeguimientoCompetitividadComponent{
             unidades: 270,
             precio: 1500
           }
-        }
+        },
+        unidades: 1
       },
       {
         num : "0010",
@@ -1073,7 +1087,8 @@ export class SeguimientoCompetitividadComponent{
             unidades: 60,
             precio: 1500
           }
-        }
+        },
+        unidades: 1
       }
     ];
     this.tiendasCoppel = []
