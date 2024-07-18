@@ -75,7 +75,7 @@ $colorAmarilloClaro: #ffed80ff;
     height: calc(100% - 45px);
 display: flex;
 flex-direction: column;
-justify-content: space-between;
+justify-content: space-evenly;
 padding: 0px 15px 5px 15px;
   }
 }
@@ -290,7 +290,7 @@ padding: 0px 15px 5px 15px;
 .home-data{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .w-100{
@@ -302,7 +302,6 @@ padding: 0px 15px 5px 15px;
       width: 36%;
       display: flex;
       flex-wrap: wrap;
-      padding-right: 10px;
       justify-content: space-between;
       align-items: start;
       margin-bottom: 20px;
@@ -398,7 +397,7 @@ padding: 0px 15px 5px 15px;
       }
     }
     .ranking{
-      width: 40%;
+      width: 41%;
       background-color: white !important;
       td{
         height: 32px !important;

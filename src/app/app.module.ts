@@ -56,6 +56,8 @@ import { NavbarComponent } from './modules/navbar/navbar.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenuModule } from 'primeng/menu';
 import { ConstruccionComponent } from './modules/construccion/construccion.component';
+import { LoginComponent } from './modules/login/login.component';
+import { PasswordModule } from 'primeng/password';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,8 @@ import { ConstruccionComponent } from './modules/construccion/construccion.compo
     HomeComponent,
     MenuComponent,
     NavbarComponent,
-    ConstruccionComponent
+    ConstruccionComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -118,7 +121,9 @@ import { ConstruccionComponent } from './modules/construccion/construccion.compo
     ConfirmDialogModule,
     RippleModule,
     SidebarModule,
-    MenuModule
+    MenuModule,
+    PasswordModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap:[AppComponent]
