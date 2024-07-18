@@ -43,7 +43,7 @@ export class MenuComponent implements OnInit, OnDestroy {
                 {
                   label: 'Usuarios',
                   icon: 'pi pi-user',
-                  routerLink: ['/construccion']
+                  routerLink: ['/alta-usuarios']
               },
               {
                 label: 'Reglas de Negocio',
