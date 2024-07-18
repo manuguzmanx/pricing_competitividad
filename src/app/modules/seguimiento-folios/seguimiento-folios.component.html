@@ -392,8 +392,6 @@
                 Macro <br>categoría
               </th>
 
-              <!-- <th style="background-color: #ffed80ff;" class="text-center"><div class="size-100">Marca</div></th>
-              <th style="background-color: #ffed80ff;" class="text-center"><div class="size-100">Modelo</div></th> -->
               <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Categoría</th>
               <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Sub <br> categoría</th>
               <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Clase</th>
@@ -414,7 +412,7 @@
 
               <td class="text-center">{{folio.num_folio}}</td>
               <td >
-                <i  (click)="ifFlujoPrecios()" class="pi pi-list" style="font-size: 1.5rem; cursor: pointer;"></i>
+                <i class="pi pi-list" style="font-size: 1.5rem; cursor: pointer;"></i>
               </td>
               <td class="text-center">{{folio.fecha}}</td>
               <td class="text-center">Pendiente</td>
@@ -465,183 +463,13 @@
           </ng-template>
         </p-table>
       </div>
-      <!-- <div>
-        <p-table
-          [value]="arregloFolio"
-          [(selection)]="selectedArregloCompetitividad"
-          class="p-table"
-          [rows]="10"
-          [showCurrentPageReport]="true"
-          [rowsPerPageOptions]="[5, 10, 20]"
-          [paginator]="true"
-          currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} de entradas">
-          <ng-template pTemplate="header">
-            <tr>
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-left-radius: 20px;">
-                <div class="size-50">Detalle</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-50">Folio</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-50">Fecha</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 96px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-200">Estatus</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 300px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-50">Macro <br>categoría</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 400px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-50">Categoría</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 500px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-70">Sub <br> categoría</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 600px; z-index: 1; padding-left: 0; padding-right: 0;">
-                Clase
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 700px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-70">Familia</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 700px; z-index: 1; padding-left: 0; padding-right: 0;  border-top-right-radius: 20px">
-                <div class="size-70">Proveedor</div>
-              </th>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-objetoFolio>
-            <tr class="p-selectable-row">
-              <td style="background-color: #2561a2; color: white">
-                <i  (click)="ifFlujoPrecios()" class="pi pi-list" style="font-size: 1.5rem; cursor: pointer;"></i>
-              </td>
-              <td style="background-color: #2561a2; color: white; position: sticky; left: 0px; z-index: 1;">
-                {{objetoFolio.num_folio}}
-              </td>
-              <td style="position: sticky; left: 100px; z-index: 1">
-                {{objetoFolio.fecha}}
-              </td>
-              <td style="position: sticky; left: 100px; z-index: 1">
-                Pendiente
-                {{objetoFolio._codigo._num_codigo}}
-              </td>
-              <td style="position: sticky; left: 300px; z-index: 1">
-                {{objetoFolio.macrocategoria}}
-              </td>
-              <td style="position: sticky; left: 400px; z-index: 1">
-                {{objetoFolio.categoria}}
-              </td>
-              <td style="position: sticky; left: 500px; z-index: 1">
-                {{objetoFolio.subcategoria}}
-              </td>
-              <td style="position: sticky; left: 600px; z-index: 1; padding-left: 0%; padding-right: 0%; width: 150px;">
-                {{objetoFolio.clase}}
-              </td>
-              <td style="position: sticky; left: 700px; z-index: 1;">
-                {{objetoFolio.familia}}
-              </td>
-              <td>
-                {{objetoFolio.proveedor}}
-              </td>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="emptymessage">
-            <tr>
-              <td colspan="8">No se encontraron entradas</td>
-            </tr>
-          </ng-template>
-        </p-table>
-      </div> -->
+
     </div>
   </p-tabPanel>
 
   <p-tabPanel header="Enviados">
       <!-- Enviados -->
     <div class="table-container">
-      <!-- <div>
-        <p-table
-          [value]="arregloFolio"
-          [(selection)]="selectedArregloCompetitividad"
-          class="p-table"
-          [rows]="10"
-          [showCurrentPageReport]="true"
-          [rowsPerPageOptions]="[5, 10, 20]"
-          [paginator]="true"
-          currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} de entradas">
-          <ng-template pTemplate="header">
-            <tr>
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-left-radius: 20px;">
-                <div class="size-50">Detalle</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-50">Folio</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-50">Fecha</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 96px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-200">Estatus</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 300px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-50">Macro <br>categoría</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 400px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-50">Categoría</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 500px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-70">Sub <br> categoría</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 600px; z-index: 1; padding-left: 0; padding-right: 0;">
-                Clase
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 700px; z-index: 1; padding-left: 0; padding-right: 0;">
-                <div class="size-70">Familia</div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 700px; z-index: 1; padding-left: 0; padding-right: 0;  border-top-right-radius: 20px">
-                <div class="size-70">Proveedor</div>
-              </th>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-objetoFolio>
-            <tr class="p-selectable-row">
-              <td style="background-color: #2561a2; color: white">
-                <i  (click)="ifFlujoPrecios()" class="pi pi-list" style="font-size: 2.5rem; cursor: pointer;"></i>
-              </td>
-              <td style="background-color: #2561a2; color: white; position: sticky; left: 0px; z-index: 1;">
-                {{objetoFolio.num_folio}}
-              </td>
-              <td style="position: sticky; left: 100px; z-index: 1">
-                {{objetoFolio.fecha}}
-              </td>
-              <td style="position: sticky; left: 100px; z-index: 1">
-                {{objetoFolio.estatus}}
-              </td>
-              <td style="position: sticky; left: 300px; z-index: 1">
-                {{objetoFolio.macrocategoria}}
-              </td>
-              <td style="position: sticky; left: 400px; z-index: 1">
-                {{objetoFolio.categoria}}
-              </td>
-              <td style="position: sticky; left: 500px; z-index: 1">
-                {{objetoFolio.subcategoria}}
-              </td>
-              <td style="position: sticky; left: 600px; z-index: 1; padding-left: 0%; padding-right: 0%; width: 150px;">
-                {{objetoFolio.clase}}
-              </td>
-              <td style="position: sticky; left: 700px; z-index: 1;">
-                {{objetoFolio.familia}}
-              </td>
-              <td>
-                {{objetoFolio.proveedor}}
-              </td>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="emptymessage">
-            <tr>
-              <td colspan="8">No se encontraron entradas</td>
-            </tr>
-          </ng-template>
-        </p-table>
-      </div> -->
       <p-table #dt1 [value]="arregloFolio" dataKey="num_folio" [scrollable]="true" scrollHeight="450px" id="tabla-aportaciones-colchones">
         <ng-template style="position: absolute;" pTemplate="header">
           <tr>
@@ -687,7 +515,7 @@
 
             <td class="text-center">{{folio.num_folio}}</td>
             <td >
-              <i  (click)="ifFlujoPrecios()" class="pi pi-list" style="font-size: 1.5rem; cursor: pointer;"></i>
+              <i  (click)="irSeguimientoCompetitividad()" class="pi pi-list" style="font-size: 1.5rem; cursor: pointer;"></i>
             </td>
             <td class="text-center">{{folio.fecha}}</td>
             <td class="text-center">Enviado</td>
@@ -740,6 +568,108 @@
 
     </div>
   </p-tabPanel>
+
+  <p-tabPanel header="Cancelados">
+    <!-- Cancelados -->
+  <div class="table-container">
+    <p-table #dt1 [value]="arregloFolio" dataKey="num_folio" [scrollable]="true" scrollHeight="450px" id="tabla-aportaciones-colchones">
+      <ng-template style="position: absolute;" pTemplate="header">
+        <tr>
+          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-left-radius: 20px;"></th>
+          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+            Folio
+          </th>
+          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+            Detalle
+          </th>
+
+          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+            Fecha
+          </th>
+
+          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+            Estatus
+          </th>
+
+          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+            Macro <br>categoría
+          </th>
+
+          <!-- <th style="background-color: #ffed80ff;" class="text-center"><div class="size-100">Marca</div></th>
+          <th style="background-color: #ffed80ff;" class="text-center"><div class="size-100">Modelo</div></th> -->
+          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Categoría</th>
+          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Sub <br> categoría</th>
+          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Clase</th>
+          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Familia</th>
+          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-right-radius: 20px;">Proveedor</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-folio let-expanded="expanded" style="border: 2px solid #e1e1e1;">
+        <tr>
+          <td class="text-center">
+            <button
+
+              type="button" pButton pRipple [pRowToggler]="folio"
+              class="p-button-text p-button-rounded p-button-plain"
+              [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+            </button>
+          </td>
+
+          <td class="text-center">{{folio.num_folio}}</td>
+          <td >
+            <i   class="pi pi-list" style="font-size: 1.5rem; cursor: pointer;"></i>
+          </td>
+          <td class="text-center">{{folio.fecha}}</td>
+          <td class="text-center">Cancelado</td>
+          <td class="text-center">{{folio.macrocategoria}}</td>
+          <td class="text-center">{{folio.categoria}}</td>
+          <td class="text-center">{{folio.subcategoria}}</td>
+          <td class="text-center">{{folio.clase}}</td>
+          <!-- <td class="text-center">{{folio.fecha_inicio | date: "yyyy ' - ' MMMM"}}</td> -->
+          <td class="text-center">{{folio.familia }}</td>
+          <td class="text-center">{{folio.proveedor}}</td>
+          </tr>
+      </ng-template>
+
+      <ng-template pTemplate="rowexpansion" let-folio>
+        <tr>
+          <td style="width: 1.5rem;"></td>
+          <td colspan="10">
+            <div class="p-p-3">
+              <p-table [value]="folio.codigo" dataKey="num_codigo">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>Codigo</th>
+                    <th>Descripción</th>
+                    <th>Precio publicado</th>
+                    <th>>Margen diferencial</th>
+                    <th>Nuevo precio</th>
+                    <th>Nuevo margen diferencial</th>
+                    <th>Tipo cambio</th>
+                    <th>Vigencia</th>
+                  </tr>
+                </ng-template>
+                <ng-template style="width: 5rem;" pTemplate="body" let-codigo let-expanded="expanded">
+                  <tr>
+                    <td>{{codigo.num_codigo}}</td>
+                    <td>{{codigo.descripcion}}</td>
+                    <td>{{codigo.precio_publicado}}</td>
+                    <td>{{codigo.margen_diferencial}}</td>
+                    <td>{{codigo.nuevo_precio}}</td>
+                    <td>{{codigo.nuevo_margen_diferencial}}</td>
+                    <td>{{codigo.tipo_cambio}}</td>
+                    <td>{{codigo.vigencia | date:'yyyy-MM-dd'}}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+  </div>
+</p-tabPanel>
 </p-tabView>
 
 

@@ -8,11 +8,11 @@ import { SeguimientoPreciosCompetitividadComponent } from './modules/seguimiento
 import { AppComponent } from './app.component';
 import { FiltrosGestionPreciosCompetitividadComponent } from './modules/filtros-gestion-precios-competitividad/filtros-gestion-precios-competitividad.component';
 import { FlujoPreciosComponent } from './modules/flujo-precios/flujo-precios.component';
-import { SeguimientoFoliosComponent } from './seguimiento-folios/seguimiento-folios.component';
 import { DashboardSeguimientoComponent } from './modules/dashboard-seguimiento/dashboard-seguimiento.component';
 import { SeguimientoCompetitividadComponent } from './modules/seguimiento-competitividad/seguimiento-competitividad.component';
 import { HomeComponent } from './modules/home/home.component';
 import { ConstruccionComponent } from './modules/construccion/construccion.component';
+import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimiento-folios.component';
 
 const routes: Routes = [
   {path: 'cambio-precios', component: GestionPreciosCompetitividadComponent},

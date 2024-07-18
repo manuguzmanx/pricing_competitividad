@@ -37,7 +37,6 @@ import { MessagesModule } from 'primeng/messages';
 import { PanelModule } from 'primeng/panel';
 import { CardModule } from 'primeng/card';
 import { SliderModule } from 'primeng/slider';
-import { SeguimientoFoliosComponent } from './seguimiento-folios/seguimiento-folios.component';
 import { TabViewModule } from 'primeng/tabview';
 import { DialogModule } from 'primeng/dialog';
 import { DividerModule } from 'primeng/divider';
@@ -57,6 +56,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { MenuModule } from 'primeng/menu';
 import { ConstruccionComponent } from './modules/construccion/construccion.component';
 import { AltaUsuariosComponent } from './modules/alta-usuarios/alta-usuarios.component';
+import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimiento-folios.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +69,7 @@ import { AltaUsuariosComponent } from './modules/alta-usuarios/alta-usuarios.com
     FiltrosGestionPreciosCompetitividadComponent,
     FlujoPreciosComponent,
     SeguimientoFoliosComponent,
+    SeguimientoPreciosCompetitividadComponent,
     DashboardSeguimientoComponent,
     RoundPipe,
     SeguimientoCompetitividadComponent,

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Competitividad } from '../model/competitividad';
+import { Competitividad } from 'src/app/model/competitividad';
 import { Router } from '@angular/router';
-import { Folio } from '../model/folio';
-import { Codigo } from '../model/codigo';
+import { Folio } from 'src/app/model/folio';
+import { Codigo } from 'src/app/model/codigo';
 
 @Component({
   selector: 'app-seguimiento-folios',
@@ -256,8 +256,8 @@ export class SeguimientoFoliosComponent implements OnInit{
     this.router.navigate(['filtros-gestion-precios']);
   }
 
-  ifFlujoPrecios() {
-    this.router.navigate(['flujo-precios']);
+  irSeguimientoCompetitividad() {
+    this.router.navigate(['seguimiento-competitividad']);
   }
 
 
