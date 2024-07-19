@@ -1,0 +1,71 @@
+<div class="contenedor mw-100 vh-100 login-page">
+
+    <!-- Primer elipse -->
+    <div class="elipse1"></div>
+    <!-- Elipse blanco -->
+    <div class="elipseB"></div>
+    <!-- Elipse Amarillo chico -->
+    <div class="elipseAC"></div>
+    <!-- Elipse Amarillo Grande -->
+    <div class="elipseAG"></div>
+    <!-- Elipse Chico azul marino -->
+    <div class="elipseCA"></div>
+  
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="carPadre">
+          <div class="card">
+            <div class="card-body">
+  
+              <!--Formulario donde se muestra el tipo de inicio de sesion-->
+              <form class="form-login" action="" *ngIf="!appSelected">
+  
+                <!-- Selección de tipo de inicio de sesión -->
+          
+               
+<!--Formulario para validar colaborador-->
+    <h2 class="text-center title">
+      <img src="assets/img/icon-loading.gif">
+      Inicia sesión</h2>
+    <div>
+      <label htmlFor="username">Usuario</label>
+      <span class="p-float-label">
+        <input pInputText id="username" />
+      
+    </span>
+    </div>
+    <div class="mt-1">
+      <label for="password">Contraseña</label>
+      <span class="p-float-label">
+        <p-password  [feedback]="false"></p-password>
+       
+    </span>
+    </div>
+    <div class="row mt-4" style="text-align: center;">
+        <p class="contrase">Contraseña<a href="!#">¿Olvidaste tu contraseña?</a></p>
+        <p-button (onClick)="appSelected = true;" label="Ingresar" severity="info"  />
+  
+    </div>
+  </form>
+    <div *ngIf="appSelected" class="app-selected" >
+      <div class="img competitividad" (click)="showNavbar()" routerLink="/home">
+        <a>
+          <img src="assets/img/competitividad.png">
+        </a>
+        <label>Competitividad</label>
+      </div>
+      <div class="img">
+        <a>
+          <img src="assets/img/logoestrategiadeprecios.jpeg">
+        </a>
+      </div>
+
+    </div>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

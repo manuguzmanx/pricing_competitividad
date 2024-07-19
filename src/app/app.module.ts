@@ -55,6 +55,8 @@ import { NavbarComponent } from './modules/navbar/navbar.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenuModule } from 'primeng/menu';
 import { ConstruccionComponent } from './modules/construccion/construccion.component';
+import { LoginComponent } from './modules/login/login.component';
+import { PasswordModule } from 'primeng/password';
 import { AltaUsuariosComponent } from './modules/alta-usuarios/alta-usuarios.component';
 import { PickListModule } from 'primeng/picklist';
 import { FieldsetModule } from 'primeng/fieldset';
@@ -79,7 +81,9 @@ import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimi
     MenuComponent,
     NavbarComponent,
     ConstruccionComponent,
+    LoginComponent,
     AltaUsuariosComponent
+
   ],
   imports: [
     BrowserModule,
@@ -124,8 +128,11 @@ import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimi
     RippleModule,
     SidebarModule,
     MenuModule,
+    PasswordModule,
+    ButtonModule,
     PickListModule,
     FieldsetModule
+
   ],
   providers: [],
   bootstrap:[AppComponent]
