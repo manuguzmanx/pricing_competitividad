@@ -1,6 +1,6 @@
 <!--<p-button (click)="sidebarVisible = true" icon="pi pi-arrow-right" />-->
 
-<div class="navbar shadow-2">
+<div class="navbar shadow-2" *ngIf="navbarVisible">
 <div class="menu">
     <i class="pi pi-bars"  (click)="showMenu()"></i>
     <i class="pi pi-home"  routerLink="/home"></i>

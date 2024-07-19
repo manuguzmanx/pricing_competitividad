@@ -8,11 +8,15 @@ import { LayoutService } from 'src/app/services/layout.service';
 })
 export class NavbarComponent implements OnInit{
   sidebarVisible=true;
-
+  navbarVisible=true;
   constructor(
     private  layoutService: LayoutService,
   ) {}
   ngOnInit() {
+    this.layoutService.showNavbar$.subscribe(showNavbar => {
+   
+      this.navbarVisible = showNavbar;
+    });
   }
 
   showMenu(){

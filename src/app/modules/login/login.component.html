@@ -47,8 +47,8 @@
   
     </div>
   </form>
-    <div *ngIf="appSelected" class="app-selected" routerLink="/home">
-      <div class="img competitividad">
+    <div *ngIf="appSelected" class="app-selected" >
+      <div class="img competitividad" (click)="showNavbar()" routerLink="/home">
         <a>
           <img src="assets/img/competitividad.png">
         </a>
