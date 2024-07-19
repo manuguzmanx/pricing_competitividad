@@ -59,6 +59,7 @@ import { LoginComponent } from './modules/login/login.component';
 import { PasswordModule } from 'primeng/password';
 import { AltaUsuariosComponent } from './modules/alta-usuarios/alta-usuarios.component';
 import { PickListModule } from 'primeng/picklist';
+import { FieldsetModule } from 'primeng/fieldset';
 import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimiento-folios.component';
 
 @NgModule({
@@ -129,7 +130,8 @@ import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimi
     MenuModule,
     PasswordModule,
     ButtonModule,
-    PickListModule
+    PickListModule,
+    FieldsetModule
 
   ],
   providers: [],

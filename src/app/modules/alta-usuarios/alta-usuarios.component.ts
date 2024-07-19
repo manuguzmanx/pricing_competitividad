@@ -42,8 +42,7 @@ export class AltaUsuariosComponent {
 
     ];
 
-    this.selectedTipodeUsuario = this.opcionesTipodeUsuario[0];
-    this.selectedEstatusdeUsuario = this.opcionesEstatusdeUsuario[0];
+
 
   }
   

@@ -1128,7 +1128,7 @@ td.fsection {
 
 ::ng-deep .p-dropdown {
     width: auto;
-    min-width: 178px;
+    min-width: 210px;
 }
 
 ::ng-deep .p-dropdown-item {
@@ -1274,6 +1274,15 @@ td.fsection {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.campo-formulario-usuarios {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 400px;
 }
 
 .columnas-informacion {
