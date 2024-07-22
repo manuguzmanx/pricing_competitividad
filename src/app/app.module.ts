@@ -8,7 +8,7 @@ import {ButtonModule} from 'primeng/button';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ConfiguracionClusterCompetitividadComponent } from './modules/configuracion-cluster-competitividad/configuracion-cluster-competitividad.component';
-import { ReglasNegocioCompetitividadComponent } from './modules/reglas-negocio-competitividad/reglas-negocio-competitividad.component';
+import { ReglasNegocioCompetitividadComponentComponent } from './modules/reglas-negocio-competitividad/reglas-negocio-competitividad.component';
 import { GestionPreciosCompetitividadComponent } from './modules/gestion-precios-competitividad/gestion-precios-competitividad.component';
 import { PermisosUsuariosCompetitividadComponent } from './modules/permisos-usuarios-competitividad/permisos-usuarios-competitividad.component';
 import { SeguimientoPreciosCompetitividadComponent } from './modules/seguimiento-precios-competitividad/seguimiento-precios-competitividad.component';
@@ -66,7 +66,7 @@ import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimi
   declarations: [
     AppComponent,
     ConfiguracionClusterCompetitividadComponent,
-    ReglasNegocioCompetitividadComponent,
+    ReglasNegocioCompetitividadComponentComponent,
     GestionPreciosCompetitividadComponent,
     PermisosUsuariosCompetitividadComponent,
     SeguimientoPreciosCompetitividadComponent,

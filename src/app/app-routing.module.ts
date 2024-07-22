@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConfiguracionClusterCompetitividadComponent } from './modules/configuracion-cluster-competitividad/configuracion-cluster-competitividad.component';
-import { ReglasNegocioCompetitividadComponent } from './modules/reglas-negocio-competitividad/reglas-negocio-competitividad.component';
+import { ReglasNegocioCompetitividadComponentComponent } from './modules/reglas-negocio-competitividad/reglas-negocio-competitividad.component';
 import { GestionPreciosCompetitividadComponent } from './modules/gestion-precios-competitividad/gestion-precios-competitividad.component';
 import { PermisosUsuariosCompetitividadComponent } from './modules/permisos-usuarios-competitividad/permisos-usuarios-competitividad.component';
 import { SeguimientoPreciosCompetitividadComponent } from './modules/seguimiento-precios-competitividad/seguimiento-precios-competitividad.component';
@@ -20,7 +20,7 @@ import { AltaUsuariosComponent } from './modules/alta-usuarios/alta-usuarios.com
 const routes: Routes = [
   {path: 'cambio-precios', component: GestionPreciosCompetitividadComponent},
   {path: 'configuracion-cluster', component: ConfiguracionClusterCompetitividadComponent},
-  {path: 'reglas-negocio', component: ReglasNegocioCompetitividadComponent},
+  {path: 'reglas-negocio', component: ReglasNegocioCompetitividadComponentComponent},
   {path: 'permisos-usuarios', component: PermisosUsuariosCompetitividadComponent},
   {path: 'seguimiento-precios', component: SeguimientoPreciosCompetitividadComponent},
   {path: 'filtros-gestion-precios', component: FiltrosGestionPreciosCompetitividadComponent},
