@@ -53,6 +53,12 @@ $blue: #2661a2;
     }
   }
 
+.pi-comment{
+    font-size: 150%;
+    color: $blue;
+    font-weight: 800;
+}
+
 ::ng-deep.table-precios-review{
     td{
         padding: 0 5px;

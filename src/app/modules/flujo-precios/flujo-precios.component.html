@@ -9,7 +9,7 @@
         <p-steps
         [model]="items"
         [readonly]="false"
-        [activeIndex]="activeIndex"
+        [activeIndex]="activeIndex"sho
         (activeIndexChange)="onActiveIndexChange($event)" />
 
     </div>-->
@@ -144,13 +144,21 @@
                         label="Promociones({{kpi.promocion}})" />
 
                 </div>
-                <div class="flex align-items-center">
+                <div class="flex align-items-center first">
 
                     <p-checkbox
 
                     [binary]="true"
                         [(ngModel)]="verPrecioBase"
                         label="Precio Regular({{kpi.precioRegular}})"  />
+                </div>
+                <div class="flex align-items-center">
+
+                    <p-checkbox
+
+                    [binary]="true"
+                        [(ngModel)]="verSinCambio"
+                        label="Sin Cambio({{kpi.sincambio}})"  />
                 </div>
             </div>
 
@@ -177,7 +185,7 @@
                             <th     *ngIf="showPrecioPromocion"  colspan="3" class="isection fsection">
                                 Información Promocional
                             </th>
-                            <th   colspan="11" class="isection fsection">
+                            <th   colspan="12" class="isection fsection">
                                 Precio Nuevo Sugerido
                             </th>
 
@@ -256,11 +264,14 @@
                             <th class="header-canal">Canal Digital <br/>
                                 <p-inputSwitch (onChange)="setAllDigital()" [(ngModel)]="allDigital" />
                             </th>
+                            <th>
+                                Comentarios
+                            </th>
 
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-product>
-                        <tr *ngIf="(product.tipo.id == 1 && verPrecioBase) || (product.tipo.id == 2 && verPromociones) ">
+                        <tr *ngIf="(product.tipo.id == 1 && verPrecioBase) || (product.tipo.id == 2 && verPromociones) || (product.tipo.id == 2 && verSinCambio) ">
 
 
                             <td class="fsection clickable background-blue" (click)="showDetailSKU()" >{{ product.sku }}</td>
@@ -342,7 +353,7 @@
 
 
                             <td  class="isection"  >
-
+                                <div *ngIf="product.tipo != 3">
                                 <span class="p-input-icon-right">
                                     <i style="color:  #d90000" [pTooltip]="tooltipError" tooltipPosition="right" *ngIf="product.ps.precio < product.mc.precio" class="pi pi-exclamation-circle"></i>
                                     <input (change)="actualizarKPIs()" style="min-width: 80px;" [ngClass]="{'ng-invalid ng-dirty': product.ps.precio < product.mc.precio}" pInputText [(ngModel)]="product.ps.precio" />
@@ -350,12 +361,16 @@
                                 <ng-template  #tooltipError >
                                     El precio no debe ser menor al más competitivo
                                    </ng-template>
+                                   
+                                </div>
+                                <div *ngIf="product.tipo == 3">
+                                    {{product.pp.precio | currency: '$'}}
+                                </div>
                             </td>
                           <td style="min-width: 150px;">
                             <p-dropdown class="w-100"
                             (onChange)="actualizarKPIs()"
-                            [disabled]="product.pp.precio"
-                            [options]="tipoCambio"
+                            [options]="product.tipoCambio"
                             appendTo="body"
                             [(ngModel)]="product.tipo"
                             optionLabel="name"
@@ -433,7 +448,9 @@
                             <td class="canal">
                                 <p-inputSwitch [(ngModel)]="product.canal.digital"  (onChange)="actualizarKPIs()" />
                             </td>
-
+                            <td>
+                                <i class="pi pi-comment clickable" [pTooltip]="product.comment" (click)="showDialogComment(product)" ></i>
+                            </td>
                             </tr>
                     </ng-template>
                 </p-table>
@@ -1061,3 +1078,18 @@
 </div>
 
 -->
+<p-dialog header="Comentario" [modal]="true" [(visible)]="visibleComment" [style]="{ width: '30vw' }">
+    <span class="p-text-secondary block mb-5">Ingrese un comentario referente al tipo de cambio que realizará sobre el precio del código.</span>
+ 
+    <div class="flex align-items-center gap-3 mb-5">
+        
+        <textarea style="width: 100%;" 
+        rows="5"
+        pInputTextarea 
+        [(ngModel)]="productSelected.comment">
+    </textarea>    </div>
+    <div class="flex justify-content-end gap-2 " style="text-align: right;">
+        <p-button label="Cancelar" severity="secondary" (onClick)="visibleComment = false" [ngStyle]="{'margin-right': '10px'}" />
+        <p-button label="Guardar" (onClick)="visibleComment = false" />
+    </div>
+</p-dialog>
