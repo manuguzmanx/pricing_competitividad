@@ -220,7 +220,7 @@ background-color: $colorAzulClaroTres;
       font-size: 11px;
       text-align: center;
       margin-top: 5px;
-     
+
     }
     .original{
       font-size: 115%;
@@ -896,7 +896,7 @@ td.fsection{
       font-weight: 500;
       border: 1px solid white;
       &[aria-selected="false"]{
-       background-color: #2661a2bd; 
+       background-color: #2661a2bd;
       }
     }
   }
@@ -913,18 +913,18 @@ td.fsection{
   }
   .p-tabview .p-tabview-panels{
     padding: 0px;
- 
+
     .tarjeta5 {
       margin-top: 0;
       border-radius: 0;
       height: 270px;
       .titulos-componente{
-        
+
         background-color: white;
         color: $blue;
         border-bottom: 1px solid $blue;
-      
-        
+
+
       }
       .indicadores{
         margin-bottom: 15px;
@@ -932,7 +932,7 @@ td.fsection{
 
       .kpis-historicos{
         width: 100%;
-        
+
         th{
           background-color: $blue;
         }
@@ -1100,13 +1100,13 @@ td.fsection{
               margin-left: -5px;
               .val{
                   color: $blue;
-                  
+
               }
               .descripcion{
                   font-size: 60%;
               }
           }
-         
+
           &.double{
               width: 88%;
               z-index: 9;
@@ -1115,7 +1115,7 @@ td.fsection{
               margin-top: 90px;
               font-size: 125%;
               margin-left: 15px;
-              
+
             }
       }
 
@@ -1173,7 +1173,7 @@ td.fsection{
     justify-content: center;
     align-items: center;
   }
-  
+
 }
 .dias-chart{
   width: 100%;
@@ -1351,7 +1351,7 @@ td.fsection{
     }
     .ranking{
       width: 40%;
-     
+
       td{
         height: 30px !important;
       }
@@ -1395,5 +1395,5 @@ td.fsection{
       }
     }
   }
-  
+
 

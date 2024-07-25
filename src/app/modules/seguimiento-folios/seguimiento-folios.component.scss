@@ -316,8 +316,8 @@ td {
   margin-bottom: 0px;
   margin-top: 0px;
   padding-left: 10px;
-  flex: 1 1 calc(16.666% - 20px); /* para 6 tarjetas */
-  /* flex: 1 1 calc(14.286% - 20px);  para 7 tarjetas */
+  // flex: 1 1 calc(16.666% - 20px); /* para 6 tarjetas */
+  flex: 1 1 calc(14.286% - 20px);//  para 7 tarjetas */
   box-sizing: border-box;
   min-width: 200px;
 }
@@ -332,8 +332,8 @@ td {
   margin-bottom: 0px;
   margin-top: 5px;
   padding: 10px;
-  flex: 1 1 calc(16.666% - 20px);/*  para 6 tarjetas */
-  /* flex: 1 1 calc(14.286% - 20px); para 7 tarjetas */
+  // flex: 1 1 calc(16.666% - 20px);/*  para 6 tarjetas */
+  flex: 1 1 calc(14.286% - 20px); // para 7 tarjetas
   box-sizing: border-box;
   min-width: 700px;
   min-height: 80px;

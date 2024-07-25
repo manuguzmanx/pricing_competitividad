@@ -1,92 +1,180 @@
-<div style="width: 100%;">
-  <div class="container-filtros" style="margin-bottom: 1rem;">
+<div class="app-reglas-negocio">
 
-    <div class="tarjeta4" style="display: flex; flex-wrap: wrap;">
-    <div class="tarjeta3">
-      <label  class="titulos-filtros">Macrocategoría</label>
-      <form [formGroup]="macrocategoriaFormGroup">
-        <p-multiSelect
-          [options]="macrocategoria"
-          formControlName="selectedMacrocategoria"
-          optionLabel="name"
-          placeholder="Seleccionar macrocategoria"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
-    </div>
-    <div class="tarjeta3">
-      <label  class="titulos-filtros">Categoría</label>
-      <form [formGroup]="categoriaFormGroup">
-        <p-multiSelect
-          [options]="categoria"
-          formControlName="selectedCategoria"
-          optionLabel="name"
-          placeholder="Seleccionar categoria"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
-    </div>
-    <div class="tarjeta3">
-      <label class="titulos-filtros">Subcategoría</label>
-      <form [formGroup]="subcategoriaFormGroup">
-        <p-multiSelect
-          [options]="subcategoria"
-          formControlName="selectedSubcategoria"
-          optionLabel="name"
-          placeholder="Seleccionar subcategoria"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
-    </div>
-    <div class="tarjeta3">
-      <label class="titulos-filtros">Clase</label>
-      <form [formGroup]="claseFormGroup">
-        <p-multiSelect
-          [options]="clase"
-          formControlName="selectedClase"
-          optionLabel="name"
-          placeholder="Seleccionar clase"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
-    </div>
-    <div class="tarjeta3">
-      <label class="titulos-filtros">Familia</label>
-      <form [formGroup]="familiaFormGroup">
-        <p-multiSelect
-          [options]="familia"
-          formControlName="selectedFamilia"
-          optionLabel="name"
-          placeholder="Seleccionar familia"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
-    </div>
-    <div class="tarjeta3">
-      <label class="titulos-filtros">Proveedor</label>
-      <form [formGroup]="proveedorFormGroup">
-        <p-multiSelect
-          [options]="proveedor"
-          formControlName="selectedProveedor"
-          optionLabel="name"
-          placeholder="Seleccionar proveedor"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
+  <div class="container-filtros" >
+      <div class="tarjeta2" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        <div>
+          <label class="titulos-principal">REGLAS DE NEGOCIO</label>
+        </div>
     </div>
 
-    <div class="tarjeta3">
-      <label class="titulos-filtros">Código</label>
-      <form [formGroup]="proveedorFormGroup">
-        <p-multiSelect
-          [options]="proveedor"
-          formControlName="selectedProveedor"
-          optionLabel="name"
-          placeholder="e.g 1004"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
-    </div>
+    <div style="width: 100%;">
 
-    <div style="margin-left: 10px; align-items: end; display: flex; padding-bottom: 3px;">
-      <p-button icon="pi pi-replay" pTooltip="Limpiar filtros" tooltipPosition="bottom"></p-button>
-    </div>
-  </div>
+      <div class="container-filtros" style="margin-bottom: 1rem;">
+        <div class="tarjeta4" style="display: flex; flex-wrap: wrap;">
+        <div class="tarjeta3">
+          <label  class="titulos-filtros">Macrocategoría</label>
+          <form [formGroup]="macrocategoriaFormGroup">
+            <p-multiSelect
+              [options]="macrocategoria"
+              formControlName="selectedMacrocategoria"
+              optionLabel="name"
+              placeholder="Seleccionar macrocategoria"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label  class="titulos-filtros">Categoría</label>
+          <form [formGroup]="categoriaFormGroup">
+            <p-multiSelect
+              [options]="categoria"
+              formControlName="selectedCategoria"
+              optionLabel="name"
+              placeholder="Seleccionar categoria"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <!-- <div class="tarjeta3">
+          <label class="titulos-filtros">Subcategoría</label>
+          <form [formGroup]="subcategoriaFormGroup">
+            <p-multiSelect
+              [options]="subcategoria"
+              formControlName="selectedSubcategoria"
+              optionLabel="name"
+              placeholder="Seleccionar subcategoria"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Clase</label>
+          <form [formGroup]="claseFormGroup">
+            <p-multiSelect
+              [options]="clase"
+              formControlName="selectedClase"
+              optionLabel="name"
+              placeholder="Seleccionar clase"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Familia</label>
+          <form [formGroup]="familiaFormGroup">
+            <p-multiSelect
+              [options]="familia"
+              formControlName="selectedFamilia"
+              optionLabel="name"
+              placeholder="Seleccionar familia"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Proveedor</label>
+          <form [formGroup]="proveedorFormGroup">
+            <p-multiSelect
+              [options]="proveedor"
+              formControlName="selectedProveedor"
+              optionLabel="name"
+              placeholder="Seleccionar proveedor"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div> -->
+        <div class="tarjeta3">
+          <label class="titulos-filtros" for="input-diferencialvs"> Diferencial VS Competitividad</label>
+          <p-inputNumber currency="USD" locale="en-US" mode="currency"
+                        [inputStyle]="{
+                                        'font-size':'1rem',
+                                        'font-weight':'200',
+                                        'padding-left':'0',
+                                        'padding-right':'0',
+                                        'text-align':'center',
+                                        'font-family':'Arial, sans-serif',
+                                        'height':'auto',
+                                        'align-items': 'center'}"
+                        [minFractionDigits]="0"
+                        [maxFractionDigits]="0"/>
+        </div>
 
-  <div class="contaniner-filtros"></div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros" for="input-diferencialvs">Duración promoción días</label>
+          <p-inputNumber currency="USD" locale="en-US" mode="currency"
+                        [inputStyle]="{
+                                        'font-size':'1rem',
+                                        'font-weight':'200',
+                                        'padding-left':'0',
+                                        'padding-right':'0',
+                                        'text-align':'center',
+                                        'font-family':'Arial, sans-serif',
+                                        'height':'auto',
+                                        'align-items': 'center'}"
+                        [minFractionDigits]="0"
+                        [maxFractionDigits]="0"/>
+        </div>
 
-  <br>
-</div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros" for="input-diferencialvs">Días para ser competitivo</label>
+          <p-inputNumber currency="USD" locale="en-US" mode="currency"
+                        [inputStyle]="{
+                                        'font-size':'1rem',
+                                        'font-weight':'200',
+                                        'padding-left':'0',
+                                        'padding-right':'0',
+                                        'text-align':'center',
+                                        'font-family':'Arial, sans-serif',
+                                        'height':'auto',
+                                        'align-items': 'center'}"
+                        [minFractionDigits]="0"
+                        [maxFractionDigits]="0"/>
+        </div>
+
+
+
+        <div style="margin-left: 10px; align-items: end; display: flex; padding-bottom: 3px;">
+          <p-button icon="pi pi-replay"  pTooltip="Limpiar filtros" tooltipPosition="bottom"></p-button>
+        </div>
+
+        <!-- <div class="tarjeta3">
+          <label class="titulos-filtros">Código</label>
+          <form [formGroup]="proveedorFormGroup">
+              <p-multiSelect
+              [options]="proveedor"
+              formControlName="selectedProveedor"
+              optionLabel="name"
+              placeholder="Seleccionar código"
+              [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div> -->
+      </div>
+
+    <div class="seguimiento-filtrados">
+      <div  class="tarjeta5 w-100 detalle">
+          <div class="titulos-componente m-0">
+              Reglas de Negocio
+          </div>
+          <p-table #tableCodigos   dataKey="num_folio" [scrollable]="true" scrollHeight="400px" id="tbl-codigos">
+              <ng-template style="position: absolute;" pTemplate="header">
+                <tr>
+                  <th [width]="200">SKU</th>
+                  <th>Precio Publicado</th>
+                  <th>Margen Precio Publicado(%)</th>
+                  <th>Precio Competitividad</th>
+                  <th>Margen Nuevo (%)</th>
+                  <th>Mejor Competidor</th>
+                  <th>Precio Mejor Competidor</th>
+                  <th>% Diferencial VS Competidor más bajo</th>
+                  <th>Última Fecha de Atención</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
+                <tr>
+                  <td>{{row.sku}}</td>
+                  <td>$ {{row.precioPublicado}}</td>
+                  <td>{{row.margenPublicado}} %</td>
+                  <td>$ {{row.precioCompetitividad}}</td>
+                  <td>{{row.margenCompetitividad}} %</td>
+                  <td>{{row.mejorCompetidor}}</td>
+                  <td>$ {{row.precioCompetidor}}</td>
+                  <td>{{row.diferencial}} %</td>
+                  <td>{{row.ultimaFecha}}</td>
+                  </tr>
+              </ng-template>
+            </p-table>
+      </div>
