@@ -60,6 +60,7 @@
         <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
           <div class="titulos-componente">
               Total SKU's
+              <i class="pi pi-question-circle"  pTooltip="Total de SKU's de las clases del usuario seleccionadas" ></i>
             </div>
           <div class="chart">
               <div class="valor  center">
@@ -282,6 +283,13 @@
       <div class="tarjeta5 w-100" style="display: block; flex-wrap: wrap;">
         <div class="titulos-componente">
             SKU's Trabajados
+            <i class="pi pi-question-circle"  [pTooltip]="tooltipContent"  ></i>
+            <ng-template #tooltipContent>
+              <div class="flex align-items-center">
+                  <span> <b>Atendidos:</b> <small>SKU's modificados/trabajados mediante la plataforma de competitividad </small></span>
+                  <span> <b>Corregidos:</b><small> SKU's con el precio modificado reportado por WISER</small> </span>
+              </div>
+          </ng-template>
           </div>
         <div class="chart">
           <p-chart type="line" height="150px" [data]="dataChartHistorico" [options]="optionsDataChartHistorico" />
@@ -313,8 +321,9 @@
                 <div class="descripcion">Total</div>
             </div>
             <div class="valor double">
-              <div class="gray">21%</div>
-              <div class="blue">79%</div>
+              
+              <div class="gray">79%</div>
+              <div class="blue">21%</div>
           </div>
                 <p-chart type="doughnut" width="110" [data]="fueraCompChart" [options]="optionsReview" />
                 <div class="indicadores">

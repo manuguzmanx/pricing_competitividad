@@ -16,7 +16,7 @@ import { ButtonModule } from 'primeng/button';
 export class FlujoPreciosComponent implements OnInit {
 
   competitividadArray: Competitividad[];
-
+  productSelected:any = {};
   items: MenuItem[] | undefined;
   codigos:any =  [];
   dataChart:any;
@@ -31,7 +31,7 @@ switchMargen:boolean= true;
     selectedTipo:any;
     selectedTiendas:any;
     estados:any = ['Aguascalientes','Baja California','Baja California Sur','Campeche','Chiapas','Nuevo León','...' ];
-    tipoCambio:any = [{id:1,name:'Precio Regular'}, {id:2,name:'Promoción'}]
+    tipoCambio:any = [{id:1,name:'Precio Regular'}, {id:2,name:'Promoción'},{id:3, name: 'Sin modificación'}]
     banderasMargen ={pp:  {real: false, rec: false}, pb:  {real: false, rec: false}, ps:  {real: false, rec: false}, pa: {real: false, rec: false}};
     precioCoppel:any; precioCompetencia: any;
     periodicidad:any = [{id:1,name:'Diario'}, {id:2,name:'Semanal'}, {id: 3, name: 'Mensual'}]
@@ -45,6 +45,7 @@ switchMargen:boolean= true;
     tiendas:any;
     verPromociones= true;
     verPrecioBase= true;
+    verSinCambio = true;
     codigosFiltered:any;
     contadorOrigen: number = 0;
     origen:any = ['Precio Base', 'Área Comercial','Optimización','Optimizacion','Competitividad'];
@@ -235,7 +236,9 @@ switchMargen:boolean= true;
     kpi:any={};
     documentStyle : any;
     textColor : any;
+    comment =  "";
     textColorSecondary : any;
+    visibleComment=false;
     surfaceBorder : any;
     constructor(private confirmationService: ConfirmationService, private competitividadService: CompetitividadService, private router: Router) {
       this.competitividadArray = new Array<Competitividad>;
@@ -250,11 +253,16 @@ switchMargen:boolean= true;
       }
     }
 
+    showDialogComment(product:any){
+      this.visibleComment = true;
+      this.productSelected = product;
+    }
+
     prevStep(){
       this.activeIndex --;
 
       if(this.activeIndex == -1){
-        this.router.navigate(['index']);
+        this.router.navigate(['/cambio-precios']);
       }
     }
     onActiveIndexChange(event: number) {
@@ -717,7 +725,9 @@ this.optionsReview = {
         promocion: 0,
         prcPromocion: 0,
         fisico: 0,
-        digital: 0
+        digital: 0,
+        sincambio: 0,
+        prcSinCambio: 0
       }
     }
     actualizarKPIs(){
@@ -727,8 +737,10 @@ this.optionsReview = {
       this.codigos.forEach((c:any) => {
         if(c.tipo.id  == 1){
          this.kpi.precioRegular++;
-        }else{
+        }else if(c.tipo.id == 2){
           this.kpi.promocion++;
+        }else{
+          this.kpi.sincambio++
         }
         if(c.canal.fisico){
           this.kpi.fisico ++;
@@ -751,11 +763,18 @@ this.optionsReview = {
       this.initCharts();
     }
 
-
+    getCatTipoCambio(precioPromocion:number){
+      let resultCat =  Object.assign(this.tipoCambio) ; 
+      if(precioPromocion){
+       resultCat[0].disabled = true;
+      }
+      return resultCat;
+    }
     transformCodigosToFlow(){
       this.codigos= [];
       this.competitividadArray.forEach((c:any)=>{
       let precioMinimo = this.getPrecioMinimo(c);
+      let cat = this.getCatTipoCambio(c.coppel.precioPromocion);
         this.codigos.push(
           {
             sku: c.codigo,
@@ -763,11 +782,13 @@ this.optionsReview = {
             departamento: 'Mueble Suelto',
             marca: 'America',
             modelo: 'Silver',
+            comment: "",
             canal: {
               digital: true,
               fisico: true
             },
-            tipo: this.tipoCambio[1],
+            tipoCambio: cat,
+            tipo: cat[1],
             ff: this.getFechaAddDays(8),
             fi: this.getFechaAddDays(1),
             diferencial: c.diferencialMargen,

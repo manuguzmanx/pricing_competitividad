@@ -162,6 +162,12 @@ padding: 0px 15px 5px 15px;
     background-color: $blue;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    position: relative;
+    i{
+      position: absolute;
+      right:  7px;
+      top: 7px;
+    }
     }
     .chart{
         padding: 0 5px;

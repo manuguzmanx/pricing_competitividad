@@ -498,9 +498,13 @@ export class HomeComponent implements OnInit {
       newDate.setDate(date.getDate() + days);
       return newDate;
     }
+
+    
     intDataHistorico(){
       this.dataChartHistorico = {
-        labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+        labels: [this.getLabelFecha(this.now, -6),this.getLabelFecha(this.now, -5),
+          this.getLabelFecha(this.now,-4),this.getLabelFecha(this.now,-3), this.getLabelFecha(this.now, -2),
+          this.getLabelFecha(this.now, -1), this.getLabelFecha(this.now, 0)],
         datasets: [
             {
                 label: 'Fuera de Competitvidad',
@@ -667,12 +671,12 @@ export class HomeComponent implements OnInit {
     }
     initDiferencialChart(){
       this.diferencialChart={
-        labels: ['-10% - -5%','-4% - 0%', '1% - 5%', '6% - 10%', '11% - 15%', '16% - 20%', '21% - 25%', '26% - 30%', '31% - 35%', '36% - 40%', '41% - 45%', '46% - 50%'],
+        labels: ['> -10% ','0% - 10%',  '11% - 20%', '30% - 40%','41% - 50%', '50% <'],
         datasets: [
           {
             type: 'bar',
             label:"Atendidos hace más de 2 días",
-            data: [10,6,20,15 ,50, 45, 35, 48,18,12,10,6],
+            data: [ 20, 15,18,12,10,25],
             backgroundColor: [ this.documentStyle.getPropertyValue('--gray-500')],
             borderColor: ['#FFFFFF'],
             borderWidth: 1
@@ -681,7 +685,7 @@ export class HomeComponent implements OnInit {
         {
           type: 'bar',
           label:"Atendidos hace 2 día",
-          data: [10,6,20,15 ,50, 45, 35, 48,18,12,10,6],
+          data: [ 15, 10,18,12,30,25],
           backgroundColor: [ this.documentStyle.getPropertyValue('--blue-300')],
           borderColor: ['#FFFFFF'],
           borderWidth: 1
@@ -689,7 +693,7 @@ export class HomeComponent implements OnInit {
         {
           type: 'bar',
           label:"Atendidos hace 1 día",
-          data: [10,6,20,15 ,50, 45, 35, 48,18,12,10,6],
+          data: [35, 25,18,30,15,15],
           backgroundColor: [this.documentStyle.getPropertyValue('--blue-700')],
           borderColor: ['#FFFFFF'],
           borderWidth: 1
@@ -740,7 +744,7 @@ export class HomeComponent implements OnInit {
       
     }
     getLabelFecha(date : Date, dias: number){
-      let r = date;
+      let r = new Date(date);
       r.setDate(r.getDate() + dias);
       let day = r.getDate();
       let dayS:string,monthS:string;
