@@ -3,7 +3,7 @@
     <div class="container-filtros">
         <div class="tarjeta2" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
             <div>
-                <label class="titulos-principal">Consulta de Usuarios</label>
+                <label class="titulos-principal">CONSULTA DE USUARIOS</label>
             </div>
         </div>
 
@@ -12,86 +12,69 @@
             <div class="container-filtros" style="margin-bottom: 1rem;">
                 <div class="tarjeta4" style="display: flex; flex-wrap: wrap;">
                     <div class="tarjeta3">
-                        <label class="titulos-filtros">Macrocategoria: </label>
+                        <label class="titulos-filtros">Macrocategoría</label>
                         <form [formGroup]="macrocategoriaFormGroup">
                             <p-multiSelect [options]="macrocategoria" formControlName="selectedMacrocategoria"
                                 optionLabel="name" placeholder="Seleccionar macrocategoria"
-                                [style]="{'width':'100%','max-width':'320px'}"></p-multiSelect>
+                                [style]="{'width':'100%'}"></p-multiSelect>
                         </form>
                     </div>
                     <div class="tarjeta3">
-                        <label class="titulos-filtros">Categoria: </label>
+                        <label class="titulos-filtros">Categoría</label>
                         <form [formGroup]="categoriaFormGroup">
                             <p-multiSelect [options]="categoria" formControlName="selectedCategoria" optionLabel="name"
-                                placeholder="Seleccionar categoria"
-                                [style]="{'width':'100%','max-width':'320px'}"></p-multiSelect>
+                                placeholder="Seleccionar categoria" [style]="{'width':'100%'}"></p-multiSelect>
+                        </form>
+                    </div>
+                    <div class="tarjeta3">
+                        <label class="titulos-filtros">Nombre de Usuario</label>
+                        <form [formGroup]="familiaFormGroup">
+                            <p-inputNumber class="full-width-input" />
                         </form>
                     </div>
 
                     <div class="tarjeta3">
-                        <label class="titulos-filtros" for="input-diferencialvs">Nombre de Usario: </label>
-                        <p-inputNumber currency="USD" locale="en-US" mode="currency" [inputStyle]="{
-                                          'font-size':'1rem',
-                                          'font-weight':'200',
-                                          'padding-left':'0',
-                                          'padding-right':'0',
-                                          'text-align':'center',
-                                          'font-family':'Arial, sans-serif',
-                                          'height':'auto',
-                                          'width':'320px',
-                                          'align-items': 'center'}" [minFractionDigits]="0" [maxFractionDigits]="0" />
+                        <label class="titulos-filtros">Correo Electronico</label>
+                        <form [formGroup]="familiaFormGroup">
+                            <p-inputNumber class="full-width-input" />
+                        </form>
                     </div>
 
                     <div class="tarjeta3">
-                        <label class="titulos-filtros" for="input-diferencialvs">Correo Electronico: </label>
-                        <p-inputNumber currency="USD" locale="en-US" mode="currency" [inputStyle]="{
-                                          'font-size':'1rem',
-                                          'font-weight':'200',
-                                          'padding-left':'0',
-                                          'padding-right':'0',
-                                          'text-align':'center',
-                                          'font-family':'Arial, sans-serif',
-                                          'height':'auto',
-                                          'width':'320px',
-                                          'align-items': 'center'}" [minFractionDigits]="0" [maxFractionDigits]="0" />
+                        <label class="titulos-filtros">Numero Empleado</label>
+                        <form [formGroup]="familiaFormGroup">
+                            <p-inputNumber class="full-width-input" />
+                        </form>
                     </div>
 
-                    <div class="tarjeta3">
-                        <label class="titulos-filtros" for="input-diferencialvs">Numero Empleado:</label>
-                        <p-inputNumber currency="USD" locale="en-US" mode="currency" [inputStyle]="{
-                                          'font-size':'1rem',
-                                          'font-weight':'200',
-                                          'padding-left':'0',
-                                          'padding-right':'0',
-                                          'text-align':'center',
-                                          'font-family':'Arial, sans-serif',
-                                          'height':'auto',
-                                          'width':'320px',
-                                          'align-items': 'center'}" [minFractionDigits]="0" [maxFractionDigits]="0" />
-                    </div>
+
 
                     <div style="margin-left: 10px; align-items: center; display: flex; padding-bottom: 3px;">
                         <p-button icon="pi pi-replay" pTooltip="Limpiar filtros" tooltipPosition="bottom"></p-button>
                     </div>
 
-                        <div style="margin-left: 10px; align-items: center; display: flex; padding-bottom: 3px;">
-                            <p-button [style]="{'margin':'.5rem',}">Buscar</p-button>
-                            <p-button [style]="{'margin':'.5rem',}">Nuevo Usuario</p-button>
-                        </div>
+                    <div class="botones-tabla">
+                        <p-button label="Buscar" />
+                        <p-button label="Nuevo Usuario" (click)="irNuevoUsuario()"/>
+                    </div>
                 </div>
 
                 <div class="seguimiento-filtrados">
-                    <div class="tarjeta5 w-100 detalle">
-                        <p-tabView>
-                            <p-tabPanel header="Activos">
+
+                    <p-tabView class="tabview-reglas">
+                        <p-tabPanel header="ACTIVOS">
+
+
+                            <div class="tarjeta5 w-100 detalle">
                                 <div class="titulos-componente m-0">
                                     Usuarios
                                 </div>
-                                <p-table #tableCodigos dataKey="num_folio" [scrollable]="true" scrollHeight="400px"
-                                    id="tbl-codigos">
-                                    <ng-template style="position: absolute;" pTemplate="header">
+
+                                <p-table [value]="usuarios" [scrollable]="true" scrollHeight="400px"
+                                    id="tbl-reglas">
+                                    <ng-template pTemplate="header">
                                         <tr>
-                                            <th [width]="200">Tipo usuario</th>
+                                            <th>Tipo Usuario</th>
                                             <th>Nombre</th>
                                             <th>Correo</th>
                                             <th>Numero Empleado</th>
@@ -99,27 +82,32 @@
                                             <th>Editar</th>
                                         </tr>
                                     </ng-template>
-                                    <ng-template pTemplate="body">
+                                    <ng-template pTemplate="body" let-usuario>
                                         <tr>
-                                            <td>Administrador</td>
-                                            <td>$</td>
-                                            <td>%</td>
-                                            <td>$</td>
-                                            <td>%</td>
-                                            <td>2</td>
+                                            <td>{{usuario.tipo_usuario}}</td>
+                                            <td>{{usuario.nombre}}</td>
+                                            <td>{{usuario.correo_electronico}}</td>
+                                            <td>{{usuario.numero_empleado}}</td>
+                                            <td>{{usuario.estatus}}</td>
+                                            <td><i class="pi pi-user-edit" style="font-size: 2rem"></i></td>
                                         </tr>
                                     </ng-template>
                                 </p-table>
-                            </p-tabPanel>
-                            <p-tabPanel header="Inactivos">
+                            </div>
+
+                        </p-tabPanel>
+
+                        <p-tabPanel header="INACTIVOS">
+                            <div class="tarjeta5 w-100 detalle">
                                 <div class="titulos-componente m-0">
                                     Usuarios
                                 </div>
-                                <p-table #tableCodigos dataKey="num_folio" [scrollable]="true" scrollHeight="400px"
-                                    id="tbl-codigos">
-                                    <ng-template style="position: absolute;" pTemplate="header">
+
+                                <p-table [value]="usuarios" [scrollable]="true" scrollHeight="400px"
+                                    id="tbl-reglas">
+                                    <ng-template pTemplate="header">
                                         <tr>
-                                            <th [width]="200">Tipo usuario</th>
+                                            <th>Tipo Usuario</th>
                                             <th>Nombre</th>
                                             <th>Correo</th>
                                             <th>Numero Empleado</th>
@@ -127,18 +115,18 @@
                                             <th>Editar</th>
                                         </tr>
                                     </ng-template>
-                                    <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
+                                    <ng-template pTemplate="body" let-usuario>
                                         <tr>
-                                            <td>{{row.sku}}</td>
-                                            <td>$ {{row.precioPublicado}}</td>
-                                            <td>{{row.margenPublicado}} %</td>
-                                            <td>$ {{row.precioCompetitividad}}</td>
-                                            <td>{{row.margenCompetitividad}} %</td>
-                                            <td>{{row.mejorCompetidor}}</td>
+                                            <td>{{usuario.tipo_usuario}}</td>
+                                            <td>{{usuario.nombre}}</td>
+                                            <td>{{usuario.correo_electronico}}</td>
+                                            <td>{{usuario.numero_empleado}}</td>
+                                            <td>{{usuario.estatus}}</td>
+                                            <td><i class="pi pi-user-edit" style="font-size: 2rem"></i></td>
                                         </tr>
                                     </ng-template>
                                 </p-table>
-                            </p-tabPanel>
-                        </p-tabView>
-                    </div>
+                            </div>
+                        </p-tabPanel>
+                    </p-tabView>
                 </div>

@@ -42,6 +42,30 @@ export class ReglasNegocioCompetitividadComponentComponent implements OnInit{
     { name: 'Juguetes, bebes y ap. ejercicio', code: '00005' }
   ];
 
+  reglas_negocio = [
+    {
+      macrocategoria: 'Enseres Domésticos',
+      categoria: 'Automotriz',
+      diferencia_vs_competitividad: '7%',
+      duracion_promocion_dias: '5',
+      dias_ser_competitivo: '3',
+    },
+    {
+      macrocategoria: 'Celular y Recámaras',
+      categoria: 'Bebés',
+      diferencia_vs_competitividad: '9%',
+      duracion_promocion_dias: '5',
+      dias_ser_competitivo: '3',
+    },
+    {
+      macrocategoria: 'Joyería y Relojería',
+      categoria: 'Belleza y CuidadoPersonal',
+      diferencia_vs_competitividad: '8%',
+      duracion_promocion_dias: '5',
+      dias_ser_competitivo: '3',
+    },
+  ];
+
   categoriaFormGroup: FormGroup;
   categoria = [
     { name: 'Audio y video', code: '00006' },
