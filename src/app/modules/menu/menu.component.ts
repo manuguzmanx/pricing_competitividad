@@ -15,22 +15,22 @@ export class MenuComponent implements OnInit, OnDestroy {
   showMenu: boolean = false;
   items: MenuItem[] | undefined;
 
-  
+
   constructor(
     private readonly layoutService: LayoutService,
     private router: Router
   ) {
     router.events.subscribe((val) => {
-      // see also 
-      console.log(val instanceof NavigationEnd) 
+      // see also
+      console.log(val instanceof NavigationEnd)
       this.showMenu = false;
   });
   }
 
   ngOnInit() {
-       this.subscription = 
+       this.subscription =
       this.layoutService.showMenu$.subscribe(showMenu => {
-   
+
       this.showMenu = showMenu;
     });
       this.items = [
@@ -43,12 +43,12 @@ export class MenuComponent implements OnInit, OnDestroy {
                 {
                   label: 'Usuarios',
                   icon: 'pi pi-user',
-                  routerLink: ['/alta-usuarios']
+                  routerLink: ['/consulta-usuarios']
               },
               {
                 label: 'Reglas de Negocio',
                 icon: 'pi pi-cog',
-                routerLink: ['/construccion']
+                routerLink: ['/reglas-negocio']
             }
             ]
         },
@@ -75,7 +75,7 @@ export class MenuComponent implements OnInit, OnDestroy {
                   }
               ]
           },
-          
+
           {
               separator: true
           }

@@ -15,6 +15,7 @@ import { ConstruccionComponent } from './modules/construccion/construccion.compo
 import { LoginComponent } from './modules/login/login.component';
 import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimiento-folios.component';
 import { AltaUsuariosComponent } from './modules/alta-usuarios/alta-usuarios.component';
+import { ConsultaUsuariosComponent } from './modules/consulta-usuarios/consulta-usuarios.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'construccion', component: ConstruccionComponent},
   {path: 'alta-usuarios', component: AltaUsuariosComponent},
+  {path: 'consulta-usuarios', component: ConsultaUsuariosComponent},
   {path: 'login', component: LoginComponent},
 
   {

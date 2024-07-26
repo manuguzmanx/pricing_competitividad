@@ -766,8 +766,7 @@ td.fsection{
 }
 
 :host ::ng-deep li {
-  width: 33%;
-
+  width: 50%;
 }
 
 :host ::ng-deep a.p-tabview-nav-link {
@@ -906,7 +905,7 @@ td.fsection{
     .valor-modal{
       font-size: 300%;
       color: #3b82f6;
-      position: absolute; 
+      position: absolute;
       top: 35%;
       left: 50%;
       transform: translate(-50%, -50%);
