@@ -674,7 +674,7 @@ export class SeguimientoCompetitividadComponent{
 
   //Tabla
   isPromo(item:any){
-    return item.tipo.id == this.tipoCambio[1].id;
+    return item.tc == "Promocion";
   }
 
   temporalCodigos:any[] = [];
