@@ -14,7 +14,6 @@ export class NavbarComponent implements OnInit{
   ) {}
   ngOnInit() {
     this.layoutService.showNavbar$.subscribe(showNavbar => {
-   
       this.navbarVisible = showNavbar;
     });
   }
