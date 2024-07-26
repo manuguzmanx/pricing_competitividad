@@ -72,31 +72,31 @@ switchMargen:boolean= true;
         d1:{
         mc:false,
           mb:false,
-          precio:65},
+          precio:100},
         d2:{
         mc:false,
           mb:false,
-          precio:59},
+          precio:100},
         d3:{
         mc:true,
           mb:false,
-          precio:80},
+          precio:100},
         d4:{
         mc:true,
           mb:false,
-          precio:81},
+          precio:80},
         d5:{
         mc:false,
           mb:false,
-          precio:56},
+          precio:100},
         d6:{
         mc:true,
           mb:false,
-          precio:55},
+          precio:100},
         d7:{
         mc:false,
           mb:false,
-          precio:40
+          precio:100
       }
     },
       {
@@ -105,31 +105,31 @@ switchMargen:boolean= true;
         d1:{
         mc:false,
           mb:false,
-          precio:28},
+          precio:70},
         d2:{
         mc:false,
           mb:false,
-          precio:48},
+          precio:80},
         d3:{
         mc:false,
           mb:false,
-          precio:40},
+          precio:80},
         d4:{
         mc:false,
           mb:true,
-          precio:19},
+          precio:80},
         d5:{
         mc:false,
           mb:false,
-          precio:86},
+          precio:80},
         d6:{
         mc:false,
           mb:false,
-          precio:27},
+          precio:70},
         d7:{
         mc:true,
           mb:false,
-          precio:90
+          precio:70
       }
     },
       {
@@ -138,31 +138,31 @@ switchMargen:boolean= true;
         d1:{
   mc:false,
   mb:false,
-  precio:37},
+  precio:120},
         d2:{
   mc:true,
   mb:false,
-  precio:77},
+  precio:150},
         d3:{
   mc:false,
   mb:true,
-  precio:36},
+  precio:150},
         d4:{
   mc:false,
   mb:false,
-  precio:23},
+  precio:150},
         d5:{
   mc:false,
   mb:true,
-  precio:12},
+  precio:150},
         d6:{
   mc:false,
   mb:true,
-  precio:11},
+  precio:100},
         d7:{
   mc:false,
   mb:true,
-  precio:12
+  precio:100
       }
     },
       {
@@ -171,31 +171,31 @@ switchMargen:boolean= true;
         d1:{
   mc:true,
   mb:false,
-  precio:75},
+  precio:120},
         d2:{
   mc:false,
   mb:true,
-  precio:22},
+  precio:120},
         d3:{
   mc:false,
   mb:false,
-  precio:43},
+  precio:120},
         d4:{
   mc:false,
   mb:false,
-  precio:58},
+  precio:120},
         d5:{
   mc:false,
   mb:false,
-  precio:17},
+  precio:120},
         d6:{
   mc:false,
   mb:false,
-  precio:21},
+  precio:120},
         d7:{
   mc:false,
   mb:false,
-  precio:73
+  precio:120
       }
     },
       {
@@ -204,31 +204,31 @@ switchMargen:boolean= true;
         d1:{
   mc:false,
   mb:true,
-  precio:23},
+  precio:100},
         d2:{
   mc:false,
   mb:false,
-  precio:56},
+  precio:100},
         d3:{
   mc:false,
   mb:false,
-  precio:76},
+  precio:110},
         d4:{
   mc:false,
   mb:false,
-  precio:78},
+  precio:110},
         d5:{
   mc:false,
   mb:false,
-  precio:98},
+  precio:110},
         d6:{
   mc:true,
   mb:false,
-  precio:45},
+  precio:110},
         d7:{
   mc:false,
   mb:false,
-  precio:44
+  precio:110
       }
     }
     ];
@@ -321,35 +321,35 @@ switchMargen:boolean= true;
       datasets: [
           {
               label: 'Coppel',
-              data: [65, 59, 80, 81, 56, 55, 40],
+              data: [100, 100, 100, 80, 100, 100, 100],
               fill: false,
               borderColor: this.documentStyle.getPropertyValue('--blue-500'),
               tension: 0.4
           },
           {
               label: 'Amazon',
-              data: [28, 48, 40, 19, 86, 27, 90],
+              data: [70, 80, 80, 80, 80, 70, 70],
               fill: false,
               borderColor: this.documentStyle.getPropertyValue('--pink-500'),
               tension: 0.4
           },
           {
               label: 'Walmart',
-              data: [37, 77, 36, 23, 12, 11, 12],
+              data: [120, 150, 150, 150, 150, 100, 100],
               fill: false,
               borderColor: this.documentStyle.getPropertyValue('--red-500'),
               tension: 0.4
           },
           {
               label: 'Mercado Libre',
-              data: [75, 22, 43, 58, 17, 21, 73],
+              data: [120, 120, 120, 120, 120, 120, 120],
               fill: false,
               borderColor: this.documentStyle.getPropertyValue('--gray-500'),
               tension: 0.4
           },
           {
               label: 'Bodega Aurrera',
-              data: [23, 56, 76, 78, 98, 45, 44],
+              data: [110, 110, 110, 110, 110, 110, 110],
               fill: false,
               borderColor: this.documentStyle.getPropertyValue('--yellow-500'),
               tension: 0.4
@@ -764,7 +764,7 @@ this.optionsReview = {
     }
 
     getCatTipoCambio(precioPromocion:number){
-      let resultCat =  Object.assign(this.tipoCambio) ; 
+      let resultCat =  JSON.parse(JSON.stringify(this.tipoCambio)) ; 
       if(precioPromocion){
        resultCat[0].disabled = true;
       }

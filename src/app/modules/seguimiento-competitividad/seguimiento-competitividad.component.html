@@ -146,7 +146,7 @@
       5
     </div>
     <div class="titulos-componente">
-      SKU´s Seleccionados
+      Total SKU´s atendidos
     </div>
   </div>
 
@@ -162,10 +162,10 @@
   <div class="tarjeta5" style="display: block; flex-wrap: wrap;">
 
       <div style="margin-top: 5px; color:#2561a2; font-size: 2.1em; font-weight: 600; text-align: center;">
-        2
+        1
       </div>
       <div class="titulos-componente">
-        SKU´s Cambio de<br>precio
+        SKU´s atendidos y<br>fuera de competitividad
       </div>
   </div>
 
@@ -417,89 +417,99 @@
               No Competitivos
             </div>
 
-          <p-table [scrollable]="true" scrollHeight="40rem" scrollDirection="horizontal" class="table-precios"  [tableStyle]="{ 'min-width': '50rem'}"  [value]="codigos"  styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
+            <p-table [scrollable]="true" scrollHeight="40rem" scrollDirection="horizontal" class="table-precios"  [tableStyle]="{ 'min-width': '50rem' }"  [value]="codigos"  styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" >
               <ng-template pTemplate="header">
-                  <tr class="bg-blue">
-
-                      <th  class="isection fsection" >Código</th>
-                      <th    colspan="2" class="isection fsection">
-                          Precio Publicado Coppel
-                      </th>
-                      <th    colspan="3" class="isection fsection">
-                          Mejor Competencia
-                      </th>
-                      <th   colspan="10" class="isection fsection">
-                          Precio Nuevo Coppel
-                      </th>
-
-                  </tr>
-                  <tr>
-
-                      <th class="isection">
-                        <div style="width: 70px; margin: 0 auto;">
-                          <input type="text" pInputText placeholder="Buscar" style="width: 100%;"/>
-                        </div>
-                      </th>
-
-                      <th class="isection">Precio</th>
-                      <th   class="fsection">Margen </th>
-
-                      <th class="isection">Competidor</th>
-                      <th class="">Precio Publicado</th>
-                      <th class="fsection">Diferencial</th>
-
-                      <th  class="isection">Precio</th>
-                      <th class="">Tipo de cambio </th>
-                      <th   class="">Nuevo Margen </th>
-                      <th     class="">Nuevo Diferencial</th>
-                      <th>Fecha Inicio</th>
-                      <th    class="">Fecha Fin</th>
-                      <th>Canal Físico</th>
-                      <th class="fsection">Canal Digital</th>
-
-
-                  </tr>
+                <tr class="bg-blue">
+                  <th class="isection fsection" >Código</th>
+                  <th colspan="2" class="isection fsection">Precio Publicado Coppel</th>
+                  <th colspan="3" class="isection fsection">Mejor Competencia</th>
+                  <th colspan="11" class="isection fsection">Precio Nuevo Coppel</th>
+                </tr>
+                <tr>
+                  <th class="isection">
+                    <div style="width: 70px; margin: 0 auto;">
+                      <input type="text" pInputText placeholder="Buscar" style="width: 100%;"/>
+                    </div>
+                  </th>
+                  <th class="isection">Precio</th>
+                  <th class="fsection">Margen </th>
+                  <th class="isection">Competidor</th>
+                  <th class="">Precio Publicado</th>
+                  <th class="fsection">Diferencial</th>
+                  <th class="isection">Precio</th>
+                  <th class="">Nuevo Margen </th>
+                  <th class="">Tipo de cambio </th>
+                  <th class="">% Profundidad</th>
+                  <th class="">% Aportación Proveedor</th>
+                  <th class="">% Aportación Coppel</th>
+                  <th class="">Nuevo Diferencial</th>
+                  <th>Fecha Inicio</th>
+                  <th class="">Fecha Fin</th>
+                  <th>Canal Físico</th>
+                  <th class="fsection">Canal Digital</th>
+                </tr>
               </ng-template>
               <ng-template pTemplate="body" let-product>
-                  <tr  *ngIf="(product.tipo.id == 1 ) ">
-
-
-                    <th class="fsection">{{ product.sku }}</th>
-                    <td class="isection"  >${{ product.coppel.precio}} </td>
-                    <td class="fsection" >{{ product.coppel.margen_real}} %</td>
-                    <td class="isection">{{product.mc.comp}}</td>
-                    <td class="">${{product.mc.precio}}</td>
-                    <td class="fsection">{{product.diferencial}} %</td>
-                    <td class="isection"  >${{product.ps.precio}}</td>
-                    <td class="">{{product.tc}} </td>
-                    <td class="">
-                      <div>{{product.ps.diferencial}}%</div>
-                    </td>
-                    <td class="">
-                      <div>
-                        {{product.ps.diferencial}} %
-                      </div>
-                    </td>
-
-
-                    <td>
-                      {{product.fi}}
-                    </td>
-                    <td class="fsection" >
-                      {{product.ff}}
-                    </td>
-                    <td>
-                      <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>
-                      <i *ngIf="!product.canal.fisico" class="danger pi pi-times"></i>
-                    </td>
-                    <td>
-                      <i *ngIf="product.canal.digital" class="success pi pi-check"></i>
-                      <i *ngIf="!product.canal.digital" class="danger pi pi-times"></i>
-                    </td>
-                  </tr>
-                </ng-template>
-          </p-table>
-        </div>
+                <tr *ngIf="(product.tipo.id == 1 ) ">
+                  <th class="fsection">{{ product.sku }}</th>
+                  <td class="isection"  >${{ product.coppel.precio}} </td>
+                  <td class="fsection" >{{ product.coppel.margen_real}} %</td>
+                  <td class="isection">{{product.mc.comp}}</td>
+                  <td class="">${{product.mc.precio}}</td>
+                  <td class="fsection">{{product.diferencial}} %</td>
+                  <td class="isection"  >${{product.ps.precio}}</td>
+                  <td class="">
+                    <div>{{product.ps.diferencial}}%</div>
+                  </td>
+                  <td class="">{{product.tc}}</td>
+                  <td class="">
+                    <div *ngIf="isPromo(product)">
+                        {{product.ps.prcpr + product.ps.prccp}} %
+                    </div>
+  
+                    <div *ngIf="!isPromo(product)">
+                        N/A
+                    </div>
+                  </td>
+                  <td  class="">
+                    <div *ngIf="isPromo(product)">
+                        {{product.ps.prcpr}} %
+                    </div>
+                    <div *ngIf="!isPromo(product)">
+                        N/A
+                    </div>
+                  </td>
+                  <td class="">
+                    <div *ngIf="isPromo(product)">
+                        {{product.ps.prccp}} %
+                    </div>
+                    <div *ngIf="!isPromo(product)">
+                        N/A
+                    </div>
+                  </td>
+                  <td class="">
+                    <div>
+                      {{product.ps.diferencial}} %
+                    </div>
+                  </td>
+                  <td>
+                    {{product.fi}}
+                  </td>
+                  <td class="fsection" >
+                    {{product.ff}}
+                  </td>
+                  <td>
+                    <i *ngIf="product.canal.fisico"  class="success pi pi-check"></i>
+                    <i *ngIf="!product.canal.fisico" class="danger pi pi-times"></i>
+                  </td>
+                  <td>
+                    <i *ngIf="product.canal.digital" class="success pi pi-check"></i>
+                    <i *ngIf="!product.canal.digital" class="danger pi pi-times"></i>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
       </p-tabPanel>
 
       <p-tabPanel header="Implementación">

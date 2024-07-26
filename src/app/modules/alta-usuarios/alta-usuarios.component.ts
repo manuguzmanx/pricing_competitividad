@@ -1,7 +1,6 @@
 import { Component, LOCALE_ID } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { DatePipe } from '@angular/common';
-import { PickListModule } from 'primeng/picklist';
 
 @Component({
   selector: 'app-alta-usuarios',

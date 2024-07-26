@@ -61,6 +61,7 @@ import { AltaUsuariosComponent } from './modules/alta-usuarios/alta-usuarios.com
 import { PickListModule } from 'primeng/picklist';
 import { FieldsetModule } from 'primeng/fieldset';
 import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimiento-folios.component';
+import { ConsultaUsuariosComponent } from './modules/consulta-usuarios/consulta-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimi
     NavbarComponent,
     ConstruccionComponent,
     LoginComponent,
-    AltaUsuariosComponent
+    AltaUsuariosComponent,
+    ConsultaUsuariosComponent
 
   ],
   imports: [
