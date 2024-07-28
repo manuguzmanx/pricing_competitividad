@@ -655,3 +655,28 @@ td.fsection{
     cursor: pointer;
 }
 
+
+::ng-deep.historico-codigo{
+    table{
+        margin-top: 10px;
+        th{
+            background-color: $blue;
+        }
+    }
+    .controls{
+        background-color: #cccaca;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 5px;
+        justify-content: space-evenly;
+        &>div{
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            .w-50{
+                width: 50%;
+            }
+        }
+    }
+}

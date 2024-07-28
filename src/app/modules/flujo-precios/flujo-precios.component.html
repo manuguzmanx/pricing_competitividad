@@ -271,7 +271,7 @@
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-product>
-                        <tr *ngIf="(product.tipo.id == 1 && verPrecioBase) || (product.tipo.id == 2 && verPromociones) || (product.tipo.id == 2 && verSinCambio) ">
+                        <tr *ngIf="(product.tipo.id == 1 && verPrecioBase) || (product.tipo.id == 2 && verPromociones) || (product.tipo.id == 3 && verSinCambio) ">
 
 
                             <td class="fsection clickable background-blue" (click)="showDetailSKU()" >{{ product.sku }}</td>
@@ -353,7 +353,7 @@
 
 
                             <td  class="isection"  >
-                                <div *ngIf="product.tipo != 3">
+                                <div *ngIf="product.tipo.id != 3">
                                 <span class="p-input-icon-right">
                                     <i style="color:  #d90000" [pTooltip]="tooltipError" tooltipPosition="right" *ngIf="product.ps.precio < product.mc.precio" class="pi pi-exclamation-circle"></i>
                                     <input (change)="actualizarKPIs()" style="min-width: 80px;" [ngClass]="{'ng-invalid ng-dirty': product.ps.precio < product.mc.precio}" pInputText [(ngModel)]="product.ps.precio" />
@@ -363,8 +363,8 @@
                                    </ng-template>
                                    
                                 </div>
-                                <div *ngIf="product.tipo == 3">
-                                    {{product.pp.precio | currency: '$'}}
+                                <div *ngIf="product.tipo.id == 3">
+                                    N/A
                                 </div>
                             </td>
                           <td style="min-width: 150px;">
@@ -377,7 +377,13 @@
                             placeholder="TipoCambio" />
                           </td>
                             <td  class=""  >
-                                <input pInputText type="text" (change)="actualizarKPIs()" [(ngModel)]="product.ps.diferencial">
+                                <div *ngIf="product.tipo.id != 3">
+                                    <input pInputText type="text" (change)="actualizarKPIs()" [(ngModel)]="product.ps.diferencial">
+                                </div>
+                                <div *ngIf="product.tipo.id == 3">
+                                    N/A
+                                </div>
+                                
                             </td>
                             <td  class="">
                                 <div *ngIf="isPromo(product)">
@@ -401,12 +407,18 @@
                                 </div>
                             </td>
                                 <td   class=""   >
-                                    <div *ngIf="banderasMargen.ps.real">
-                                        {{ product.ps.margen_real | number : '1.0-0' }} %
+                                    <div *ngIf="product.tipo.id == 3">
+                                        N/A
                                     </div>
-                                    <div *ngIf="!banderasMargen.ps.real">
-                                        ${{ product.ps.utilidad_real | number : '1.0-0' }}
+                                    <div *ngIf="product.tipo.id != 3">
+                                         <div *ngIf="banderasMargen.ps.real">
+                                            {{ product.ps.margen_real | number : '1.0-0' }} %
+                                        </div>
+                                        <div *ngIf="!banderasMargen.ps.real">
+                                            ${{ product.ps.utilidad_real | number : '1.0-0' }}
+                                        </div>
                                     </div>
+                                   
                                 </td>
                         <!--        <td      >
                                     <div *ngIf="banderasMargen.ps.rec">
@@ -417,14 +429,21 @@
                                     </div>
                                 </td>-->
                             <td style="min-width:180px;">
-                                <p-calendar
+                                <!--<p-calendar
                                 [(ngModel)]="product.fi"
                                 [showIcon]="true"
                                 appendTo="body"
                                 class="w-100"
                                 dateFormat="dd/mm/yy"
                                 [showOnFocus]="false"
-                                inputId="buttondisplay" />
+                                inputId="buttondisplay" />-->
+                                <div *ngIf="product.tipo.id == 3">
+                                    N/A
+                                </div>
+                                <div *ngIf="product.tipo.id != 3">
+                                   {{product.fi | date : 'dd/MM/yyyy'}}
+                                </div>
+                               
                             </td>
                             <td style="min-width: 180px;" >
                                 <div *ngIf="product.tipo.id == 2">
@@ -443,13 +462,31 @@
 
                             </td>
                             <td class="canal">
-                                <p-inputSwitch [(ngModel)]="product.canal.fisico" (onChange)="actualizarKPIs()" />
+                                <div *ngIf="product.tipo.id == 3">
+                                    N/A
+                                </div>
+                                <div *ngIf="product.tipo.id != 3">
+                                    <p-inputSwitch [(ngModel)]="product.canal.fisico" (onChange)="actualizarKPIs()" />
+                                </div>
+                                
                             </td>
                             <td class="canal">
-                                <p-inputSwitch [(ngModel)]="product.canal.digital"  (onChange)="actualizarKPIs()" />
+                                <div *ngIf="product.tipo.id == 3">
+                                    N/A
+                                </div>
+                                <div *ngIf="product.tipo.id != 3">
+                                     <p-inputSwitch [(ngModel)]="product.canal.digital"  (onChange)="actualizarKPIs()" />
+                                </div>
+                               
                             </td>
                             <td>
-                                <i class="pi pi-comment clickable" [pTooltip]="product.comment" (click)="showDialogComment(product)" ></i>
+                                <div *ngIf="product.tipo.id == 3">
+                                   <i class="pi pi-comment clickable" [pTooltip]="product.comment" (click)="showDialogComment(product)" ></i>
+                                </div>
+                                <div *ngIf="product.tipo.id != 3">
+                                    N/A
+                                </div>
+                               
                             </td>
                             </tr>
                     </ng-template>
@@ -890,14 +927,14 @@
     </div>
 
 
-    <p-dialog [modal]="true" [(visible)]="visibleModal" header="Históricos Código 1001" [style]="{ width: '70vw' }">
+    <p-dialog [modal]="true" [(visible)]="visibleModal" header="Históricos Código 1001" class="historico-codigo" [style]="{ width: '70vw' }">
         <div class="content-modal">
                 <p-tabView [(activeIndex)]="tabModal" [style]="{ width: '65vw' }">
                     <p-tabPanel header="Análisis de Competencia">
                         <div class="controls">
                             <div>
                              Periodicidad
-                             <p-dropdown class="w-100"
+                             <p-dropdown class="w-50"
                              [options]="periodicidad"
                              appendTo="body"
                              [(ngModel)]="periodicidadSelected"
@@ -906,7 +943,7 @@
                             </div>
                              <div>
                                  Periodo
-                                 <p-calendar styleClass="w-100"
+                                 <p-calendar styleClass="w-50"
                                  [(ngModel)]="rangeDates"
                                  selectionMode="range"
                                  [readonlyInput]="true" />
