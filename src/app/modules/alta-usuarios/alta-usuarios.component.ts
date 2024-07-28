@@ -30,18 +30,23 @@ export class AltaUsuariosComponent {
 
     this.sourceClass = [
       {
+        id_macro: '01',
         nombre_macro: 'Celulares',
       },
       {
+        id_macro: '02',
         nombre_macro: 'Enseres domesticos',
       },
       {
+        id_macro: '03',
         nombre_macro: 'Celular y recamaras',
       },
       {
+        id_macro: '04',
         nombre_macro: 'Joyeria y relojeria',
       },
       {
+        id_macro: '05',
         nombre_macro: 'Juguetes, bebes y ap. ejercicio',
       },
     ];

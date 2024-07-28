@@ -70,7 +70,7 @@
                 [responsive]="true"
                 [sourceStyle]="{'height':'300px'}" 
                 [targetStyle]="{'height':'300px'}"
-                filterBy="nombre_macro"
+                filterBy="id_macro,nombre_macro"
                 sourceFilterPlaceholder="Buscar Macrocategoría"
                 targetFilterPlaceholder="Buscar Macrocategoría"
                 breakpoint="1400px"
@@ -79,7 +79,7 @@
                     <div class="flex flex-wrap p-2 align-items-center gap-3">
                         <div class="product-list-detail">
                             <i class="pi pi-tag product-category-icon" style="margin-right: 1rem; font-size: 1.4rem"></i>
-                            <span class="texto-clase-picklist">{{macrocategoria.nombre_macro}}</span>
+                            <span class="texto-clase-picklist">{{macrocategoria.id_macro}} - {{macrocategoria.nombre_macro}}</span>
                         </div>
                     </div>
                 </ng-template>
