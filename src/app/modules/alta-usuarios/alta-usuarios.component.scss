@@ -709,6 +709,10 @@ button[disabled] {
     margin: 0.5rem 0 0 0rem;
 }
 
+.texto-clase-picklist {
+    font-size: 1.5rem;
+}
+
 .table-precios {
     margin-top: 25px;
 
@@ -796,9 +800,8 @@ td.fsection {
 
 }
 
-:host ::ng-deep li {
+:host ::ng-deep .p-tabview-nav li {
     width: 33%;
-
 }
 
 :host ::ng-deep a.p-tabview-nav-link {
@@ -1357,3 +1360,14 @@ select {
     margin: 0 0 0 15px;
 }
 
+.product-list-detail {
+    flex: 1 1 0;
+}
+
+.botones-tabla {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0.5rem;
+    gap: 1rem;
+}
