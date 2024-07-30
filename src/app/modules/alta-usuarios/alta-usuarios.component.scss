@@ -1363,3 +1363,11 @@ select {
 .product-list-detail {
     flex: 1 1 0;
 }
+
+.botones-tabla {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0.5rem;
+    gap: 1rem;
+}

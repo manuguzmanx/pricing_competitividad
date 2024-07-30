@@ -67,7 +67,7 @@ export class ConsultaUsuariosComponent {
     ];
     
     
-  usuarios = [
+  usuariosActivos = [
     {
       tipo_usuario: 'Administrador',
       nombre: 'Martin Marquez Santiago',
@@ -87,6 +87,33 @@ export class ConsultaUsuariosComponent {
       nombre: 'Luis Manuel Vargas Guzman',
       correo_electronico: 'luis.vargasy@coppel.com',
       numero_empleado: '1003',
+      estatus: 'ACTIVO',
+    },
+  ];
+
+  usuariosInactivos = [
+    {
+      id_usuario: '01',
+      tipo_usuario: 'Administrador',
+      nombre: 'Martin Marquez Santiago',
+      correo_electronico: 'martin.marquez@coppel.com',
+      numero_empleado: '1001',
+      estatus: 'INACTIVO',
+    },
+    {
+      id_usuario: '02',
+      tipo_usuario: 'Administrador',
+      nombre: 'Rodrigo Buzany Gomez',
+      correo_electronico: 'rodrigo.buzany@coppel.com',
+      numero_empleado: '1002',
+      estatus: 'INACTIVO',
+    },
+    {
+      id_usuario: '03',
+      tipo_usuario: 'Administrador',
+      nombre: 'Luis Manuel Vargas Guzman',
+      correo_electronico: 'luis.vargasy@coppel.com',
+      numero_empleado: '1003',
       estatus: 'INACTIVO',
     },
   ];
@@ -100,6 +127,10 @@ export class ConsultaUsuariosComponent {
     }
   
     public irNuevoUsuario(){
+      this.router.navigate(['alta-usuarios']);
+    }
+
+    public irDetalleUsuario(){
       this.router.navigate(['alta-usuarios']);
     }
 }

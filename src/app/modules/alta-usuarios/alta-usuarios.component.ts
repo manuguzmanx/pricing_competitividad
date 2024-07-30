@@ -2,6 +2,8 @@ import { Component, LOCALE_ID } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { DatePipe } from '@angular/common';
 import { Clase } from 'src/app/model/clase';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -16,7 +18,7 @@ export class AltaUsuariosComponent {
 
   targetClass!: Clase[];
 
-  constructor(
+  constructor(private router: Router,
     ) {
   }
 
@@ -97,5 +99,12 @@ export class AltaUsuariosComponent {
   public filtroSeleccionarEstatusUsuario() {
     this.selectedEstatusdeUsuario.value != 0 ? this.selectedEstatusdeUsuario.value = 1 : this.selectedEstatusdeUsuario.value = 0;
   }
+
+  regresar(){
+    this.router.navigate(['consulta-usuarios']);
+
+  }
 }
+
+
 
