@@ -1,4 +1,4 @@
-<div class="container-filtros" >
+<div class="container-filtros">
   <div class="tarjeta2" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
     <div>
       <label class="titulos-principal">MIS FOLIOS</label>
@@ -8,15 +8,8 @@
         <div class="titulos-componente" style="margin-right: 10px;">
           Fecha al último corte
         </div>
-        <p-calendar
-          dateFormat="dd/mm/yy"
-          [(ngModel)]="fechaFiltro"
-          [readonlyInput]="true"
-          [showIcon]="true"
-          [showOnFocus]="false"
-          placeholder="{{fechaFiltro}}"
-          [style]="{'width':'150px'}"
-          (click)="selectedfecha()"/>
+        <p-calendar dateFormat="dd/mm/yy" [(ngModel)]="fechaFiltro" [readonlyInput]="true" [showIcon]="true"
+          [showOnFocus]="false" placeholder="{{fechaFiltro}}" [style]="{'width':'150px'}" (click)="selectedfecha()" />
       </div>
       <!-- <div style="margin-left: 10px;">
         <p-button icon="pi pi-replay" (click)="irFiltros()" pTooltip="Limpiar filtros" tooltipPosition="bottom"></p-button>
@@ -27,97 +20,70 @@
 
     </div>
   </div>
-</div>
 
-<div style="width: 100%;">
-  <div class="container-filtros" style="margin-bottom: 1rem;">
 
-    <div class="tarjeta4" style="display: flex; flex-wrap: wrap;">
-    <div class="tarjeta3">
-      <label  class="titulos-filtros">Macrocategoría</label>
-      <form [formGroup]="macrocategoriaFormGroup">
-        <p-multiSelect
-          [options]="macrocategoria"
-          formControlName="selectedMacrocategoria"
-          optionLabel="name"
-          placeholder="Seleccionar macrocategoria"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
-    </div>
-    <div class="tarjeta3">
-      <label  class="titulos-filtros">Categoría</label>
-      <form [formGroup]="categoriaFormGroup">
-        <p-multiSelect
-          [options]="categoria"
-          formControlName="selectedCategoria"
-          optionLabel="name"
-          placeholder="Seleccionar categoria"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
-    </div>
-    <div class="tarjeta3">
-      <label class="titulos-filtros">Subcategoría</label>
-      <form [formGroup]="subcategoriaFormGroup">
-        <p-multiSelect
-          [options]="subcategoria"
-          formControlName="selectedSubcategoria"
-          optionLabel="name"
-          placeholder="Seleccionar subcategoria"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
-    </div>
-    <div class="tarjeta3">
-      <label class="titulos-filtros">Clase</label>
-      <form [formGroup]="claseFormGroup">
-        <p-multiSelect
-          [options]="clase"
-          formControlName="selectedClase"
-          optionLabel="name"
-          placeholder="Seleccionar clase"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
-    </div>
-    <div class="tarjeta3">
-      <label class="titulos-filtros">Familia</label>
-      <form [formGroup]="familiaFormGroup">
-        <p-multiSelect
-          [options]="familia"
-          formControlName="selectedFamilia"
-          optionLabel="name"
-          placeholder="Seleccionar familia"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
-    </div>
-    <div class="tarjeta3">
-      <label class="titulos-filtros">Proveedor</label>
-      <form [formGroup]="proveedorFormGroup">
-        <p-multiSelect
-          [options]="proveedor"
-          formControlName="selectedProveedor"
-          optionLabel="name"
-          placeholder="Seleccionar proveedor"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
-    </div>
+  <div style="width: 100%;">
+    <div class="container-filtros" style="margin-bottom: 1rem;">
 
-    <div class="tarjeta3">
-      <label class="titulos-filtros">Código</label>
-      <form [formGroup]="proveedorFormGroup">
-        <p-multiSelect
-          [options]="proveedor"
-          formControlName="selectedProveedor"
-          optionLabel="name"
-          placeholder="e.g 1004"
-          [style]="{'width':'100%'}"></p-multiSelect>
-      </form>
-    </div>
+      <div class="tarjeta4" style="display: flex; flex-wrap: wrap;">
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Macrocategoría</label>
+          <form [formGroup]="macrocategoriaFormGroup">
+            <p-multiSelect [options]="macrocategoria" formControlName="selectedMacrocategoria" optionLabel="name"
+              placeholder="Seleccionar macrocategoria" [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Categoría</label>
+          <form [formGroup]="categoriaFormGroup">
+            <p-multiSelect [options]="categoria" formControlName="selectedCategoria" optionLabel="name"
+              placeholder="Seleccionar categoria" [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Subcategoría</label>
+          <form [formGroup]="subcategoriaFormGroup">
+            <p-multiSelect [options]="subcategoria" formControlName="selectedSubcategoria" optionLabel="name"
+              placeholder="Seleccionar subcategoria" [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Clase</label>
+          <form [formGroup]="claseFormGroup">
+            <p-multiSelect [options]="clase" formControlName="selectedClase" optionLabel="name"
+              placeholder="Seleccionar clase" [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Familia</label>
+          <form [formGroup]="familiaFormGroup">
+            <p-multiSelect [options]="familia" formControlName="selectedFamilia" optionLabel="name"
+              placeholder="Seleccionar familia" [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Proveedor</label>
+          <form [formGroup]="proveedorFormGroup">
+            <p-multiSelect [options]="proveedor" formControlName="selectedProveedor" optionLabel="name"
+              placeholder="Seleccionar proveedor" [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
 
-    <div style="margin-left: 10px; align-items: end; display: flex; padding-bottom: 3px;">
-      <p-button icon="pi pi-replay" (click)="irFiltros()" pTooltip="Limpiar filtros" tooltipPosition="bottom"></p-button>
-    </div>
-  </div>
+        <div class="tarjeta3">
+          <label class="titulos-filtros">Código</label>
+          <form [formGroup]="proveedorFormGroup">
+            <p-multiSelect [options]="proveedor" formControlName="selectedProveedor" optionLabel="name"
+              placeholder="e.g 1004" [style]="{'width':'100%'}"></p-multiSelect>
+          </form>
+        </div>
 
-  <div class="contaniner-filtros"></div>
+        <div style="margin-left: 10px; align-items: end; display: flex; padding-bottom: 3px;">
+          <p-button icon="pi pi-replay" (click)="irFiltros()" pTooltip="Limpiar filtros"
+            tooltipPosition="bottom"></p-button>
+        </div>
+      </div>
+
+      <div class="contaniner-filtros"></div>
 
 
 
@@ -125,7 +91,7 @@
 
 
 
-  <!-- <div class="table-container">
+      <!-- <div class="table-container">
     <div>
       <p-table
         [value]="filteredArregloCompetitividad"
@@ -216,297 +182,108 @@
     </div>
   </div> -->
 
-  <br>
-</div>
-
-<p-tabView>
-  <p-tabPanel header="Pendientes">
-    <!-- Pendientes -->
-    <div class="table-container">
-      <div>
-        <p-table #dt1 [value]="arregloFolio" dataKey="num_folio" [scrollable]="true" scrollHeight="450px" id="tabla-aportaciones-colchones">
-          <ng-template style="position: absolute;" pTemplate="header">
-            <tr>
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-left-radius: 20px;">
-                <div style="width: 4rem;"></div>
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-                Folio
-              </th>
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-                Detalle
-              </th>
-
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-                Fecha
-              </th>
-
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-                Estatus
-              </th>
-
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-                Macro <br>categoría
-              </th>
-
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Categoría</th>
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Sub <br> categoría</th>
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Clase</th>
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Familia</th>
-              <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-right-radius: 20px;">Proveedor</th>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-folio let-expanded="expanded">
-            <tr>
-              <td class="text-center">
-                <button
-                  style="width: 1.5rem; height: 1.5rem;"
-                  type="button" pButton pRipple [pRowToggler]="folio"
-                  class="p-button-text p-button-rounded p-button-plain"
-                  [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
-                </button>
-              </td>
-
-              <td class="text-center">{{folio.num_folio}}</td>
-              <td >
-                <i class="pi pi-list" style="font-size: 1.5rem; cursor: pointer;"></i>
-              </td>
-              <td class="text-center">{{folio.fecha}}</td>
-              <td class="text-center">Pendiente</td>
-              <td class="text-center">{{folio.macrocategoria}}</td>
-              <td class="text-center">{{folio.categoria}}</td>
-              <td class="text-center">{{folio.subcategoria}}</td>
-              <td class="text-center">{{folio.clase}}</td>
-              <!-- <td class="text-center">{{folio.fecha_inicio | date: "yyyy ' - ' MMMM"}}</td> -->
-              <td class="text-center">{{folio.familia }}</td>
-              <td class="text-center">{{folio.proveedor}}</td>
-              </tr>
-          </ng-template>
-
-          <ng-template pTemplate="rowexpansion" let-folio>
-            <tr>
-              <td style="width: 2.5rem;"></td>
-              <td colspan="10">
-                <div class="p-p-3">
-                  <p-table [value]="folio.codigo" dataKey="num_codigo">
-                    <ng-template pTemplate="header">
-                      <tr>
-                        <th>Codigo</th>
-                        <th>Descripción</th>
-                        <th>Precio publicado</th>
-                        <th>Margen diferencial</th>
-                        <th>Nuevo precio</th>
-                        <th>Nuevo margen diferencial</th>
-                        <th>Tipo cambio</th>
-                        <th>Vigencia</th>
-                      </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-codigo let-expanded="expanded">
-                      <tr>
-                        <td>{{codigo.num_codigo}}</td>
-                        <td>{{codigo.descripcion}}</td>
-                        <td>{{codigo.precio_publicado}}</td>
-                        <td>{{codigo.margen_diferencial}}</td>
-                        <td>{{codigo.nuevo_precio}}</td>
-                        <td>{{codigo.nuevo_margen_diferencial}}</td>
-                        <td>{{codigo.tipo_cambio}}</td>
-                        <td>{{codigo.vigencia | date:'yyyy-MM-dd'}}</td>
-                      </tr>
-                    </ng-template>
-                  </p-table>
-                </div>
-              </td>
-            </tr>
-          </ng-template>
-        </p-table>
-      </div>
-
+      <br>
     </div>
-  </p-tabPanel>
+    <div class="seguimiento-filtrados">
+      <p-tabView>
+        <p-tabPanel header="Pendientes">
+          <!-- Pendientes -->
+          <div class="table-container">
+            <div>
+              <p-table #dt1 [value]="arregloFolio" dataKey="num_folio" [scrollable]="true" scrollHeight="450px"
+                id="tabla-aportaciones-colchones">
+                <ng-template style="position: absolute;" pTemplate="header">
+                  <tr>
+                    <th
+                      style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-left-radius: 20px;">
+                      <div style="width: 4rem;"></div>
+                    </th>
+                    <th
+                      style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                      Folio
+                    </th>
+                    <th
+                      style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                      Detalle
+                    </th>
 
-  <p-tabPanel header="Enviados">
-      <!-- Enviados -->
-    <div class="table-container">
-      <p-table #dt1 [value]="arregloFolio" dataKey="num_folio" [scrollable]="true" scrollHeight="450px" id="tabla-aportaciones-colchones">
-        <ng-template style="position: absolute;" pTemplate="header">
-          <tr>
-            <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-left-radius: 20px;"></th>
-            <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-              Folio
-            </th>
-            <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-              Detalle
-            </th>
+                    <th
+                      style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                      Fecha
+                    </th>
 
-            <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-              Fecha
-            </th>
+                    <th
+                      style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                      Estatus
+                    </th>
 
-            <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-              Estatus
-            </th>
+                    <th
+                      style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                      Macro <br>categoría
+                    </th>
 
-            <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-              Macro <br>categoría
-            </th>
+                    <th
+                      style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                      Categoría</th>
+                    <th
+                      style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                      Sub <br> categoría</th>
+                    <th
+                      style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                      Clase</th>
+                    <th
+                      style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                      Familia</th>
+                    <th
+                      style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-right-radius: 20px;">
+                      Proveedor</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-folio let-expanded="expanded">
+                  <tr>
+                    <td class="text-center">
+                      <button style="width: 1.5rem; height: 1.5rem;" type="button" pButton pRipple [pRowToggler]="folio"
+                        class="p-button-text p-button-rounded p-button-plain"
+                        [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+                      </button>
+                    </td>
 
-            <!-- <th style="background-color: #ffed80ff;" class="text-center"><div class="size-100">Marca</div></th>
-            <th style="background-color: #ffed80ff;" class="text-center"><div class="size-100">Modelo</div></th> -->
-            <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Categoría</th>
-            <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Sub <br> categoría</th>
-            <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Clase</th>
-            <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Familia</th>
-            <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-right-radius: 20px;">Proveedor</th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-folio let-expanded="expanded" style="border: 2px solid #e1e1e1;">
-          <tr>
-            <td class="text-center">
-              <button
+                    <td class="text-center">{{folio.num_folio}}</td>
+                    <td>
+                      <i class="pi pi-list" style="font-size: 1.5rem; cursor: pointer;"></i>
+                    </td>
+                    <td class="text-center">{{folio.fecha}}</td>
+                    <td class="text-center">Pendiente</td>
+                    <td class="text-center">{{folio.macrocategoria}}</td>
+                    <td class="text-center">{{folio.categoria}}</td>
+                    <td class="text-center">{{folio.subcategoria}}</td>
+                    <td class="text-center">{{folio.clase}}</td>
+                    <!-- <td class="text-center">{{folio.fecha_inicio | date: "yyyy ' - ' MMMM"}}</td> -->
+                    <td class="text-center">{{folio.familia }}</td>
+                    <td class="text-center">{{folio.proveedor}}</td>
+                  </tr>
+                </ng-template>
 
-                type="button" pButton pRipple [pRowToggler]="folio"
-                class="p-button-text p-button-rounded p-button-plain"
-                [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
-              </button>
-            </td>
-
-            <td class="text-center">{{folio.num_folio}}</td>
-            <td >
-              <i  (click)="irSeguimientoCompetitividad()" class="pi pi-list" style="font-size: 1.5rem; cursor: pointer;"></i>
-            </td>
-            <td class="text-center">{{folio.fecha}}</td>
-            <td class="text-center">Enviado</td>
-            <td class="text-center">{{folio.macrocategoria}}</td>
-            <td class="text-center">{{folio.categoria}}</td>
-            <td class="text-center">{{folio.subcategoria}}</td>
-            <td class="text-center">{{folio.clase}}</td>
-            <!-- <td class="text-center">{{folio.fecha_inicio | date: "yyyy ' - ' MMMM"}}</td> -->
-            <td class="text-center">{{folio.familia }}</td>
-            <td class="text-center">{{folio.proveedor}}</td>
-            </tr>
-        </ng-template>
-
-        <ng-template pTemplate="rowexpansion" let-folio>
-          <tr>
-            <td style="width: 1.5rem;"></td>
-            <td colspan="10">
-              <div class="p-p-3">
-                <p-table [value]="folio.codigo" dataKey="num_codigo">
-                  <ng-template pTemplate="header">
-                    <tr>
-                      <th>Codigo</th>
-                      <th>Descripción</th>
-                      <th>Precio publicado</th>
-                      <th>>Margen diferencial</th>
-                      <th>Nuevo precio</th>
-                      <th>Nuevo margen diferencial</th>
-                      <th>Tipo cambio</th>
-                      <th>Vigencia</th>
-                    </tr>
-                  </ng-template>
-                  <ng-template style="width: 5rem;" pTemplate="body" let-codigo let-expanded="expanded">
-                    <tr>
-                      <td>{{codigo.num_codigo}}</td>
-                      <td>{{codigo.descripcion}}</td>
-                      <td>{{codigo.precio_publicado}}</td>
-                      <td>{{codigo.margen_diferencial}}</td>
-                      <td>{{codigo.nuevo_precio}}</td>
-                      <td>{{codigo.nuevo_margen_diferencial}}</td>
-                      <td>{{codigo.tipo_cambio}}</td>
-                      <td>{{codigo.vigencia | date:'yyyy-MM-dd'}}</td>
-                    </tr>
-                  </ng-template>
-                </p-table>
-              </div>
-            </td>
-          </tr>
-        </ng-template>
-      </p-table>
-
-    </div>
-  </p-tabPanel>
-
-  <p-tabPanel header="Cancelados">
-    <!-- Cancelados -->
-  <div class="table-container">
-    <p-table #dt1 [value]="arregloFolio" dataKey="num_folio" [scrollable]="true" scrollHeight="450px" id="tabla-aportaciones-colchones">
-      <ng-template style="position: absolute;" pTemplate="header">
-        <tr>
-          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-left-radius: 20px;"></th>
-          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-            Folio
-          </th>
-          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-            Detalle
-          </th>
-
-          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-            Fecha
-          </th>
-
-          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-            Estatus
-          </th>
-
-          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
-            Macro <br>categoría
-          </th>
-
-          <!-- <th style="background-color: #ffed80ff;" class="text-center"><div class="size-100">Marca</div></th>
-          <th style="background-color: #ffed80ff;" class="text-center"><div class="size-100">Modelo</div></th> -->
-          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Categoría</th>
-          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Sub <br> categoría</th>
-          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Clase</th>
-          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">Familia</th>
-          <th style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-right-radius: 20px;">Proveedor</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-folio let-expanded="expanded" style="border: 2px solid #e1e1e1;">
-        <tr>
-          <td class="text-center">
-            <button
-
-              type="button" pButton pRipple [pRowToggler]="folio"
-              class="p-button-text p-button-rounded p-button-plain"
-              [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
-            </button>
-          </td>
-
-          <td class="text-center">{{folio.num_folio}}</td>
-          <td >
-            <i   class="pi pi-list" style="font-size: 1.5rem; cursor: pointer;"></i>
-          </td>
-          <td class="text-center">{{folio.fecha}}</td>
-          <td class="text-center">Cancelado</td>
-          <td class="text-center">{{folio.macrocategoria}}</td>
-          <td class="text-center">{{folio.categoria}}</td>
-          <td class="text-center">{{folio.subcategoria}}</td>
-          <td class="text-center">{{folio.clase}}</td>
-          <!-- <td class="text-center">{{folio.fecha_inicio | date: "yyyy ' - ' MMMM"}}</td> -->
-          <td class="text-center">{{folio.familia }}</td>
-          <td class="text-center">{{folio.proveedor}}</td>
-          </tr>
-      </ng-template>
-
-      <ng-template pTemplate="rowexpansion" let-folio>
-        <tr>
-          <td style="width: 1.5rem;"></td>
-          <td colspan="10">
-            <div class="p-p-3">
-              <p-table [value]="folio.codigo" dataKey="num_codigo">
-                <ng-template pTemplate="header">
+                <ng-template pTemplate="rowexpansion" let-folio>
+                  <tr>
+                    <td style="width: 2.5rem;"></td>
+                    <td colspan="10">
+                      <div class="p-p-3">
+                        <p-table [value]="folio.codigo" dataKey="num_codigo">
+                          <ng-template pTemplate="header">
                   <tr>
                     <th>Codigo</th>
                     <th>Descripción</th>
                     <th>Precio publicado</th>
-                    <th>>Margen diferencial</th>
+                    <th>Margen diferencial</th>
                     <th>Nuevo precio</th>
                     <th>Nuevo margen diferencial</th>
                     <th>Tipo cambio</th>
-                    <th>Vigencia</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
                   </tr>
                 </ng-template>
-                <ng-template style="width: 5rem;" pTemplate="body" let-codigo let-expanded="expanded">
+                <ng-template pTemplate="body" let-codigo let-expanded="expanded">
                   <tr>
                     <td>{{codigo.num_codigo}}</td>
                     <td>{{codigo.descripcion}}</td>
@@ -516,19 +293,264 @@
                     <td>{{codigo.nuevo_margen_diferencial}}</td>
                     <td>{{codigo.tipo_cambio}}</td>
                     <td>{{codigo.vigencia | date:'yyyy-MM-dd'}}</td>
+                    <td>{{codigo.vigencia | date:'yyyy-MM-dd'}}</td>
                   </tr>
                 </ng-template>
               </p-table>
             </div>
-          </td>
-        </tr>
+            </td>
+            </tr>
+            </ng-template>
+            </p-table>
+          </div>
+
+    </div>
+    </p-tabPanel>
+
+    <p-tabPanel header="Enviados">
+      <!-- Enviados -->
+      <div class="table-container">
+        <p-table #dt1 [value]="arregloFolio" dataKey="num_folio" [scrollable]="true" scrollHeight="450px"
+          id="tabla-aportaciones-colchones">
+          <ng-template style="position: absolute;" pTemplate="header">
+            <tr>
+              <th
+                style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-left-radius: 20px;">
+              </th>
+              <th
+                style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                Folio
+              </th>
+              <th
+                style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                Detalle
+              </th>
+
+              <th
+                style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                Fecha
+              </th>
+
+              <th
+                style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                Estatus
+              </th>
+
+              <th
+                style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                Macro <br>categoría
+              </th>
+
+              <!-- <th style="background-color: #ffed80ff;" class="text-center"><div class="size-100">Marca</div></th>
+            <th style="background-color: #ffed80ff;" class="text-center"><div class="size-100">Modelo</div></th> -->
+              <th
+                style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                Categoría</th>
+              <th
+                style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                Sub <br> categoría</th>
+              <th
+                style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                Clase</th>
+              <th
+                style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+                Familia</th>
+              <th
+                style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-right-radius: 20px;">
+                Proveedor</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-folio let-expanded="expanded" style="border: 2px solid #e1e1e1;">
+            <tr>
+              <td class="text-center">
+                <button type="button" pButton pRipple [pRowToggler]="folio"
+                  class="p-button-text p-button-rounded p-button-plain"
+                  [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+                </button>
+              </td>
+
+              <td class="text-center">{{folio.num_folio}}</td>
+              <td>
+                <i (click)="irSeguimientoCompetitividad()" class="pi pi-list"
+                  style="font-size: 1.5rem; cursor: pointer;"></i>
+              </td>
+              <td class="text-center">{{folio.fecha}}</td>
+              <td class="text-center">Enviado</td>
+              <td class="text-center">{{folio.macrocategoria}}</td>
+              <td class="text-center">{{folio.categoria}}</td>
+              <td class="text-center">{{folio.subcategoria}}</td>
+              <td class="text-center">{{folio.clase}}</td>
+              <!-- <td class="text-center">{{folio.fecha_inicio | date: "yyyy ' - ' MMMM"}}</td> -->
+              <td class="text-center">{{folio.familia }}</td>
+              <td class="text-center">{{folio.proveedor}}</td>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="rowexpansion" let-folio>
+            <tr>
+              <td style="width: 1.5rem;"></td>
+              <td colspan="10">
+                <div class="p-p-3">
+                  <p-table [value]="folio.codigo" dataKey="num_codigo">
+                    <ng-template pTemplate="header">
+            <tr>
+              <th>Codigo</th>
+              <th>Descripción</th>
+              <th>Precio publicado</th>
+              <th>>Margen diferencial</th>
+              <th>Nuevo precio</th>
+              <th>Nuevo margen diferencial</th>
+              <th>Tipo cambio</th>
+              <th>Fecha Inicio</th>
+              <th>Fecha Fin</th>
+            </tr>
+          </ng-template>
+          <ng-template style="width: 5rem;" pTemplate="body" let-codigo let-expanded="expanded">
+            <tr>
+              <td>{{codigo.num_codigo}}</td>
+              <td>{{codigo.descripcion}}</td>
+              <td>{{codigo.precio_publicado}}</td>
+              <td>{{codigo.margen_diferencial}}</td>
+              <td>{{codigo.nuevo_precio}}</td>
+              <td>{{codigo.nuevo_margen_diferencial}}</td>
+              <td>{{codigo.tipo_cambio}}</td>
+              <td>{{codigo.vigencia | date:'yyyy-MM-dd'}}</td>
+              <td>{{codigo.vigencia | date:'yyyy-MM-dd'}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+      </td>
+      </tr>
       </ng-template>
-    </p-table>
+      </p-table>
 
   </div>
-</p-tabPanel>
-</p-tabView>
+  </p-tabPanel>
 
+  <p-tabPanel header="Cancelados">
+    <!-- Cancelados -->
+    <div class="table-container">
+      <p-table #dt1 [value]="arregloFolio" dataKey="num_folio" [scrollable]="true" scrollHeight="450px"
+        id="tabla-aportaciones-colchones">
+        <ng-template style="position: absolute;" pTemplate="header">
+          <tr>
+            <th
+              style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-left-radius: 20px;">
+            </th>
+            <th
+              style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+              Folio
+            </th>
+            <th
+              style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+              Detalle
+            </th>
+
+            <th
+              style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+              Fecha
+            </th>
+
+            <th
+              style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+              Estatus
+            </th>
+
+            <th
+              style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+              Macro <br>categoría
+            </th>
+
+            <!-- <th style="background-color: #ffed80ff;" class="text-center"><div class="size-100">Marca</div></th>
+          <th style="background-color: #ffed80ff;" class="text-center"><div class="size-100">Modelo</div></th> -->
+            <th
+              style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+              Categoría</th>
+            <th
+              style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+              Sub <br> categoría</th>
+            <th
+              style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+              Clase</th>
+            <th
+              style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0;">
+              Familia</th>
+            <th
+              style="background-color: #2561a2; position: sticky; left: 0px; z-index: 1; padding-left: 0; padding-right: 0; border-top-right-radius: 20px;">
+              Proveedor</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-folio let-expanded="expanded" style="border: 2px solid #e1e1e1;">
+          <tr>
+            <td class="text-center">
+              <button type="button" pButton pRipple [pRowToggler]="folio"
+                class="p-button-text p-button-rounded p-button-plain"
+                [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+              </button>
+            </td>
+
+            <td class="text-center">{{folio.num_folio}}</td>
+            <td>
+              <i class="pi pi-list" style="font-size: 1.5rem; cursor: pointer;"></i>
+            </td>
+            <td class="text-center">{{folio.fecha}}</td>
+            <td class="text-center">Cancelado</td>
+            <td class="text-center">{{folio.macrocategoria}}</td>
+            <td class="text-center">{{folio.categoria}}</td>
+            <td class="text-center">{{folio.subcategoria}}</td>
+            <td class="text-center">{{folio.clase}}</td>
+            <!-- <td class="text-center">{{folio.fecha_inicio | date: "yyyy ' - ' MMMM"}}</td> -->
+            <td class="text-center">{{folio.familia }}</td>
+            <td class="text-center">{{folio.proveedor}}</td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="rowexpansion" let-folio>
+          <tr>
+            <td style="width: 1.5rem;"></td>
+            <td colspan="10">
+              <div class="p-p-3">
+                <p-table [value]="folio.codigo" dataKey="num_codigo">
+                  <ng-template pTemplate="header">
+          <tr>
+            <th>Codigo</th>
+            <th>Descripción</th>
+            <th>Precio publicado</th>
+            <th>>Margen diferencial</th>
+            <th>Nuevo precio</th>
+            <th>Nuevo margen diferencial</th>
+            <th>Tipo cambio</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
+          </tr>
+        </ng-template>
+        <ng-template style="width: 5rem;" pTemplate="body" let-codigo let-expanded="expanded">
+          <tr>
+            <td>{{codigo.num_codigo}}</td>
+            <td>{{codigo.descripcion}}</td>
+            <td>{{codigo.precio_publicado}}</td>
+            <td>{{codigo.margen_diferencial}}</td>
+            <td>{{codigo.nuevo_precio}}</td>
+            <td>{{codigo.nuevo_margen_diferencial}}</td>
+            <td>{{codigo.tipo_cambio}}</td>
+            <td>{{codigo.vigencia | date:'yyyy-MM-dd'}}</td>
+            <td>{{codigo.vigencia | date:'yyyy-MM-dd'}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    </td>
+    </tr>
+    </ng-template>
+    </p-table>
+
+    </div>
+    </p-tabPanel>
+    </p-tabView>
+  </div>
+  </div>
+</div>
 
 
 

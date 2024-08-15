@@ -19,6 +19,7 @@
                                 [style]="{'width':'100%'}"></p-multiSelect>
                         </form>
                     </div>
+
                     <div class="tarjeta3">
                         <label class="titulos-filtros">Categoría</label>
                         <form [formGroup]="categoriaFormGroup">
@@ -26,6 +27,7 @@
                                 placeholder="Seleccionar categoria" [style]="{'width':'100%'}"></p-multiSelect>
                         </form>
                     </div>
+                    
                     <div class="tarjeta3">
                         <label class="titulos-filtros">Nombre de Usuario</label>
                         <form [formGroup]="familiaFormGroup">
@@ -47,8 +49,6 @@
                         </form>
                     </div>
 
-
-
                     <div style="margin-left: 10px; align-items: center; display: flex; padding-bottom: 3px;">
                         <p-button icon="pi pi-replay" pTooltip="Limpiar filtros" tooltipPosition="bottom"></p-button>
                     </div>
@@ -63,7 +63,7 @@
 
                     <p-tabView class="tabview-reglas">
                         <p-tabPanel header="ACTIVOS">
-
+                            <!-- ACTIVOS -->
 
                             <div class="tarjeta5 w-100 detalle">
                                 <div class="titulos-componente m-0">
@@ -99,6 +99,7 @@
                         </p-tabPanel>
 
                         <p-tabPanel header="INACTIVOS">
+                            <!-- INACTIVOS -->
                             <div class="tarjeta5 w-100 detalle">
                                 <div class="titulos-componente m-0">
                                     Usuarios
