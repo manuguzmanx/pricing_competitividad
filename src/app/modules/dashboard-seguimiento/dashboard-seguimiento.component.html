@@ -80,9 +80,6 @@
               [style]="{'width':'100%'}"></p-multiSelect>
           </form>
         </div>
-        <div style="margin-left: 10px; align-items: end; display: flex; padding-bottom: 3px;">
-          <p-button icon="pi pi-replay"  pTooltip="Limpiar filtros" tooltipPosition="bottom"></p-button>
-        </div>
         <div class="tarjeta3">
           <label class="titulos-filtros">Fecha Evaluación</label>
           <form [formGroup]="proveedorFormGroup">
@@ -118,8 +115,13 @@
               [style]="{'width':'100%'}"></p-multiSelect>
           </form>
         </div>
-        <div style="width: 23%; display: flex; justify-content: end; align-items: center;" >
-          <p-button icon="pi pi-table" label="Seguimiento de SKU's Filtrados (325)"  pTooltip="Realizar Seguimiento" tooltipPosition="bottom"/>
+        <div class="tarjeta3"></div>
+        <div class="tarjeta3"></div>
+
+        <div class="tarjeta3" style="margin-top: 15px; display: flex; justify-content: flex-end; align-items: center;">
+          <p-button icon="pi pi-table" label="Filtrados (325)" pTooltip="Realizar Seguimiento" tooltipPosition="bottom"></p-button>
+          <ng-component style="margin-left: 15px;"></ng-component>
+          <p-button icon="pi pi-replay" pTooltip="Limpiar filtros" tooltipPosition="bottom"></p-button>
         </div>
       </div>
 
