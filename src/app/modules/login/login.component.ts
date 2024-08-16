@@ -10,8 +10,9 @@ import { LayoutService } from 'src/app/services/layout.service';
 export class LoginComponent implements OnInit {
 
   appSelected=false;
+  valuePassword: string = 'passwordUser';
 
-    
+
   constructor(
     private readonly layoutService: LayoutService,
     private router: Router
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(){
     this.layoutService.showMenu();
   }
-  
+
   showNavbar(){
     console.log("show navbar");
     this.layoutService.showNavbar();
