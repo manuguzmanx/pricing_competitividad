@@ -15,4 +15,20 @@ export class TestService {
     return this.http.get(this.URLTest);
   }
 
+  getTestById(id: number): Observable<any> {
+    return this.http.get(`${this.URLTest}/${id}`);
+  }
+
+  createTest(post: any): Observable<any> {
+    return this.http.post(this.URLTest, post);
+  }
+
+  updateTest(id: number, post: any): Observable<any> {
+    return this.http.put(`${this.URLTest}/${id}`, post);
+  }
+
+  deleteTest(id: number): Observable<any> {
+    return this.http.delete(`${this.URLTest}/${id}`);
+  }
+
 }
