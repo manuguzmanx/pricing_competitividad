@@ -256,6 +256,10 @@ export class SeguimientoFoliosComponent implements OnInit{
     this.router.navigate(['filtros-gestion-precios']);
   }
 
+  buscarFolios(){
+    this.router.navigate(['filtros-gestion-precios']);
+  }
+
   irSeguimientoCompetitividad() {
     this.router.navigate(['seguimiento-competitividad']);
   }

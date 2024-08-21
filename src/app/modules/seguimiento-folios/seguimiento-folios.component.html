@@ -25,7 +25,7 @@
   <div style="width: 100%;">
     <div class="container-filtros" style="margin-bottom: 1rem;">
 
-      <div class="tarjeta4" style="display: flex; flex-wrap: wrap;">
+      <div class="tarjeta4" style="display: flex; ">
         <div class="tarjeta3">
           <label class="titulos-filtros">Macrocategoría</label>
           <form [formGroup]="macrocategoriaFormGroup">
@@ -79,6 +79,11 @@
 
         <div style="margin-left: 10px; align-items: end; display: flex; padding-bottom: 3px;">
           <p-button icon="pi pi-replay" (click)="irFiltros()" pTooltip="Limpiar filtros"
+            tooltipPosition="bottom"></p-button>
+        </div>
+
+        <div style="margin-left: 10px; align-items: end; display: flex; padding-bottom: 3px;">
+          <p-button icon="pi pi-search" (click)="buscarFolios()" pTooltip="Buscar"
             tooltipPosition="bottom"></p-button>
         </div>
       </div>
