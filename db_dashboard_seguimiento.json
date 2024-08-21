@@ -1,0 +1,59 @@
+{
+    "skus": [
+        { "numero": 7897, "Macrocategoria": "Celulares", "Categoria": "Audio", "SubCategoria": "Accesorios", "Clase":"AccesoriosTV", "Familia": "Telcel", "Proveedor":"Sony", "Folio":12 },
+        { "numero": 4564, "Macrocategoria": "Celulares", "Categoria": "Moviles", "SubCategoria": "Accesorios", "Clase":"Fundas", "Familia": "Iphone", "Proveedor":"Apple", "Folio":12 },
+        { "numero": 7413, "Macrocategoria": "Domesticos", "Categoria": "Cocina", "SubCategoria": "Limpieza", "Clase":"Liquidos", "Familia": "Fijadores", "Proveedor":"Suavitel", "Folio":15 },
+        { "numero": 8952, "Macrocategoria": "Domesticos", "Categoria": "Cocina", "SubCategoria": "AccesoriosC", "Clase":"Comida", "Familia": "Vegi", "Proveedor":"MABE", "Folio":13 },
+        { "numero": 7821, "Macrocategoria": "Joyeria", "Categoria": "Decoracion", "SubCategoria": "Premium", "Clase":"Cuadros", "Familia": "Diamante", "Proveedor":"GUCCI", "Folio":13 },
+        { "numero": 3515, "Macrocategoria": "Joyeria", "Categoria": "Decoracion", "SubCategoria": "Premium", "Clase":"Espejos", "Familia": "Oro", "Proveedor":"LV", "Folio":13 }
+    ],
+
+
+    "Macrocategorias":[
+        {"id": 1, "nombre":"Celulares"},
+        {"id": 2, "nombre":"Domesticos"},
+        {"id": 3, "nombre":"Joyeria"}
+    ],
+
+    "Categorias":[
+        {"id": 1, "nombre":"Audio", "Macrocategoria":"Celulares"},
+        {"id": 2, "nombre":"Moviles", "Macrocategoria":"Celulares"},
+        {"id": 3, "nombre":"Cocina", "Macrocategoria":"Domesticos"},
+        {"id": 4, "nombre":"Decoracion", "Macrocategoria":"Joyeria"}
+    ],
+
+    "SubCategorias":[
+        {"id": 1, "nombre":"Accesorios", "Macrocategoria":"Celulares", "Categoria":"Audio"},
+        {"id": 2, "nombre":"AccesoriosC", "Macrocategoria":"Domesticos", "Categoria":"Cocina"},
+        {"id": 4, "nombre":"Premium", "Macrocategoria":"Joyeria", "Categoria":"Decoracion"},
+        {"id": 5, "nombre":"Limpieza", "Macrocategoria":"Domesticos", "Categoria":"Cocina"}
+    ],
+
+    "Clases":[
+        {"id": 1, "nombre":"AccesoriosTV", "Macrocategoria":"Celulares", "Categoria":"Audio", "SubCategoria":"Accesorios"},
+        {"id": 2, "nombre":"Fundas", "Macrocategoria":"Celulares", "Categoria":"Moviles", "SubCategoria":"Accesorios"},
+        {"id": 3, "nombre":"Liquidos", "Macrocategoria":"Domesticos", "Categoria":"Cocina", "SubCategoria":"Limpieza"},
+        {"id": 4, "nombre":"Comida", "Macrocategoria":"Domesticos", "Categoria":"Decoracion", "SubCategoria":"AccesoriosC"},
+        {"id": 5, "nombre":"Cuadros", "Macrocategoria":"Joyeria", "Categoria":"Decoracion", "SubCategoria":"Premium"},
+        {"id": 6, "nombre":"Espejos", "Macrocategoria":"Joyeria", "Categoria":"Decoracion", "SubCategoria":"Premium"}
+    ],
+
+    "Familias":[
+        {"id": 1, "nombre":"Telcel", "clase":"AccesoriosTV", "Macrocategoria":"Celulares", "Categoria":"Audio", "SubCategoria":"Accesorios"},
+        {"id": 2, "nombre":"Iphone", "clase":"Fundas", "Macrocategoria":"Celulares", "Categoria":"Moviles", "SubCategoria":"Accesorios"},
+        {"id": 3, "nombre":"Fijadores", "clase":"Liquidos", "Macrocategoria":"Domesticos", "Categoria":"Cocina", "SubCategoria":"Limpieza"},
+        {"id": 4, "nombre":"Vegi", "clase":"Comida", "Macrocategoria":"Domesticos", "Categoria":"Decoracion", "SubCategoria":"AccesoriosC"},
+        {"id": 5, "nombre":"Diamante", "clase":"Cuadros", "Macrocategoria":"Joyeria", "Categoria":"Decoracion", "SubCategoria":"Premium"},
+        {"id": 6, "nombre":"Oro", "clase":"Espejos", "Macrocategoria":"Joyeria", "Categoria":"Decoracion", "SubCategoria":"Premium"}
+    ],
+
+
+    "Proveedores":[
+        {"id": 2, "nombre":"Sony", "familia":"Iphone", "clase":"Fundas", "Macrocategoria":"Celulares", "Categoria":"Moviles", "SubCategoria":"Accesorios"},
+        {"id": 1, "nombre":"Apple", "familia":"Telcel", "clase":"AccesoriosTV", "Macrocategoria":"Celulares", "Categoria":"Audio", "SubCategoria":"Accesorios"},
+        {"id": 3, "nombre":"Suavitel", "familia":"Fijadores", "clase":"Liquidos", "Macrocategoria":"Domesticos", "Categoria":"Cocina", "SubCategoria":"Limpieza"},
+        {"id": 4, "nombre":"MABE", "familia":"Vegi", "clase":"Comida", "Macrocategoria":"Domesticos", "Categoria":"Decoracion", "SubCategoria":"AccesoriosC"},
+        {"id": 5, "nombre":"GUCCI", "familia":"Diamante", "clase":"Cuadros", "Macrocategoria":"Joyeria", "Categoria":"Decoracion", "SubCategoria":"Premium"},
+        {"id": 6, "nombre":"LV", "familia":"Oro", "clase":"Espejos", "Macrocategoria":"Joyeria", "Categoria":"Decoracion", "SubCategoria":"Premium"}
+    ]
+}
