@@ -7,6 +7,7 @@ import { TiendasCompetitividad } from '../../model/tiendas-competitividad';
 import { PrimeNGConfig } from 'primeng/api';
 import { DatePipe } from '@angular/common';
 import { Calendar } from 'primeng/calendar';
+import { TestService } from 'src/app/services/test.service';
 
 @Component({
   selector: 'app-gestion-precios-competitividad',
@@ -140,8 +141,10 @@ export class GestionPreciosCompetitividadComponent{
 
   filteredCompetitividades: Competitividad[] = [];
 
+  testData: any[] = [];
+
   constructor(private formBuilder: FormBuilder, private config: PrimeNGConfig, private datePipe: DatePipe, private renderer: Renderer2,
-    private router: Router,
+    private router: Router, private testService: TestService,
     private competitividadService: CompetitividadService) {
     this.macrocategoriaFormGroup = this.formBuilder.group({
       selectedMacrocategoria: [],
@@ -242,6 +245,12 @@ export class GestionPreciosCompetitividadComponent{
   }
 
   ngOnInit(): void {
+
+    this.testService.getTest().subscribe(data => {
+      this.testData = data;
+
+      console.log(this.testData);
+    })
 
     this.config.setTranslation({
       accept: 'Aceptar',

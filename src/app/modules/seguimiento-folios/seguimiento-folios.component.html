@@ -250,7 +250,7 @@
 
                     <td class="text-center">{{folio.num_folio}}</td>
                     <td>
-                      <i class="pi pi-list" style="font-size: 1.5rem; cursor: pointer;"></i>
+                      <i class="pi pi-list" (click)="irSeguimientoCompetitividad()" style="font-size: 1.5rem; cursor: pointer;"></i>
                     </td>
                     <td class="text-center">{{folio.fecha}}</td>
                     <td class="text-center">Pendiente</td>
@@ -492,7 +492,7 @@
 
             <td class="text-center">{{folio.num_folio}}</td>
             <td>
-              <i class="pi pi-list" style="font-size: 1.5rem; cursor: pointer;"></i>
+              <i class="pi pi-list" (click)="irSeguimientoCompetitividad()" style="font-size: 1.5rem; cursor: pointer;"></i>
             </td>
             <td class="text-center">{{folio.fecha}}</td>
             <td class="text-center">Cancelado</td>

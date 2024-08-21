@@ -62,6 +62,7 @@ import { PickListModule } from 'primeng/picklist';
 import { FieldsetModule } from 'primeng/fieldset';
 import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimiento-folios.component';
 import { ConsultaUsuariosComponent } from './modules/consulta-usuarios/consulta-usuarios.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -133,8 +134,8 @@ import { ConsultaUsuariosComponent } from './modules/consulta-usuarios/consulta-
     PasswordModule,
     ButtonModule,
     PickListModule,
-    FieldsetModule
-
+    FieldsetModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap:[AppComponent]

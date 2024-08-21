@@ -228,57 +228,54 @@ export class ReglasNegocioCompetitividadComponentComponent implements OnInit{
 
   filteredCompetitividades: Competitividad[] = [];
 
-  constructor(private formBuilder: FormBuilder,
-    private router: Router,
-  ) {
-      this.macrocategoriaFormGroup = this.formBuilder.group({
-        selectedMacrocategoria: [],
-        macrocategoria: this.macrocategoria
-      });
-      this.categoriaFormGroup = this.formBuilder.group({
-        selectedCategoria: [],
-        categoria: this.categoria
-      });
-      this.subcategoriaFormGroup = this.formBuilder.group({
-        selectedSubcategoria: [],
-        subcategoria: this.subcategoria
-      });
-      this.claseFormGroup = this.formBuilder.group({
-        selectedClase: [],
-        clase: this.clase
-      });
-      this.familiaFormGroup = this.formBuilder.group({
-        selectedFamilia: [],
-        familia: this.familia
-      });
-      this.proveedorFormGroup = this.formBuilder.group({
-        selectedProveedor: [],
-        proveedor: this.proveedor
-      });
-      this.rangosFormGroup = this.formBuilder.group({
-        selectedRango: [],
-        rangos: this.rangos
-      });
-      this.tableFormGroup = this.formBuilder.group({
-      });
-      this.arregloCompetitividad = new Array<Competitividad>
-      this.arregloFolio = new Array<Folio>;
-      this.selectedArregloCompetitividad = new Array<Competitividad>
-      this.filteredArregloCompetitividad = new Array<Competitividad>
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+    this.macrocategoriaFormGroup = this.formBuilder.group({ selectedMacrocategoria: [], macrocategoria: this.macrocategoria});
+    this.categoriaFormGroup = this.formBuilder.group({
+      selectedCategoria: [],
+      categoria: this.categoria
+    });
+    this.subcategoriaFormGroup = this.formBuilder.group({
+      selectedSubcategoria: [],
+      subcategoria: this.subcategoria
+    });
+    this.claseFormGroup = this.formBuilder.group({
+      selectedClase: [],
+      clase: this.clase
+    });
+    this.familiaFormGroup = this.formBuilder.group({
+      selectedFamilia: [],
+      familia: this.familia
+    });
+    this.proveedorFormGroup = this.formBuilder.group({
+      selectedProveedor: [],
+      proveedor: this.proveedor
+    });
+    this.rangosFormGroup = this.formBuilder.group({
+      selectedRango: [],
+      rangos: this.rangos
+    });
+    this.tableFormGroup = this.formBuilder.group({
+    });
+    this.arregloCompetitividad = new Array<Competitividad>
+    this.arregloFolio = new Array<Folio>;
+    this.selectedArregloCompetitividad = new Array<Competitividad>
+    this.filteredArregloCompetitividad = new Array<Competitividad>
 
-      this.selectedArregloCompetitividadEnviados = new Array<Competitividad>
-      this.filteredArregloCompetitividadEnviados = new Array<Competitividad>
+    this.selectedArregloCompetitividadEnviados = new Array<Competitividad>
+    this.filteredArregloCompetitividadEnviados = new Array<Competitividad>
 
-      this.checkedMargenUtilidad=false;
-      this.fechaFiltro="03/05/2024"
-      this.multiMargenUtilidad=true;
-
+    this.checkedMargenUtilidad=false;
+    this.fechaFiltro="03/05/2024"
+    this.multiMargenUtilidad=true;
   }
 
   ngOnInit(): void {
 
   }
 
+  public agregarRegla() {
+
+  }
 
 
 
