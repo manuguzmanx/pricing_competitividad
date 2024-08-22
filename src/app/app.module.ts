@@ -63,6 +63,7 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { SeguimientoFoliosComponent } from './modules/seguimiento-folios/seguimiento-folios.component';
 import { ConsultaUsuariosComponent } from './modules/consulta-usuarios/consulta-usuarios.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BuscadorDashboardComponent } from './modules/buscador-dashboard/buscador-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { HttpClientModule } from '@angular/common/http';
     ConstruccionComponent,
     LoginComponent,
     AltaUsuariosComponent,
-    ConsultaUsuariosComponent
+    ConsultaUsuariosComponent,
+    BuscadorDashboardComponent
 
   ],
   imports: [

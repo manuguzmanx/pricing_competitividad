@@ -1,0 +1,134 @@
+
+
+<div style="width: 100%;">
+
+    <div class="container-filtros" style="margin-bottom: 1rem;">
+
+
+        <div class="tarjeta4" style="display: flex; flex-wrap: wrap;">
+            <div class="tarjeta3">
+                <label class="titulos-filtros">Macrocategoría</label>
+
+                <p-multiSelect [options]="macrocategoria" 
+                optionLabel="nombre" 
+                placeholder="Seleccionar macrocategoria"
+                [style]="{'width':'100%'}"
+                [(ngModel)]="selectedMacrocategoria"
+                (onChange)="verSeleccionados()"
+                [disabled]="flagMacrocategoria">
+                
+                </p-multiSelect>
+
+            </div>
+            <div class="tarjeta3">
+                <label class="titulos-filtros">Categoría</label>
+
+                <p-multiSelect [options]="categoria"
+                optionLabel="nombre"
+                placeholder="Seleccionar categoria" 
+                [style]="{'width':'100%'}"
+                [(ngModel)]="selectedCategoria"
+                (onChange)="manageOptionsCategorias()"
+                [disabled]="flagCategoria">
+                </p-multiSelect>
+
+            </div>
+            <div class="tarjeta3">
+                <label class="titulos-filtros">Subcategoría</label>
+
+                <p-multiSelect [options]="subcategoria" 
+                    optionLabel="nombre" 
+                    placeholder="Seleccionar subcategoria"
+                    [style]="{'width':'100%'}"
+                    [(ngModel)]="selectedSubCategoria"
+                    (onChange)="manageOptionsSubcategorias()"
+                    [disabled]="flagSubcategoria">
+                </p-multiSelect>
+
+            </div>
+            <div class="tarjeta3">
+                <label class="titulos-filtros">Clase</label>
+
+                <p-multiSelect [options]="clase"
+                    optionLabel="nombre"
+                    placeholder="Seleccionar clase" 
+                    [style]="{'width':'100%'}"
+                    [(ngModel)]="selectedClase"
+                    (onChange)="manageOptionsClases()"
+                    [disabled]="flagClase">
+                </p-multiSelect>
+
+            </div>
+            <div class="tarjeta3">
+                <label class="titulos-filtros">Familia</label>
+
+                <p-multiSelect [options]="familia"  
+                    optionLabel="nombre"
+                    placeholder="Seleccionar familia" 
+                    [style]="{'width':'100%'}"
+                    [(ngModel)]="selectedFamilia"
+                    (onChange)="manageOptionsFamilias()"
+                    [disabled]="flagFamilia">
+                </p-multiSelect>
+
+            </div>
+            <div class="tarjeta3">
+                <label class="titulos-filtros">Proveedor</label>
+
+                <p-multiSelect [options]="proveedor"
+                    optionLabel="nombre"
+                    placeholder="Seleccionar proveedor" 
+                    [style]="{'width':'100%'}"
+                    [(ngModel)]="selectedProveedor"
+                    (onChange)="manageOptionsProveedores()"
+                    [disabled]="flagProveedor">
+                </p-multiSelect>
+
+            </div>
+            <div class="tarjeta3">
+                <label class="titulos-filtros">Fecha Evaluación</label>
+
+                <p-calendar dateFormat="dd/MM/yy" [(ngModel)]="fechaFiltro" [style]="{'width':'100%'}"
+                    [showIcon]="true" [showOnFocus]="false" placeholder="{{fechaFiltro | date : 'dd/MM/yyyy'}}"
+                    (click)="selectedfecha()" />
+
+            </div>
+            <div class="tarjeta3">
+                <label class="titulos-filtros">Folio</label>
+
+                <p-multiSelect [options]="folio" 
+                    optionLabel="nombre"
+                    placeholder="Seleccionar Folio" 
+                    [(ngModel)]="selectedFolio"
+                    (onChange)="manageOptionsFolio()"
+                    [disabled]="flagFolio"
+                    [style]="{'width':'100%'}">
+                </p-multiSelect>
+
+            </div>
+            <div class="tarjeta3">
+                <label class="titulos-filtros">Código</label>
+
+                <p-multiSelect [options]="codigo" 
+                    optionLabel="numero" 
+                    placeholder="Seleccionar código"
+                    [(ngModel)]="selectedCodigo"
+                    (onChange)="manageOptionsCodigo()"
+                    [disabled]="flagCodigo"
+                    [style]="{'width':'100%'}">
+                </p-multiSelect>
+
+            </div>
+            <div class="tarjeta3"></div>
+            <div class="tarjeta3"></div>
+
+            <div class="tarjeta3"
+                style="margin-top: 15px; display: flex; justify-content: flex-end; align-items: center;">
+                <p-button icon="pi pi-table" label="Filtrados (325)" pTooltip="Realizar Seguimiento"
+                    tooltipPosition="bottom"></p-button>
+                <ng-component style="margin-left: 15px;"></ng-component>
+                <p-button icon="pi pi-replay" pTooltip="Limpiar filtros" tooltipPosition="bottom" (click)="reinicarFiltros()"></p-button>
+            </div>
+        </div>
+    </div>
+</div>

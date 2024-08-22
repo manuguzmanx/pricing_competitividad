@@ -22,7 +22,6 @@ export class MenuComponent implements OnInit, OnDestroy {
   ) {
     router.events.subscribe((val) => {
       // see also
-      console.log(val instanceof NavigationEnd)
       this.showMenu = false;
   });
   }

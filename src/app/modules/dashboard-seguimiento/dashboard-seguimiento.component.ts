@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { skipUntil } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-seguimiento',
@@ -153,7 +152,6 @@ export class DashboardSeguimientoComponent implements OnInit {
   ];
   vistaList=[{id: 1, name: 'Categoría'},{id: 2, name: 'Clase'},{id: 3, name: 'Proveedor'},{id: 4, name: 'SKU'}];
   vistaListModel:any;
-  macrocategoriaFormGroup: FormGroup;
   macrocategoria = [
     { name: 'Celulares', code: '00001' },
     { name: 'Enseres domesticos', code: '00002' },
@@ -162,7 +160,6 @@ export class DashboardSeguimientoComponent implements OnInit {
     { name: 'Juguetes, bebes y ap. ejercicio', code: '00005' }
   ];
 
-  categoriaFormGroup: FormGroup;
   categoria = [
     { name: 'Audio y video', code: '00006' },
     { name: 'Automotriz', code: '00007' },
@@ -171,7 +168,6 @@ export class DashboardSeguimientoComponent implements OnInit {
     { name: 'Bicicleta y movilidad electrica', code: '00010' }
   ];
 
-  subcategoriaFormGroup: FormGroup;
   subcategoria = [
     { name: 'Accesorios', code: '00011' },
     { name: 'Aparatos de ejercicio', code: '00012' },
@@ -180,7 +176,6 @@ export class DashboardSeguimientoComponent implements OnInit {
     { name: 'Audio', code: '00015' }
   ];
 
-  familiaFormGroup: FormGroup;
   familia = [
     { name: '1.2 a 1.4 Pies', code: '00016' },
     { name: '1.5 Pies a mayores', code: '00017' },
@@ -189,7 +184,6 @@ export class DashboardSeguimientoComponent implements OnInit {
     { name: '5 Pies', code: '00020' }
   ];
 
-  claseFormGroup: FormGroup;
   clase = [
     { name: 'Accesorios Celulares', code: '00021' },
     { name: 'Accesorios Celulares Apple', code: '00022' },
@@ -198,7 +192,6 @@ export class DashboardSeguimientoComponent implements OnInit {
     { name: 'Albercas', code: '00025' }
   ];
   diferencialChart:any;
-  proveedorFormGroup: FormGroup;
   proveedor = [
     { name: '2Fast 4You', code: '00001' },
     { name: 'A Occhiali', code: '00002' },
@@ -455,30 +448,7 @@ export class DashboardSeguimientoComponent implements OnInit {
     constructor(private formBuilder: FormBuilder,
       private router: Router,
     ) {
-        this.macrocategoriaFormGroup = this.formBuilder.group({
-          selectedMacrocategoria: [],
-          macrocategoria: this.macrocategoria
-        });
-        this.categoriaFormGroup = this.formBuilder.group({
-          selectedCategoria: [],
-          categoria: this.categoria
-        });
-        this.subcategoriaFormGroup = this.formBuilder.group({
-          selectedSubcategoria: [],
-          subcategoria: this.subcategoria
-        });
-        this.claseFormGroup = this.formBuilder.group({
-          selectedClase: [],
-          clase: this.clase
-        });
-        this.familiaFormGroup = this.formBuilder.group({
-          selectedFamilia: [],
-          familia: this.familia
-        });
-        this.proveedorFormGroup = this.formBuilder.group({
-          selectedProveedor: [],
-          proveedor: this.proveedor
-        });
+
   
     }
 
