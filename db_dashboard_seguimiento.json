@@ -1,59 +1,63 @@
 {
     "skus": [
-        { "numero": 7897, "Macrocategoria": "Celulares", "Categoria": "Audio", "SubCategoria": "Accesorios", "Clase":"AccesoriosTV", "Familia": "Telcel", "Proveedor":"Sony", "Folio":12 },
-        { "numero": 4564, "Macrocategoria": "Celulares", "Categoria": "Moviles", "SubCategoria": "Accesorios", "Clase":"Fundas", "Familia": "Iphone", "Proveedor":"Apple", "Folio":12 },
-        { "numero": 7413, "Macrocategoria": "Domesticos", "Categoria": "Cocina", "SubCategoria": "Limpieza", "Clase":"Liquidos", "Familia": "Fijadores", "Proveedor":"Suavitel", "Folio":15 },
-        { "numero": 8952, "Macrocategoria": "Domesticos", "Categoria": "Cocina", "SubCategoria": "AccesoriosC", "Clase":"Comida", "Familia": "Vegi", "Proveedor":"MABE", "Folio":13 },
-        { "numero": 7821, "Macrocategoria": "Joyeria", "Categoria": "Decoracion", "SubCategoria": "Premium", "Clase":"Cuadros", "Familia": "Diamante", "Proveedor":"GUCCI", "Folio":13 },
-        { "numero": 3515, "Macrocategoria": "Joyeria", "Categoria": "Decoracion", "SubCategoria": "Premium", "Clase":"Espejos", "Familia": "Oro", "Proveedor":"LV", "Folio":13 }
+        { "numero": 7897, "Macrocategoria": 1, "Categoria": 1, "SubCategoria": 1, "Clase": 1, "Familia": 1, "Proveedor": 1, "Folio": 12 },
+        { "numero": 4564, "Macrocategoria": 1, "Categoria": 2, "SubCategoria": 1, "Clase": 2, "Familia": 2, "Proveedor": 2, "Folio": 12 },
+        { "numero": 7413, "Macrocategoria": 2, "Categoria": 3, "SubCategoria": 4, "Clase": 3, "Familia": 3, "Proveedor": 3, "Folio": 15 },
+        { "numero": 8952, "Macrocategoria": 2, "Categoria": 3, "SubCategoria": 2, "Clase": 4, "Familia": 4, "Proveedor": 4, "Folio": 13 },
+        { "numero": 7821, "Macrocategoria": 3, "Categoria": 4, "SubCategoria": 3, "Clase": 5, "Familia": 5, "Proveedor": 5, "Folio": 13 },
+        { "numero": 3515, "Macrocategoria": 3, "Categoria": 4, "SubCategoria": 3, "Clase": 6, "Familia": 6, "Proveedor": 6, "Folio": 13 }
     ],
 
-
     "Macrocategorias":[
-        {"id": 1, "nombre":"Celulares"},
-        {"id": 2, "nombre":"Domesticos"},
-        {"id": 3, "nombre":"Joyeria"}
+        {"id": 1, "nombre": "Celulares"},
+        {"id": 2, "nombre": "Domesticos"},
+        {"id": 3, "nombre": "Joyeria"}
     ],
 
     "Categorias":[
-        {"id": 1, "nombre":"Audio", "Macrocategoria":"Celulares"},
-        {"id": 2, "nombre":"Moviles", "Macrocategoria":"Celulares"},
-        {"id": 3, "nombre":"Cocina", "Macrocategoria":"Domesticos"},
-        {"id": 4, "nombre":"Decoracion", "Macrocategoria":"Joyeria"}
+        {"id": 1, "nombre": "Audio", "Macrocategoria": 1},
+        {"id": 2, "nombre": "Moviles", "Macrocategoria": 1},
+        {"id": 3, "nombre": "Cocina", "Macrocategoria": 2},
+        {"id": 4, "nombre": "Decoracion", "Macrocategoria": 3}
     ],
 
     "SubCategorias":[
-        {"id": 1, "nombre":"Accesorios", "Macrocategoria":"Celulares", "Categoria":"Audio"},
-        {"id": 2, "nombre":"AccesoriosC", "Macrocategoria":"Domesticos", "Categoria":"Cocina"},
-        {"id": 4, "nombre":"Premium", "Macrocategoria":"Joyeria", "Categoria":"Decoracion"},
-        {"id": 5, "nombre":"Limpieza", "Macrocategoria":"Domesticos", "Categoria":"Cocina"}
+        {"id": 1, "nombre": "Accesorios", "Macrocategoria": 1, "Categoria": 1},
+        {"id": 2, "nombre": "AccesoriosC", "Macrocategoria": 2, "Categoria": 2},
+        {"id": 4, "nombre": "Premium", "Macrocategoria": 3, "Categoria": 4},
+        {"id": 5, "nombre": "Limpieza", "Macrocategoria": 2, "Categoria": 3}
     ],
 
     "Clases":[
-        {"id": 1, "nombre":"AccesoriosTV", "Macrocategoria":"Celulares", "Categoria":"Audio", "SubCategoria":"Accesorios"},
-        {"id": 2, "nombre":"Fundas", "Macrocategoria":"Celulares", "Categoria":"Moviles", "SubCategoria":"Accesorios"},
-        {"id": 3, "nombre":"Liquidos", "Macrocategoria":"Domesticos", "Categoria":"Cocina", "SubCategoria":"Limpieza"},
-        {"id": 4, "nombre":"Comida", "Macrocategoria":"Domesticos", "Categoria":"Decoracion", "SubCategoria":"AccesoriosC"},
-        {"id": 5, "nombre":"Cuadros", "Macrocategoria":"Joyeria", "Categoria":"Decoracion", "SubCategoria":"Premium"},
-        {"id": 6, "nombre":"Espejos", "Macrocategoria":"Joyeria", "Categoria":"Decoracion", "SubCategoria":"Premium"}
+        {"id": 1, "nombre": "AccesoriosTV", "Macrocategoria": 1, "Categoria": 1, "SubCategoria": 1},
+        {"id": 2, "nombre": "Fundas", "Macrocategoria": 1, "Categoria": 2, "SubCategoria": 1},
+        {"id": 3, "nombre": "Liquidos", "Macrocategoria": 2, "Categoria": 3, "SubCategoria": 4},
+        {"id": 4, "nombre": "Comida", "Macrocategoria": 2, "Categoria": 4, "SubCategoria": 2},
+        {"id": 5, "nombre": "Cuadros", "Macrocategoria": 3, "Categoria": 4, "SubCategoria": 4 },
+        {"id": 6, "nombre": "Espejos", "Macrocategoria": 3, "Categoria": 4, "SubCategoria": 4}
     ],
 
     "Familias":[
-        {"id": 1, "nombre":"Telcel", "clase":"AccesoriosTV", "Macrocategoria":"Celulares", "Categoria":"Audio", "SubCategoria":"Accesorios"},
-        {"id": 2, "nombre":"Iphone", "clase":"Fundas", "Macrocategoria":"Celulares", "Categoria":"Moviles", "SubCategoria":"Accesorios"},
-        {"id": 3, "nombre":"Fijadores", "clase":"Liquidos", "Macrocategoria":"Domesticos", "Categoria":"Cocina", "SubCategoria":"Limpieza"},
-        {"id": 4, "nombre":"Vegi", "clase":"Comida", "Macrocategoria":"Domesticos", "Categoria":"Decoracion", "SubCategoria":"AccesoriosC"},
-        {"id": 5, "nombre":"Diamante", "clase":"Cuadros", "Macrocategoria":"Joyeria", "Categoria":"Decoracion", "SubCategoria":"Premium"},
-        {"id": 6, "nombre":"Oro", "clase":"Espejos", "Macrocategoria":"Joyeria", "Categoria":"Decoracion", "SubCategoria":"Premium"}
+        {"id": 1, "nombre": "Telcel", "Clase": 1, "Macrocategoria": 1, "Categoria": 1, "SubCategoria": 1},
+        {"id": 2, "nombre": "Iphone", "Clase": 2, "Macrocategoria": 1, "Categoria": 2, "SubCategoria": 1},
+        {"id": 3, "nombre": "Fijadores", "Clase": 3, "Macrocategoria": 2, "Categoria": 3, "SubCategoria": 4},
+        {"id": 4, "nombre": "Vegi", "Clase": 4, "Macrocategoria": 2, "Categoria": 4, "SubCategoria": 2},
+        {"id": 5, "nombre": "Diamante", "Clase": 5, "Macrocategoria": 3, "Categoria": 4, "SubCategoria": 4},
+        {"id": 6, "nombre": "Oro", "Clase": 6, "Macrocategoria": 3, "Categoria": 4, "SubCategoria": 4}
     ],
 
-
     "Proveedores":[
-        {"id": 2, "nombre":"Sony", "familia":"Iphone", "clase":"Fundas", "Macrocategoria":"Celulares", "Categoria":"Moviles", "SubCategoria":"Accesorios"},
-        {"id": 1, "nombre":"Apple", "familia":"Telcel", "clase":"AccesoriosTV", "Macrocategoria":"Celulares", "Categoria":"Audio", "SubCategoria":"Accesorios"},
-        {"id": 3, "nombre":"Suavitel", "familia":"Fijadores", "clase":"Liquidos", "Macrocategoria":"Domesticos", "Categoria":"Cocina", "SubCategoria":"Limpieza"},
-        {"id": 4, "nombre":"MABE", "familia":"Vegi", "clase":"Comida", "Macrocategoria":"Domesticos", "Categoria":"Decoracion", "SubCategoria":"AccesoriosC"},
-        {"id": 5, "nombre":"GUCCI", "familia":"Diamante", "clase":"Cuadros", "Macrocategoria":"Joyeria", "Categoria":"Decoracion", "SubCategoria":"Premium"},
-        {"id": 6, "nombre":"LV", "familia":"Oro", "clase":"Espejos", "Macrocategoria":"Joyeria", "Categoria":"Decoracion", "SubCategoria":"Premium"}
+        {"id": 2, "nombre": "Sony", "Familia": 2, "Clase": 2, "Macrocategoria": 1, "Categoria": 2, "SubCategoria": 1},
+        {"id": 1, "nombre": "Apple", "Familia": 1, "Clase": 1, "Macrocategoria": 1, "Categoria": 1, "SubCategoria": 1},
+        {"id": 3, "nombre": "Suavitel", "Familia": 3, "Clase": 3, "Macrocategoria": 2, "Categoria": 3, "SubCategoria": 4},
+        {"id": 4, "nombre": "MABE", "Familia": 4, "Clase": 4, "Macrocategoria": 2, "Categoria": 4, "SubCategoria": 2},
+        {"id": 5, "nombre": "GUCCI", "Familia": 5, "Clase": 5, "Macrocategoria": 3, "Categoria": 4, "SubCategoria": 4},
+        {"id": 6, "nombre": "LV", "Familia": 6, "Clase": 6, "Macrocategoria": 3, "Categoria": 4, "SubCategoria": 4}
+    ],
+
+    "Folios":[
+        {"id":12},
+        {"id":15},
+        {"id":13}
     ]
 }

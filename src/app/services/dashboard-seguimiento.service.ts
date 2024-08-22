@@ -15,72 +15,57 @@ export class DashboardSeguimientoService {
 
   constructor(private http: HttpClient) { }
 
-  getSkus(): Observable<any> {
-    return this.http.get<any>(`${this.URL}/skus`)
+  buscar(params: any) {
+    const httpParams = new HttpParams({ fromObject: params });
+    return this.http.get(`${this.URL}/skus`, { params: httpParams });
+  }
+
+  getSkus(params: any): Observable<any> {
+    const httpParams = new HttpParams({ fromObject: params });
+    return this.http.get(`${this.URL}/skus`, { params: httpParams });
 
   }
 
-  getMacrocategoria(Macrocategoria:string): Observable<any> {
-    const params = new HttpParams()
-            .set('nombre', Macrocategoria)
-
-    return this.http.get<any>(`${this.URL}/Macrocategorias`, {params})
+  getFolios(params: any): Observable<any> {
+    const httpParams = new HttpParams({ fromObject: params });
+    return this.http.get(`${this.URL}/Folios`, { params: httpParams });
 
   }
 
-  getCategoria(Macrocategoria:string, Categoria:string): Observable<any> {
-    const params = new HttpParams()
-            .set('Macrocategoria', Macrocategoria)
-            .set('nombre', Categoria)
-
-    return this.http.get<any>(`${this.URL}/Categorias`, {params})
+  getMacrocategoria(params: any): Observable<any> {
+    const httpParams = new HttpParams({ fromObject: params });
+    return this.http.get(`${this.URL}/Macrocategorias`, { params: httpParams });
 
   }
 
-  getSubCategoria(Macrocategoria:string, Categoria:string, Subcategoria:string): Observable<any> {
-    const params = new HttpParams()
-            .set('Macrocategoria', Macrocategoria)
-            .set('Categoria', Categoria)
-            .set('nombre', Subcategoria)
-
-    return this.http.get<any>(`${this.URL}/SubCategorias`, {params})
+  getCategoria(params: any): Observable<any> {
+    const httpParams = new HttpParams({ fromObject: params });
+    return this.http.get(`${this.URL}/Categorias`, { params: httpParams });
 
   }
 
-  getClases(Macrocategoria:string, Categoria:string, Subcategoria:string, Clase:string): Observable<any> {
-    const params = new HttpParams()
-            .set('Macrocategoria', Macrocategoria)
-            .set('Categoria', Categoria)
-            .set('Subcategoria', Subcategoria)
-            .set('nombre', Clase)
-
-    return this.http.get<any>(`${this.URL}/Clases`, {params})
+  getSubCategoria(params: any): Observable<any> {
+    const httpParams = new HttpParams({ fromObject: params });
+    return this.http.get(`${this.URL}/SubCategorias`, { params: httpParams });
 
   }
 
-  getFamilia(Macrocategoria:string, Categoria:string, Subcategoria:string, Clase:string, Familia:string): Observable<any> {
-    const params = new HttpParams()
-            .set('Macrocategoria', Macrocategoria)
-            .set('Categoria', Categoria)
-            .set('Subcategoria', Subcategoria)
-            .set('Clase', Clase)
-            .set('nombre', Familia)
+  getClases(params: any): Observable<any> {
+    const httpParams = new HttpParams({ fromObject: params });
+    return this.http.get(`${this.URL}/Clases`, { params: httpParams });
 
-    return this.http.get<any>(`${this.URL}/Familias`, {params})
+  }
+
+  getFamilia(params: any): Observable<any> {
+    const httpParams = new HttpParams({ fromObject: params });
+    return this.http.get(`${this.URL}/Familias`, { params: httpParams });
 
   }
 
 
-  getProveedor(Macrocategoria:string, Categoria:string, Subcategoria:string, Clase:string, Familia:string, Proveedor:string): Observable<any> {
-    const params = new HttpParams()
-            .set('Macrocategoria', Macrocategoria)
-            .set('Categoria', Categoria)
-            .set('Subcategoria', Subcategoria)
-            .set('Clase', Clase)
-            .set('Familia', Familia)
-            .set('nombre', Proveedor)
-
-    return this.http.get<any>(`${this.URL}/Proveedores`, {params})
+  getProveedor(params: any): Observable<any> {
+    const httpParams = new HttpParams({ fromObject: params });
+    return this.http.get(`${this.URL}/Proveedores`, { params: httpParams });
 
   }
 }

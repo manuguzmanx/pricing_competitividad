@@ -14,7 +14,7 @@
                 placeholder="Seleccionar macrocategoria"
                 [style]="{'width':'100%'}"
                 [(ngModel)]="selectedMacrocategoria"
-                (onChange)="verSeleccionados()"
+                (onChange)="manageOptionsMacrocategorias()"
                 [disabled]="flagMacrocategoria">
                 
                 </p-multiSelect>
@@ -28,6 +28,7 @@
                 placeholder="Seleccionar categoria" 
                 [style]="{'width':'100%'}"
                 [(ngModel)]="selectedCategoria"
+                
                 (onChange)="manageOptionsCategorias()"
                 [disabled]="flagCategoria">
                 </p-multiSelect>
@@ -88,16 +89,27 @@
             <div class="tarjeta3">
                 <label class="titulos-filtros">Fecha Evaluación</label>
 
-                <p-calendar dateFormat="dd/MM/yy" [(ngModel)]="fechaFiltro" [style]="{'width':'100%'}"
-                    [showIcon]="true" [showOnFocus]="false" placeholder="{{fechaFiltro | date : 'dd/MM/yyyy'}}"
-                    (click)="selectedfecha()" />
+
+                
+                    <p-calendar
+                    
+                    dateFormat="dd/mm/yy"
+                    [(ngModel)]="fechaFiltro"
+                    [readonlyInput]="true"
+                    [showIcon]="true"
+                    [showOnFocus]="false"
+                    placeholder="{{fechaFiltro}}"
+                    [style]="{'width':'100%'}"
+                    [maxDate]="dateTime"
+                    (click)="actualizarFiltros()"
+                    />
 
             </div>
             <div class="tarjeta3">
                 <label class="titulos-filtros">Folio</label>
 
                 <p-multiSelect [options]="folio" 
-                    optionLabel="nombre"
+                    optionLabel="id"
                     placeholder="Seleccionar Folio" 
                     [(ngModel)]="selectedFolio"
                     (onChange)="manageOptionsFolio()"
@@ -124,8 +136,8 @@
 
             <div class="tarjeta3"
                 style="margin-top: 15px; display: flex; justify-content: flex-end; align-items: center;">
-                <p-button icon="pi pi-table" label="Filtrados (325)" pTooltip="Realizar Seguimiento"
-                    tooltipPosition="bottom"></p-button>
+                <p-button icon="pi pi-table" label="Filtrados ({{cantFiltrados.toString()}})" pTooltip="Realizar Seguimiento"
+                    tooltipPosition="bottom" (click)="buscar()"></p-button>
                 <ng-component style="margin-left: 15px;"></ng-component>
                 <p-button icon="pi pi-replay" pTooltip="Limpiar filtros" tooltipPosition="bottom" (click)="reinicarFiltros()"></p-button>
             </div>
