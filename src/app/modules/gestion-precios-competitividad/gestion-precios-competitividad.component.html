@@ -112,9 +112,9 @@
     <label  class="titulos-filtros">Macrocategoría</label>
     <form [formGroup]="macrocategoriaFormGroup">
       <p-multiSelect
-        [options]="macrocategoria"
+        [options]="filtrosMacrocategoria"
         formControlName="selectedMacrocategoria"
-        optionLabel="name"
+        optionLabel="nombre"
         placeholder="Seleccionar macrocategoría"
         [style]="{'width':'100%'}"></p-multiSelect>
     </form>
@@ -123,9 +123,9 @@
     <label  class="titulos-filtros">Categoría</label>
     <form [formGroup]="categoriaFormGroup">
       <p-multiSelect
-        [options]="categoria"
+        [options]="filtrosCategoria"
         formControlName="selectedCategoria"
-        optionLabel="name"
+        optionLabel="nombre"
         placeholder="Seleccionar categoría"
         [style]="{'width':'100%'}"></p-multiSelect>
     </form>
@@ -134,9 +134,9 @@
     <label class="titulos-filtros">Subcategoría</label>
     <form [formGroup]="subcategoriaFormGroup">
       <p-multiSelect
-        [options]="subcategoria"
+        [options]="filtrosSubcategoria"
         formControlName="selectedSubcategoria"
-        optionLabel="name"
+        optionLabel="nombre"
         placeholder="Seleccionar subcategoría"
         [style]="{'width':'100%'}"></p-multiSelect>
     </form>
@@ -145,9 +145,9 @@
     <label class="titulos-filtros">Clase</label>
     <form [formGroup]="claseFormGroup">
       <p-multiSelect
-        [options]="clase"
+        [options]="filtrosClase"
         formControlName="selectedClase"
-        optionLabel="name"
+        optionLabel="nombre"
         placeholder="Seleccionar clase"
         [style]="{'width':'100%'}"></p-multiSelect>
     </form>
@@ -156,9 +156,9 @@
     <label class="titulos-filtros">Familia</label>
     <form [formGroup]="familiaFormGroup">
       <p-multiSelect
-        [options]="familia"
+        [options]="filtrosFamilia"
         formControlName="selectedFamilia"
-        optionLabel="name"
+        optionLabel="nombre"
         placeholder="Seleccionar familia"
         [style]="{'width':'100%'}"></p-multiSelect>
     </form>
@@ -167,9 +167,9 @@
     <label class="titulos-filtros">Proveedor</label>
     <form [formGroup]="proveedorFormGroup">
       <p-multiSelect
-        [options]="proveedor"
+        [options]="filtrosProveedor"
         formControlName="selectedProveedor"
-        optionLabel="name"
+        optionLabel="nombre"
         placeholder="Seleccionar proveedor"
         [style]="{'width':'100%'}"></p-multiSelect>
     </form>
