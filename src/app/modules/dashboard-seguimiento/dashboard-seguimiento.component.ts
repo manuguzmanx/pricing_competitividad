@@ -2,6 +2,7 @@ import { DashboardSeguimientoService } from './../../services/dashboard-seguimie
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-seguimiento',
@@ -17,6 +18,7 @@ export class DashboardSeguimientoComponent implements OnInit {
     this.parametrosRecibidos = parametros;
     console.log('padre', this.parametrosRecibidos);
     this.fechaFiltro = this.parametrosRecibidos.fecha;
+    
   }
 
 
@@ -152,7 +154,7 @@ export class DashboardSeguimientoComponent implements OnInit {
     },
   ];
   vistaList = [
-    { id: 1, name: 'Categoría' },
+    { id: 1, name: 'Categoria' },
     { id: 2, name: 'Clase' },
     { id: 3, name: 'Proveedor' },
     { id: 4, name: 'SKU' },
@@ -162,68 +164,39 @@ export class DashboardSeguimientoComponent implements OnInit {
   diferencialChart: any;
 
   selectedSKU: any = [];
-  ranking: any = [
-    {
-      name: 'Joyería y Relojería',
-      fueraCom: 37,
-      prcFueraCom: 15,
-      diferencial: 24,
-    },
-    {
-      name: 'Joyería y Relojería',
-      fueraCom: 37,
-      prcFueraCom: 15,
-      diferencial: 24,
-    },
-    {
-      name: 'Joyería y Relojería',
-      fueraCom: 37,
-      prcFueraCom: 15,
-      diferencial: 24,
-    },
-    {
-      name: 'Joyería y Relojería',
-      fueraCom: 37,
-      prcFueraCom: 15,
-      diferencial: 24,
-    },
-    {
-      name: 'Joyería y Relojería',
-      fueraCom: 37,
-      prcFueraCom: 15,
-      diferencial: 24,
-    },
-    {
-      name: 'Joyería y Relojería',
-      fueraCom: 37,
-      prcFueraCom: 15,
-      diferencial: 24,
-    },
-    {
-      name: 'Joyería y Relojería',
-      fueraCom: 37,
-      prcFueraCom: 15,
-      diferencial: 24,
-    },
-    {
-      name: 'Joyería y Relojería',
-      fueraCom: 37,
-      prcFueraCom: 15,
-      diferencial: 24,
-    },
-    {
-      name: 'Joyería y Relojería',
-      fueraCom: 37,
-      prcFueraCom: 15,
-      diferencial: 24,
-    },
-    {
-      name: 'Joyería y Relojería',
-      fueraCom: 37,
-      prcFueraCom: 15,
-      diferencial: 24,
-    },
-  ];
+  ranks:any[] = [];
+  selectedRanking:any
+
+  busquedaRanking() {
+    const searchParams = {
+      fecha: this.fechaFiltro,
+      type: this.selectedRanking?.name || 'Categoria'
+    };
+    
+    forkJoin({
+      ranking: this.dashboardSeguimientoService.getRankings(searchParams),
+    }).subscribe(
+      ({ ranking }) => {
+        if (ranking) {
+          this.ranks = ranking;
+          console.log("Ranking recibido:", this.ranks);
+        } else {
+          console.warn("El formato del ranking no es el esperado", ranking);
+        }
+      },
+      (error) => {
+        console.error('Error al cargar los filtros', error);
+      }
+    );
+  }
+  
+
+
+
+  pruebas(){
+    console.log(this.selectedRanking.name)
+  }
+
   seguimientoSkuEvaluados: any = [
     {
       dia: this.addDaysToDate(new Date(), -2),
@@ -420,6 +393,7 @@ export class DashboardSeguimientoComponent implements OnInit {
     this.initChartAtendidosGlobal();
     this.intDataHistorico();
     this.initChartSeguimiento();
+    this.busquedaRanking()
   }
 
   constructor(private router: Router, private dashboardSeguimientoService:DashboardSeguimientoService) {}

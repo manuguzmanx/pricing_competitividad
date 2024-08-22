@@ -169,35 +169,38 @@
                   [style]="{'margin-left': '5px'}"
                   [options]="vistaList"
                   optionLabel="name"
-                  placeholder="Select a City" />
+                  [(ngModel)]="selectedRanking"
+                  placeholder="Categoría"
+                  (onChange)="busquedaRanking()">
+                </p-dropdown>
               </div>
 
           </div>
-          <p-table #tableRanking [value]="ranking"
-          [(selection)]="selectedSKU"  dataKey="num_folio" [scrollable]="true" scrollHeight="400px" id="tbl-ranking">
-              <ng-template style="position: absolute;" pTemplate="header">
-                <tr>
-                  <th style="width: 4rem"><p-tableHeaderCheckbox /></th>
-                  <th>No</th>
-                  <th [width]="200">Macrocategoría</th>
-                  <th>Fuera de Competitividad</th>
-                  <th>% Fuera de Competitividad</th>
-                  <th>% Diferencial VS Competidor más bajo</th>
-                </tr>
-              </ng-template>
-              <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
-                <tr>
-                  <td>
-                      <p-tableCheckbox [value]="row" />
-                  </td>
-                  <td>{{rowIndex + 1}}</td>
-                  <td>{{row.name}}</td>
-                  <td>{{row.fueraCom}}</td>
-                  <td>{{row.prcFueraCom}}</td>
-                  <td>{{row.diferencial}}</td>
-                  </tr>
-              </ng-template>
-            </p-table>
+          <p-table [value]="ranks"
+          [(selection)]="selectedSKU" dataKey="num_folio" [scrollable]="true" scrollHeight="400px" id="tbl-ranking">
+          <ng-template pTemplate="header">
+            <tr>
+              <th style="text-align: center;"><p-tableHeaderCheckbox /></th>
+              <th style="text-align: center;">No</th>
+              <th style="text-align: center;">Macrocategoría</th>
+              <th style="text-align: center;">Fuera de Competitividad</th>
+              <th style="text-align: center;">% Fuera de Competitividad</th>
+              <th style="text-align: center;">% Diferencial VS Competidor más bajo</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
+            <tr>
+              <td style="text-align: center;">
+                <p-tableCheckbox [value]="row" />
+              </td>
+              <td style="text-align: center;">{{rowIndex + 1}}</td>
+              <td style="text-align: center;" >{{row.name}}</td>
+              <td style="text-align: center;">{{row.fueraCom}}</td>
+              <td style="text-align: center;">{{row.prcFueraCom}}</td>
+              <td style="text-align: center;">{{row.diferencial}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
       </div>
       <div class="distribucion">
         <p-tabView class="tab-view-kpi">
@@ -370,7 +373,7 @@
                 </tr>
               </ng-template>
               <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
-                <tr>
+                <tr style="align-items: center;">
                   <td>
                       <p-tableCheckbox [value]="row" />
                   </td>

@@ -59,5 +59,24 @@
         {"id":12},
         {"id":15},
         {"id":13}
+    ],
+
+    "ranking":[
+        {"name": "Joyería","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Categoria", "Macrocategoria":1 },
+        {"name": "Joyería","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Categoria", "Macrocategoria":3 },
+        {"name": "Joyería","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Categoria", "Macrocategoria":1 },
+        {"name": "Joyería","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Categoria", "Macrocategoria":2 },
+        {"name": "Joyería","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Categoria", "Macrocategoria":1 },
+        {"name": "Joyería","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Categoria", "Macrocategoria":3 },
+        {"name": "Joyería","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Categoria", "Macrocategoria":1 },
+        {"name": "Fundas","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Clase", "Macrocategoria":2},
+        {"name": "Fundas","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Clase", "Macrocategoria":2},
+        {"name": "Fundas","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Clase", "Macrocategoria":4},
+        {"name": "Fundas","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Clase", "Macrocategoria":2},
+        {"name": "Fundas","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Clase", "Macrocategoria":3},
+        {"name": "Fundas","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Clase", "Macrocategoria":2},
+        {"name": "Fundas","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Clase", "Macrocategoria":1}
+            
     ]
+    
 }

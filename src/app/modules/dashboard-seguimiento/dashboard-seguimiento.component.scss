@@ -1358,19 +1358,10 @@ td.fsection{
       #tbl-ranking{
         width: 100%;
         margin-top: 5px;
-        td{
-          padding: 0px;
-        }
         th{
           background-color: $blue;
-          padding: 10px 5px 5px 5px;;
           text-align: center;
-          &:first-child{
-            border-top-left-radius: 5px;
-          }
-          &:last-child{
-            border-top-right-radius: 5px;
-          }
+
 
         }
       }
