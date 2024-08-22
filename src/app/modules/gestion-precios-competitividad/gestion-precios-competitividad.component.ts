@@ -1,3 +1,4 @@
+import { Macrocategoria } from './../../model/macrocategoria';
 import { Component, LOCALE_ID, OnInit, Pipe, ViewChild, Renderer2, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Competitividad } from 'src/app/model/competitividad';
@@ -7,7 +8,7 @@ import { TiendasCompetitividad } from '../../model/tiendas-competitividad';
 import { PrimeNGConfig } from 'primeng/api';
 import { DatePipe } from '@angular/common';
 import { Calendar } from 'primeng/calendar';
-import { TestService } from 'src/app/services/test.service';
+import { FiltrosService } from 'src/app/services/filtros.service';
 
 @Component({
   selector: 'app-gestion-precios-competitividad',
@@ -57,58 +58,16 @@ export class GestionPreciosCompetitividadComponent{
   switchMargen:boolean = false;
 
   macrocategoriaFormGroup: FormGroup;
-  macrocategoria = [
-    { name: 'Celulares', code: '00001' },
-    { name: 'Enseres domésticos', code: '00002' },
-    { name: 'Celular y recámaras', code: '00003' },
-    { name: 'Joyería y relojería', code: '00004' },
-    { name: 'Juguetes, bebés y ap. ejercicio', code: '00005' }
-  ];
 
   categoriaFormGroup: FormGroup;
-  categoria = [
-    { name: 'Audio y video', code: '00006' },
-    { name: 'Automotriz', code: '00007' },
-    { name: 'Bebés', code: '00008' },
-    { name: 'Belleza y cuidado personal', code: '00009' },
-    { name: 'Bicicleta y movilidad eléctrica', code: '00010' }
-  ];
 
   subcategoriaFormGroup: FormGroup;
-  subcategoria = [
-    { name: 'Accesorios', code: '00011' },
-    { name: 'Aparatos de ejercicio', code: '00012' },
-    { name: 'Artículos de oficina', code: '00013' },
-    { name: 'Aseo de caja', code: '00014' },
-    { name: 'Audio', code: '00015' }
-  ];
 
   familiaFormGroup: FormGroup;
-  familia = [
-    { name: '1.2 a 1.4 Pies', code: '00016' },
-    { name: '1.5 Pies a mayores', code: '00017' },
-    { name: '2 Quemadores', code: 'C00018' },
-    { name: '4 Quemadores', code: '00019' },
-    { name: '5 Pies', code: '00020' }
-  ];
 
   claseFormGroup: FormGroup;
-  clase = [
-    { name: 'Accesorios Celulares', code: '00021' },
-    { name: 'Accesorios Celulares Apple', code: '00022' },
-    { name: 'Accesorios TV', code: 'C00023' },
-    { name: 'Aires Acondicionados', code: '00024' },
-    { name: 'Albercas', code: '00025' }
-  ];
 
   proveedorFormGroup: FormGroup;
-  proveedor = [
-    { name: '2Fast 4You', code: '00001' },
-    { name: 'A Occhiali', code: '00002' },
-    { name: 'Acer', code: 'C00003' },
-    { name: 'Acros', code: '00004' },
-    { name: 'Activision', code: '00005' }
-  ];
 
   dateTime = new Date();
 
@@ -141,35 +100,41 @@ export class GestionPreciosCompetitividadComponent{
 
   filteredCompetitividades: Competitividad[] = [];
 
-  testData: any[] = [];
+  filtros: any[] = [];
+  filtrosMacrocategoria: any[] = [];
+  filtrosCategoria: any[] = [];
+  filtrosSubcategoria: any[] = [];
+  filtrosClase: any[] = [];
+  filtrosFamilia: any[] = [];
+  filtrosProveedor: any[] = [];
 
   constructor(private formBuilder: FormBuilder, private config: PrimeNGConfig, private datePipe: DatePipe, private renderer: Renderer2,
-    private router: Router, private testService: TestService,
+    private router: Router, private filtrosService: FiltrosService,
     private competitividadService: CompetitividadService) {
     this.macrocategoriaFormGroup = this.formBuilder.group({
       selectedMacrocategoria: [],
-      macrocategoria: this.macrocategoria
+      macrocategoria: this.filtrosMacrocategoria
     });
     this.dateTime.setDate(this.dateTime.getDate());
     this.categoriaFormGroup = this.formBuilder.group({
       selectedCategoria: [],
-      categoria: this.categoria
+      categoria: this.filtrosCategoria
     });
     this.subcategoriaFormGroup = this.formBuilder.group({
       selectedSubcategoria: [],
-      subcategoria: this.subcategoria
+      subcategoria: this.filtrosSubcategoria
     });
     this.claseFormGroup = this.formBuilder.group({
       selectedClase: [],
-      clase: this.clase
+      clase: this.filtrosClase
     });
     this.familiaFormGroup = this.formBuilder.group({
       selectedFamilia: [],
-      familia: this.familia
+      familia: this.filtrosFamilia
     });
     this.proveedorFormGroup = this.formBuilder.group({
       selectedProveedor: [],
-      proveedor: this.proveedor
+      proveedor: this.filtrosProveedor
     });
     this.tableFormGroup = this.formBuilder.group({
     });
@@ -246,11 +211,7 @@ export class GestionPreciosCompetitividadComponent{
 
   ngOnInit(): void {
 
-    this.testService.getTest().subscribe(data => {
-      this.testData = data;
-
-      console.log(this.testData);
-    })
+    this.cargarFiltros();
 
     this.config.setTranslation({
       accept: 'Aceptar',
@@ -265,9 +226,6 @@ export class GestionPreciosCompetitividadComponent{
     });
 
     this.ingresandoValoresDummy();
-    console.log("tabla competitividad")
-    console.table(this.arregloCompetitividad)
-
     this.views = [
       { name: "Total Sku's", value: 0 },
       { name: "Sku's dentro de competitividad", value: 1 },
@@ -285,6 +243,18 @@ export class GestionPreciosCompetitividadComponent{
 
     this.selectedView2 = this.views2[0];
 
+  }
+
+  public cargarFiltros() {
+    //Filtros Macrocategoria
+    this.filtrosService.getFiltros().subscribe(filtrosData => {
+      this.filtrosMacrocategoria = filtrosData[0].Macrocategorias;
+      this.filtrosCategoria = filtrosData[1].Categorias;
+      this.filtrosSubcategoria = filtrosData[2].SubCategorias;
+      this.filtrosClase = filtrosData[3].Clases;
+      this.filtrosFamilia = filtrosData[4].Familias;
+      this.filtrosProveedor = filtrosData[5].Proveedores
+    });
   }
 
   onViewChange() {
