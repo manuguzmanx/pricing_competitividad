@@ -75,4 +75,11 @@ export class DashboardSeguimientoService {
     return this.http.get(`${this.URL}/ranking`, { params: httpParams });
 
   }
+
+
+  getSkusCoppel(params: any): Observable<any> {
+    const httpParams = new HttpParams({ fromObject: params });
+    return this.http.get(`${this.URL}/codigosDetalle`, { params: httpParams });
+
+  }
 }

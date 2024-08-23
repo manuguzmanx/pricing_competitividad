@@ -77,6 +77,17 @@
         {"name": "Fundas","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Clase", "Macrocategoria":2},
         {"name": "Fundas","fueraCom": 37, "prcFueraCom": 15, "diferencial": 24, "type":"Clase", "Macrocategoria":1}
             
+    ],
+
+
+    "codigosDetalle": [
+        {"numero": 7897, "precioPublicado": 1000, "precioCompetitividad": 770, "margenPublicado": 36, "margenCompetitividad": 25, "mejorCompetidor": "Aurrera", "precioCompetidor": 700, "diferencial": 30, "ultimaFecha": "18/06/2024", "Macrocategoria": 1, "Categoria": 1, "SubCategoria": 1, "Clase": 1, "Familia": 1, "Proveedor": 1, "Folio": 12},
+        {"numero": 4564, "precioPublicado": 1000, "precioCompetitividad": 770, "margenPublicado": 36, "margenCompetitividad": 25, "mejorCompetidor": "Aurrera", "precioCompetidor": 700, "diferencial": 30, "ultimaFecha": "18/06/2024", "Macrocategoria": 1, "Categoria": 2, "SubCategoria": 1, "Clase": 2, "Familia": 2, "Proveedor": 2, "Folio": 12 },
+        {"numero": 7413, "precioPublicado": 1000, "precioCompetitividad": 770, "margenPublicado": 36, "margenCompetitividad": 25, "mejorCompetidor": "Aurrera", "precioCompetidor": 700, "diferencial": 30, "ultimaFecha": "18/06/2024", "Macrocategoria": 2, "Categoria": 3, "SubCategoria": 4, "Clase": 3, "Familia": 3, "Proveedor": 3, "Folio": 15 },
+        {"numero": 8952, "precioPublicado": 1000, "precioCompetitividad": 770, "margenPublicado": 36, "margenCompetitividad": 25, "mejorCompetidor": "Aurrera", "precioCompetidor": 700, "diferencial": 30, "ultimaFecha": "18/06/2024", "Macrocategoria": 2, "Categoria": 3, "SubCategoria": 2, "Clase": 4, "Familia": 4, "Proveedor": 4, "Folio": 13 },
+        {"numero": 7821, "precioPublicado": 1000, "precioCompetitividad": 770, "margenPublicado": 36, "margenCompetitividad": 25, "mejorCompetidor": "Aurrera", "precioCompetidor": 700, "diferencial": 30, "ultimaFecha": "18/06/2024", "Macrocategoria": 3, "Categoria": 4, "SubCategoria": 3, "Clase": 5, "Familia": 5, "Proveedor": 5, "Folio": 13 },
+        {"numero": 3515, "precioPublicado": 1000, "precioCompetitividad": 770, "margenPublicado": 36, "margenCompetitividad": 25, "mejorCompetidor": "Aurrera", "precioCompetidor": 700, "diferencial": 30, "ultimaFecha": "18/06/2024", "Macrocategoria": 3, "Categoria": 4, "SubCategoria": 3, "Clase": 6, "Familia": 6, "Proveedor": 6, "Folio": 13 }
     ]
     
+
 }

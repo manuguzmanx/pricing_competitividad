@@ -171,12 +171,12 @@
                   optionLabel="name"
                   [(ngModel)]="selectedRanking"
                   placeholder="Categoría"
-                  (onChange)="busquedaRanking()">
+                  (onChange)="filtroRanking()">
                 </p-dropdown>
               </div>
 
           </div>
-          <p-table [value]="ranks"
+          <p-table [value]="fullRanking"
           [(selection)]="selectedSKU" dataKey="num_folio" [scrollable]="true" scrollHeight="400px" id="tbl-ranking">
           <ng-template pTemplate="header">
             <tr>
@@ -357,7 +357,7 @@
           <div class="titulos-componente m-0">
               Detalle de SKU's Filtrados
           </div>
-          <p-table #tableCodigos [value]="codigosDetalle"  [(selection)]="selectedSKU"  dataKey="num_folio" [scrollable]="true" scrollHeight="400px" id="tbl-codigos">
+          <p-table #tableCodigos [value]="listaSkusCoppel"  [(selection)]="selectedSKU"  dataKey="num_folio" [scrollable]="true" scrollHeight="400px" id="tbl-codigos">
               <ng-template style="position: absolute;" pTemplate="header">
                 <tr>
                   <th style="width: 4rem"><p-tableHeaderCheckbox /></th>
@@ -378,7 +378,7 @@
                       <p-tableCheckbox [value]="row" />
                   </td>
 
-                  <td>{{row.sku}}</td>
+                  <td>{{row.numero}}</td>
                   <td>$ {{row.precioPublicado}}</td>
                   <td>{{row.margenPublicado}} %</td>
                   <td>$ {{row.precioCompetitividad}}</td>

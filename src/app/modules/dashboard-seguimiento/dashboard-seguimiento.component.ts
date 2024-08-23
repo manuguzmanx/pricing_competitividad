@@ -18,7 +18,8 @@ export class DashboardSeguimientoComponent implements OnInit {
     this.parametrosRecibidos = parametros;
     console.log('padre', this.parametrosRecibidos);
     this.fechaFiltro = this.parametrosRecibidos.fecha;
-    
+    this.busquedaRanking()
+    this.busquedaSkusCoppel()
   }
 
 
@@ -29,130 +30,9 @@ export class DashboardSeguimientoComponent implements OnInit {
   optionsDataChartHistorico: any;
   dataChartHistorico: any;
   chartHitoricoOptions: any;
+  codigosDetalle:any
 
-  codigosDetalle: any = [
-    {
-      sku: 123223,
-      precioPublicado: 1000,
-      precioCompetitividad: 770,
-      margenPublicado: 36,
-      margenCompetitividad: 25,
-      mejorCompetidor: 'Aurrera',
-      precioCompetidor: 700,
-      diferencial: 30,
-      ultimaFecha: '18/06/2024',
-    },
-    {
-      sku: 123223,
-      precioPublicado: 1000,
-      precioCompetitividad: 770,
-      margenPublicado: 36,
-      margenCompetitividad: 25,
-      mejorCompetidor: 'Aurrera',
-      precioCompetidor: 700,
-      diferencial: 30,
-      ultimaFecha: '18/06/2024',
-    },
-    {
-      sku: 123223,
-      precioPublicado: 1000,
-      precioCompetitividad: 770,
-      margenPublicado: 36,
-      margenCompetitividad: 25,
-      mejorCompetidor: 'Aurrera',
-      precioCompetidor: 700,
-      diferencial: 30,
-      ultimaFecha: '18/06/2024',
-    },
-    {
-      sku: 123223,
-      precioPublicado: 1000,
-      precioCompetitividad: 770,
-      margenPublicado: 36,
-      margenCompetitividad: 25,
-      mejorCompetidor: 'Aurrera',
-      precioCompetidor: 700,
-      diferencial: 30,
-      ultimaFecha: '18/06/2024',
-    },
-    {
-      sku: 123223,
-      precioPublicado: 1000,
-      precioCompetitividad: 770,
-      margenPublicado: 36,
-      margenCompetitividad: 25,
-      mejorCompetidor: 'Aurrera',
-      precioCompetidor: 700,
-      diferencial: 30,
-      ultimaFecha: '18/06/2024',
-    },
-    {
-      sku: 123223,
-      precioPublicado: 1000,
-      precioCompetitividad: 770,
-      margenPublicado: 36,
-      margenCompetitividad: 25,
-      mejorCompetidor: 'Aurrera',
-      precioCompetidor: 700,
-      diferencial: 30,
-      ultimaFecha: '18/06/2024',
-    },
-    {
-      sku: 123223,
-      precioPublicado: 1000,
-      precioCompetitividad: 770,
-      margenPublicado: 36,
-      margenCompetitividad: 25,
-      mejorCompetidor: 'Aurrera',
-      precioCompetidor: 700,
-      diferencial: 30,
-      ultimaFecha: '18/06/2024',
-    },
-    {
-      sku: 123223,
-      precioPublicado: 1000,
-      precioCompetitividad: 770,
-      margenPublicado: 36,
-      margenCompetitividad: 25,
-      mejorCompetidor: 'Aurrera',
-      precioCompetidor: 700,
-      diferencial: 30,
-      ultimaFecha: '18/06/2024',
-    },
-    {
-      sku: 123223,
-      precioPublicado: 1000,
-      precioCompetitividad: 770,
-      margenPublicado: 36,
-      margenCompetitividad: 25,
-      mejorCompetidor: 'Aurrera',
-      precioCompetidor: 700,
-      diferencial: 30,
-      ultimaFecha: '18/06/2024',
-    },
-    {
-      sku: 123223,
-      precioPublicado: 1000,
-      precioCompetitividad: 770,
-      margenPublicado: 36,
-      margenCompetitividad: 25,
-      mejorCompetidor: 'Aurrera',
-      precioCompetidor: 700,
-      diferencial: 30,
-      ultimaFecha: '18/06/2024',
-    },
-    {
-      sku: 123223,
-      precioPublicado: 1000,
-      precioCompetitividad: 770,
-      margenPublicado: 36,
-      margenCompetitividad: 25,
-      mejorCompetidor: 'Aurrera',
-      precioCompetidor: 700,
-      diferencial: 30,
-      ultimaFecha: '18/06/2024',
-    },
-  ];
+
   vistaList = [
     { id: 1, name: 'Categoria' },
     { id: 2, name: 'Clase' },
@@ -166,20 +46,29 @@ export class DashboardSeguimientoComponent implements OnInit {
   selectedSKU: any = [];
   ranks:any[] = [];
   selectedRanking:any
+  paramsRanking:any =[]
+
+  listaSkusCoppel:any[] =[]
 
   busquedaRanking() {
-    const searchParams = {
-      fecha: this.fechaFiltro,
-      type: this.selectedRanking?.name || 'Categoria'
-    };
-    
+    if(this.parametrosRecibidos){
+      this.paramsRanking = this.parametrosRecibidos
+    }else{
+      this.paramsRanking = {
+        fecha: this.fechaFiltro,
+      };
+    }
     forkJoin({
-      ranking: this.dashboardSeguimientoService.getRankings(searchParams),
+      ranking: this.dashboardSeguimientoService.getRankings(this.paramsRanking),
     }).subscribe(
       ({ ranking }) => {
         if (ranking) {
           this.ranks = ranking;
           console.log("Ranking recibido:", this.ranks);
+          if(this.fullRanking){
+            this.selectedRanking = {id:1, name:'Categoria'}
+            this.filtroRanking()
+          }
         } else {
           console.warn("El formato del ranking no es el esperado", ranking);
         }
@@ -189,12 +78,49 @@ export class DashboardSeguimientoComponent implements OnInit {
       }
     );
   }
+
+  
+  busquedaSkusCoppel() {
+    if(this.parametrosRecibidos){
+      this.paramsRanking = this.parametrosRecibidos
+    }else{
+      this.paramsRanking = {
+        fecha: this.fechaFiltro,
+      };
+    }
+    forkJoin({
+      lista: this.dashboardSeguimientoService.getSkusCoppel(this.paramsRanking),
+    }).subscribe(
+      ({ lista }) => {
+        if (lista) {
+          this.listaSkusCoppel = lista;
+          console.log("Ranking recibido:", this.listaSkusCoppel);
+        } else {
+          console.warn("El formato del ranking no es el esperado", lista);
+        }
+      },
+      (error) => {
+        console.error('Error al cargar los filtros', error);
+      }
+    );
+  }
+
   
 
 
 
+
+  fullRanking:any = []
+
+  filtroRanking(){
+    this.fullRanking = [...this.ranks]
+    this.fullRanking= this.fullRanking.filter((item: { type: string; name: string; }) => item.type === this.selectedRanking.name);
+
+
+  }
+
   pruebas(){
-    console.log(this.selectedRanking.name)
+    console.log(this.fullRanking)
   }
 
   seguimientoSkuEvaluados: any = [
@@ -377,6 +303,8 @@ export class DashboardSeguimientoComponent implements OnInit {
   dataSeguimiento: any;
   optionsSeguimiento: any;
 
+
+
   ngOnInit() {
     this.documentStyle = getComputedStyle(document.documentElement);
     this.textColor = this.documentStyle.getPropertyValue('--text-color');
@@ -384,7 +312,7 @@ export class DashboardSeguimientoComponent implements OnInit {
       '--text-color-secondary'
     );
     this.surfaceBorder =
-      this.documentStyle.getPropertyValue('--surface-border');
+    this.documentStyle.getPropertyValue('--surface-border');
     this.initEvaluadosChart();
     this.initChartAtendidos();
     this.initChartTipoCambio();
@@ -393,7 +321,9 @@ export class DashboardSeguimientoComponent implements OnInit {
     this.initChartAtendidosGlobal();
     this.intDataHistorico();
     this.initChartSeguimiento();
-    this.busquedaRanking()
+    this.busquedaRanking();
+    this.busquedaSkusCoppel();
+    this.fullRanking = [...this.ranks]
   }
 
   constructor(private router: Router, private dashboardSeguimientoService:DashboardSeguimientoService) {}
