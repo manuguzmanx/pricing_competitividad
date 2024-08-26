@@ -16,10 +16,10 @@ export class DashboardSeguimientoComponent implements OnInit {
 
   manejarParametros(parametros: any) {
     this.parametrosRecibidos = parametros;
-    console.log('padre', this.parametrosRecibidos);
     this.fechaFiltro = this.parametrosRecibidos.fecha;
     this.busquedaRanking()
     this.busquedaSkusCoppel()
+    this.busquedaDist()
   }
 
 
@@ -64,7 +64,6 @@ export class DashboardSeguimientoComponent implements OnInit {
       ({ ranking }) => {
         if (ranking) {
           this.ranks = ranking;
-          console.log("Ranking recibido:", this.ranks);
           if(this.fullRanking){
             this.selectedRanking = {id:1, name:'Categoria'}
             this.filtroRanking()
@@ -94,7 +93,6 @@ export class DashboardSeguimientoComponent implements OnInit {
       ({ lista }) => {
         if (lista) {
           this.listaSkusCoppel = lista;
-          console.log("Ranking recibido:", this.listaSkusCoppel);
         } else {
           console.warn("El formato del ranking no es el esperado", lista);
         }
@@ -317,12 +315,14 @@ export class DashboardSeguimientoComponent implements OnInit {
     this.initChartAtendidos();
     this.initChartTipoCambio();
     this.initChartCompetitividad();
-    this.initDiferencialChart();
+    
     this.initChartAtendidosGlobal();
     this.intDataHistorico();
     this.initChartSeguimiento();
     this.busquedaRanking();
     this.busquedaSkusCoppel();
+    this.busquedaDist();
+    this.busquedaEvaluaciones();
     this.fullRanking = [...this.ranks]
   }
 
@@ -445,10 +445,10 @@ export class DashboardSeguimientoComponent implements OnInit {
   }
   initEvaluadosChart() {
     this.evaluadosChart = {
-      labels: ['Filtrados', 'No Filtrados'],
+      labels: ['Evaluados', 'No Evaluados'],
       datasets: [
         {
-          data: [325, 3175],
+          data: [this.evaluaciones.skus_atendidos, this.evaluaciones.skus_total],
           backgroundColor: [
             this.documentStyle.getPropertyValue('--blue-700'),
             this.documentStyle.getPropertyValue('--gray-500'),
@@ -526,27 +526,71 @@ export class DashboardSeguimientoComponent implements OnInit {
       },
     };
   }
+
+  distribuciones:any
+
+  busquedaDist() {
+    if(this.parametrosRecibidos){
+      this.paramsRanking = this.parametrosRecibidos
+    }else{
+      this.paramsRanking = {
+        fecha: this.fechaFiltro,
+      };
+    }
+    forkJoin({
+      dist: this.dashboardSeguimientoService.getDist(this.paramsRanking),
+    }).subscribe(
+      ({ dist }) => {
+        if (dist) {
+          this.distribuciones = dist;
+          this.initDiferencialChart();
+        } else {
+          console.warn("El formato del ranking no es el esperado", dist);
+        }
+      },
+      (error) => {
+        console.error('Error al cargar los filtros', error);
+      }
+    );
+  }
+
+  evaluaciones:any = []
+
+  busquedaEvaluaciones() {
+    if(this.parametrosRecibidos){
+      this.paramsRanking = this.parametrosRecibidos
+    }else{
+      this.paramsRanking = {
+        fecha: this.fechaFiltro,
+      };
+    }
+    forkJoin({
+      evaluaciones: this.dashboardSeguimientoService.getEvaluaciones(this.paramsRanking),
+    }).subscribe(
+      ({ evaluaciones }) => {
+        if (evaluaciones) {
+          this.evaluaciones = evaluaciones;
+          this.initEvaluadosChart();
+          console.log(this.evaluaciones)
+        } else {
+          console.warn("El formato del ranking no es el esperado", evaluaciones);
+        }
+      },
+      (error) => {
+        console.error('Error al cargar los filtros', error);
+      }
+    );
+  }
+
+
   initDiferencialChart() {
     this.diferencialChart = {
-      labels: [
-        '-10% - -5%',
-        '-4% - 0%',
-        '1% - 5%',
-        '6% - 10%',
-        '11% - 15%',
-        '16% - 20%',
-        '21% - 25%',
-        '26% - 30%',
-        '31% - 35%',
-        '36% - 40%',
-        '41% - 45%',
-        '46% - 50%',
-      ],
+      labels: this.distribuciones.labels,
       datasets: [
         {
           type: 'bar',
           label: 'Atendidos hace más de 2 días',
-          data: [10, 6, 20, 15, 50, 45, 35, 48, 18, 12, 10, 6],
+          data: this.distribuciones.values_1,
           backgroundColor: [this.documentStyle.getPropertyValue('--gray-500')],
           borderColor: ['#FFFFFF'],
           borderWidth: 1,
@@ -555,7 +599,7 @@ export class DashboardSeguimientoComponent implements OnInit {
         {
           type: 'bar',
           label: 'Atendidos hace 2 día',
-          data: [10, 6, 20, 15, 50, 45, 35, 48, 18, 12, 10, 6],
+          data: this.distribuciones.values_2,
           backgroundColor: [this.documentStyle.getPropertyValue('--blue-300')],
           borderColor: ['#FFFFFF'],
           borderWidth: 1,
@@ -563,7 +607,7 @@ export class DashboardSeguimientoComponent implements OnInit {
         {
           type: 'bar',
           label: 'Atendidos hace 1 día',
-          data: [10, 6, 20, 15, 50, 45, 35, 48, 18, 12, 10, 6],
+          data: this.distribuciones.values_m2,
           backgroundColor: [this.documentStyle.getPropertyValue('--blue-700')],
           borderColor: ['#FFFFFF'],
           borderWidth: 1,
@@ -656,7 +700,6 @@ export class DashboardSeguimientoComponent implements OnInit {
       index++;
     });
 
-    console.log(dataset);
     this.dataSeguimiento = {
       labels: [
         this.getLabelFecha(this.seguimientoSkuEvaluados[0].dia, 0),

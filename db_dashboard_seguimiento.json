@@ -87,7 +87,30 @@
         {"numero": 8952, "precioPublicado": 1000, "precioCompetitividad": 770, "margenPublicado": 36, "margenCompetitividad": 25, "mejorCompetidor": "Aurrera", "precioCompetidor": 700, "diferencial": 30, "ultimaFecha": "18/06/2024", "Macrocategoria": 2, "Categoria": 3, "SubCategoria": 2, "Clase": 4, "Familia": 4, "Proveedor": 4, "Folio": 13 },
         {"numero": 7821, "precioPublicado": 1000, "precioCompetitividad": 770, "margenPublicado": 36, "margenCompetitividad": 25, "mejorCompetidor": "Aurrera", "precioCompetidor": 700, "diferencial": 30, "ultimaFecha": "18/06/2024", "Macrocategoria": 3, "Categoria": 4, "SubCategoria": 3, "Clase": 5, "Familia": 5, "Proveedor": 5, "Folio": 13 },
         {"numero": 3515, "precioPublicado": 1000, "precioCompetitividad": 770, "margenPublicado": 36, "margenCompetitividad": 25, "mejorCompetidor": "Aurrera", "precioCompetidor": 700, "diferencial": 30, "ultimaFecha": "18/06/2024", "Macrocategoria": 3, "Categoria": 4, "SubCategoria": 3, "Clase": 6, "Familia": 6, "Proveedor": 6, "Folio": 13 }
-    ]
+    ],
+
+
+    "datosGenerales":
+        {
+            "skus_evaluados": 6,
+            "fuera_comp": 2,
+            "por_diferencial": 43,
+            "skus_atendidos": 2,
+            "skus_total": 35
+        }
+    ,
+
+
+
+
+    "dist":
+        {
+            "labels":["-10% - -5%","-4% - 0%","1% - 5%","6% - 10%", "11% - 15%", "16% - 20%", "21% - 25%", "26% - 30%", "31% - 35%", "36% - 40%", "41% - 45%", "46% - 50%"],
+            "values_1":[1,2,3,4,5,6,7,8,9,10,11,12],
+            "values_2":[3,4,5,6,7,8,9,10,11,12,13,14],
+            "values_m2":[12,1,11,2,10,3,9,4,8,5,7,6]
+        }
+    
     
 
 }

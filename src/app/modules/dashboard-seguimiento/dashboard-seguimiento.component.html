@@ -30,8 +30,8 @@
                  SKU's Evaluados
                 </div>
               <div class="chart">
-                  <div class="value-kpi">325</div>
-                  <div class="helper"><small>9% de los códigos coinciden con los filtros seleccionados</small></div>
+                  <div class="value-kpi">{{evaluaciones.skus_evaluados}}</div>
+                  <div class="helper"><small>{{evaluaciones.skus_evaluados / evaluaciones.skus_total * 100 | number: '1.0-0'}}% de los códigos coinciden con los filtros seleccionados</small></div>
               </div>
 
           </div>
@@ -40,8 +40,8 @@
                   Fuera de Competitividad
                 </div>
               <div class="chart">
-                  <div class="value-kpi">125</div>
-                  <div class="helper"><small>38% Fuera de Competitividad</small></div>
+                  <div class="value-kpi">{{evaluaciones.fuera_comp}}</div>
+                  <div class="helper"><small>{{evaluaciones.fuera_comp / evaluaciones.skus_total * 100 | number: '1.0-0'}}% Fuera de Competitividad</small></div>
               </div>
           </div>
 
@@ -50,7 +50,7 @@
                   % Diferencial
                 </div>
               <div class="chart">
-                  <div class="value-kpi">43 %</div>
+                  <div class="value-kpi">{{evaluaciones.por_diferencial}} %</div>
                   <div class="helper"><small>VS Mejor Competidor</small></div>
               </div>
           </div>
@@ -59,7 +59,7 @@
                  SKU's Atendidos
                 </div>
               <div class="chart">
-                  <div class="value-kpi">156</div>
+                  <div class="value-kpi">{{evaluaciones.skus_atendidos}}</div>
                   <div class="helper"><small>SKU's atendidos dentro de los 2 días posteriores.</small></div>
               </div>
 
@@ -71,18 +71,18 @@
               </div>
             <div class="chart">
                 <div class="valor  center">
-                    <div class="val">3500</div>
+                    <div class="val">{{evaluaciones.skus_total}}</div>
                     <div class="descripcion">Total</div>
                 </div>
                 <div class="valor double">
 
-                    <div class="gray">9%</div>
-                    <div class="blue">91%</div>
+                    <div class="gray">{{evaluaciones.fuera_comp / evaluaciones.skus_total * 100 | number: '1.0-0'}}%</div>
+                    <div class="blue">{{100 - (evaluaciones.fuera_comp / evaluaciones.skus_total * 100)  | number: '1.0-0'}}%</div>
                 </div>
                 <p-chart type="doughnut" width="100" [data]="evaluadosChart" [options]="optionsReview" />
                 <div class="indicadores">
-                    <div class="gray point"> <i class="pi pi-circle-on"></i>Evaluad...(325)</div>
-                    <div class="blue point"> <i class="pi pi-circle-on"></i>No Eval..(3175)</div>
+                    <div class="gray point"> <i class="pi pi-circle-on"></i>Evaluad...({{evaluaciones.fuera_comp}})</div>
+                    <div class="blue point"> <i class="pi pi-circle-on"></i>No Eval..({{evaluaciones.skus_total - evaluaciones.fuera_comp}})</div>
 
                 </div>
             </div>

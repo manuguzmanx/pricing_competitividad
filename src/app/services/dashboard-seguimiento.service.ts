@@ -82,4 +82,16 @@ export class DashboardSeguimientoService {
     return this.http.get(`${this.URL}/codigosDetalle`, { params: httpParams });
 
   }
+
+
+  getDist(params: any): Observable<any> {
+    const httpParams = new HttpParams({ fromObject: params });
+    return this.http.get(`${this.URL}/dist`, { params: httpParams });
+
+  }
+  getEvaluaciones(params: any): Observable<any> {
+    const httpParams = new HttpParams({ fromObject: params });
+    return this.http.get(`${this.URL}/datosGenerales`, { params: httpParams });
+
+  }
 }
